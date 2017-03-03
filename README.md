@@ -21,15 +21,15 @@ Gnd floor - Living room        Water Closet
 ##Hardware:
 
 Raspberry Pi 3
-Z-wave thing.................
+Z-wave.me Razberry module
 Wetek Openelec (Kodi)
-Amaxon Echo Dot
+Amazon Echo Dot
 Asus wifi router with USB NAS attached
 Philips Hue Bridge
 Philips Hue Tap
 3 x Philips Hue colour bulbs (bedroom)
-2 x Fibaro ?????????? dimmers (living room and one yet to be fitted!)
-Fibaro ??????????? motion sensor (yet to be fitted)
+2 x Fibaro FGD-212 dimmers (living room and one yet to be fitted!)
+Fibaro FGMS-001 multi-sensor (yet to be fitted)
 Comag 10" tablet
 Usual home theatre stuff - TV/Blu-Ray/AV Receiver
 
