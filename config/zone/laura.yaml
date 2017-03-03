@@ -1,3 +1,7 @@
+####################
+#Zone for Laura's  #
+####################
+
 name: Laura's House
 latitude: !secret laura_house_latitude
 longitude: !secret laura_house_longitude

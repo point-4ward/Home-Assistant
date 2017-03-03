@@ -1,3 +1,7 @@
+##################################
+#Friendly names, setting icons   #
+##################################
+
 script.master_bedroom_arctic_aurora:
   friendly_name: "Arctic Aurora"
   icon: mdi:flash

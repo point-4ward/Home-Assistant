@@ -1,3 +1,7 @@
+######################
+#Zone for Kids school#
+######################
+
 name: Marc's Kids School
 latitude: !secret marcs_kids_school_latitude
 longitude: !secret marcs_kids_school_longitude

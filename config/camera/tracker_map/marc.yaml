@@ -1,3 +1,8 @@
+#####################################
+#Creates a pin on a map for Marc's  #
+#location in the form of camera feed#
+#####################################
+
 name: Marc
 platform: generic
 still_image_url: !secret tracker_cam_marc

@@ -1,3 +1,7 @@
+#################################
+#Placing entities on the card   #
+#################################
+
 Time:
   - sensor.time
   - sensor.date

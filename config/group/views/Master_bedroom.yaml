@@ -1,3 +1,7 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
 master_bedroom:
   view: yes
   name: Master Bedroom

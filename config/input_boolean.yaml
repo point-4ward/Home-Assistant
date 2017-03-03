@@ -1,3 +1,7 @@
+#######################################
+#Action buttons to set modes on the UX#
+#######################################
+
 guest_mode:
   name: Guest mode
   initial: off
@@ -17,6 +21,3 @@ away_mode_two:
   name: Away mode 2
   initial: off
   icon: mdi:flash
-  
-#####Set icons???????  
-#####Any others???????

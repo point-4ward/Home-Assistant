@@ -1,3 +1,8 @@
+#############################
+#Setting up connection for  #
+#voice control from echo dot# 
+#############################
+
 host_ip: !secret hue_host_ip
 listen_port: !secret hue_listen_port
 expose_by_default: true

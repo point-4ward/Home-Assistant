@@ -1,3 +1,8 @@
+###################################
+#Obtains travel time information  #
+#and presents it as sensor reading#
+###################################
+
 - platform: google_travel_time
   name: Marc to home
   api_key: !secret google_map_api_key

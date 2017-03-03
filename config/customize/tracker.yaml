@@ -1,3 +1,7 @@
+##################################
+#Hidden entities, setting icons  #
+##################################
+
 device_tracker.phone_marcs_pixel_phone:
   hidden: true
   

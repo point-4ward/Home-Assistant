@@ -1,3 +1,8 @@
+#####################################
+#This sets up a basic presence based#
+#auto lighting routine automatically#
+#####################################
+
 light_group: group.livingroom_lights
 light_profile: relax
 device_group: group.tracker

@@ -1,3 +1,8 @@
+####################################
+#Dims lights down when media pauses#
+#--checks it is video (not music)###
+####################################
+
 alias: "Media player playing (lights)"
 trigger:
   - platform: state

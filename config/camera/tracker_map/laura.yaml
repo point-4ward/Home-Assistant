@@ -1,3 +1,8 @@
+#####################################
+#Creates a pin on a map for Laura's #
+#location in the form of camera feed#
+#####################################
+
 name: Laura
 platform: generic
 still_image_url: !secret tracker_cam_laura

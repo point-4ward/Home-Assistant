@@ -1,3 +1,7 @@
+####################################
+#Connection information for Web UX #
+####################################
+
 api_password: !secret api_password
 #ssl_certificate: !secret ssl_certificate
 #ssl_key: !secret ssl_key

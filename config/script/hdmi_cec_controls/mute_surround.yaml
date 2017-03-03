@@ -1,3 +1,7 @@
+#################################
+#Toggles mute of AV via hdmi_cec#
+#################################
+
 mute_surround:
   sequence:
     - service: hdmi_cec.volume

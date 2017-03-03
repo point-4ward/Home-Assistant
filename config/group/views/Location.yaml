@@ -1,3 +1,7 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
 location:
   view: yes
   name: Location

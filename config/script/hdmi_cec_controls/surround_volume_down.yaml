@@ -1,3 +1,7 @@
+##################################
+#Change volume of AV via hdmi_cec#
+##################################
+
 surround_volume_down:
   sequence:
     - service: hdmi_cec.volume

@@ -1,3 +1,7 @@
+######################
+#Zone for Cov Central#
+######################
+
 name: Cov Central
 latitude: !secret cov_central_latitude
 longitude: !secret cov_central_longitude

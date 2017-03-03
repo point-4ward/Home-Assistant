@@ -1,3 +1,8 @@
+###################################
+#Obtains environmental information#
+#and presents it as sensor reading#
+###################################
+
 - platform: moon
 
 - platform: time_date

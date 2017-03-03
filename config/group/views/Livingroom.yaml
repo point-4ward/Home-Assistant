@@ -1,3 +1,7 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
 Livingroom:
   view: yes
   name: Living Room

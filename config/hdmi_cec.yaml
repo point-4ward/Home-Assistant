@@ -1,3 +1,8 @@
+#####################################
+#Maps HDMI device so scripts can    #
+#control them as part of automations#
+#####################################
+
 devices:
   TV: 0.0.0.0
   Kodi: 3.1.0.0

@@ -1,3 +1,7 @@
+##################################
+#Friendly names, hidden entities #
+##################################
+
 light.fibaro_system_fgd212_dimmer_2_level_11_0:
   friendly_name: "Living Room Light"
   emulated_hue_name: "living room light"

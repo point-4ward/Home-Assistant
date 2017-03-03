@@ -1,4 +1,8 @@
-name: Chace Avenue
+####################
+#Zone for The Chace#
+####################
+
+name: The Chace
 latitude: !secret chace_latitude
 longitude: !secret chace_longitude
 radius: 250

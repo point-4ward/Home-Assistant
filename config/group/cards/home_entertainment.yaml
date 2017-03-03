@@ -1,3 +1,7 @@
+#################################
+#Placing entities on the card   #
+#################################
+
 home_entertainment:
   name: Home Entertainment
   entities:

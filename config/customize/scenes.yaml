@@ -1,3 +1,7 @@
+##################################
+#Friendly names, setting icons   #
+##################################
+
 scene.livingroom_bright:
   icon: mdi:flash
 

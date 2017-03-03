@@ -1,2 +1,6 @@
+#################################
+#Connects HASS to the hue bridge#
+#################################
+
 platform: hue
 host: !secret hue_light_host

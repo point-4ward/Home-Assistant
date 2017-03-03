@@ -1,3 +1,7 @@
+####################################
+#Configures what is/is not recorded#
+####################################
+
 exclude:
   entities:
     - sensor.time

@@ -1,3 +1,7 @@
+#####################
+#Zone for Kids house#
+#####################
+
 name: Marc's Kids House
 latitude: !secret marcs_kids_house_latitude
 longitude: !secret marcs_kids_house_longitude

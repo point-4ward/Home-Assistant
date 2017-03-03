@@ -1,3 +1,7 @@
+#####################################
+#Connects HASS to the media players #
+#####################################
+
 - platform: kodi
   name: Living Room Kodi
   host: !secret media_host

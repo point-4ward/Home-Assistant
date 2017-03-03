@@ -1,3 +1,7 @@
+###################################
+#Ways to be notified of key events#
+###################################
+
 - platform: kodi
   name: living_room_kodi
   host: !secret media_host_with_http

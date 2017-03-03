@@ -1,3 +1,7 @@
+###################################
+#Brings lights up when media stops#
+###################################
+
 alias: "Media player stopped (lights)"
 trigger:
   - platform: state
