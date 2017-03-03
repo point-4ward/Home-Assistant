@@ -6,6 +6,7 @@
 *.txt
 *.conf
 *.db-journal
+*.json
 www
 tts
 deps
