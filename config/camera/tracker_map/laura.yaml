@@ -1,0 +1,4 @@
+name: Laura
+platform: generic
+still_image_url: !secret tracker_cam_laura
+limit_refetch_to_url_change: true

@@ -1,0 +1,2 @@
+platform: hue
+host: !secret hue_light_host

@@ -1,0 +1,55 @@
+script.master_bedroom_arctic_aurora:
+  friendly_name: "Arctic Aurora"
+  icon: mdi:flash
+
+script.master_bedroom_bright:
+  friendly_name: "Bright"
+  icon: mdi:flash
+
+script.master_bedroom_concentrate:
+  friendly_name: "Concentrate"
+  icon: mdi:flash
+
+script.master_bedroom_dimmed:
+  friendly_name: "Dimmed"
+  icon: mdi:flash
+
+script.master_bedroom_energize:
+  friendly_name: "Energize"
+  icon: mdi:flash
+
+script.master_bedroom_nightlight:
+  friendly_name: "Nightlight"
+  icon: mdi:flash
+
+script.master_bedroom_read:
+  friendly_name: "Reading"
+  icon: mdi:flash
+
+script.master_bedroom_relax:
+  friendly_name: "Relax"
+  icon: mdi:flash
+
+script.master_bedroom_savanna_sunset:
+  friendly_name: "Savanna Sunset"
+  icon: mdi:flash
+
+script.master_bedroom_spring_blossom:
+  friendly_name: "Spring Blossom"
+  icon: mdi:flash
+
+script.master_bedroom_tropical_twilight:
+  friendly_name: "Tropical Twilight"
+  icon: mdi:flash
+
+script.mute_surround:
+  friendly_name: "Mute"
+  icon: mdi:volume-off
+
+script.surround_volume_up:
+  friendly_name: "Volume Up"
+  icon: mdi:volume-high
+
+script.surround_volume_down:
+  friendly_name: "Volume Down"
+  icon: mdi:volume-low

@@ -1,0 +1,5 @@
+name: Laura's House
+latitude: !secret laura_house_latitude
+longitude: !secret laura_house_longitude
+radius: 250
+icon: mdi:home

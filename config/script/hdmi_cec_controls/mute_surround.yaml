@@ -1,0 +1,5 @@
+mute_surround:
+  sequence:
+    - service: hdmi_cec.volume
+      data:
+        mute: toggle

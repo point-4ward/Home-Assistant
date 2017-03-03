@@ -1,0 +1,8 @@
+location:
+  view: yes
+  name: Location
+  entities:
+    - group.tracker
+    - camera.marc
+    - camera.laura
+    - group.travel_time

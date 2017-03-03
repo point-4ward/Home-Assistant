@@ -1,0 +1,6 @@
+master_bedroom_spring_blossom:
+  sequence:
+    - service: light.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Spring blossom"

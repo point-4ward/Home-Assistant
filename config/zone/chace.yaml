@@ -1,0 +1,5 @@
+name: Chace Avenue
+latitude: !secret chace_latitude
+longitude: !secret chace_longitude
+radius: 250
+icon: mdi:account-card-details

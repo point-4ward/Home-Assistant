@@ -1,0 +1,50 @@
+Time:
+  - sensor.time
+  - sensor.date
+
+Environment:
+  - sun.sun
+  - sensor.moon
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_cloud_coverage
+  - sensor.dark_sky_daily_high_apparent_temperature
+  - sensor.dark_sky_daily_high_temperature
+  - sensor.dark_sky_daily_low_apparent_temperature
+  - sensor.dark_sky_daily_low_temperature
+  - sensor.dark_sky_daily_max_precip_intensity
+  - sensor.dark_sky_daily_summary
+  - sensor.dark_sky_dew_point
+  - sensor.dark_sky_hourly_summary
+  - sensor.dark_sky_humidity
+  - sensor.dark_sky_minutely_summary
+  - sensor.dark_sky_ozone
+  - sensor.dark_sky_precip
+  - sensor.dark_sky_precip_intensity
+  - sensor.dark_sky_precip_probability
+  - sensor.dark_sky_pressure
+  - sensor.dark_sky_summary
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_visibility
+  - sensor.dark_sky_wind_bearing
+  - sensor.dark_sky_wind_speed
+
+Sensors:
+  - binary_sensor.fibaro_system_fgms001_motion_sensor_sensor_12_0
+  - sensor.fibaro_system_fgd212_dimmer_2_alarm_level_11_1
+  - sensor.fibaro_system_fgd212_dimmer_2_alarm_type_11_0
+  - sensor.fibaro_system_fgd212_dimmer_2_energy_11_0
+  - sensor.fibaro_system_fgd212_dimmer_2_exporting_11_32
+  - sensor.fibaro_system_fgd212_dimmer_2_heat_11_7
+  - sensor.fibaro_system_fgd212_dimmer_2_power_11_4
+  - sensor.fibaro_system_fgd212_dimmer_2_power_11_8
+  - sensor.fibaro_system_fgd212_dimmer_2_power_management_11_11
+  - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_11_2
+  - sensor.fibaro_system_fgd212_dimmer_2_system_11_12
+  - sensor.fibaro_system_fgms001_motion_sensor_alarm_level_12_1
+  - sensor.fibaro_system_fgms001_motion_sensor_alarm_type_12_0
+  - sensor.fibaro_system_fgms001_motion_sensor_burglar_12_10
+  - sensor.fibaro_system_fgms001_motion_sensor_general_12_0
+  - sensor.fibaro_system_fgms001_motion_sensor_luminance_12_3
+  - sensor.fibaro_system_fgms001_motion_sensor_seismic_intensity_12_25
+  - sensor.fibaro_system_fgms001_motion_sensor_sourcenodeid_12_2
+  - sensor.fibaro_system_fgms001_motion_sensor_temperature_12_1

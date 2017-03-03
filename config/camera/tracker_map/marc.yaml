@@ -1,0 +1,4 @@
+name: Marc
+platform: generic
+still_image_url: !secret tracker_cam_marc
+limit_refetch_to_url_change: true

@@ -1,0 +1,25 @@
+- platform: cpuspeed
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: processor_use
+    - type: last_boot
+    - type: since_last_boot
+    
+
+- platform: speedtest
+  minute: 17
+  hour:
+    - 0
+    - 4
+    - 8
+    - 12
+    - 16
+    - 20
+  monitored_conditions:
+    - ping
+    - download
+    - upload

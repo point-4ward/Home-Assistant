@@ -1,0 +1,5 @@
+master_bedroom:
+  view: yes
+  name: Master Bedroom
+  entities:
+    - group.master_bedroom_lights

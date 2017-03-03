@@ -1,0 +1,5 @@
+surround_volume_up:
+  sequence:
+    - service: hdmi_cec.volume
+      data:
+        up: 1

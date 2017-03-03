@@ -1,0 +1,10 @@
+- platform: kodi
+  name: living_room_kodi
+  host: !secret media_host_with_http
+  port: !secret media_port
+  username: !secret media_username
+  password: !secret media_password
+
+- platform: pushbullet
+  name: pushbullet_marc
+  api_key: !secret pushbullet_api_key

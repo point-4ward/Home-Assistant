@@ -1,0 +1,7 @@
+- platform: kodi
+  name: Living Room Kodi
+  host: !secret media_host
+  port: !secret media_port
+  username: !secret media_username
+  password: !secret media_password
+  turn_off_action: shutdown

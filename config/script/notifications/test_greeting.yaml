@@ -1,0 +1,6 @@
+test_greeting:
+  sequence:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.living_room_kodi
+        message: Hello from Home Assistant

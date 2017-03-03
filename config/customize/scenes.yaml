@@ -1,0 +1,11 @@
+scene.livingroom_bright:
+  icon: mdi:flash
+
+scene.livingroom_dim:
+  icon: mdi:flash
+
+scene.livingroom_full:
+  icon: mdi:flash
+
+scene.livingroom_normal:
+  icon: mdi:flash

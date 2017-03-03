@@ -1,0 +1,5 @@
+name: Cov Central
+latitude: !secret cov_central_latitude
+longitude: !secret cov_central_longitude
+radius: 250
+icon: mdi:account-card-details

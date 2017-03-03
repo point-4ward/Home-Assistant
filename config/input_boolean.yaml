@@ -1,0 +1,22 @@
+guest_mode:
+  name: Guest mode
+  initial: off
+  icon: mdi:car
+  
+holiday_mode:
+  name: Holiday mode
+  initial: off
+  icon: mdi:flash
+
+away_mode_one:
+  name: Away mode 1
+  initial: off
+  icon: mdi:flash
+  
+away_mode_two:
+  name: Away mode 2
+  initial: off
+  icon: mdi:flash
+  
+#####Set icons???????  
+#####Any others???????

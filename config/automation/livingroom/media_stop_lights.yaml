@@ -1,0 +1,12 @@
+alias: "Media player stopped (lights)"
+trigger:
+  - platform: state
+    entity_id: media_player.kodi
+    to: 'idle'
+condition:    
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+action:
+  service: scene.turn_on
+  entity_id: scene.livingroom_normal

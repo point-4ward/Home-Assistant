@@ -1,0 +1,24 @@
+light.fibaro_system_fgd212_dimmer_2_level_11_0:
+  friendly_name: "Living Room Light"
+  emulated_hue_name: "living room light"
+
+light.__level_10_0:
+  hidden: true
+  
+light.__level_4_0:
+  hidden: true
+  
+light.__level_5_0:
+  hidden: true
+  
+light.fibaro_system_fgd212_dimmer_2_level_11_0_2:
+  hidden: true
+  
+light.fibaro_system_fgd212_dimmer_2_step_size_11_6:
+  hidden: true
+  
+light.fibaro_system_fgd212_dimmer_2_step_size_11_6_2:
+  hidden: true
+  
+light.master_bedroom:
+  hidden: true

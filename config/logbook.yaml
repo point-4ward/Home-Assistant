@@ -1,0 +1,16 @@
+exclude:
+  entities:
+    - sensor.time
+    - sensor.since_last_boot
+    - sensor.fibaro_system_fgd212_dimmer_2_alarm_level_11_1
+    - sensor.fibaro_system_fgd212_dimmer_2_alarm_type_11_0
+    - sensor.fibaro_system_fgd212_dimmer_2_energy_11_0
+    - sensor.fibaro_system_fgd212_dimmer_2_exporting_11_32
+    - sensor.fibaro_system_fgd212_dimmer_2_heat_11_7
+    - sensor.fibaro_system_fgd212_dimmer_2_power_11_4
+    - sensor.fibaro_system_fgd212_dimmer_2_power_11_8
+    - sensor.fibaro_system_fgd212_dimmer_2_power_management_11_11
+    - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_11_2
+    - sensor.fibaro_system_fgd212_dimmer_2_system_11_12
+  domains:
+    - weblink

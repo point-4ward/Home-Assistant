@@ -1,0 +1,16 @@
+alias: "Media player paused (lights)"
+trigger:
+  - platform: state
+    entity_id: media_player.kodi
+    from: 'playing'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: template
+      value_template: '{{ states.media_player.kodi.attributes.media_content_type == "video" }}'
+action:
+  service: scene.turn_on
+  entity_id: scene.livingroom_normal

@@ -1,0 +1,48 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  time_zone: !secret time_zone
+  unit_system: metric
+  customize: !include_dir_merge_named config/customize/
+
+#Web interface UX and security
+frontend:
+config:
+group: !include_dir_merge_named config/group/
+http: !include config/http.yaml
+updater:
+recorder: !include config/recorder.yaml
+logbook: !include config/logbook.yaml
+
+#My components
+zwave:
+  usb_path: /dev/ttyAMA0
+light: !include config/light.yaml
+emulated_hue: !include config/emulated_hue.yaml
+device_tracker:
+  - platform: owntracks
+device_sun_light_trigger: !include config/device_sun_light_trigger.yaml
+mqtt: !include config/mqtt.yaml  
+zone: !include_dir_list config/zone/
+media_player: !include config/media_player.yaml
+tts:
+  - platform: google
+notify: !include config/notify.yaml
+hdmi_cec: !include config/hdmi_cec.yaml
+camera: !include_dir_list config/camera/
+google: !include config/google.yaml
+ifttt:
+  key: !secret ifttt_api_key  
+sun:
+sensor: !include_dir_merge_list config/sensor/
+weblink: !include config/weblink.yaml
+
+#My automations/scripts/scenes/etc
+automation: !include_dir_list config/automation/
+script: !include_dir_merge_named config/script/
+scene: !include_dir_list config/scene/
+input_boolean: !include config/input_boolean.yaml
+alarm_control_panel: !include config/alarm_control_panel.yaml
+alert: !include_dir_merge_named config/alert
