@@ -20,3 +20,4 @@ TODO.txt
 pyozw.sqlite
 .*
 !/.gitignore
+!/.travis.yml
