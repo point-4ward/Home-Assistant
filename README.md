@@ -6,18 +6,18 @@ This is my current Home Automation setup.  Starting small and gradually growing 
 
 3 storey townhouse, laid out (basically) like...
 
+```
+            **Back**               **Front**
 
-Aspect ---- Back ------------- Front
+2nd floor - En Suite           Master Bedroom
+          - Master Bedroom     Master Bedroom
 
-2nd floor - En Suite --------- Master Bedroom
------------ Master Bedroom --- Master Bedroom
+1st floor - Family bathroom    Bedroom 4
+          - Bedroom 2          Bedroom 3
 
-1st floor - Family bathroom -- Bedroom 4
------------ Bedroom 2 -------- Bedroom 3
-
-Gnd floor - Living room ------ WC
------------ Living room ------ Kitchen
-
+Gnd floor - Living room        WC
+          - Living room        Kitchen
+```
 
 ##Hardware:
 
