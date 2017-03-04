@@ -18,3 +18,4 @@ exclude:
     - sensor.fibaro_system_fgd212_dimmer_2_system_11_12
   domains:
     - weblink
+    - dark

@@ -5,7 +5,7 @@
 alias: "Media player stopped (lights)"
 trigger:
   - platform: state
-    entity_id: media_player.kodi
+    entity_id: media_player.living_room_kodi
     to: 'idle'
 condition:    
   - condition: state

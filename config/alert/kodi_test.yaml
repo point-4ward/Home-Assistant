@@ -9,4 +9,4 @@ kodi_on_idle_test:
     repeat: 30
     can_acknowledge: True
     skip_first: True
-    notifiers: pushbullet
+    notifiers: pushbullet_marc

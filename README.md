@@ -9,11 +9,11 @@ This is my current Home Automation setup.  Starting small and gradually growing 
 ```
             **Back**               **Front**
 
-2nd floor - En Suite           Master Bedroom
-          - Master Bedroom     Master Bedroom
+2nd floor - En Suite           Master Master bedroom
+          - Master Master bedroom     Master Master bedroom
 
-1st floor - Family bathroom    Bedroom 4
-          - Bedroom 2          Bedroom 3
+1st floor - Family bathroom    Master bedroom 4
+          - Master bedroom 2          Master bedroom 3
 
 Gnd floor - Living room        WC
           - Living room        Kitchen
@@ -35,7 +35,7 @@ Philips Hue Bridge
 
 Philips Hue Tap
 
-3 x Philips Hue colour bulbs (bedroom)
+3 x Philips Hue colour bulbs (master bedroom)
 
 2 x Fibaro FGD-212 dimmers (living room and one yet to be fitted!)
 
@@ -69,13 +69,13 @@ Pushbullet
 
  - Controllable from my phone over the internet, or via local network.
 
- - Controls living room lights and three lights in the bedroom ( 1 x ceiling, 2 x bedside).  The bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
+ - Controls living room lights and three lights in the master bedroom ( 1 x ceiling, 2 x bedside).  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
 
  - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
 
  - Notifies us of key events via pushbullet and/or notifications on screen via kodi.
 
- - Bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
+ - Master bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
 
  - Automatically pause media during phone call using Yatse.
 
@@ -99,7 +99,7 @@ In my configuration.yaml I have removed history component, discovery component a
 
  - The history component paints lovely pretty bars of the state that your components have been in recently.  I didn't need this, and found that it was quite slow to render, so it's gone.  I find the logbook a far more useful tool anyway.
  - The discovery component never discovered anything for me, so having it running in the background seemed a waste of resources.
- - The conversation component is superlfuous with my amazon echo implementation, so again I've reclaimed some resources.
+ - The conversation component is superfluous with my amazon echo implementation, so again I've reclaimed some resources.
  
 I have changed my logging database to mysql.  I read on a blog post once that it massively improves the speed of HASS.  In all honesty I did not notice such a change to the performance of HASS, but I've done it now so I'm not changing it back unless I have a specific reason to. 
 
@@ -115,7 +115,7 @@ Example:
 
 sun:        <---------  One line
 
-ttl:
+tts:
   - platform: Google <-------- Two lines
   
 
@@ -232,6 +232,8 @@ All of which, for me, leads to an easy to manage configuration system that looks
 ```				
 
 ...which you can browse through in this repo.
+
+I have put a small comment block at the top of each file that hopefully will give some clues for anyone using this repo as a learning tool.  At some point in the future I will try and put some more detailed comments on the more important/complicated bits.  In the meantime, if I can clarify anything for anyone,just let me know.
 
 ##Useful links/resources etc:
 
