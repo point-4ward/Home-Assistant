@@ -9,11 +9,11 @@ This is my current Home Automation setup.  Starting small and gradually growing 
 ```
             **Back**               **Front**
 
-2nd floor - En Suite           Master Master bedroom
-          - Master Master bedroom     Master Master bedroom
+2nd floor - En Suite           Master bedroom
+          - Master bedroom     Master bedroom
 
-1st floor - Family bathroom    Master bedroom 4
-          - Master bedroom 2          Master bedroom 3
+1st floor - Family bathroom    Bedroom 4
+          - Bedroom 2          Bedroom 3
 
 Gnd floor - Living room        WC
           - Living room        Kitchen
