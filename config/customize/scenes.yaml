@@ -3,13 +3,25 @@
 ##################################
 
 scene.livingroom_bright:
-  icon: mdi:flash
+  icon: mdi:creation
 
 scene.livingroom_dim:
-  icon: mdi:flash
+  icon: mdi:creation
 
 scene.livingroom_full:
-  icon: mdi:flash
+  icon: mdi:creation
 
 scene.livingroom_normal:
-  icon: mdi:flash
+  icon: mdi:creation
+  
+scene.bedroom_2_bright:
+  icon: mdi:creation
+
+scene.bedroom_2_dim:
+  icon: mdi:creation
+
+scene.bedroom_2_full:
+  icon: mdi:creation
+
+scene.bedroom_2_normal:
+  icon: mdi:creation

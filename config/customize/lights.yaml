@@ -2,27 +2,25 @@
 #Friendly names, hidden entities #
 ##################################
 
-light.fibaro_system_fgd212_dimmer_2_level_11_0:
-  friendly_name: "Living Room Light"
+light.fibaro_system_fgd212_dimmer_2_level_2_0:
+  friendly_name: Bedroom 2 Ceiling
+  emulated_hue_name: "boys room light"
+  
+light.fibaro_system_fgd212_dimmer_2_level_3_0:
+  friendly_name: Living Room Light
   emulated_hue_name: "living room light"
 
-light.__level_10_0:
+light.fibaro_system_fgd212_dimmer_2_level_2_0_2:
   hidden: true
   
-light.__level_4_0:
+light.fibaro_system_fgd212_dimmer_2_level_3_0_2:
+  hidden: true
+
+light.fibaro_system_fgd212_dimmer_2_step_size_2_6:
+  hidden: true
+
+light.fibaro_system_fgd212_dimmer_2_step_size_2_6_2:
   hidden: true
   
-light.__level_5_0:
-  hidden: true
-  
-light.fibaro_system_fgd212_dimmer_2_level_11_0_2:
-  hidden: true
-  
-light.fibaro_system_fgd212_dimmer_2_step_size_11_6:
-  hidden: true
-  
-light.fibaro_system_fgd212_dimmer_2_step_size_11_6_2:
-  hidden: true
-  
-light.master_bedroom:
+light.fibaro_system_fgd212_dimmer_2_step_size_3_6:
   hidden: true

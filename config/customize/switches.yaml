@@ -4,3 +4,6 @@
 
 switch.hdmi_0:
   hidden: true
+
+switch.hdmi_1:
+  hidden: true

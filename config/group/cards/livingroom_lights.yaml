@@ -6,7 +6,7 @@ livingroom_lights:
   name: Lights
   control: hidden
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_11_0
+    - light.fibaro_system_fgd212_dimmer_2_level_3_0
     - scene.livingroom_dim
     - scene.livingroom_normal
     - scene.livingroom_bright

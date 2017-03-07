@@ -1,0 +1,13 @@
+#################################
+#Placing entities on the card   #
+#################################
+
+bedroom_two_lights:
+  name: Lights
+  control: hidden
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_2_0
+    - scene.bedroom_2_dim
+    - scene.bedroom_2_normal
+    - scene.bedroom_2_bright
+    - scene.bedroom_2_full

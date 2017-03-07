@@ -37,7 +37,7 @@ Philips Hue Tap
 
 3 x Philips Hue colour bulbs (master bedroom)
 
-2 x Fibaro FGD-212 dimmers (living room and one yet to be fitted!)
+2 x Fibaro FGD-212 dimmers (living room and bedroom2)
 
 Fibaro FGMS-001 multi-sensor (yet to be fitted)
 
@@ -59,7 +59,7 @@ Alexa app (for config of echo dot)
 
 Hue app (for config of hue lights/bridge)
 
-Custom Alexa skill
+Custom Alexa skill (to control Kodi)
 
 Owntracks
 
@@ -69,7 +69,7 @@ Pushbullet
 
  - Controllable from my phone over the internet, or via local network.
 
- - Controls living room lights and three lights in the master bedroom ( 1 x ceiling, 2 x bedside).  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
+ - Controls living room lights, bedroom 2 lights and three lights in the master bedroom ( 1 x ceiling, 2 x bedside).  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room and bedroom 2 lights are white but can be set to preset brightness or controlled to any desired level.
 
  - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
 
@@ -128,15 +128,18 @@ media_player:
 
 	
 	
-Where the entry will take three lines or more, I use an include and place the include file in the config directory.  I use the exact name of the component for the include, eg:
+Where the entry will take three lines or more, I use an include and place the include file in the config/misc/ directory.  I use the exact name of the component for the include, eg:
 ```
-media_player: !include config/media_player.yaml
+media_player: !include config/misc/media_player.yaml
 ```
 
 In cases where the new include file becomes large (I favour keeping them in bite-sized chunks of around 50 lines or fewer), I split that file in to as many as are needed and place them in a folder named exactly after the component, eg:
 ```
 media_player: !include_dir_list config/media_player/
 ```
+
+You may note that by following this rule I have also, contrary to convention, done this with my 'homeassistant:' core instance, placing the multiple-lined entries in an included file located at /config/core/homeassistant.yaml  .  (I put it in the folder 'core' to keep it separate from the non-core components.)
+
 
 All of which, for me, leads to an easy to manage configuration system that looks something like this...
 
@@ -159,22 +162,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |...[dependencies]
         |
         |-----/config/
-        |     |
-		|     |- alarm_control_panel.yaml
-        |     |- device_sun_light_trigger.yaml
-        |     |- emulated_hue.yaml
-		|     |- google.yaml
-        |     |- hdmi_cec.yaml
-        |     |- http.yaml
-		|     |- input_boolean.yaml
-        |     |- light.yaml
-        |     |- logbook.yaml
-        |     |- media_player.yaml
-        |     |- mqtt.yaml
-		|     |- notify.yaml
-        |     |- recorder.yaml
-        |     |- weblink.yaml
-        |     |
+		|     |
         |     |-----/alert/
         |     |     |
         |     |     |...[File per alert]		
@@ -184,6 +172,10 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |...[Folder per room/group]
         |     |           |
 		|     |           |...[File per automation]
+		|     |
+		|     |-----/core/
+		|     |     |
+		|     |     |- homeassistant.yaml
         |     |
         |     |-----/camera/
         |     |     |
@@ -204,6 +196,23 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |-----/views/
         |     |           |
         |     |           |...[file for each UI view tab]
+		|     |
+		|     |-----/misc/
+		|     |     |
+		|     |     |- alarm_control_panel.yaml
+		|     |     |- device_sun_light_trigger.yaml
+        |     |     |- emulated_hue.yaml
+		|     |     |- google.yaml
+        |     |     |- hdmi_cec.yaml
+        |     |     |- http.yaml
+		|     |     |- input_boolean.yaml
+        |     |     |- light.yaml
+        |     |     |- logbook.yaml
+        |     |     |- media_player.yaml
+        |     |     |- mqtt.yaml
+		|     |     |- notify.yaml
+        |     |     |- recorder.yaml
+        |     |     |- weblink.yaml
         |     |
         |     |-----/scene/
         |     |     |

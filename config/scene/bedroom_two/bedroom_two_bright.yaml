@@ -2,9 +2,9 @@
 #A one-touch scene controller  #
 ################################
 
-name: Livingroom normal
+name: Bedroom 2 bright
 entities:
-  light.fibaro_system_fgd212_dimmer_2_level_3_0:
+  light.fibaro_system_fgd212_dimmer_2_level_2_0:
     state: on
     transition: 2
-    brightness: 120
+    brightness: 180

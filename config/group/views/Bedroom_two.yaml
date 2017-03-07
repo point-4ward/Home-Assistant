@@ -1,0 +1,9 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
+bedroom_two:
+  view: yes
+  name: Bedroom 2 (Boys)
+  entities:
+    - group.bedroom_two_lights
