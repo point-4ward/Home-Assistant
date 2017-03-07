@@ -4,10 +4,8 @@
 
 home_entertainment:
   name: Home Entertainment
+  control: hidden
   entities:
-    - switch.hdmi_0
-    - switch.hdmi_2
-    - switch.hdmi_4
     - switch.hdmi_5
     - script.surround_volume_up
     - script.mute_surround
