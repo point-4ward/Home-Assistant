@@ -9,3 +9,4 @@ Livingroom:
     - group.livingroom_lights
     - group.home_entertainment
     - media_player.living_room_kodi
+    - media_player.hdmi_4

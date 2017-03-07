@@ -9,3 +9,4 @@
   username: !secret media_username
   password: !secret media_password
   turn_off_action: shutdown
+  enable_websocket: false

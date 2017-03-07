@@ -4,7 +4,9 @@
 #####################################
 
 devices:
-  TV: 0.0.0.0
-  Kodi: 3.1.0.0
   BluRay: 3.2.0.0
   Surround: 3.0.0.0
+
+types:
+  hdmi_cec.hdmi_4: media_player
+  hdmi_cec.hdmi_5: switch

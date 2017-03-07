@@ -16,7 +16,6 @@ home-assistant_v2.db
 secrets.yaml
 known_devices.yaml
 google_calendars.yaml
-TODO.txt
 pyozw.sqlite
 .*
 !/.gitignore
