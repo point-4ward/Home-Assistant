@@ -1,0 +1,37 @@
+#######################################
+#Creates drop-down boxes for my scenes#
+#######################################
+
+living_room_scenes:
+  name: Scenes
+  options:
+    - "Dim"
+    - "Normal"
+    - "Bright"
+    - "FULL"
+  icon: mdi:creation
+  
+bedroom_two_scenes:
+  name: Scenes
+  options:
+    - "Dim"
+    - "Normal"
+    - "Bright"
+    - "FULL"
+  icon: mdi:creation
+  
+master_bedroom_scenes:
+  name: Scenes
+  options:
+    - "Arctic Aurora"
+    - "Bright"
+    - "Concentrate"
+    - "Dimmed"
+    - "Energize"
+    - "Nightlight"
+    - "Reading"
+    - "Relax"
+    - "Savanna Sunset"
+    - "Spring Blossom"
+    - "Tropical Twilight"
+  icon: mdi:creation

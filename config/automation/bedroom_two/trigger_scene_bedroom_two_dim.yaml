@@ -1,0 +1,13 @@
+############################################
+#Takes the selection from an input_select  #
+#and converts this in to the scene selected#
+############################################
+
+alias: trigger_scene_bedroom_two_dim
+trigger:
+  platform: state
+  entity_id: input_select.bedroom_two_scenes
+  to: 'Dim'
+action:
+  service: scene.turn_on
+  entity_id: scene.bedroom_2_dim

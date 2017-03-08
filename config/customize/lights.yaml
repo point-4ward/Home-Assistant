@@ -24,3 +24,9 @@ light.fibaro_system_fgd212_dimmer_2_step_size_2_6_2:
   
 light.fibaro_system_fgd212_dimmer_2_step_size_3_6:
   hidden: true
+  
+light.fibaro_system_fgd212_dimmer_2_step_size_3_6_2:
+  hidden: true
+  
+light.master_bedroom:
+  hidden: true

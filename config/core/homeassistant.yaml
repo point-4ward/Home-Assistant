@@ -1,3 +1,7 @@
+#####################################
+#Core settings for the HASS instance#
+#####################################
+
 name: Home
 latitude: !secret latitude
 longitude: !secret longitude

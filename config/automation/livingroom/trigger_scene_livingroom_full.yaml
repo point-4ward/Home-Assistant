@@ -1,0 +1,13 @@
+############################################
+#Takes the selection from an input_select  #
+#and converts this in to the scene selected#
+############################################
+
+alias: trigger_scene_livingroom_full
+trigger:
+  platform: state
+  entity_id: input_select.living_room_scenes
+  to: 'FULL'
+action:
+  service: scene.turn_on
+  entity_id: scene.livingroom_full

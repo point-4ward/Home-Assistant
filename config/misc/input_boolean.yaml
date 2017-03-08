@@ -12,12 +12,12 @@ holiday_mode:
   initial: off
   icon: mdi:flash
 
-away_mode_one:
-  name: Away mode 1
+school_day_mode:
+  name: School Day mode
   initial: off
   icon: mdi:flash
   
-away_mode_two:
-  name: Away mode 2
+away_mode:
+  name: Away mode
   initial: off
   icon: mdi:flash

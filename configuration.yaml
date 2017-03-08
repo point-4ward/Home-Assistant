@@ -2,6 +2,7 @@
 #The main configuration.yaml - see my   #
 #README.md for information on how I have#
 #structured and organised this file     #
+#and the !include files that it links to#
 #########################################
 
 #Core program
@@ -44,5 +45,6 @@ automation: !include_dir_list config/automation/
 script: !include_dir_merge_named config/script/
 scene: !include_dir_list config/scene/
 input_boolean: !include config/misc/input_boolean.yaml
+input_select: !include config/misc/input_select.yaml
 alarm_control_panel: !include config/misc/alarm_control_panel.yaml
 alert: !include_dir_merge_named config/alert

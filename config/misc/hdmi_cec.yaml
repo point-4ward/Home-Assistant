@@ -8,5 +8,5 @@ devices:
   Surround: 3.0.0.0
 
 types:
-  hdmi_cec.hdmi_4: media_player
+  hdmi_cec.hdmi_4: switch
   hdmi_cec.hdmi_5: switch

@@ -242,7 +242,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
 
 ...which you can browse through in this repo.
 
-I have put a small comment block at the top of each file that hopefully will give some clues for anyone using this repo as a learning tool.  At some point in the future I will try and put some more detailed comments on the more important/complicated bits.  In the meantime, if I can clarify anything for anyone,just let me know.
+I have put a small comment block at the top of each file that hopefully will give some clues for anyone using this repo as a learning tool.  At some point in the future I will try and put some more detailed comments on the more important/complicated bits.  In the meantime, if I can clarify anything for anyone, just let me know.
 
 ##Useful links/resources etc:
 
