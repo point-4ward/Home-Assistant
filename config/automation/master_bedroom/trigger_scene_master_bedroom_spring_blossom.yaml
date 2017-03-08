@@ -10,4 +10,4 @@ trigger:
   to: 'Spring Blossom'
 action:
   service: script.turn_on
-  entity_id: script.master_spring_blossom
+  entity_id: script.master_bedroom_spring_blossom

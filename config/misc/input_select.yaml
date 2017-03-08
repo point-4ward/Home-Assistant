@@ -5,33 +5,39 @@
 living_room_scenes:
   name: Scenes
   options:
+    - "Select"
     - "Dim"
     - "Normal"
     - "Bright"
     - "FULL"
+  initial: Select
   icon: mdi:creation
   
 bedroom_two_scenes:
   name: Scenes
   options:
+    - "Select"
     - "Dim"
     - "Normal"
     - "Bright"
     - "FULL"
+  initial: Select
   icon: mdi:creation
   
 master_bedroom_scenes:
   name: Scenes
   options:
+    - "Select"
     - "Arctic Aurora"
     - "Bright"
     - "Concentrate"
     - "Dimmed"
     - "Energize"
     - "Nightlight"
-    - "Reading"
+    - "Read"
     - "Relax"
     - "Savanna Sunset"
     - "Spring Blossom"
     - "Tropical Twilight"
+  initial: Select
   icon: mdi:creation

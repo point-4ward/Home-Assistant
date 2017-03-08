@@ -3,11 +3,11 @@
 #and converts this in to the scene selected#
 ############################################
 
-alias: trigger_scene_master_bedroom_reading
+alias: trigger_scene_master_bedroom_read
 trigger:
   platform: state
   entity_id: input_select.master_bedroom_scenes
   to: 'Reading'
 action:
   service: script.turn_on
-  entity_id: script.master_bedroom_reading
+  entity_id: script.master_bedroom_read
