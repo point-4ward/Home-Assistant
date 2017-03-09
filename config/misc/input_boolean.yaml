@@ -5,19 +5,29 @@
 guest_mode:
   name: Guest mode
   initial: off
-  icon: mdi:car
+  icon: mdi:human-handsup
   
 holiday_mode:
   name: Holiday mode
   initial: off
-  icon: mdi:flash
+  icon: mdi:airplane
 
 school_day_mode:
   name: School Day mode
   initial: off
-  icon: mdi:flash
+  icon: mdi:school
   
+bathtime_mode:
+  name: Bathtime mode
+  initial: off
+  icon: mdi:basket-fill
+
+cycling_mode:
+  name: Cycling to work mode
+  initial: off
+  icon: mdi:bike
+
 away_mode:
   name: Away mode
   initial: off
-  icon: mdi:flash
+  icon: mdi:alert-circle-outline
