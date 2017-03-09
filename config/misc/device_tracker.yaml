@@ -1,0 +1,12 @@
+##################################
+#Sets up the device trackers I am#
+#using for presence detection    #
+##################################
+
+- platform: nmap_tracker
+  hosts: !secret dev_track_nmap_hosts
+  home_interval: 60
+  exclude: !secret dev_track_nmap_exclude
+  track_new_devices: no
+
+- platform: owntracks

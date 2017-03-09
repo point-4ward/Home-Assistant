@@ -13,3 +13,7 @@ sensor.marc_to_laura:
 
 sensor.marc_to_kids_house:
   icon: mdi:car
+  
+group.marc_tracker:
+  friendly_name: Marc
+  entity_picture: /local/marc.jpg

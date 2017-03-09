@@ -22,8 +22,7 @@ zwave:
   usb_path: /dev/ttyAMA0
 light: !include config/misc/light.yaml
 emulated_hue: !include config/misc/emulated_hue.yaml
-device_tracker:
-  - platform: owntracks
+device_tracker: !include config/misc/device_tracker.yaml
 device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
 mqtt: !include config/misc/mqtt.yaml  
 zone: !include_dir_list config/zone/

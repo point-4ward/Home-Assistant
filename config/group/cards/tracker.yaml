@@ -3,5 +3,5 @@
 #################################
 
 Tracker:
-  - device_tracker.marcs_phone_marcs_pixel_phone
+  - group.marc_tracker
   - device_tracker.lauras_phone_lauras_phone

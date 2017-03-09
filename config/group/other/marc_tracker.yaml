@@ -1,0 +1,9 @@
+##################################
+#Creating one presence entity for#
+#Marc based on a combination of  #
+#nmap and owntracks data         #
+##################################
+
+Marc_Tracker:
+  - device_tracker.ac37434d896d
+  - device_tracker.marcs_phone_marcs_pixel_phone
