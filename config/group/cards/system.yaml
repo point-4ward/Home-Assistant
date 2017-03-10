@@ -4,6 +4,7 @@
 
 System:
   - updater.updater
+  - sensor.ssl_cert_expiry
   - sensor.cpu_speed
   - sensor.cpu_use
   - sensor.disk_use_

@@ -31,3 +31,8 @@ away_mode:
   name: Away mode
   initial: off
   icon: mdi:alert-circle-outline
+  
+kids_night_mode:
+  name: Kids night monitor
+  initial: off
+  icon: mdi:human-child

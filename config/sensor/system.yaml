@@ -28,3 +28,9 @@
     - ping
     - download
     - upload
+    
+- platform: command_line
+  name: SSL cert expiry
+  unit_of_measurement: days
+  scan_interval: 86400
+  command: !secret sensor_ssl_command

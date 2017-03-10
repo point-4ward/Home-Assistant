@@ -1,0 +1,18 @@
+#################################
+#Notifies me via pushbullet when#
+#the SSL certificate is expiring#
+#################################
+
+#############################
+##TESTING##TESTING##TESTING##
+#############################
+
+alias: 'SSL expiry notification'
+trigger:
+  platform: numeric_state
+  entity_id: sensor.ssl_cert_expiry
+  below: '84'
+action:
+  service: notify.pushbullet_marc
+  data:
+    message: 'SSL certificate expires in 7 days'
