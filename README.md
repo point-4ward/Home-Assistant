@@ -49,27 +49,16 @@ Gnd floor - Living room        WC
 ## What it does:
 
  - Controllable from my phone over the internet, or via local network.
-
  - Controls living room lights, bedroom 2 lights and three lights in the master bedroom ( 1 x ceiling, 2 x bedside).  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room and bedroom 2 lights are white but can be set to preset brightness or controlled to any desired level.
-
  - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
-
  - Notifies us of key events via pushbullet and/or notifications on screen via kodi.
-
  - Master bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
-
  - Automatically pause media during phone call using Yatse.
-
  - Automatically turn living room lights on when it gets dark and somebody is home.
-
  - Automatically turn living room lights on if the house is empty and somebody arrives home in the dark.
-
  - Automatically set living room lights to 'dim' when playing media (except music) and it is dark.
-
  - Automatically set living room lights to 'normal' when media (except music) pauses or stops.
-
  - Voice control for all the lights.
-
  - Voice control Kodi.
 
 ## My configuration:
@@ -128,10 +117,10 @@ All of which, for me, leads to an easy to manage configuration system that looks
 /path/to/.homeassistant/
         |
         |- configuration.yaml
-		|- google_calendars.yaml
+        |- google_calendars.yaml
         |- known_devices.yaml
         |- secrets.yaml
-		|- zwave_device_config.yaml
+        |- zwave_device_config.yaml
         |...[log files etc]
         |
         |-----/www/
@@ -143,7 +132,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |...[dependencies]
         |
         |-----/config/
-		|     |
+        |     |
         |     |-----/alert/
         |     |     |
         |     |     |...[File per alert]		
@@ -152,17 +141,17 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |
         |     |     |...[Folder per room/group]
         |     |           |
-		|     |           |...[File per automation]
-		|     |
-		|     |-----/core/
-		|     |     |
-		|     |     |- homeassistant.yaml
+        |     |           |...[File per automation]
+        |     |
+        |     |-----/core/
+        |     |     |
+        |     |     |- homeassistant.yaml
         |     |
         |     |-----/camera/
         |     |     |
         |     |     |...[Folder per type]
         |     |           |
-		|     |           |...[File per camera]		
+        |     |           |...[File per camera]		
         |     |
         |     |-----/customize/
         |     |     |
@@ -174,28 +163,28 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |     |
         |     |     |     |...[file for each UI card]
         |     |     |
-		|     |     |-----/other/
+        |     |     |-----/other/
         |     |     |     |
         |     |     |     |...[file for each group that isn't card/tab]
         |     |     |
         |     |     |-----/views/
         |     |           |
         |     |           |...[file for each UI view tab]
-		|     |
-		|     |-----/misc/
-		|     |     |
-		|     |     |- alarm_control_panel.yaml
-		|     |     |- device_sun_light_trigger.yaml
+        |     |
+        |     |-----/misc/
+        |     |     |
+        |     |     |- alarm_control_panel.yaml
+        |     |     |- device_sun_light_trigger.yaml
         |     |     |- emulated_hue.yaml
-		|     |     |- google.yaml
+        |     |     |- google.yaml
         |     |     |- hdmi_cec.yaml
         |     |     |- http.yaml
-		|     |     |- input_boolean.yaml
+        |     |     |- input_boolean.yaml
         |     |     |- light.yaml
         |     |     |- logbook.yaml
         |     |     |- media_player.yaml
         |     |     |- mqtt.yaml
-		|     |     |- notify.yaml
+        |     |     |- notify.yaml
         |     |     |- recorder.yaml
         |     |     |- weblink.yaml
         |     |
@@ -203,14 +192,14 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |
         |     |     |...[folder for each room/group]
         |     |           |
-		|     |           |...[File per scene]
+        |     |           |...[File per scene]
         |     |
         |     |-----/script/
         |     |     |
         |     |     |...[folder for each room/group]
         |     |           |
-		|     |           |...[File per script]		
-		|     |
+        |     |           |...[File per script]		
+        |     |
         |     |-----/sensor/
         |     |     |
         |     |     |...[file for each group/set]
@@ -218,8 +207,8 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |-----/zones/
         |           |
         |           |...[file for each zone]
-		|
-		|-----/tts/
+        |
+        |-----/tts/
               |
               |...[text_to_speech files]		
 	
