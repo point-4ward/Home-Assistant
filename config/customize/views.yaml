@@ -1,0 +1,18 @@
+#############################
+#Ordering the tabs in the UX#
+#############################
+
+group.livingroom:
+  order: 2
+group.kitchen:
+  order: 3
+group.master_bedroom:
+  order: 4
+group.bedroom_two:
+  order: 5
+group.media:
+  order: 6
+group.location:
+  order: 7
+group.tools:
+  order: 8

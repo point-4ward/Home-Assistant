@@ -5,8 +5,10 @@
 Livingroom:
   view: yes
   name: Living Room
+  icon: mdi:sofa
   entities:
     - group.livingroom_lights
     - group.home_entertainment
     - media_player.living_room_kodi
     - media_player.hdmi_4
+    - group.living_alarm_clock

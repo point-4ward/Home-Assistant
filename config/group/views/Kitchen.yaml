@@ -2,10 +2,9 @@
 #Placing cards/entites on a tab #
 #################################
 
-bedroom_two:
+kitchen:
   view: yes
-  name: Bedroom 2 (Boys)
-  icon: mdi:human-handsdown
+  name: Kitchen
+  icon: mdi:silverware-variant
   entities:
-    - group.bedroom_two_lights
-    - group.boys_alarm_clock
+    - media_player.kitchen_cca

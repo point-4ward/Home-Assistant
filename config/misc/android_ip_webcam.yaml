@@ -1,0 +1,15 @@
+########################################
+#This connects to my android tablet and#
+#uses the onboard camera as an IP cam  #
+########################################
+
+- host: !secret android_cam_host
+  port: !secret android_cam_port
+  name: Living Room Android
+  username: !secret android_cam_username
+  password: !secret android_cam_password
+  auto_discovery: true
+  motion_sensor: true
+  sensors:
+    - battery_level
+    - motion

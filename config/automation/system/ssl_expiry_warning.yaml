@@ -3,16 +3,12 @@
 #the SSL certificate is expiring#
 #################################
 
-#############################
-##TESTING##TESTING##TESTING##
-#############################
-
 alias: 'SSL expiry notification'
 trigger:
   platform: numeric_state
   entity_id: sensor.ssl_cert_expiry
-  below: '84'
+  below: 21
 action:
   service: notify.pushbullet_marc
   data:
-    message: 'SSL certificate expires in 7 days'
+    message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'

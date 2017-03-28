@@ -5,4 +5,4 @@
 
 light_group: group.livingroom_lights
 light_profile: relax
-device_group: group.tracker
+device_group: group.all_devices

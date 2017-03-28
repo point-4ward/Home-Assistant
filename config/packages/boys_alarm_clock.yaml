@@ -1,0 +1,102 @@
+#############################
+#An alarm clock feature that#
+#flashes boys room lights   #
+#############################
+
+input_slider:
+  boys_alarm_clock_hour:
+    name: Hour
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+  boys_alarm_clock_minute:
+    name: Minute
+    icon: mdi:timer
+    initial: 15
+    min: 0
+    max: 55
+    step: 5
+
+input_boolean:
+  boys_alarm_clock_status:
+    name: Activate Alarm
+    icon: mdi:alarm-check
+    initial: off
+  boys_alarm_clock_repeat:
+    name: Repeat?
+    icon: mdi:autorenew
+
+sensor:
+  - platform: template
+    sensors:
+      boys_alarm_clock_hour:
+        value_template: '{{ states.input_slider.boys_alarm_clock_hour.state | int }}'
+      boys_alarm_clock_minute:
+        value_template: '{{ states.input_slider.boys_alarm_clock_minute.state | int }}'
+      boys_alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.boys_alarm_clock_hour.state }}:
+          {%- if states.sensor.boys_alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.boys_alarm_clock_minute.state }}
+      boys_alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.boys_alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.boys_alarm_clock_hour.state }}:
+          {%- if states.sensor.boys_alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.boys_alarm_clock_minute.state }}
+
+group:
+  boys_alarm_clock:
+    name: 'Alarm Clock (B2)'
+    entities:
+      - input_boolean.boys_alarm_clock_status
+      - sensor.boys_alarm_clock_time
+      - input_slider.boys_alarm_clock_hour
+      - input_slider.boys_alarm_clock_minute
+      - input_boolean.boys_alarm_clock_repeat
+
+script:
+  boys_wake_up:
+    sequence:
+      - service: light.turn_on
+        data: 
+          entity_id: light.fibaro_system_fgd212_dimmer_2_level_2_0
+          brightness: 255
+          transition: 10
+
+automation:
+  - alias: 'Boys light on gradually with alarm'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.boys_alarm_clock_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.boys_alarm_clock_status
+      state: 'on'
+    action:
+      - service: script.boys_wake_up
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.boys_alarm_clock_status
+          
+  - alias: 'Boys room clear boolean' 
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.boys_alarm_clock_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.boys_alarm_clock_repeat
+      state: 'off'
+    action:
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.boys_alarm_clock_status

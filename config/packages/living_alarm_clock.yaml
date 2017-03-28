@@ -1,0 +1,99 @@
+#############################
+#An alarm clock feature that#
+#flashes living room lights #
+#############################
+
+input_slider:
+  living_alarm_clock_hour:
+    name: Hour
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+  living_alarm_clock_minute:
+    name: Minute
+    icon: mdi:timer
+    initial: 15
+    min: 0
+    max: 55
+    step: 5
+
+input_boolean:
+  living_alarm_clock_status:
+    name: Activate Alarm
+    icon: mdi:alarm-check
+    initial: off
+  living_alarm_clock_repeat:
+    name: Repeat?
+    icon: mdi:autorenew
+
+sensor:
+  - platform: template
+    sensors:
+      living_alarm_clock_hour:
+        value_template: '{{ states.input_slider.living_alarm_clock_hour.state | int }}'
+      living_alarm_clock_minute:
+        value_template: '{{ states.input_slider.living_alarm_clock_minute.state | int }}'
+      living_alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.living_alarm_clock_hour.state }}:
+          {%- if states.sensor.living_alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.living_alarm_clock_minute.state }}
+      living_alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.living_alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.living_alarm_clock_hour.state }}:
+          {%- if states.sensor.living_alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.living_alarm_clock_minute.state }}
+
+group:
+  living_alarm_clock:
+    control: hidden
+    name: 'Alarm Clock (LR)'
+    entities:
+      - input_boolean.living_alarm_clock_status
+      - sensor.living_alarm_clock_time
+      - input_slider.living_alarm_clock_hour
+      - input_slider.living_alarm_clock_minute
+      - input_boolean.living_alarm_clock_repeat
+
+script:
+  living_wake_up:
+    sequence:
+      - service: light.turn_on
+        data: 
+          entity_id: light.fibaro_system_fgd212_dimmer_2_level_3_0
+          brightness: 255
+          transition: 10
+
+automation:
+  - alias: 'Livingroom light on gradually with alarm'
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.living_alarm_clock_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.living_alarm_clock_status
+      state: 'on'
+    action:
+      - service: script.living_wake_up
+      
+  - alias: 'Livingroom clear boolean' 
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.living_alarm_clock_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.living_alarm_clock_repeat
+      state: 'off'
+    action:
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.living_alarm_clock_status

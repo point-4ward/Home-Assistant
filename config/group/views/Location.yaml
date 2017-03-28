@@ -5,8 +5,11 @@
 location:
   view: yes
   name: Location
+  icon: mdi:google-maps
   entities:
     - group.tracker
     - camera.marc
     - camera.laura
     - group.travel_time
+    - group.marc_tracker
+    - group.laura_tracker

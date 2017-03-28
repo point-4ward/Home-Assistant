@@ -1,0 +1,14 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
+tools:
+  view: yes
+  name: Tools
+  icon: mdi:wrench
+  entities:
+    - group.quick_timer
+    - group.masterbed_alarm_clock
+    - group.living_alarm_clock
+    - group.boys_alarm_clock
+    - group.all_alarm_clock

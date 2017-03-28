@@ -1,0 +1,12 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
+media:
+  view: yes
+  name: Media
+  icon: mdi:speaker-wireless
+  entities:
+    - media_player.living_room_kodi
+    - media_player.kitchen_cca
+    - group.residence_radio

@@ -5,5 +5,7 @@
 master_bedroom:
   view: yes
   name: Master Bedroom
+  icon: mdi:hotel
   entities:
     - group.master_bedroom_lights
+    - group.masterbed_alarm_clock

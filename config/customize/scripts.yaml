@@ -57,3 +57,7 @@ script.surround_volume_up:
 script.surround_volume_down:
   friendly_name: "Volume Down"
   icon: mdi:volume-low
+  
+script.radio_chromecast:
+    friendly_name: Start Playing
+    icon: mdi:play

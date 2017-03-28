@@ -5,6 +5,7 @@
 include:
   entities:
     - sensor.date
+    - sensor.ssl_cert_expiry
 
 exclude:
   domains:

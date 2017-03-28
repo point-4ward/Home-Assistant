@@ -3,5 +3,7 @@
 #################################
 
 Tracker:
-  - group.marc_tracker
-  - device_tracker.lauras_phone_lauras_phone
+  name: Home Tracker
+  entities:
+    - group.marc_tracker
+    - group.laura_tracker

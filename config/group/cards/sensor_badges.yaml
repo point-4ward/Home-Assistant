@@ -31,3 +31,5 @@ Environment:
   - sensor.dark_sky_visibility
   - sensor.dark_sky_wind_bearing
   - sensor.dark_sky_wind_speed
+
+Email Security: !secret email_security

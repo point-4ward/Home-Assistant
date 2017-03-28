@@ -1,0 +1,74 @@
+#####################################
+#An alarm clock feature that flashes#
+#lights around the house but not in #
+#kids roooms after their bedtime!   #
+#####################################
+
+#####################################
+########TESTING / / TESTING##########
+#####################################
+
+input_slider:
+  timer_minutes:
+    name: Minutes
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 60
+    step: 1
+
+sensor:
+  - platform: template
+    sensors:
+      timer_minutes:
+        friendly_name: 'Timer minutes'
+        value_template: '{{states.input_slider.timer_minutes.state|round(2)}}'
+        entity_id: 
+          - input_slider.timer_minutes
+
+script:
+  timer:
+    sequence:
+    - delay: '00:00:15'
+    - service: input_slider.select_value
+      data_template:
+        value: '{{ states.input_slider.timer_minutes.state|float - 0.25 }}'
+        entity_id: input_slider.timer_minutes
+
+automation:
+  - alias: "timer"
+    trigger:
+      platform: state
+      entity_id: input_slider.timer_minutes
+    condition:
+      - condition: template
+        value_template: '{{ states.input_slider.timer_minutes.state|float > 0}}'
+    action:
+      - service: script.turn_off
+        entity_id: script.timer
+      - service: script.turn_on
+        entity_id: script.timer
+#########################################################################
+###########Below section needs to flash all the lights in the house######
+###########Unless it is after 7pm - then just the living room and########
+###########Bedroom - could also do with saving their current state#######
+###########and restoring that after the flash?????????????????????#######
+#########################################################################
+  - alias: "timer execute"
+    trigger:
+      platform: state
+      entity_id: input_slider.timer_minutes
+    condition:
+      - condition: template
+        value_template: '{{ states.input_slider.timer_minutes.state|float == 0.25}}'
+    action:
+      - service: notify.pushbullet_marc
+        data:
+          message: "Your timer has expired - Home Assistant"
+        
+
+group:
+  quick_timer:
+    name: 'Timer'
+    entities:
+      - input_slider.timer_minutes

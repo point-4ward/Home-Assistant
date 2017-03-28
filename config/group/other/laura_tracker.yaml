@@ -1,11 +1,11 @@
 ##################################
 #Creating one presence entity for#
-#Marc based on a combination of  #
+#Laura based on a combination of #
 #nmap and owntracks data         #
 ##################################
 
-Marc_Tracker:
-  name: Marc
+Laura_Tracker:
+  name: Laura
   entities:
-    - device_tracker.ac37434d896d
-    - device_tracker.marcs_phone_marcs_pixel_phone
+    - device_tracker.24f09473a321
+    - device_tracker.lauras_phone_lauras_phone

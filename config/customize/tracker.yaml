@@ -17,3 +17,7 @@ sensor.marc_to_kids_house:
 group.marc_tracker:
   friendly_name: Marc
   entity_picture: /local/marc.jpg
+  
+group.laura_tracker:
+  friendly_name: Laura
+  entity_picture: /local/laura.jpg

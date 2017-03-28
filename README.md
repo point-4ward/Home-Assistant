@@ -1,8 +1,8 @@
-#My HA setup:
+# My HA setup:
 
 This is my current Home Automation setup.  Starting small and gradually growing as funds allow...
 
-##House:
+## House:
 
 3 storey townhouse, laid out (basically) like...
 
@@ -19,53 +19,34 @@ Gnd floor - Living room        WC
           - Living room        Kitchen
 ```
 
-##Hardware:
+## Hardware:
 
-Raspberry Pi 3
+ - Raspberry Pi 3
+ - Z-wave.me Razberry module
+ - Wetek Openelec (Kodi)
+ - Amazon Echo Dot
+ - Asus wifi router with USB NAS attached
+ - Philips Hue Bridge
+ - Philips Hue Tap
+ - 3 x Philips Hue colour bulbs (master bedroom)
+ - 2 x Fibaro FGD-212 dimmers (living room and bedroom2)
+ - Fibaro FGMS-001 multi-sensor (yet to be fitted)
+ - Comag 10" tablet
+ - Usual home theatre stuff - TV/Blu-Ray/AV Receiver
 
-Z-wave.me Razberry module
+## Software:
 
-Wetek Openelec (Kodi)
+ - Home Assistant
+ - HAdashboard
+ - Kodi
+ - Yatse (+ call plugin)
+ - Alexa app (for config of echo dot)
+ - Hue app (for config of hue lights/bridge)
+ - Custom Alexa skill (to control Kodi)
+ - Owntracks
+ - Pushbullet
 
-Amazon Echo Dot
-
-Asus wifi router with USB NAS attached
-
-Philips Hue Bridge
-
-Philips Hue Tap
-
-3 x Philips Hue colour bulbs (master bedroom)
-
-2 x Fibaro FGD-212 dimmers (living room and bedroom2)
-
-Fibaro FGMS-001 multi-sensor (yet to be fitted)
-
-Comag 10" tablet
-
-Usual home theatre stuff - TV/Blu-Ray/AV Receiver
-
-##Software:
-
-Home Assistant
-
-HAdashboard
-
-Kodi
-
-Yatse (+ call plugin)
-
-Alexa app (for config of echo dot)
-
-Hue app (for config of hue lights/bridge)
-
-Custom Alexa skill (to control Kodi)
-
-Owntracks
-
-Pushbullet
-
-##What it does:
+## What it does:
 
  - Controllable from my phone over the internet, or via local network.
 
@@ -91,7 +72,7 @@ Pushbullet
 
  - Voice control Kodi.
 
-##My configuration:
+## My configuration:
 
 See in the repo for all of my non-sensitive configuration files.  I've been playing with HASS for a while now and have made a fair few changes, a few quick notes:
 
@@ -193,6 +174,10 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |     |
         |     |     |     |...[file for each UI card]
         |     |     |
+		|     |     |-----/other/
+        |     |     |     |
+        |     |     |     |...[file for each group that isn't card/tab]
+        |     |     |
         |     |     |-----/views/
         |     |           |
         |     |           |...[file for each UI view tab]
@@ -244,7 +229,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
 
 I have put a small comment block at the top of each file that hopefully will give some clues for anyone using this repo as a learning tool.  At some point in the future I will try and put some more detailed comments on the more important/complicated bits.  In the meantime, if I can clarify anything for anyone, just let me know.
 
-##Useful links/resources etc:
+## Useful links/resources etc:
 
 [Home Assistant](http://home-assistant.io)
 
@@ -259,7 +244,7 @@ I have put a small comment block at the top of each file that hopefully will giv
 [HA examples](https://home-assistant.io/cookbook/) espescially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig) and [Bruh](https://github.com/bruhautomation/BRUH3-Home-Assistant-Configuration)
 
 
-##Things to do:
+## Things to do:
 
 Put some images on here
 
