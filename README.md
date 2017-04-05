@@ -153,18 +153,18 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |-----/core/
         |     |     |
         |     |     |- homeassistant.yaml
-		|     |     |
-		|     |     |-----/customize/
+        |     |     |
+        |     |     |-----/customize/
         |     |     |     |
         |     |     |     |...[File per group/set]
-		|     |     |
-		|     |     |-----/packages/
-		|     |           |
+        |     |     |
+        |     |     |-----/packages/
+        |     |           |
         |     |           |...[File per package]
-		|     |           |		
-		|     |           |...[Folder per package for elements]
-		|     |                 |
-		|     |                 |...[File per package element]
+        |     |           |		
+        |     |           |...[Folder per package for elements]
+        |     |                 |
+        |     |                 |...[File per package element]
         |     |
         |     |-----/groups/
         |     |     |
