@@ -1,0 +1,11 @@
+########################
+#Element of the package#
+########################
+
+living_alarm_clock_status:
+  name: Activate Alarm
+  icon: mdi:alarm-check
+  initial: off
+living_alarm_clock_repeat:
+  name: Repeat?
+  icon: mdi:autorenew

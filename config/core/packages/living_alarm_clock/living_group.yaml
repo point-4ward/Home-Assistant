@@ -1,0 +1,13 @@
+########################
+#Element of the package#
+########################
+
+living_alarm_clock:
+  control: hidden
+  name: 'Alarm Clock (LR)'
+  entities:
+    - input_boolean.living_alarm_clock_status
+    - sensor.living_alarm_clock_time
+    - input_slider.living_alarm_clock_hour
+    - input_slider.living_alarm_clock_minute
+    - input_boolean.living_alarm_clock_repeat

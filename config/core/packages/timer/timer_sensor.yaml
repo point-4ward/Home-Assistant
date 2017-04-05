@@ -1,0 +1,11 @@
+########################
+#Element of the package#
+########################
+
+- platform: template
+  sensors:
+    timer_minutes:
+      friendly_name: 'Timer minutes'
+      value_template: '{{states.input_slider.timer_minutes.state|round(2)}}'
+      entity_id: 
+        - input_slider.timer_minutes

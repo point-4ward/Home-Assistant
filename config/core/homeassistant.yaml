@@ -8,5 +8,5 @@ longitude: !secret longitude
 elevation: !secret elevation
 time_zone: !secret time_zone
 unit_system: metric
-customize: !include_dir_merge_named ../customize/
-packages: !include_dir_named ../packages/
+customize: !include_dir_merge_named customize/
+packages: !include packages.yaml

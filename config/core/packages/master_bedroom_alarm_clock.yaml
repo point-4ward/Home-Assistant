@@ -1,0 +1,11 @@
+###############################
+#An alarm clock feature that  #
+#flashes master bedroom lights#
+###############################
+
+input_slider: !include masterbed_alarm_clock/masterbed_input_slider.yaml
+input_boolean: !include masterbed_alarm_clock/masterbed_input_boolean.yaml
+sensor: !include masterbed_alarm_clock/masterbed_sensor.yaml
+group: !include masterbed_alarm_clock/masterbed_group.yaml
+script: !include masterbed_alarm_clock/masterbed_script.yaml
+automation: !include masterbed_alarm_clock/masterbed_automation.yaml

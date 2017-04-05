@@ -1,0 +1,11 @@
+####################################
+#Input slider for the timer package#
+####################################
+
+timer_minutes:
+  name: Minutes
+  icon: mdi:timer
+  initial: 0
+  min: 0
+  max: 60
+  step: 1

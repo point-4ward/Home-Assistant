@@ -1,0 +1,11 @@
+########################
+#Element of the package#
+########################
+
+masterbed_wake_up:
+  sequence:
+    - service: light.turn_on
+      data: 
+        entity_id: light.master_bedroom
+        brightness: 255
+        transition: 10

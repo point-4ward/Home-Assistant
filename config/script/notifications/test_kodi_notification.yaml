@@ -1,9 +1,0 @@
-#####################
-#This is just a test#
-######################
-
-test_kodi_notification:
-  sequence:
-  - service: notify.living_room_kodi
-    data:
-      message: "Message to KODI from Home Assistant!"

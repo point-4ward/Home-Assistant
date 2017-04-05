@@ -1,0 +1,13 @@
+####################################
+#A list of thepackages I have made #
+#with includes, which prevents     #
+#duplication due to recursive merge#
+#if I used a !include dir_merge_xxx#
+####################################
+
+timer: !include packages/timer.yaml
+chromecast_radio: !include packages/chromecast_radio.yaml
+boys_alarm_clock: !include packages/boys_alarm_clock.yaml
+living_alarm_clock: !include packages/living_alarm_clock.yaml
+master_bedroom_alarm_clock: !include packages/master_bedroom_alarm_clock.yaml
+all_alarm_clock: !include packages/all_alarm_clock.yaml

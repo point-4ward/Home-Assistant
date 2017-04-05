@@ -2,33 +2,6 @@
 #Hidden entities, setting icons  #
 ##################################
 
-sensor.fibaro_system_fgd212_dimmer_2_alarm_level_2_1:
-  hidden: true
-  
-sensor.fibaro_system_fgd212_dimmer_2_alarm_level_3_1:
-  hidden: true
-
-sensor.fibaro_system_fgd212_dimmer_2_alarm_type_2_0:
-  hidden: true
-
-sensor.fibaro_system_fgd212_dimmer_2_alarm_type_3_0:
-  hidden: true
-
-sensor.fibaro_system_fgd212_dimmer_2_energy_2_0:
-  hidden: true
-
-sensor.fibaro_system_fgd212_dimmer_2_energy_3_0:
-  hidden: true
-
-sensor.fibaro_system_fgd212_dimmer_2_exporting_2_32:
-  hidden: true
-  
-sensor.fibaro_system_fgd212_dimmer_2_exporting_3_32:
-  hidden: true
-
-sensor.fibaro_system_fgd212_dimmer_2_heat_2_7:
-  hidden: true
-
 sensor.fibaro_system_fgd212_dimmer_2_heat_3_7:
   hidden: true
 

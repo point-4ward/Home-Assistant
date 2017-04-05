@@ -1,0 +1,35 @@
+########################
+#Element of the package#
+########################
+
+all_sync:
+  alias: Sync All Alarms
+  sequence:
+    - service: input_slider.select_value
+      data: 
+        entity_id:
+          - input_slider.living_alarm_clock_hour
+          - input_slider.boys_alarm_clock_hour
+          - input_slider.masterbed_alarm_clock_hour
+          #What should the value be????
+        value: input_slider.all_alarm_clock_hour
+    - service: input_slider.select_value
+      data: 
+        entity_id:
+          - input_slider.living_alarm_clock_minute
+          - input_slider.boys_alarm_clock_minute
+          - input_slider.masterbed_alarm_clock_minute
+          #What should the value be????
+        value: input_slider.all_alarm_clock_minute 
+    - service: input_boolean.turn_on
+      data: 
+        entity_id:
+          - input_boolean.living_alarm_clock_status
+          - input_boolean.boys_alarm_clock_status
+          - input_boolean.masterbed_alarm_clock_status
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.living_alarm_clock_repeat
+          - input_boolean.boys_alarm_clock_repeat
+          - input_boolean.masterbed_alarm_clock_repeat

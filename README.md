@@ -110,6 +110,7 @@ media_player: !include_dir_list config/media_player/
 
 You may note that by following this rule I have also, contrary to convention, done this with my 'homeassistant:' core instance, placing the multiple-lined entries in an included file located at /config/core/homeassistant.yaml  .  (I put it in the folder 'core' to keep it separate from the non-core components.)
 
+I have also used 'packages' to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights), the configuration files for which are also kept in bite-sized chunks using the above method, although the includes are nested slightly to prevent duplicates from recursively merged folders.
 
 All of which, for me, leads to an easy to manage configuration system that looks something like this...
 
@@ -143,19 +144,27 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |           |
         |     |           |...[File per automation]
         |     |
-        |     |-----/core/
-        |     |     |
-        |     |     |- homeassistant.yaml
-        |     |
         |     |-----/camera/
         |     |     |
         |     |     |...[Folder per type]
         |     |           |
         |     |           |...[File per camera]		
         |     |
-        |     |-----/customize/
+        |     |-----/core/
         |     |     |
-        |     |     |...[File per group/set]
+        |     |     |- homeassistant.yaml
+		|     |     |
+		|     |     |-----/customize/
+        |     |     |     |
+        |     |     |     |...[File per group/set]
+		|     |     |
+		|     |     |-----/packages/
+		|     |           |
+        |     |           |...[File per package]
+		|     |           |		
+		|     |           |...[Folder per package for elements]
+		|     |                 |
+		|     |                 |...[File per package element]
         |     |
         |     |-----/groups/
         |     |     |
@@ -165,7 +174,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |
         |     |     |-----/other/
         |     |     |     |
-        |     |     |     |...[file for each group that isn't card/tab]
+        |     |     |     |...[file for each group that isn't a card/tab]
         |     |     |
         |     |     |-----/views/
         |     |           |
@@ -174,18 +183,22 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |-----/misc/
         |     |     |
         |     |     |- alarm_control_panel.yaml
+        |     |     |- android_ip_webcam.yaml
         |     |     |- device_sun_light_trigger.yaml
+        |     |     |- device_tracker.yaml
         |     |     |- emulated_hue.yaml
         |     |     |- google.yaml
         |     |     |- hdmi_cec.yaml
         |     |     |- http.yaml
         |     |     |- input_boolean.yaml
+        |     |     |- input_select.yaml
         |     |     |- light.yaml
         |     |     |- logbook.yaml
         |     |     |- media_player.yaml
         |     |     |- mqtt.yaml
         |     |     |- notify.yaml
         |     |     |- recorder.yaml
+        |     |     |- shell_command.yaml		
         |     |     |- weblink.yaml
         |     |
         |     |-----/scene/

@@ -1,9 +1,0 @@
-#####################
-#This is just a test#
-######################
-
-test_pushbullet_notification:
-  sequence:
-  - service: notify.pushbullet_marc
-    data:
-      message: "Message to Pushbullet from Home Assistant!"

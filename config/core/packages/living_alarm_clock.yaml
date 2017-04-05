@@ -1,0 +1,11 @@
+#############################
+#An alarm clock feature that#
+#flashes living room lights #
+#############################
+
+input_slider: !include living_alarm_clock/living_input_slider.yaml
+input_boolean: !include living_alarm_clock/living_input_boolean.yaml
+sensor: !include living_alarm_clock/living_sensor.yaml
+group: !include living_alarm_clock/living_group.yaml
+script: !include living_alarm_clock/living_script.yaml
+automation: !include living_alarm_clock/living_automation.yaml

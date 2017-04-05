@@ -1,0 +1,12 @@
+########################
+#Element of the package#
+########################
+
+all_alarm_clock:
+  control: hidden
+  name: 'MASTER Alarm Clock - TESTING!'
+  entities:
+    - input_slider.all_alarm_clock_hour
+    - input_slider.all_alarm_clock_minute
+    - input_boolean.all_alarm_clock_repeat
+    - script.all_sync

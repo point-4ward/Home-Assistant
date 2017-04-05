@@ -1,0 +1,10 @@
+##################################
+#Friendly names, setting icons   #
+##################################
+
+sensor.ssl_cert_expiry:
+  friendly_name: "SSL certificate expiry"
+  icon: mdi:security-home
+
+sensor.current_ha_version:
+  icon: mdi:home-outline

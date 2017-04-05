@@ -1,0 +1,11 @@
+########################
+#Element of the package#
+########################
+
+timer:
+  sequence:
+  - delay: '00:00:15'
+  - service: input_slider.select_value
+    data_template:
+      value: '{{ states.input_slider.timer_minutes.state|float - 0.25 }}'
+      entity_id: input_slider.timer_minutes

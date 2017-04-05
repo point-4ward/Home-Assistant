@@ -2,30 +2,6 @@
 #Friendly names, setting icons   #
 ##################################
 
-script.master_bedroom_arctic_aurora:
-  friendly_name: "Arctic Aurora"
-  icon: mdi:creation
-
-script.master_bedroom_bright:
-  friendly_name: "Bright"
-  icon: mdi:creation
-
-script.master_bedroom_concentrate:
-  friendly_name: "Concentrate"
-  icon: mdi:creation
-
-script.master_bedroom_dimmed:
-  friendly_name: "Dimmed"
-  icon: mdi:creation
-
-script.master_bedroom_energize:
-  friendly_name: "Energize"
-  icon: mdi:creation
-
-script.master_bedroom_nightlight:
-  friendly_name: "Nightlight"
-  icon: mdi:creation
-
 script.master_bedroom_read:
   friendly_name: "Reading"
   icon: mdi:creation

@@ -1,0 +1,18 @@
+########################
+#Element of the package#
+########################
+
+masterbed_alarm_clock_hour:
+  name: Hour
+  icon: mdi:timer
+  initial: 6
+  min: 0
+  max: 23
+  step: 1
+masterbed_alarm_clock_minute:
+  name: Minute
+  icon: mdi:timer
+  initial: 15
+  min: 0
+  max: 55
+  step: 5

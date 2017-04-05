@@ -1,0 +1,11 @@
+#############################
+#An alarm clock feature that#
+#flashes boys room lights   #
+#############################
+
+input_slider: !include boys_alarm_clock/boys_input_slider.yaml
+input_boolean: !include boys_alarm_clock/boys_input_boolean.yaml
+sensor: !include boys_alarm_clock/boys_sensor.yaml
+group: !include boys_alarm_clock/boys_group.yaml
+script: !include boys_alarm_clock/boys_script.yaml
+automation: !include boys_alarm_clock/boys_automation.yaml
