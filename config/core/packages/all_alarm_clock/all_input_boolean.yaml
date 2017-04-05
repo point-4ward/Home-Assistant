@@ -1,8 +1,0 @@
-########################
-#Element of the package#
-########################
-
-all_alarm_clock_repeat:
-  name: Repeat?
-  icon: mdi:autorenew
-  initial: off

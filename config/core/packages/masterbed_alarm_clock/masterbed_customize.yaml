@@ -1,0 +1,7 @@
+####################################
+#Customizing this packages entities#
+####################################
+
+sensor.masterbed_alarm_clock_time:
+  friendly_name: 'Alarm Time'
+  icon: mdi:alarm

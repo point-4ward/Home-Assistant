@@ -9,3 +9,5 @@ sensor: !include timer/timer_sensor.yaml
 script: !include timer/timer_script.yaml
 automation: !include timer/timer_automation.yaml
 group: !include timer/timer_group.yaml
+homeassistant:
+  customize: !include timer/timer_customize.yaml

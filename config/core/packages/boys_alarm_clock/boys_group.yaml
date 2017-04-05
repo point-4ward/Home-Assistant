@@ -3,6 +3,7 @@
 ########################
 
 boys_alarm_clock:
+  control: hidden
   name: 'Alarm Clock (B2)'
   entities:
     - input_boolean.boys_alarm_clock_status

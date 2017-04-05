@@ -3,6 +3,7 @@
 ########################
 
 masterbed_alarm_clock:
+  control: hidden
   name: 'Alarm Clock (MB)'
   entities:
     - input_boolean.masterbed_alarm_clock_status

@@ -9,3 +9,5 @@ sensor: !include masterbed_alarm_clock/masterbed_sensor.yaml
 group: !include masterbed_alarm_clock/masterbed_group.yaml
 script: !include masterbed_alarm_clock/masterbed_script.yaml
 automation: !include masterbed_alarm_clock/masterbed_automation.yaml
+homeassistant:
+  customize: !include masterbed_alarm_clock/masterbed_customize.yaml

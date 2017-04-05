@@ -9,3 +9,5 @@ sensor: !include living_alarm_clock/living_sensor.yaml
 group: !include living_alarm_clock/living_group.yaml
 script: !include living_alarm_clock/living_script.yaml
 automation: !include living_alarm_clock/living_automation.yaml
+homeassistant:
+  customize: !include living_alarm_clock/living_customize.yaml

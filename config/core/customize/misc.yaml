@@ -1,0 +1,49 @@
+################################
+#Hidden entities, setting icons#
+#and adding friendly names     #
+################################
+
+#Lights
+light.fibaro_system_fgd212_dimmer_2_level_2_0:
+  friendly_name: Bedroom 2 Ceiling
+  emulated_hue_name: "boys room light"
+  
+light.fibaro_system_fgd212_dimmer_2_level_3_0:
+  friendly_name: Living Room Light
+  emulated_hue_name: "living room light"
+
+light.fibaro_system_fgd212_dimmer_2_level_2_0_2:
+  hidden: true
+  
+light.fibaro_system_fgd212_dimmer_2_level_3_0_2:
+  hidden: true
+  
+light.master_bedroom:
+  hidden: true
+
+#Switches
+switch.hdmi_0:
+  hidden: true
+
+switch.hdmi_1:
+  hidden: true
+  
+#Sensors
+sensor.ssl_cert_expiry:
+  friendly_name: "SSL certificate expiry"
+  icon: mdi:security-home
+
+sensor.current_ha_version:
+  icon: mdi:home-outline
+
+#Trackers
+device_tracker.phone_marcs_pixel_phone:
+  hidden: true
+  
+group.marc_tracker:
+  friendly_name: Marc
+  entity_picture: /local/marc.jpg
+  
+group.laura_tracker:
+  friendly_name: Laura
+  entity_picture: /local/laura.jpg
