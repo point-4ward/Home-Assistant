@@ -3,16 +3,20 @@
 #############################
 
 group.livingroom:
-  order: 2
+  order: 0
 group.kitchen:
-  order: 3
+  order: 1
 group.master_bedroom:
-  order: 4
+  order: 2
 group.bedroom_two:
-  order: 5
+  order: 3
 group.media:
-  order: 6
+  order: 4
 group.location:
-  order: 7
+  order: 5
 group.tools:
+  order: 6
+group.information:
+  order: 7
+group.security:
   order: 8

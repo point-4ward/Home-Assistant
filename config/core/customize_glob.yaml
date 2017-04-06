@@ -22,3 +22,9 @@
 
 "sensor.marc_to*":
   icon: mdi:car
+
+"weblink.*":
+  icon: mdi:web
+
+"zwave.*":
+  icon: mdi:signal-variant

@@ -5,3 +5,9 @@
 entities:
   - name: Home Assistant
     url: https://home-assistant.io
+  - name: HA Forums
+    url: https://community.home-assistant.io/
+  - name: Github
+    url: https://github.com/mf-social/Home-Assistant
+  - name: Router
+    url: !secret weblink_router

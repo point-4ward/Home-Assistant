@@ -6,3 +6,5 @@
 input_slider: !include all_alarm_clock/all_input_slider.yaml
 group: !include all_alarm_clock/all_group.yaml
 script: !include all_alarm_clock/all_script.yaml
+homeassistant:
+  customize: !include all_alarm_clock/all_customize.yaml

@@ -1,0 +1,16 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
+information:
+  view: yes
+  name: Information
+  icon: mdi:information-variant
+  entities:
+    - group.email_security
+    - group.environment
+    - group.calendar
+    - group.system
+    - group.time
+    - group.zwave
+    - group.weblink

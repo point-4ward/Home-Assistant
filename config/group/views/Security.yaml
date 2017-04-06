@@ -1,0 +1,11 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
+security:
+  view: yes
+  name: Security
+  icon: mdi:security
+  entities:
+    - group.email_security
+    - group.alarm

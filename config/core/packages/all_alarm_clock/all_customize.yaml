@@ -1,0 +1,6 @@
+####################################
+#Customizing this packages entities#
+####################################
+
+script.all_sync:
+  icon: mdi:clock-out
