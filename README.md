@@ -77,7 +77,7 @@ Everybody has their own way of organising files, and they can get confusing, so 
 
 In the '.homeassistant/' folder there are some files that can't be moved, so they obviosuly stay there.  Any that don't have to be there (and don't have to be in a specific location elswewhere, ie local icons in ./homeassistant/www/) go in a folder called config/
 
-When I'm adding an entry to my configuration.yaml I ask myself whether it will take more than two lines.  If it takes only one or two lines, I put it directly in configuration.yaml
+When I'm adding an entry to my configuration.yaml I ask myself whether it will take more than three lines.  If it takes only one, two or three lines, I put it directly in configuration.yaml
 
 Example:
 ```
@@ -85,32 +85,37 @@ Example:
 
 sun:        <---------  One line
 
-tts:
-  - platform: Google <-------- Two lines
-  
-
-#####Not fine:
-
 media_player:
   - platform: kodi
-    host: 192.168.0.123  <----- Three lines or more
+    host: 192.168.0.123  <----- Three lines
+
+#####Not fine
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  client_id: !secret mqtt_client_id <---- Four lines or more
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
 ```
 
 	
 	
-Where the entry will take three lines or more, I use an include and place the include file in the config/misc/ directory.  I use the exact name of the component for the include, eg:
+Where the entry will take four lines or more, I use an include and place the include file in the config/misc/ directory.  I use the exact name of the component for the include, eg:
 ```
-media_player: !include config/misc/media_player.yaml
+mqtt: !include config/misc/mqtt.yaml
 ```
 
 In cases where the new include file becomes large (I favour keeping them in bite-sized chunks of around 50 lines or fewer), I split that file in to as many as are needed and place them in a folder named exactly after the component, eg:
 ```
-media_player: !include_dir_list config/media_player/
+zone: !include_dir_list config/zone/
 ```
 
 You may note that by following this rule I have also, contrary to convention, done this with my 'homeassistant:' core instance, placing the multiple-lined entries in an included file located at /config/core/homeassistant.yaml  .  (I put it in the folder 'core' to keep it separate from the non-core components.)
 
 I have also used 'packages' to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights), the configuration files for which are also kept in bite-sized chunks using the above method, although the includes are nested slightly to prevent duplicates from recursively merged folders.
+
+This means I can keep all the configuration files in an order that makes sense to me, and keeps them small so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` and `secrets.yaml` .
 
 All of which, for me, leads to an easy to manage configuration system that looks something like this...
 
@@ -187,17 +192,14 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |     |- device_sun_light_trigger.yaml
         |     |     |- device_tracker.yaml
         |     |     |- emulated_hue.yaml
-        |     |     |- google.yaml
         |     |     |- hdmi_cec.yaml
         |     |     |- http.yaml
         |     |     |- input_boolean.yaml
         |     |     |- input_select.yaml
-        |     |     |- light.yaml
         |     |     |- logbook.yaml
         |     |     |- media_player.yaml
         |     |     |- mqtt.yaml
         |     |     |- notify.yaml
-        |     |     |- recorder.yaml
         |     |     |- shell_command.yaml		
         |     |     |- weblink.yaml
         |     |

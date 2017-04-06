@@ -1,6 +1,0 @@
-#########################################
-#How long to record events, and to where#
-#########################################
-
-purge_days: 14
-db_url: !secret recorder_db_url

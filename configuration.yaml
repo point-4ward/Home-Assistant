@@ -5,21 +5,33 @@
 #and the !include files that it links to#
 #########################################
 
-#Core program
+##################
+## Core program ##
+##################
+
 homeassistant: !include config/core/homeassistant.yaml
 
-#Web interface UX and security
+###################################
+## Web interface UX and security ##
+###################################
+
 frontend:
-config:
 group: !include_dir_merge_named config/group/
 http: !include config/misc/http.yaml
-recorder: !include config/misc/recorder.yaml
+recorder:
+  purge_days: 14
+  db_url: !secret recorder_db_url
 logbook: !include config/misc/logbook.yaml
 
-#My components/devices/sensors/etc
+#######################################
+## My components/devices/sensors/etc ##
+#######################################
+
 zwave:
   usb_path: /dev/ttyAMA0
-light: !include config/misc/light.yaml
+light:
+  platform: hue
+  host: !secret hue_light_host
 emulated_hue: !include config/misc/emulated_hue.yaml
 device_tracker: !include config/misc/device_tracker.yaml
 mqtt: !include config/misc/mqtt.yaml  
@@ -31,7 +43,9 @@ notify: !include config/misc/notify.yaml
 hdmi_cec: !include config/misc/hdmi_cec.yaml
 camera: !include_dir_list config/camera/
 #android_ip_webcam: !include config/misc/android_ip_webcam.yaml
-google: !include config/misc/google.yaml
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_secret
 ifttt:
   key: !secret ifttt_api_key  
 sun:
@@ -39,7 +53,10 @@ sensor: !include_dir_merge_list config/sensor/
 weblink: !include config/misc/weblink.yaml
 updater:
 
-#My automations/scripts/scenes/etc
+#######################################
+## My automations/scripts/scenes/etc ##
+#######################################
+
 automation: !include_dir_list config/automation/
 #device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
 script: !include_dir_merge_named config/script/
