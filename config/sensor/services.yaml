@@ -1,0 +1,25 @@
+###################################
+#Obtains information from various #
+#services and presents them as    #
+#sensor readings                  #
+###################################
+
+- platform: command_line
+  name: SSL cert expiry
+  unit_of_measurement: days
+  scan_interval: 10800
+  command: !secret sensor_ssl_command
+
+- platform: command_line
+  name: Current HA version
+  command: "/srv/hass/hass_venv/bin/hass --version"
+  scan_interval: 86400
+
+- platform: scrape
+  name: HA upstream
+  resource: https://home-assistant.io
+  select: ".current-version h1"
+  value_template: '{{ value.split(":")[1] }}'
+
+- platform: haveibeenpwned
+  email: !secret haveibeenpwned_email

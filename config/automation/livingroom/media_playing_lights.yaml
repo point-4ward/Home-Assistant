@@ -14,8 +14,12 @@ condition:
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
-    - condition: template
-      value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "video" }}'
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "tvshow" }}'
+      - condition: template
+        value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "movie" }}'
 action:
   service: scene.turn_on
   entity_id: scene.livingroom_dim

@@ -1,0 +1,12 @@
+############################
+#Stop the light flash alarm#
+############################
+
+alarm_light_flash_stop:
+  alias: Alarm Light Flash Stop
+  sequence:
+    - service: script.turn_off
+      entity_id: script.alarm_light_flash
+
+    - service: script.turn_off
+      entity_id: script.alarm_light_flash_loop

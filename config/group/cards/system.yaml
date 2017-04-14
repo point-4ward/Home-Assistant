@@ -5,6 +5,7 @@
 System:
   - updater.updater
   - sensor.current_ha_version
+  - sensor.ha_upstream
   - sensor.ssl_cert_expiry
   - sensor.cpu_speed
   - sensor.cpu_use

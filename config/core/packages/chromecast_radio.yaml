@@ -114,3 +114,9 @@ automation:
           {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.home_group
           {% endif %}
         volume_level: '{{  states.input_slider.volume_radio.state  }}'
+
+homeassistant:
+  customize:
+    script.radio_chromecast:
+      friendly_name: Start Playing
+      icon: mdi:play

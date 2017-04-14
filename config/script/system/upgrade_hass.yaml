@@ -1,0 +1,9 @@
+##########################################
+#Runs a bash script that stops the HA    #
+#service, runs apt-get upgrade on the    #
+#device, then runs HA upgrade and reboots#
+##########################################
+
+upgrade_hass:
+  sequence:
+    - service: shell_command.upgrade_hass

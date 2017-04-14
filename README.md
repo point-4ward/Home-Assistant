@@ -126,7 +126,6 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |- google_calendars.yaml
         |- known_devices.yaml
         |- secrets.yaml
-        |- zwave_device_config.yaml
         |...[log files etc]
         |
         |-----/www/
