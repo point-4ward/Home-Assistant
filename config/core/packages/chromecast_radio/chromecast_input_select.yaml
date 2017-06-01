@@ -1,0 +1,20 @@
+radio_station:
+  name: 'Select Radio Station:'
+  options:
+    - Free Radio CW
+    - Free Radio 80s
+    - Absolute Radio
+    - Absolute 80s
+    - Absolute 90s
+    - Heart
+    - Heart 80s
+    - Sleep Radio
+chromecast_radio:
+  name: 'Select Speakers:'
+  options:
+    - Kitchen
+    - Master Bedroom
+    - Landing
+    - Everywhere
+  initial: Everywhere
+  icon: mdi:speaker-wireless

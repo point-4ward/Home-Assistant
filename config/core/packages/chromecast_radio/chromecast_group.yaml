@@ -1,0 +1,8 @@
+Residence Radio:
+  name: Chromecast Radio
+  entities:
+  - input_select.radio_station
+  - input_select.chromecast_radio
+  - script.radio_chromecast
+  - script.stop_radio_chromecast
+  - input_slider.volume_radio

@@ -1,0 +1,45 @@
+radio_chromecast:
+  alias: Play Radio on Chromecast Audio
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.kitchencca
+        volume_level: '0.20'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.landingcca
+         volume_level: '0.20'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.bedroomcca
+         volume_level: '0.20'
+    -  service: media_player.play_media
+       data_template:
+         entity_id: >
+          {% if is_state("input_select.chromecast_radio", "Kitchen") %} media_player.kitchencca
+          {% elif is_state("input_select.chromecast_radio", "Landing") %} media_player.landingcca
+          {% elif is_state("input_select.chromecast_radio", "Master Bedroom") %} media_player.bedroomcca
+          {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.ccagroup
+          {% endif %}
+         media_content_id: >
+          {% if is_state("input_select.radio_station", "Free Radio CW") %}  http://webradio.radiomonitor.com/stream/Free-Coventry-AAC
+          {% elif is_state("input_select.radio_station", "Free Radio 80s") %} http://webradio.radiomonitor.com/stream/Free-80s-AAC
+          {% elif is_state("input_select.radio_station", "Absolute Radio") %} http://player.absoluteradio.co.uk/tunein.php?i=ar24.aac
+          {% elif is_state("input_select.radio_station", "Absolute 80s") %} http://player.absoluteradio.co.uk/tunein.php?i=a824.aac
+          {% elif is_state("input_select.radio_station", "Absolute 90s") %} http://player.absoluteradio.co.uk/tunein.php?i=a924.aac
+          {% elif is_state("input_select.radio_station", "Heart") %} http://media-ice.musicradio.com/HeartWestMids
+          {% elif is_state("input_select.radio_station", "Heart 80s") %} http://media-ice.musicradio.com/Heart80s
+          {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8722/stream
+          {% endif %}
+         media_content_type: 'audio/mp4'
+
+stop_radio_chromecast:
+  alias: Stop Radio Chromecast
+  sequence:
+    - service: media_player.turn_off
+      data:
+        entity_id:
+          - media_player.kitchencca
+          - media_player.landingcca
+          - media_player.bedroomcca
+          - media_player.ccagroup

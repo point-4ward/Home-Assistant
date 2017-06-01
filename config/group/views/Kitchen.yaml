@@ -7,4 +7,4 @@ kitchen:
   name: Kitchen
   icon: mdi:silverware-variant
   entities:
-    - media_player.kitchen_cca
+    - media_player.kitchencca

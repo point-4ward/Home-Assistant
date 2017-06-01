@@ -11,11 +11,4 @@
   turn_off_action: shutdown
   enable_websocket: false
 
-#- platform: cast
-#  host: !secret cast1_host
-#
-#- platform: cast
-#  host: !secret cast2_host
-#
-#- platform: cast
-#  host: !secret cast3_host
+- platform: cast

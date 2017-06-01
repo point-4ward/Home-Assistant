@@ -1,0 +1,7 @@
+script.radio_chromecast:
+  friendly_name: Start Playing
+  icon: mdi:play
+
+script.stop_radio_chromecast:
+  friendly_name: Stop
+  icon: mdi:stop
