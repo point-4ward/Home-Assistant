@@ -13,7 +13,7 @@ sensor.ha_upstream:
   friendly_name: "Upstream HA version"
   icon: mdi:cloud-sync
 
-sensor.current_ha_version:
+sensor.installed_ha_version:
   icon: mdi:home-outline
 
 #Trackers

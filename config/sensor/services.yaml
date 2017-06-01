@@ -11,7 +11,7 @@
   command: !secret sensor_ssl_command
 
 - platform: command_line
-  name: Current HA version
+  name: Installed HA version
   command: "/srv/hass/hass_venv/bin/hass --version"
   scan_interval: 86400
 

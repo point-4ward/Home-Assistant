@@ -12,7 +12,7 @@ all_sync:
           - input_slider.boys_alarm_clock_hour
           - input_slider.masterbed_alarm_clock_hour
           #What should the value be????
-        value: input_slider.all_alarm_clock_hour
+        value_template: '{{states.input_slider.all_alarm_clock_hour.state}}'
     - service: input_slider.select_value
       data: 
         entity_id:
@@ -20,7 +20,7 @@ all_sync:
           - input_slider.boys_alarm_clock_minute
           - input_slider.masterbed_alarm_clock_minute
           #What should the value be????
-        value: input_slider.all_alarm_clock_minute 
+        value_template: '{{states.input_slider.all_alarm_clock_minute.state}}'
     - service: input_boolean.turn_on
       data: 
         entity_id:
@@ -32,4 +32,4 @@ all_sync:
         entity_id:
           - input_boolean.living_alarm_clock_repeat
           - input_boolean.boys_alarm_clock_repeat
-          - input_boolean.masterbed_alarm_clock_repeat
+          - input_boolean.masterbed_alarm_clock_repeatpi

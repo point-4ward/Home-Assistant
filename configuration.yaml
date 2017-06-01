@@ -58,8 +58,8 @@ updater:
 ## My automations/scripts/scenes/etc ##
 #######################################
 
-automation: !include_dir_list config/automation/
-#device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
+automation old: !include_dir_list config/automation/
+device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
 script: !include_dir_merge_named config/script/
 scene: !include_dir_list config/scene/
 input_boolean: !include config/misc/input_boolean.yaml
