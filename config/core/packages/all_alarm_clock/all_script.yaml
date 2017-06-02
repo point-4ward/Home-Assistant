@@ -6,21 +6,35 @@ all_sync:
   alias: Sync All Alarms
   sequence:
     - service: input_slider.select_value
-      data: 
+      data_template: 
         entity_id:
           - input_slider.living_alarm_clock_hour
-          - input_slider.boys_alarm_clock_hour
-          - input_slider.masterbed_alarm_clock_hour
-          #What should the value be????
-        value_template: '{{states.input_slider.all_alarm_clock_hour.state}}'
+        value: '{{states.input_slider.all_alarm_clock_hour.state | float}}'
     - service: input_slider.select_value
-      data: 
+      data_template: 
+        entity_id:
+          - input_slider.boys_alarm_clock_hour
+        value: '{{states.input_slider.all_alarm_clock_hour.state | float}}'
+    - service: input_slider.select_value
+      data_template: 
+        entity_id:
+          - input_slider.masterbed_alarm_clock_hour
+        value: '{{states.input_slider.all_alarm_clock_hour.state | float}}'
+    - service: input_slider.select_value
+      data_template: 
         entity_id:
           - input_slider.living_alarm_clock_minute
+        value: '{{states.input_slider.all_alarm_clock_minute.state | float}}'
+    - service: input_slider.select_value
+      data_template: 
+        entity_id:
           - input_slider.boys_alarm_clock_minute
+        value: '{{states.input_slider.all_alarm_clock_minute.state | float}}'
+    - service: input_slider.select_value
+      data_template: 
+        entity_id:
           - input_slider.masterbed_alarm_clock_minute
-          #What should the value be????
-        value_template: '{{states.input_slider.all_alarm_clock_minute.state}}'
+        value: '{{states.input_slider.all_alarm_clock_minute.state | float}}'
     - service: input_boolean.turn_on
       data: 
         entity_id:
@@ -32,4 +46,4 @@ all_sync:
         entity_id:
           - input_boolean.living_alarm_clock_repeat
           - input_boolean.boys_alarm_clock_repeat
-          - input_boolean.masterbed_alarm_clock_repeatpi
+          - input_boolean.masterbed_alarm_clock_repeat

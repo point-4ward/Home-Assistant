@@ -10,6 +10,7 @@ information:
     - group.email_security
     - group.environment
     - group.calendar
+    - group.calendar_2
     - group.system
     - group.time
     - group.zwave

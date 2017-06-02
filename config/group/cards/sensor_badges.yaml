@@ -33,3 +33,6 @@ Environment:
   - sensor.dark_sky_wind_speed
 
 Email Security: !secret email_security
+
+Calendar:
+ - sensor.calendar
