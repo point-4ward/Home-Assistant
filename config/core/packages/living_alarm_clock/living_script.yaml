@@ -9,3 +9,7 @@ living_wake_up:
         entity_id: light.fibaro_system_fgd212_dimmer_2_level_3_0
         brightness: 255
         transition: 10
+    - service: tts.google_say
+      entity_id: media_player.ccagroup
+      data:
+        message: 'Alarm, Alarm, Alarm'

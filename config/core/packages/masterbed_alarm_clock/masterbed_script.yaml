@@ -9,3 +9,7 @@ masterbed_wake_up:
         entity_id: light.master_bedroom
         brightness: 255
         transition: 10
+    - service: tts.google_say
+      entity_id: media_player.ccagroup
+      data:
+        message: 'Alarm, Alarm, Alarm'

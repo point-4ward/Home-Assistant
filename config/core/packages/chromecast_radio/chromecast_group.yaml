@@ -1,4 +1,9 @@
-Residence Radio:
+########################
+#Element of the package#
+########################
+
+Chromecast Radio:
+  control: hidden
   name: Chromecast Radio
   entities:
   - input_select.radio_station

@@ -16,7 +16,7 @@
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.masterbed_alarm_clock_status
-          
+
 - alias: 'Bedroom clear boolean' 
   trigger:
     platform: template

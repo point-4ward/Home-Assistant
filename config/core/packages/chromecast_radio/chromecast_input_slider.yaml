@@ -1,6 +1,11 @@
+########################
+#Element of the package#
+########################
+
 volume_radio:
   name: Volume
   icon: mdi:volume-high
   min: 0
   max: 1
   step: 0.05
+  initial: 0.2

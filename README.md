@@ -33,16 +33,17 @@ Gnd floor - Living room        WC
  - Fibaro FGMS-001 multi-sensor (yet to be fitted)
  - Comag 10" tablet
  - Usual home theatre stuff - TV/Blu-Ray/AV Receiver
+ - 3 x Chromecast Audios
 
 ## Software:
 
  - Home Assistant
- - HAdashboard
  - Kodi
  - Yatse (+ call plugin)
  - Alexa app (for config of echo dot)
  - Hue app (for config of hue lights/bridge)
- - Custom Alexa skill (to control Kodi)
+ - Custom Alexa skill (to control Kodi via Echo Dot)
+ - Google Home app (for config of Chromecasts)
  - Owntracks
  - Pushbullet
 
@@ -60,6 +61,15 @@ Gnd floor - Living room        WC
  - Automatically set living room lights to 'normal' when media (except music) pauses or stops.
  - Voice control for all the lights.
  - Voice control Kodi.
+ - Voice output via Chromecast Audios.
+ - Multiroom audio with streaming radio stations.
+ - Monitors email addresses for security breaches and notifies if insecure.
+ - Monitors HomeAssistant for updates and notifies when update available.
+ - Automatically updates Let's Encrypt certificate for SSL.
+ - Monitors the instance for hacking attempts, notifies and blocks IP of attacker.
+ - Automatically pauses Kodi if the phone rings.
+ - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
+ - Timer function that alerts on phones and over Chromecast Audios. 
 
 ## My configuration:
 
@@ -138,10 +148,6 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |
         |-----/config/
         |     |
-        |     |-----/alert/
-        |     |     |
-        |     |     |...[File per alert]		
-        |     |
         |     |-----/automation/
         |     |     |
         |     |     |...[Folder per room/group]
@@ -156,7 +162,9 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |
         |     |-----/core/
         |     |     |
+        |     |     |- customize_glob.yaml
         |     |     |- homeassistant.yaml
+        |     |     |- packages.yaml
         |     |     |
         |     |     |-----/customize/
         |     |     |     |
@@ -170,15 +178,11 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |                 |
         |     |                 |...[File per package element]
         |     |
-        |     |-----/groups/
+        |     |-----/group/
         |     |     |
         |     |     |-----/cards/
         |     |     |     |
         |     |     |     |...[file for each UI card]
-        |     |     |
-        |     |     |-----/other/
-        |     |     |     |
-        |     |     |     |...[file for each group that isn't a card/tab]
         |     |     |
         |     |     |-----/views/
         |     |           |
@@ -231,6 +235,8 @@ All of which, for me, leads to an easy to manage configuration system that looks
 ...which you can browse through in this repo.
 
 I have put a small comment block at the top of each file that hopefully will give some clues for anyone using this repo as a learning tool.  At some point in the future I will try and put some more detailed comments on the more important/complicated bits.  In the meantime, if I can clarify anything for anyone, just let me know.
+
+I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these folders to the corrext place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
 
 ## Useful links/resources etc:
 

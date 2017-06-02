@@ -7,6 +7,5 @@ alarm_light_flash_loop:
   sequence:
     - delay:
         seconds: 3
-      
     - service: script.turn_on
       entity_id: script.alarm_light_flash

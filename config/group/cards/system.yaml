@@ -16,3 +16,6 @@ System:
   - sensor.speedtest_download
   - sensor.speedtest_ping
   - sensor.speedtest_upload
+
+Alarm:
+  - alarm_control_panel.alarm

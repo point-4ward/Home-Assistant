@@ -7,9 +7,7 @@ location:
   name: Location
   icon: mdi:google-maps
   entities:
-    - group.tracker
+    - group.phone_trackers
     - camera.marc
     - camera.laura
     - group.travel_time
-    - group.marc_tracker
-    - group.laura_tracker

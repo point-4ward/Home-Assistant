@@ -1,3 +1,7 @@
+########################
+#Element of the package#
+########################
+
 script.radio_chromecast:
   friendly_name: Start Playing
   icon: mdi:play

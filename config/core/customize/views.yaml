@@ -4,19 +4,27 @@
 
 group.livingroom:
   order: 0
+
 group.kitchen:
   order: 1
+
 group.master_bedroom:
   order: 2
+
 group.bedroom_two:
   order: 3
+
 group.media:
   order: 4
+
 group.location:
   order: 5
+
 group.tools:
   order: 6
+
 group.information:
   order: 7
+
 group.security:
   order: 8

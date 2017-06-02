@@ -9,6 +9,7 @@ living_alarm_clock_hour:
   min: 0
   max: 23
   step: 1
+
 living_alarm_clock_minute:
   name: Minute
   icon: mdi:timer

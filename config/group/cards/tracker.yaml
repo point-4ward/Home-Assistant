@@ -1,9 +1,0 @@
-#################################
-#Placing entities on the card   #
-#################################
-
-Tracker:
-  name: Home Tracker
-  entities:
-    - group.marc_tracker
-    - group.laura_tracker

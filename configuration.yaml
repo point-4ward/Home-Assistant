@@ -5,7 +5,6 @@
 #and the !include files that it links to#
 #########################################
 
-
 ##################
 ## Core program ##
 ##################
@@ -34,14 +33,15 @@ light:
   platform: hue
   host: !secret hue_light_host
 emulated_hue: !include config/misc/emulated_hue.yaml
-device_tracker: !include config/misc/device_tracker.yaml
+device_tracker:
+  - platform: owntracks
 mqtt: !include config/misc/mqtt.yaml  
 zone: !include_dir_list config/zone/
 media_player: !include config/misc/media_player.yaml
 tts:
   - platform: google
 notify: !include config/misc/notify.yaml
-hdmi_cec: !include config/misc/hdmi_cec.yaml
+#hdmi_cec: !include config/misc/hdmi_cec.yaml
 camera: !include_dir_list config/camera/
 #android_ip_webcam: !include config/misc/android_ip_webcam.yaml
 google:
@@ -65,5 +65,4 @@ scene: !include_dir_list config/scene/
 input_boolean: !include config/misc/input_boolean.yaml
 input_select: !include config/misc/input_select.yaml
 alarm_control_panel: !include config/misc/alarm_control_panel.yaml
-alert: !include_dir_merge_named config/alert
 shell_command: !include config/misc/shell_command.yaml

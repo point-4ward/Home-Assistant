@@ -1,18 +1,19 @@
+########################
+#Element of the package#
+########################
+
 radio_chromecast:
   alias: Play Radio on Chromecast Audio
   sequence:
     - service: media_player.volume_set
-      data:
-        entity_id: media_player.kitchencca
-        volume_level: '0.20'
-    -  service: media_player.volume_set
-       data:
-         entity_id: media_player.landingcca
-         volume_level: '0.20'
-    -  service: media_player.volume_set
-       data:
-         entity_id: media_player.bedroomcca
-         volume_level: '0.20'
+      data_template:
+          entity_id: >
+            {% if is_state("input_select.chromecast_radio", "Kitchen") %} media_player.kitchencca
+            {% elif is_state("input_select.chromecast_radio", "Landing") %} media_player.landingcca
+            {% elif is_state("input_select.chromecast_radio", "Master Bedroom") %} media_player.bedroomcca
+            {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.ccagroup
+            {% endif %}
+          volume_level: '{{  states.input_slider.volume_radio.state  }}'
     -  service: media_player.play_media
        data_template:
          entity_id: >
@@ -43,3 +44,7 @@ stop_radio_chromecast:
           - media_player.landingcca
           - media_player.bedroomcca
           - media_player.ccagroup
+    - service: input_slider.select_value
+      data_template:
+        entity_id: input_slider.volume_radio
+        value: 0.20

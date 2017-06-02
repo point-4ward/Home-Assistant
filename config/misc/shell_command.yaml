@@ -5,4 +5,4 @@
 
 renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 
-upgrade_hass: bash /home/hass/.homeassistant/extras/bash_scripts/upgrade-hass.sh
+upgrade_hass: /bin/bash /home/hass/.homeassistant/extras/bash_scripts/upgrade-hass.sh

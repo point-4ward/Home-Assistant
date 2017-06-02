@@ -27,3 +27,19 @@ switch.hdmi_0:
 
 switch.hdmi_1:
   hidden: true
+
+#Sensors
+sensor.ssl_cert_expiry:
+  friendly_name: "SSL certificate expiry"
+  icon: mdi:security-home
+
+sensor.ha_upstream:
+  friendly_name: "Upstream HA version"
+  icon: mdi:cloud-sync
+
+sensor.installed_ha_version:
+  icon: mdi:home-outline
+
+#Trackers
+device_tracker.phone_marcs_pixel_phone:
+  hidden: true

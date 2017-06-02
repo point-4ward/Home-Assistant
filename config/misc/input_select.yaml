@@ -12,7 +12,7 @@ living_room_scenes:
     - "FULL"
   initial: Select
   icon: mdi:creation
-  
+
 bedroom_two_scenes:
   name: Scenes
   options:
@@ -23,7 +23,7 @@ bedroom_two_scenes:
     - "FULL"
   initial: Select
   icon: mdi:creation
-  
+
 master_bedroom_scenes:
   name: Scenes
   options:

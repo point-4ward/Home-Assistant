@@ -12,4 +12,4 @@ media:
     - media_player.bedroomcca
     - media_player.landingcca  
     - media_player.ccagroup    
-    - group.residence_radio
+    - group.chromecast_radio

@@ -6,7 +6,7 @@ guest_mode:
   name: Guest mode
   initial: off
   icon: mdi:human-handsup
-  
+
 holiday_mode:
   name: Holiday mode
   initial: off
@@ -16,7 +16,7 @@ school_day_mode:
   name: School Day mode
   initial: off
   icon: mdi:school
-  
+
 bathtime_mode:
   name: Bathtime mode
   initial: off
@@ -31,7 +31,7 @@ away_mode:
   name: Away mode
   initial: off
   icon: mdi:alert-circle-outline
-  
+
 kids_night_mode:
   name: Kids night monitor
   initial: off

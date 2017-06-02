@@ -1,0 +1,13 @@
+#######################################
+#Zone for Home - this overrides the   #
+#default home zone as I was having    #
+#problems if I stopped too near, then #
+#went home as Owntracks only updates  #
+#if you move a certain distance       #
+#######################################
+
+name: Home
+latitude: !secret latitude
+longitude: !secret longitude
+radius: 250
+icon: mdi:home

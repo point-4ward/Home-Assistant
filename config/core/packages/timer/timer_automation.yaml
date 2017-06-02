@@ -25,4 +25,8 @@
   action:
     - service: notify.pushbullet_marc
       data:
-        message: "Your timer has expired - Home Assistant"
+        message: "The timer has expired - Home Assistant"
+    - service: tts.google_say
+      entity_id: media_player.ccagroup
+      data:
+        message: 'The timer has expired, The timer has expired'

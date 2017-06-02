@@ -1,0 +1,16 @@
+##############################
+#Notifies me if there are any#
+#failed logins to HA         #
+##############################
+
+alias: "Send notification upon failed login attempt"
+trigger:
+  - platform: state
+    entity_id: persistent_notification.httplogin
+condition:
+  - condition: template
+    value_template: "{{ trigger.to_state.state != off }}"
+action:
+  - service: notify.pushbullet_marc
+    data_template:
+      message: "{{ trigger.to_state.state }}"
