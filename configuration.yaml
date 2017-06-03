@@ -40,6 +40,7 @@ zone: !include_dir_list config/zone/
 media_player: !include config/misc/media_player.yaml
 tts:
   - platform: google
+    cache: false
 notify: !include config/misc/notify.yaml
 #hdmi_cec: !include config/misc/hdmi_cec.yaml
 camera: !include_dir_list config/camera/
@@ -58,6 +59,7 @@ updater:
 ## My automations/scripts/scenes/etc ##
 #######################################
 
+automation new: !include automations.yaml
 automation old: !include_dir_list config/automation/
 device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
 script: !include_dir_merge_named config/script/

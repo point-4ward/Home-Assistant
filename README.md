@@ -146,89 +146,89 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |
         |     |...[dependencies]
         |
-        |-----/config/
+        |-----/extras/
         |     |
-        |     |-----/automation/
-        |     |     |
-        |     |     |...[Folder per room/group]
-        |     |           |
-        |     |           |...[File per automation]
-        |     |
-        |     |-----/camera/
-        |     |     |
-        |     |     |...[Folder per type]
-        |     |           |
-        |     |           |...[File per camera]		
-        |     |
-        |     |-----/core/
-        |     |     |
-        |     |     |- customize_glob.yaml
-        |     |     |- homeassistant.yaml
-        |     |     |- packages.yaml
-        |     |     |
-        |     |     |-----/customize/
-        |     |     |     |
-        |     |     |     |...[File per group/set]
-        |     |     |
-        |     |     |-----/packages/
-        |     |           |
-        |     |           |...[File per package]
-        |     |           |		
-        |     |           |...[Folder per package for elements]
-        |     |                 |
-        |     |                 |...[File per package element]
-        |     |
-        |     |-----/group/
-        |     |     |
-        |     |     |-----/cards/
-        |     |     |     |
-        |     |     |     |...[file for each UI card]
-        |     |     |
-        |     |     |-----/views/
-        |     |           |
-        |     |           |...[file for each UI view tab]
-        |     |
-        |     |-----/misc/
-        |     |     |
-        |     |     |- alarm_control_panel.yaml
-        |     |     |- android_ip_webcam.yaml
-        |     |     |- device_sun_light_trigger.yaml
-        |     |     |- device_tracker.yaml
-        |     |     |- emulated_hue.yaml
-        |     |     |- hdmi_cec.yaml
-        |     |     |- http.yaml
-        |     |     |- input_boolean.yaml
-        |     |     |- input_select.yaml
-        |     |     |- logbook.yaml
-        |     |     |- media_player.yaml
-        |     |     |- mqtt.yaml
-        |     |     |- notify.yaml
-        |     |     |- shell_command.yaml		
-        |     |     |- weblink.yaml
-        |     |
-        |     |-----/scene/
-        |     |     |
-        |     |     |...[folder for each room/group]
-        |     |           |
-        |     |           |...[File per scene]
-        |     |
-        |     |-----/script/
-        |     |     |
-        |     |     |...[folder for each room/group]
-        |     |           |
-        |     |           |...[File per script]		
-        |     |
-        |     |-----/sensor/
-        |     |     |
-        |     |     |...[file for each group/set]
-        |     |
-        |     |-----/zones/
-        |           |
-        |           |...[file for each zone]
+        |     |...[bash scripts/github resources etc]
         |
-        |-----/tts/
+        |-----/config/
               |
-              |...[text_to_speech files]		
+              |-----/automation/
+              |     |
+              |     |...[Folder per room/group]
+              |           |
+              |           |...[File per automation]
+              |
+              |-----/camera/
+              |     |
+              |     |...[Folder per type]
+              |           |
+              |           |...[File per camera]		
+              |
+              |-----/core/
+              |     |
+              |     |- customize_glob.yaml
+              |     |- homeassistant.yaml
+              |     |- packages.yaml
+              |     |
+              |     |-----/customize/
+              |     |     |
+              |     |     |...[File per group/set]
+              |     |
+              |     |-----/packages/
+              |           |
+              |           |...[File per package]
+              |           |		
+              |           |...[Folder per package for elements]
+              |                 |
+              |                 |...[File per package element]
+              |
+              |-----/group/
+              |     |
+              |     |-----/cards/
+              |     |     |
+              |     |     |...[file for each UI card]
+              |     |
+              |     |-----/views/
+              |           |
+              |           |...[file for each UI view tab]
+              |
+              |-----/misc/
+              |     |
+              |     |- alarm_control_panel.yaml
+              |     |- android_ip_webcam.yaml
+              |     |- device_sun_light_trigger.yaml
+              |     |- device_tracker.yaml
+              |     |- emulated_hue.yaml
+              |     |- hdmi_cec.yaml
+              |     |- http.yaml
+              |     |- input_boolean.yaml
+              |     |- input_select.yaml
+              |     |- logbook.yaml
+              |     |- media_player.yaml
+              |     |- mqtt.yaml
+              |     |- notify.yaml
+              |     |- shell_command.yaml		
+              |     |- weblink.yaml
+              |
+              |-----/scene/
+              |     |
+              |     |...[folder for each room/group]
+              |           |
+              |           |...[File per scene]
+              |
+              |-----/script/
+              |     |
+              |     |...[folder for each room/group]
+              |           |
+              |           |...[File per script]		
+              |
+              |-----/sensor/
+              |     |
+              |     |...[file for each group/set]
+              |
+              |-----/zones/
+                    |
+                    |...[file for each zone]
 	
 ```				
 
