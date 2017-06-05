@@ -1,0 +1,19 @@
+###############################
+#Notifies me if the SD card on#
+#my system becomes 80% full   #
+###############################
+
+alias: "Disk Use Alarm"
+trigger:
+  platform: numeric_state
+  entity_id: sensor.disk_use_
+  above: 80
+action:
+  - service: notify.pushbullet_marc
+    data:
+      message: 'Your harddrive is running out of Space!'
+  - service: persistent_notification.create
+    data:
+      title: "Hard Drive Monitor:"
+      message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_.state }}%!"
+      notification_id: "Critical Alert"

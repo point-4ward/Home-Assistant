@@ -9,4 +9,5 @@ master_bedroom:
   entities:
     - group.master_bedroom_lights
     - group.masterbed_alarm_clock
+    - group.masterbed_modes
     - media_player.bedroomcca

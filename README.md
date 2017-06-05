@@ -67,7 +67,6 @@ Gnd floor - Living room        WC
  - Monitors HomeAssistant for updates and notifies when update available.
  - Automatically updates Let's Encrypt certificate for SSL.
  - Monitors the instance for hacking attempts, notifies and blocks IP of attacker.
- - Automatically pauses Kodi if the phone rings.
  - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
  - Timer function that alerts on phones and over Chromecast Audios. 
 

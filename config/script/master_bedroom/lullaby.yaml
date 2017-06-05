@@ -1,0 +1,39 @@
+########################################
+# A script that plays the Sleep radio  #
+# station for an hour over the         #
+# chromecast in the bedroom, gradually #
+# decreasing the volume level and then #
+# switches off the chromecast          #
+########################################
+
+lullaby:
+  alias: Lullaby Mode
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bedroomcca
+        volume_level: '0.20'
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.bedroomcca
+        media_content_id: http://37.59.28.208:8722/stream
+        media_content_type: 'audio/mp4'
+    - delay: '00:00:15'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bedroomcca
+        volume_level: '0.15'
+    - delay: '00:00:15'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bedroomcca
+        volume_level: '0.10'
+    - delay: '00:00:15'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bedroomcca
+        volume_level: '0.05'
+    - delay: '00:00:15'
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.bedroomcca

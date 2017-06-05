@@ -8,7 +8,7 @@ alias: 'Breach email haveibeenpwned run'
 trigger:
   platform: numeric_state
   entity_id: !secret sensor_email_run
-  above: 1
+  above: 0
 action:
   service: notify.pushbullet_marc
   data:
