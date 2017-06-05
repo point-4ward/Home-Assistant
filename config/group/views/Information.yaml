@@ -7,7 +7,6 @@ information:
   name: Information
   icon: mdi:information-variant
   entities:
-    - group.email_security
     - group.environment
     - group.calendar
     - group.calendar_2

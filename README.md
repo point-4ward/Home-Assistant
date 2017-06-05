@@ -1,3 +1,5 @@
+[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)
+
 # My HA setup:
 
 This is my current Home Automation setup.  Starting small and gradually growing as funds allow...
