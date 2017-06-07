@@ -1,4 +1,4 @@
-[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant)
+[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) [![RepoSize](https://reposs.herokuapp.com/?path=mf-social/Home-Assistant)](https://github.com/ruddfawcett/reposs) [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues)
 
 # My HA setup:
 
