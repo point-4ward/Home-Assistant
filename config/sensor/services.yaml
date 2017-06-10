@@ -15,11 +15,11 @@
   command: "/srv/hass/hass_venv/bin/hass --version"
   scan_interval: 86400
 
-- platform: scrape
+- platform: rest
+  resource: https://pypi.python.org/pypi/homeassistant/json
   name: HA upstream
-  resource: https://home-assistant.io
-  select: ".current-version h1"
-  value_template: '{{ value.split(":")[1] }}'
+  value_template: '{{ value_json.info.version }}'
+  scan_interval: 3600
 
 - platform: haveibeenpwned
   email: !secret haveibeenpwned_email
