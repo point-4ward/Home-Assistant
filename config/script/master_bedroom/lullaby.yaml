@@ -18,6 +18,10 @@ lullaby:
         entity_id: media_player.bedroomcca
         media_content_id: http://37.59.28.208:8722/stream
         media_content_type: 'audio/mp4'
+    - service: light.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Nightlight"
     - delay: '00:15:00'
     - service: media_player.volume_set
       data:
