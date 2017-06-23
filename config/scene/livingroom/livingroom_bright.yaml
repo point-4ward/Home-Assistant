@@ -4,7 +4,7 @@
 
 name: Livingroom bright
 entities:
-  light.fibaro_system_fgd212_dimmer_2_level_3_0:
+  light.living_room_zwave_dimmer_level:
     state: on
     transition: 2
     brightness: 180

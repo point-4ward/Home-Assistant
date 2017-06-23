@@ -7,9 +7,9 @@ alarm_light_flash:
   alias: Alarm Light Flash
   sequence:
     - service: homeassistant.turn_off
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2_0      
+      entity_id: light.boys_room_zwave_dimmer      
     - service: homeassistant.turn_on
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_3_0
+      entity_id: light.living_room_zwave_dimmer
       data:
         brightness: 255
     - delay:
@@ -17,13 +17,13 @@ alarm_light_flash:
     - service: homeassistant.turn_off
       entity_id: light.master_bedroom
     - service: homeassistant.turn_on
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2_0
+      entity_id: light.boys_room_zwave_dimmer
       data:
         brightness: 255
     - delay:
         seconds: 3
     - service: homeassistant.turn_off
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_3_0
+      entity_id: light.living_room_zwave_dimmer
     - service: homeassistant.turn_on
       entity_id: light.master_bedroom
       data:

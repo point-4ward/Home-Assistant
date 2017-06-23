@@ -6,7 +6,7 @@
 alias: reset_scene_selector
 trigger:
   platform: state
-  entity_id: light.fibaro_system_fgd212_dimmer_2_level_3_0
+  entity_id: light.living_room_zwave_dimmer_level
   to: 'off'
 action:
     - service: input_select.select_option

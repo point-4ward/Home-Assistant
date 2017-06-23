@@ -4,7 +4,7 @@
 
 name: Bedroom 2 bright
 entities:
-  light.fibaro_system_fgd212_dimmer_2_level_2_0:
+  light.boys_room_zwave_dimmer_level:
     state: on
     transition: 2
     brightness: 180

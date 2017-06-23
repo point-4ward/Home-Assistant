@@ -3,6 +3,6 @@
 #################################
 
 Zwave:
-  - zwave.fibaro_system_fgd212_dimmer_2_2
-  - zwave.fibaro_system_fgd212_dimmer_2_3
-  - zwave.zwaveme_razberry_controller_2016_zwave_1
+  - zwave.boys_room_zwave_dimmer
+  - zwave.living_room_zwave_dimmer
+  - zwave.zwaveme_razberry_controller_2016_zwave

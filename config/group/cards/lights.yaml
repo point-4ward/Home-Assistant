@@ -14,12 +14,12 @@ bedroom_two_lights:
   name: Lights
   control: hidden
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_2_0
+    - light.boys_room_zwave_dimmer_level
     - input_select.bedroom_two_scenes
 
 livingroom_lights:
   name: Lights
   control: hidden
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_3_0
+    - light.living_room_zwave_dimmer_level
     - input_select.living_room_scenes

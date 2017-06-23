@@ -4,19 +4,13 @@
 ################################
 
 #Lights
-light.fibaro_system_fgd212_dimmer_2_level_2_0:
+light.boys_room_zwave_dimmer_level:
   friendly_name: Bedroom 2 Ceiling
   emulated_hue_name: "boys room light"
   
-light.fibaro_system_fgd212_dimmer_2_level_3_0:
+light.living_room_zwave_dimmer_level:
   friendly_name: Living Room Light
   emulated_hue_name: "living room light"
-
-light.fibaro_system_fgd212_dimmer_2_level_2_0_2:
-  hidden: true
-  
-light.fibaro_system_fgd212_dimmer_2_level_3_0_2:
-  hidden: true
   
 light.master_bedroom:
   hidden: true

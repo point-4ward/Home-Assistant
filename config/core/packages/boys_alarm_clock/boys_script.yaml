@@ -6,6 +6,6 @@ boys_wake_up:
   sequence:
     - service: light.turn_on
       data: 
-        entity_id: light.fibaro_system_fgd212_dimmer_2_level_2_0
+        entity_id: light.boys_room_zwave_dimmer_level
         brightness: 255
         transition: 10

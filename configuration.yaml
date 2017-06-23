@@ -29,6 +29,7 @@ logbook: !include config/misc/logbook.yaml
 
 zwave:
   usb_path: /dev/ttyAMA0
+  new_entity_ids: true
 light:
   platform: hue
   host: !secret hue_light_host
@@ -54,6 +55,7 @@ sun:
 sensor: !include_dir_merge_list config/sensor/
 weblink: !include config/misc/weblink.yaml
 updater:
+  include_used_components: true
 
 #######################################
 ## My automations/scripts/scenes/etc ##

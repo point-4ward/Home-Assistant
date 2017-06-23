@@ -14,7 +14,7 @@
 "sensor.*clock_time_long*":
   hidden: true
 
-"sensor.fibaro*":
+"sensor.*zwave*":
   hidden: true
 
 "light.*step_size*":
