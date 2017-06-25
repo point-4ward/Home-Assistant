@@ -8,8 +8,4 @@
   name: Living Room Android
   username: !secret android_cam_username
   password: !secret android_cam_password
-  auto_discovery: true
   motion_sensor: true
-  sensors:
-    - battery_level
-    - motion

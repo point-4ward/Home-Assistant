@@ -30,6 +30,7 @@ logbook: !include config/misc/logbook.yaml
 zwave:
   usb_path: /dev/ttyAMA0
   new_entity_ids: true
+  #can remove after 0.48
 light:
   platform: hue
   host: !secret hue_light_host
@@ -42,10 +43,10 @@ media_player: !include config/misc/media_player.yaml
 tts:
   - platform: google
     cache: false
+telegram_bot: !include config/misc/telegram_bot.yaml
 notify: !include config/misc/notify.yaml
-#hdmi_cec: !include config/misc/hdmi_cec.yaml
 camera: !include_dir_list config/camera/
-#android_ip_webcam: !include config/misc/android_ip_webcam.yaml
+android_ip_webcam: !include config/misc/android_ip_webcam.yaml
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret
@@ -61,8 +62,7 @@ updater:
 ## My automations/scripts/scenes/etc ##
 #######################################
 
-automation new: !include automations.yaml
-automation old: !include_dir_list config/automation/
+automation: !include_dir_list config/automation/
 device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
 script: !include_dir_merge_named config/script/
 scene: !include_dir_list config/scene/

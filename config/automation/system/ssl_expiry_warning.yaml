@@ -9,6 +9,6 @@ trigger:
   entity_id: sensor.ssl_cert_expiry
   below: 21
 action:
-  service: notify.pushbullet_marc
+  service: notify.telegram_marc
   data:
     message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'

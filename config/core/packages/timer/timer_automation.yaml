@@ -23,7 +23,7 @@
     - condition: template
       value_template: '{{ states.input_slider.timer_minutes.state|float == 0.25}}'
   action:
-    - service: notify.pushbullet_marc
+    - service: notify.telegram_marc
       data:
         message: "The timer has expired - Home Assistant"
     - service: tts.google_say

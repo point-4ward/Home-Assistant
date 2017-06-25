@@ -17,7 +17,7 @@
 "sensor.*zwave*":
   hidden: true
 
-"light.*step_size*":
+"light.*2*":
   hidden: true
 
 "sensor.marc_to*":
@@ -28,3 +28,6 @@
 
 "zwave.*":
   icon: mdi:signal-variant
+
+"sensor.*android*":
+  hidden: true

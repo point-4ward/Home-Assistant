@@ -35,4 +35,7 @@ Environment:
 Email Security: !secret email_security
 
 Calendar:
- - sensor.calendar
+  - sensor.calendar
+
+Security Sensors:
+  - binary_sensor.living_room_android_motion_active

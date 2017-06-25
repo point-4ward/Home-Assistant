@@ -8,6 +8,6 @@ trigger:
   platform: state
   entity_id: updater.updater
 action:
-  service: notify.pushbullet_marc
+  service: notify.telegram_marc
   data:
     message: 'Update for Home Assistant is available.'

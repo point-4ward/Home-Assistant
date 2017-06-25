@@ -10,6 +10,6 @@ trigger:
   entity_id: !secret sensor_email_run
   above: 0
 action:
-  service: notify.pushbullet_marc
+  service: notify.telegram_marc
   data:
     message: 'Warning - HaveIbeenPwned detected a breach on your admin/run email address'

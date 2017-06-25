@@ -11,6 +11,6 @@ condition:
   - condition: template
     value_template: "{{ trigger.to_state.state != off }}"
 action:
-  - service: notify.pushbullet_marc
+  - service: notify.telegram_marc
     data_template:
       message: "{{ trigger.to_state.state }}"

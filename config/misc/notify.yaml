@@ -9,6 +9,6 @@
   username: !secret media_username
   password: !secret media_password
 
-- platform: pushbullet
-  name: pushbullet_marc
-  api_key: !secret pushbullet_api_key
+- platform: telegram
+  name: telegram_marc
+  chat_id: !secret telegram_bot_chat_id
