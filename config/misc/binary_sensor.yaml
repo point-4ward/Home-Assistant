@@ -1,0 +1,11 @@
+####################################
+#Binary sensors that set on or off #
+#based on a condition from another #
+#sensor or entity_id               #
+####################################
+
+- platform: threshold
+  name: Overcast
+  threshold: 69
+  type: upper
+  entity_id: sensor.dark_sky_cloud_coverage

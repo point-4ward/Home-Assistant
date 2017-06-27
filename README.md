@@ -47,20 +47,22 @@ Gnd floor - Living room        WC
  - Custom Alexa skill (to control Kodi via Echo Dot)
  - Google Home app (for config of Chromecasts)
  - Owntracks
- - Pushbullet
+ - Telegram - two way conversations with Home Assistant
 
 ## What it does:
 
  - Controllable from my phone over the internet, or via local network.
  - Controls living room lights, bedroom 2 lights and three lights in the master bedroom ( 1 x ceiling, 2 x bedside).  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room and bedroom 2 lights are white but can be set to preset brightness or controlled to any desired level.
  - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
- - Notifies us of key events via pushbullet and/or notifications on screen via kodi.
+ - Notifies us of key events via telegram and/or notifications on screen via kodi.
+ - Reacts to incoming messages sent from telegram.
  - Master bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
  - Automatically pause media during phone call using Yatse.
  - Automatically turn living room lights on when it gets dark and somebody is home.
  - Automatically turn living room lights on if the house is empty and somebody arrives home in the dark.
  - Automatically set living room lights to 'dim' when playing media (except music) and it is dark.
  - Automatically set living room lights to 'normal' when media (except music) pauses or stops.
+ - Living room lights will come on in the day if heavily overcast outside, and will switch off again when clouds pass.
  - Voice control for all the lights.
  - Voice control Kodi.
  - Voice output via Chromecast Audios.
@@ -74,7 +76,7 @@ Gnd floor - Living room        WC
 
 ## My configuration:
 
-See in the repo for all of my non-sensitive configuration files.  I've been playing with HASS for a while now and have made a fair few changes, a few quick notes:
+See in the repo for all of my non-sensitive configuration files.  I've been playing with HA for a while now and have made a fair few changes, a few quick notes:
 
 In my configuration.yaml I have removed history component, discovery component and conversation component. Most people seem to leave these in but I removed them because:
 
@@ -82,11 +84,11 @@ In my configuration.yaml I have removed history component, discovery component a
  - The discovery component never discovered anything for me, so having it running in the background seemed a waste of resources.
  - The conversation component is superfluous with my amazon echo implementation, so again I've reclaimed some resources.
  
-I have changed my logging database to mysql.  I read on a blog post once that it massively improves the speed of HASS.  In all honesty I did not notice such a change to the performance of HASS, but I've done it now so I'm not changing it back unless I have a specific reason to. 
+I have changed my logging database to mysql.  I read on a blog post once that it massively improves the speed of HA.  In all honesty I did not notice such a change to the performance of HA, but I've done it now so I'm not changing it back unless I have a specific reason to. 
 
 Everybody has their own way of organising files, and they can get confusing, so I decided on an organisational method for mine from the start and this is how I work it:
 
-In the '.homeassistant/' folder there are some files that can't be moved, so they obviosuly stay there.  Any that don't have to be there (and don't have to be in a specific location elswewhere, ie local icons in ./homeassistant/www/) go in a folder called config/
+In the '.homeassistant/' folder there are some files that can't be moved, so they obviously stay there.  Any that don't have to be there (and don't have to be in a specific location elswewhere, ie local icons in ./homeassistant/www/) go in a folder called config/
 
 When I'm adding an entry to my configuration.yaml I ask myself whether it will take more than three lines.  If it takes only one, two or three lines, I put it directly in configuration.yaml
 
@@ -141,7 +143,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |
         |-----/www/
         |     |
-        |     |...[local pictures here]
+        |     |...[local pictures and files here]
         |
         |-----/deps/
         |     |
@@ -197,10 +199,10 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |
               |     |- alarm_control_panel.yaml
               |     |- android_ip_webcam.yaml
+              |     |- binary_sensor.yaml
               |     |- device_sun_light_trigger.yaml
               |     |- device_tracker.yaml
               |     |- emulated_hue.yaml
-              |     |- hdmi_cec.yaml
               |     |- http.yaml
               |     |- input_boolean.yaml
               |     |- input_select.yaml
@@ -208,7 +210,8 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |- media_player.yaml
               |     |- mqtt.yaml
               |     |- notify.yaml
-              |     |- shell_command.yaml		
+              |     |- shell_command.yaml
+              |     |- telegram_bot.yaml
               |     |- weblink.yaml
               |
               |-----/scene/
@@ -227,7 +230,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |
               |     |...[file for each group/set]
               |
-              |-----/zones/
+              |-----/zone/
                     |
                     |...[file for each zone]
 	
@@ -237,7 +240,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
 
 I have put a small comment block at the top of each file that hopefully will give some clues for anyone using this repo as a learning tool.  At some point in the future I will try and put some more detailed comments on the more important/complicated bits.  In the meantime, if I can clarify anything for anyone, just let me know.
 
-I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these folders to the correct place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
+I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these files to the correct place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
 
 ## Useful links/resources etc:
 

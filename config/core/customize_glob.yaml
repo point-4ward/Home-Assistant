@@ -17,7 +17,7 @@
 "sensor.*zwave*":
   hidden: true
 
-"light.*2*":
+"light.*zwave*_2*":
   hidden: true
 
 "sensor.marc_to*":

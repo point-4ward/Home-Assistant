@@ -36,3 +36,8 @@ kids_night_mode:
   name: Kids night monitor
   initial: off
   icon: mdi:human-child
+
+bedtime_mode:
+  name: Bedtime
+  initial: off
+  icon: mdi:sleep

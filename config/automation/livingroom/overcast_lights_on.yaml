@@ -1,0 +1,28 @@
+######################################
+#Switches the lights on if it becomes#
+#overcast during the daytime (after  #
+#sunset has it's own automations     #
+######################################
+
+alias: 'Overcast Lights On'
+trigger:
+  platform: state
+  entity_id: binary_sensor.overcast
+  state: 'on'
+  for:
+    minutes: 11
+condition:
+  condition: and
+  conditions:
+    - condition: sun
+      after: sunrise
+      before: sunset
+    - condition: state
+      entity_id: light.living_room_zwave_dimmer_level
+      state: 'off'
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+action:
+  - service: scene.turn_on
+    entity_id: scene.livingroom_normal
