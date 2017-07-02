@@ -7,7 +7,7 @@
 
 timer: !include packages/timer.yaml
 chromecast_radio: !include packages/chromecast_radio.yaml
-boys_alarm_clock: !include packages/boys_alarm_clock.yaml
-living_alarm_clock: !include packages/living_alarm_clock.yaml
-master_bedroom_alarm_clock: !include packages/master_bedroom_alarm_clock.yaml
-all_alarm_clock: !include packages/all_alarm_clock.yaml
+#boys_alarm_clock: !include packages/boys_alarm_clock.yaml
+#living_alarm_clock: !include packages/living_alarm_clock.yaml
+#master_bedroom_alarm_clock: !include packages/master_bedroom_alarm_clock.yaml
+#all_alarm_clock: !include packages/all_alarm_clock.yaml

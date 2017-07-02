@@ -27,13 +27,11 @@ logbook: !include config/misc/logbook.yaml
 ## My components/devices/sensors/etc ##
 #######################################
 
-zwave:
-  usb_path: /dev/ttyAMA0
-  new_entity_ids: true
-  #can remove after 0.48
-light:
-  platform: hue
-  host: !secret hue_light_host
+#zwave:
+#  usb_path: /dev/ttyAMA0
+#light:
+#  platform: hue
+#  host: !secret hue_light_host
 emulated_hue: !include config/misc/emulated_hue.yaml
 device_tracker:
   - platform: owntracks

@@ -8,7 +8,7 @@ alias: 'Overcast Lights On'
 trigger:
   platform: state
   entity_id: binary_sensor.overcast
-  state: 'on'
+  to: 'on'
   for:
     minutes: 11
 condition:
