@@ -6,9 +6,13 @@
   name: Living Room Kodi
   host: !secret media_host
   port: !secret media_port
+  enable_websocket: false
   username: !secret media_username
   password: !secret media_password
-  turn_off_action: shutdown
-  enable_websocket: false
+  turn_off_action:
+    service: media_player.kodi_call_method
+    data_template:
+      entity_id: '{{ entity_id }}'
+      method: System.Shutdown
 
 - platform: cast

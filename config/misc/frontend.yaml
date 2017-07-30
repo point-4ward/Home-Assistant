@@ -1,0 +1,10 @@
+################################
+#Themes for the frontend - this#
+#is a work in progress         #
+################################
+
+themes:
+  day:
+    primary-color: blue
+  night:
+    primary-color: grey
