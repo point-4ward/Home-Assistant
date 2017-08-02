@@ -12,7 +12,7 @@
 
 - platform: command_line
   name: Installed HA version
-  command: "/srv/hass/hass_venv/bin/hass --version"
+  command: "/srv/hass/bin/hass --version"
   scan_interval: 86400
 
 - platform: rest

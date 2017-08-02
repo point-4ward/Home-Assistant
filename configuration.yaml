@@ -20,7 +20,6 @@ group: !include_dir_merge_named config/group/
 http: !include config/misc/http.yaml
 recorder:
   purge_days: 14
-  db_url: !secret recorder_db_url
 logbook: !include config/misc/logbook.yaml
 
 #######################################

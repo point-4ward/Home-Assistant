@@ -83,8 +83,6 @@ In my configuration.yaml I have removed history component, discovery component a
  - The history component paints lovely pretty bars of the state that your components have been in recently.  I didn't need this, and found that it was quite slow to render, so it's gone.  I find the logbook a far more useful tool anyway.
  - The discovery component never discovered anything for me, so having it running in the background seemed a waste of resources.
  - The conversation component is superfluous with my amazon echo implementation, so again I've reclaimed some resources.
- 
-I have changed my logging database to mysql.  I read on a blog post once that it massively improves the speed of HA.  In all honesty I did not notice such a change to the performance of HA, but I've done it now so I'm not changing it back unless I have a specific reason to. 
 
 Everybody has their own way of organising files, and they can get confusing, so I decided on an organisational method for mine from the start and this is how I work it:
 
@@ -128,7 +126,7 @@ You may note that by following this rule I have also, contrary to convention, do
 
 I have also used 'packages' to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights), the configuration files for which are also kept in bite-sized chunks using the above method, although the includes are nested slightly to prevent duplicates from recursively merged folders.
 
-This means I can keep all the configuration files in an order that makes sense to me, and keeps them small so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` and `secrets.yaml` .
+This means I can keep all the configuration files in an order that makes sense to me, and keeps them small so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` and `secrets.yaml` .  I then use a folder called 'extras' to hold anything else relevent to the install or to enhance this repo(like bash scripts and github resources).
 
 All of which, for me, leads to an easy to manage configuration system that looks something like this...
 
@@ -137,6 +135,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |
         |- configuration.yaml
         |- google_calendars.yaml
+        |- ip_bans.yaml
         |- known_devices.yaml
         |- secrets.yaml
         |...[log files etc]
@@ -144,10 +143,6 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |-----/www/
         |     |
         |     |...[local pictures and files here]
-        |
-        |-----/deps/
-        |     |
-        |     |...[dependencies]
         |
         |-----/extras/
         |     |
@@ -203,6 +198,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |- device_sun_light_trigger.yaml
               |     |- device_tracker.yaml
               |     |- emulated_hue.yaml
+              |     |- frontend.yaml
               |     |- http.yaml
               |     |- input_boolean.yaml
               |     |- input_select.yaml
