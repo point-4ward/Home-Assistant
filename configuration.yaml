@@ -16,6 +16,7 @@ homeassistant: !include config/core/homeassistant.yaml
 ###################################
 
 frontend: !include config/misc/frontend.yaml
+config:
 group: !include_dir_merge_named config/group/
 http: !include config/misc/http.yaml
 recorder:
