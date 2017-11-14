@@ -17,9 +17,9 @@ radio_station:
 chromecast_radio:
   name: 'Select Speakers:'
   options:
+    - Living Room
     - Kitchen
     - Master Bedroom
-    - Landing
     - Everywhere
   initial: Everywhere
   icon: mdi:speaker-wireless

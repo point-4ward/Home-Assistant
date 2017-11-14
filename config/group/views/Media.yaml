@@ -10,6 +10,6 @@ media:
     - media_player.living_room_kodi
     - media_player.kitchencca
     - media_player.bedroomcca
-    - media_player.landingcca  
+    - media_player.livingroomcca  
     - media_player.ccagroup    
     - group.chromecast_radio
