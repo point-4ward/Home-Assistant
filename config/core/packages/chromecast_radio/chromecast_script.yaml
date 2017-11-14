@@ -30,7 +30,7 @@ radio_chromecast:
           {% elif is_state("input_select.radio_station", "Absolute 90s") %} http://player.absoluteradio.co.uk/tunein.php?i=a924.aac
           {% elif is_state("input_select.radio_station", "Heart") %} http://media-ice.musicradio.com/HeartWestMids
           {% elif is_state("input_select.radio_station", "Heart 80s") %} http://media-ice.musicradio.com/Heart80s
-          {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8722/stream
+          {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8453/stream
           {% endif %}
          media_content_type: 'audio/mp4'
 

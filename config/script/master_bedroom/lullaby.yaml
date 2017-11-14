@@ -16,7 +16,7 @@ lullaby:
     - service: media_player.play_media
       data:
         entity_id: media_player.bedroomcca
-        media_content_id: http://37.59.28.208:8722/stream
+        media_content_id: http://37.59.28.208:8543/stream
         media_content_type: 'audio/mp4'
     - service: light.hue_activate_scene
       data:
