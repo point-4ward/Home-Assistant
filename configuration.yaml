@@ -21,6 +21,9 @@ config:
 map:
 group: !include_dir_merge_named config/group/
 http: !include config/misc/http.yaml
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_token
 recorder:
   purge_interval: 7
   purge_keep_days: 14

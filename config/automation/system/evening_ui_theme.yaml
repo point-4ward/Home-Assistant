@@ -1,0 +1,12 @@
+#############################
+#Sets the evening UI theme  #
+#############################
+
+alias: 'Evening UI theme'
+trigger:
+  platform: sun
+  event: sunset
+action:
+  service: frontend.set_theme
+  data:
+    name: midnight

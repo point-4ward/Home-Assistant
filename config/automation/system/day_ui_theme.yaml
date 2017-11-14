@@ -1,0 +1,12 @@
+#############################
+#Sets the daytime UI theme  #
+#############################
+
+alias: 'Evening UI theme'
+trigger:
+  platform: sun
+  event: sunrise
+action:
+  service: frontend.set_theme
+  data:
+    name: default

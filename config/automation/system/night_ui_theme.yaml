@@ -1,0 +1,12 @@
+#############################
+#Sets the night UI theme    #
+#############################
+
+alias: 'Night UI theme'
+trigger:
+  platform: time
+  at: '23:00:00'
+action:
+  service: frontend.set_theme
+  data:
+    name: darkcyan
