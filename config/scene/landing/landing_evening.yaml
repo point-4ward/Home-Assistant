@@ -2,9 +2,10 @@
 #A one-touch scene controller  #
 ################################
 
-name: Livingroom normal
+name: Landing_evening
 entities:
-  light.living_room_zwave_dimmer_level:
+  light.landing:
     state: on
-    transition: 2
-    brightness: 120
+    transition: 4
+    brightness: 180
+    rgb_color: [255,206,119]

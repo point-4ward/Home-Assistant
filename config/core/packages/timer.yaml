@@ -4,7 +4,7 @@
 #kids roooms after their bedtime!   #
 #####################################
 
-input_slider: !include timer/timer_input_slider.yaml
+input_number: !include timer/timer_input_number.yaml
 sensor: !include timer/timer_sensor.yaml
 script: !include timer/timer_script.yaml
 automation: !include timer/timer_automation.yaml

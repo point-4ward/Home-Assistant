@@ -1,0 +1,14 @@
+#############################
+#Setting Maintenance Mode to#
+#'off' turns red theme off  #
+#############################
+
+alias: 'Maintenance mode on'
+trigger:
+  platform: state
+  entity_id: input_boolean.maintenance_mode
+  to: 'off'
+action:
+  service: frontend.set_theme
+  data:
+    name: default

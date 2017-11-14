@@ -1,0 +1,27 @@
+###########################################
+#Switches the living room/landing lights  #
+#on when it is sunset and somebody is home#
+###########################################
+
+alias: "Lights on when dark"
+trigger:
+  - platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  - platform: state
+    entity_id: group.all_devices
+    to: 'home'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: sun
+      after: sunset
+      after_offset: "-00:30:00"
+action:
+  - service: scene.turn_on
+    entity_id: scene.livingroom_bright
+  - service: scene.turn_on
+    entity_id: scene.landing_evening

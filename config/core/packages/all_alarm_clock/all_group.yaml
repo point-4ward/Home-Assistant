@@ -6,6 +6,7 @@ all_alarm_clock:
   control: hidden
   name: 'MASTER Alarm Clock'
   entities:
-    - input_slider.all_alarm_clock_hour
-    - input_slider.all_alarm_clock_minute
+    - sensor.all_alarm_clock_time
+    - input_number.all_alarm_clock_hour
+    - input_number.all_alarm_clock_minute
     - script.all_sync

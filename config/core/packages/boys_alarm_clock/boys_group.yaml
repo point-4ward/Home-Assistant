@@ -8,6 +8,6 @@ boys_alarm_clock:
   entities:
     - input_boolean.boys_alarm_clock_status
     - sensor.boys_alarm_clock_time
-    - input_slider.boys_alarm_clock_hour
-    - input_slider.boys_alarm_clock_minute
+    - input_number.boys_alarm_clock_hour
+    - input_number.boys_alarm_clock_minute
     - input_boolean.boys_alarm_clock_repeat

@@ -1,0 +1,22 @@
+##############################################
+#Switches the landing lights to a night light#
+##############################################
+
+alias: "Landing light night mode"
+trigger:
+  - platform: time
+    at: '21:30:00'
+  - platform: state
+    entity_id: group.all_devices
+    to: 'home'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: time
+      after: '21:29:30'
+action:
+  - service: scene.turn_on
+    entity_id: scene.landing_night

@@ -7,5 +7,7 @@ tools:
   name: Tools
   icon: mdi:wrench
   entities:
+    - group.maintenance
+    - group.all_hue
     - group.quick_timer
     - group.all_alarm_clock

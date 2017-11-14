@@ -1,0 +1,18 @@
+########################################
+#Power cut notification - if the system#
+#restarts and the maintenance_mode    #
+#boolean is off, send an alert         #
+########################################
+
+alias: 'Power cut notification'
+trigger:
+  platform: homeassistant
+  event: start
+condition:
+  condition: state
+  entity_id: input_boolean.maintenance_mode
+  state: 'off'
+action:
+  service: notify.telegram_marc
+  data:
+    message: 'Home Assistant has restarted and is not in Maintenance Mode.  Power cut?'

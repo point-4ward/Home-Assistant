@@ -1,0 +1,14 @@
+#############################
+#Setting Maintenance Mode to#
+#'on' turns red theme on    #
+#############################
+
+alias: 'Maintenance mode on'
+trigger:
+  platform: state
+  entity_id: input_boolean.maintenance_mode
+  to: 'on'
+action:
+  service: frontend.set_theme
+  data:
+    name: darkred

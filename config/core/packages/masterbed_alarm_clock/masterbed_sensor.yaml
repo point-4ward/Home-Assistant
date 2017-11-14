@@ -5,9 +5,9 @@
 - platform: template
   sensors:
     masterbed_alarm_clock_hour:
-      value_template: '{{ states.input_slider.masterbed_alarm_clock_hour.state | int }}'
+      value_template: '{{ states.input_number.masterbed_alarm_clock_hour.state | int }}'
     masterbed_alarm_clock_minute:
-      value_template: '{{ states.input_slider.masterbed_alarm_clock_minute.state | int }}'
+      value_template: '{{ states.input_number.masterbed_alarm_clock_minute.state | int }}'
     masterbed_alarm_clock_time:
       value_template: >-
         {{ states.sensor.masterbed_alarm_clock_hour.state }}:

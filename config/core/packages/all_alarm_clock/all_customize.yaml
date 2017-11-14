@@ -4,3 +4,7 @@
 
 script.all_sync:
   icon: mdi:clock-out
+
+sensor.all_alarm_clock_time:
+  friendly_name: 'Alarm Time'
+  icon: mdi:alarm

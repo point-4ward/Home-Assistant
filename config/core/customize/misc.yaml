@@ -15,6 +15,9 @@ light.living_room_zwave_dimmer_level:
 light.master_bedroom:
   hidden: true
 
+light.living_room:
+  hidden: true
+
 #Sensors
 sensor.ssl_cert_expiry:
   friendly_name: "SSL certificate expiry"
@@ -29,10 +32,3 @@ sensor.installed_ha_version:
 
 sensor.calendar:
   icon: mdi:calendar-text
-
-binary_sensor.overcast:
-  hidden: true
-
-#Trackers
-device_tracker.phone_marcs_pixel_phone:
-  hidden: true

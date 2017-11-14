@@ -5,6 +5,6 @@
 
 host_ip: !secret hue_host_ip
 listen_port: !secret hue_listen_port
-expose_by_default: true
 exposed_domains:
   - light
+  - input_boolean

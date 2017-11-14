@@ -4,7 +4,7 @@
 
 name: Livingroom bright
 entities:
-  light.living_room_zwave_dimmer_level:
+  light.living_room:
     state: on
-    transition: 2
-    brightness: 180
+    transition: 3
+    brightness: 255

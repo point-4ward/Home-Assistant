@@ -22,4 +22,4 @@ condition:
         value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "movie" }}'
 action:
   service: scene.turn_on
-  entity_id: scene.livingroom_normal
+  entity_id: scene.livingroom_bright

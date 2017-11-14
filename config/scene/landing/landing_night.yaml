@@ -2,9 +2,10 @@
 #A one-touch scene controller  #
 ################################
 
-name: Livingroom dim
+name: Landing_night
 entities:
-  light.living_room:
+  light.landing:
     state: on
     transition: 4
-    brightness: 125
+    brightness: 85
+    rgb_color: [254,63,189]

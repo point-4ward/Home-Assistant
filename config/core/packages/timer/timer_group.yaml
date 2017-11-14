@@ -5,4 +5,4 @@
 quick_timer:
   name: 'Timer'
   entities:
-    - input_slider.timer_minutes
+    - input_number.timer_minutes

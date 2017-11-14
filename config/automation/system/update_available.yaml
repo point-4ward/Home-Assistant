@@ -6,7 +6,7 @@
 alias: 'Update Available Notifications'
 trigger:
   platform: state
-  entity_id: updater.updater
+  entity_id: sensor.ha_upstream
 action:
   service: notify.telegram_marc
   data:

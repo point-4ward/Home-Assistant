@@ -1,0 +1,11 @@
+##############################################
+#Switches the landing lights to a night light#
+##############################################
+
+alias: "Landing night light off"
+trigger:
+  - platform: sun
+    event: sunrise
+action:
+  - service: light.turn_off
+    entity_id: light.landing

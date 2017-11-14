@@ -2,10 +2,10 @@
 #Placing cards/entites on a tab #
 #################################
 
-bedroom_two:
+girls_room:
   view: yes
-  name: Bedroom 2 (Boys)
-  icon: mdi:human-handsdown
+  name: Girls Room
+  icon: mdi:human-female
   entities:
     - group.bedroom_two_lights
     - group.boys_alarm_clock

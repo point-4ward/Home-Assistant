@@ -15,12 +15,15 @@ homeassistant: !include config/core/homeassistant.yaml
 ## Web interface UX and security ##
 ###################################
 
-frontend: !include config/misc/frontend.yaml
+frontend:
+  themes: !include_dir_merge_named config/themes/
 config:
+map:
 group: !include_dir_merge_named config/group/
 http: !include config/misc/http.yaml
 recorder:
-  purge_days: 14
+  purge_interval: 7
+  purge_keep_days: 14
 logbook: !include config/misc/logbook.yaml
 
 #######################################
@@ -29,9 +32,9 @@ logbook: !include config/misc/logbook.yaml
 
 #zwave:
 #  usb_path: /dev/ttyAMA0
-#light:
-#  platform: hue
-#  host: !secret hue_light_host
+light:
+  platform: hue
+  host: !secret hue_light_host
 emulated_hue: !include config/misc/emulated_hue.yaml
 device_tracker:
   - platform: owntracks
@@ -44,15 +47,11 @@ tts:
 telegram_bot: !include config/misc/telegram_bot.yaml
 notify: !include config/misc/notify.yaml
 camera: !include_dir_list config/camera/
-#android_ip_webcam: !include config/misc/android_ip_webcam.yaml
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret
-ifttt:
-  key: !secret ifttt_api_key  
 sun:
 sensor: !include_dir_merge_list config/sensor/
-binary_sensor: !include config/misc/binary_sensor.yaml
 weblink: !include config/misc/weblink.yaml
 updater:
   include_used_components: true
@@ -62,10 +61,8 @@ updater:
 #######################################
 
 automation: !include_dir_list config/automation/
-#device_sun_light_trigger: !include config/misc/device_sun_light_trigger.yaml
 script: !include_dir_merge_named config/script/
 scene: !include_dir_list config/scene/
 input_boolean: !include config/misc/input_boolean.yaml
 input_select: !include config/misc/input_select.yaml
-alarm_control_panel: !include config/misc/alarm_control_panel.yaml
 shell_command: !include config/misc/shell_command.yaml

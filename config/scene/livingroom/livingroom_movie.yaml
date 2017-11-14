@@ -2,9 +2,9 @@
 #A one-touch scene controller  #
 ################################
 
-name: Livingroom FULL
+name: Livingroom movie
 entities:
-  light.living_room_zwave_dimmer_level:
+  light.living_room:
     state: on
-    transition: 2
-    brightness: 255
+    transition: 4
+    brightness: 35

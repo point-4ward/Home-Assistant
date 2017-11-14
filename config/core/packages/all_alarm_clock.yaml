@@ -3,7 +3,8 @@
 #flashes living room lights #
 #############################
 
-input_slider: !include all_alarm_clock/all_input_slider.yaml
+input_number: !include all_alarm_clock/all_input_number.yaml
+sensor: !include all_alarm_clock/all_sensor.yaml
 group: !include all_alarm_clock/all_group.yaml
 script: !include all_alarm_clock/all_script.yaml
 homeassistant:

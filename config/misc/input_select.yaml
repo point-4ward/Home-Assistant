@@ -7,9 +7,7 @@ living_room_scenes:
   options:
     - Select
     - Dim
-    - Normal
     - Bright
-    - FULL
   initial: Select
   icon: mdi:creation
 

@@ -28,6 +28,3 @@
 
 "zwave.*":
   icon: mdi:signal-variant
-
-"sensor.*android*":
-  hidden: true

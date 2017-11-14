@@ -11,13 +11,13 @@ This is my current Home Automation setup.  Starting small and gradually growing 
 ```
             **Back**               **Front**
 
-2nd floor - En Suite           Master bedroom
+2nd floor - Master bedroom     Master bedroom
           - Master bedroom     Master bedroom
 
-1st floor - Family bathroom    Bedroom 4
-          - Bedroom 2          Bedroom 3
+1st floor - Family bathroom    Bedroom 3
+          - Bedroom 2          Bedroom 2
 
-Gnd floor - Living room        WC
+Gnd floor - Living room        Kitchen
           - Living room        Kitchen
 ```
 
@@ -29,9 +29,11 @@ Gnd floor - Living room        WC
  - Amazon Echo Dot
  - Asus wifi router with USB NAS attached
  - Philips Hue Bridge
- - Philips Hue Tap
- - 3 x Philips Hue colour bulbs (master bedroom)
- - 2 x Fibaro FGD-212 dimmers (living room and bedroom2)
+ - 3 x Philips Hue colour bulbs (2 x master bedroom, 1 x landing)
+ - 2 x Philips Hue white bulbs (living room)
+ - Philips Hue Tap (master bedroom)
+ - Philips Hue Dimmer Switch (living room)
+ - 2 x Fibaro FGD-212 dimmers (not yet fitted)
  - Fibaro FGMS-001 multi-sensor (yet to be fitted)
  - Comag 10" tablet
  - Usual home theatre stuff - TV/Blu-Ray/AV Receiver
@@ -51,28 +53,31 @@ Gnd floor - Living room        WC
 
 ## What it does:
 
- - Controllable from my phone over the internet, or via local network.
- - Controls living room lights, bedroom 2 lights and three lights in the master bedroom ( 1 x ceiling, 2 x bedside).  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room and bedroom 2 lights are white but can be set to preset brightness or controlled to any desired level.
+ - Controllable from our phones over the internet, or via local network.
+ - Controls living room lights, bedroom lights and landing light.  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
  - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
  - Notifies us of key events via telegram and/or notifications on screen via kodi.
  - Reacts to incoming messages sent from telegram.
  - Master bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
+ - Living room lights can also be controlled with Hue Dimmer.
  - Automatically pause media during phone call using Yatse.
  - Automatically turn living room lights on when it gets dark and somebody is home.
  - Automatically turn living room lights on if the house is empty and somebody arrives home in the dark.
  - Automatically set living room lights to 'dim' when playing media (except music) and it is dark.
  - Automatically set living room lights to 'normal' when media (except music) pauses or stops.
- - Living room lights will come on in the day if heavily overcast outside, and will switch off again when clouds pass.
+ - Landing light comes on following the same rules as the living room light, but then dims to a night-light at 21.30 hours and switches off at sunrise.
  - Voice control for all the lights.
  - Voice control Kodi.
  - Voice output via Chromecast Audios.
  - Multiroom audio with streaming radio stations.
  - Monitors email addresses for security breaches and notifies if insecure.
  - Monitors HomeAssistant for updates and notifies when update available.
+ - Monitors HomeAssistant for restarts and alerts me if I was not doing maintenance, in case of power cuts.
  - Automatically updates Let's Encrypt certificate for SSL.
  - Monitors the instance for hacking attempts, notifies and blocks IP of attacker.
  - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
- - Timer function that alerts on phones and over Chromecast Audios. 
+ - Timer function that alerts on phones and over Chromecast Audios.
+ - Sets a UI theme based on time of day, or maintenance mode.
 
 ## My configuration:
 
@@ -192,13 +197,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |
               |-----/misc/
               |     |
-              |     |- alarm_control_panel.yaml
-              |     |- android_ip_webcam.yaml
-              |     |- binary_sensor.yaml
-              |     |- device_sun_light_trigger.yaml
-              |     |- device_tracker.yaml
               |     |- emulated_hue.yaml
-              |     |- frontend.yaml
               |     |- http.yaml
               |     |- input_boolean.yaml
               |     |- input_select.yaml
@@ -225,6 +224,10 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |-----/sensor/
               |     |
               |     |...[file for each group/set]
+              |
+              |-----/theme/
+              |     |
+              |     |...[file for each theme]
               |
               |-----/zone/
                     |

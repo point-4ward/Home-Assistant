@@ -13,4 +13,4 @@ condition:
     state: 'below_horizon'
 action:
   service: scene.turn_on
-  entity_id: scene.livingroom_normal
+  entity_id: scene.livingroom_bright

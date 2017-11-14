@@ -3,19 +3,18 @@
 #################################
 
 System:
-  - updater.updater
   - sensor.installed_ha_version
   - sensor.ha_upstream
   - sensor.ssl_cert_expiry
   - sensor.cpu_speed
-  - sensor.cpu_use
-  - sensor.disk_use_
+  - sensor.cpu_used
+  - sensor.disk_used_
   - sensor.last_boot
-  - sensor.ram_use
+  - sensor.ram_used
   - sensor.since_last_boot
   - sensor.speedtest_download
   - sensor.speedtest_ping
   - sensor.speedtest_upload
 
-Alarm:
-  - alarm_control_panel.alarm
+Maintenance:
+  - input_boolean.maintenance_mode

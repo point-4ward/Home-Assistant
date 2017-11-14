@@ -5,9 +5,9 @@
 - platform: template
   sensors:
     boys_alarm_clock_hour:
-      value_template: '{{ states.input_slider.boys_alarm_clock_hour.state | int }}'
+      value_template: '{{ states.input_number.boys_alarm_clock_hour.state | int }}'
     boys_alarm_clock_minute:
-      value_template: '{{ states.input_slider.boys_alarm_clock_minute.state | int }}'
+      value_template: '{{ states.input_number.boys_alarm_clock_minute.state | int }}'
     boys_alarm_clock_time:
       value_template: >-
         {{ states.sensor.boys_alarm_clock_hour.state }}:

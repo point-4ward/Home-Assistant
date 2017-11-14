@@ -11,20 +11,23 @@ group.kitchen:
 group.master_bedroom:
   order: 2
 
-group.bedroom_two:
+group.boys_room:
   order: 3
 
-group.media:
+group.girls_room:
   order: 4
 
-group.location:
+group.media:
   order: 5
 
-group.tools:
+group.location:
   order: 6
 
-group.information:
+group.tools:
   order: 7
 
-group.security:
+group.information:
   order: 8
+
+group.security:
+  order: 9

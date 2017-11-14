@@ -6,6 +6,6 @@
   sensors:
     timer_minutes:
       friendly_name: 'Timer minutes'
-      value_template: '{{states.input_slider.timer_minutes.state|round(2)}}'
+      value_template: '{{states.input_number.timer_minutes.state|round(2)}}'
       entity_id: 
-        - input_slider.timer_minutes
+        - input_number.timer_minutes

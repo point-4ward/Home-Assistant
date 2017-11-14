@@ -10,4 +10,4 @@ Chromecast Radio:
   - input_select.chromecast_radio
   - script.radio_chromecast
   - script.stop_radio_chromecast
-  - input_slider.volume_radio
+  - input_number.volume_radio

@@ -3,7 +3,7 @@
 ####################################
   
 input_select: !include chromecast_radio/chromecast_input_select.yaml
-input_slider: !include chromecast_radio/chromecast_input_slider.yaml
+input_number: !include chromecast_radio/chromecast_input_number.yaml
 group: !include chromecast_radio/chromecast_group.yaml
 script: !include chromecast_radio/chromecast_script.yaml
 automation: !include chromecast_radio/chromecast_automation.yaml

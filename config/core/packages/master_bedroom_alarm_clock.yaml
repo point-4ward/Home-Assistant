@@ -3,7 +3,7 @@
 #flashes master bedroom lights#
 ###############################
 
-input_slider: !include masterbed_alarm_clock/masterbed_input_slider.yaml
+input_number: !include masterbed_alarm_clock/masterbed_input_number.yaml
 input_boolean: !include masterbed_alarm_clock/masterbed_input_boolean.yaml
 sensor: !include masterbed_alarm_clock/masterbed_sensor.yaml
 group: !include masterbed_alarm_clock/masterbed_group.yaml

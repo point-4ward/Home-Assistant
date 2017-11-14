@@ -1,8 +1,0 @@
-#####################
-#Manual alarm panel #
-#####################
-
-- platform: manual
-  name: Alarm
-  code: !secret alarm_code
-  disarm_after_trigger: false

@@ -1,0 +1,11 @@
+#################################
+#Placing cards/entites on a tab #
+#################################
+
+boys_room:
+  view: yes
+  name: Boys Room
+  icon: mdi:human-handsdown
+  entities:
+    - group.bedroom_two_lights
+    - group.boys_alarm_clock

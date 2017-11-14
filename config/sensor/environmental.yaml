@@ -3,8 +3,6 @@
 #and presents it as sensor reading#
 ###################################
 
-- platform: moon
-
 - platform: time_date
   display_options:
    - 'time'
@@ -14,7 +12,7 @@
   api_key: !secret darksky_api_key
   units: auto
   update_interval:
-    minutes: 30
+    minutes: 60
   monitored_conditions:
     - summary
     - precip_type

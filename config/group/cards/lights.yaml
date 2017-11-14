@@ -6,8 +6,7 @@ master_bedroom_lights:
   name: Lights
   entities:
     - light.bedroom_ceiling
-    - light.bedside_1
-    - light.bedside_2
+    - light.bedroom_stairs
     - input_select.master_bedroom_scenes
 
 bedroom_two_lights:
@@ -19,7 +18,18 @@ bedroom_two_lights:
 
 livingroom_lights:
   name: Lights
+  entities:
+    - light.living_room_left
+    - light.living_room_right
+    - input_select.living_room_scenes
+
+all_hue:
+  name: All Hue
+  entities:
+    - light.all_hue_lights
+
+landing_lights:
+  name: Lights
   control: hidden
   entities:
-    - light.living_room_zwave_dimmer_level
-    - input_select.living_room_scenes
+    - light.landing

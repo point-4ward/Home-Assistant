@@ -5,7 +5,7 @@
 timer:
   sequence:
   - delay: '00:00:15'
-  - service: input_slider.select_value
+  - service: input_number.set_value
     data_template:
-      value: '{{ states.input_slider.timer_minutes.state|float - 0.25 }}'
-      entity_id: input_slider.timer_minutes
+      value: '{{ states.input_number.timer_minutes.state|float - 0.25 }}'
+      entity_id: input_number.timer_minutes
