@@ -1,0 +1,9 @@
+###########################
+#Zone for Courtney's dad's#
+###########################
+
+name: Courtneys Dads
+latitude: !secret courtneys_dads_latitude
+longitude: !secret courtneys_dads_longitude
+radius: 250
+icon: mdi:home

@@ -49,9 +49,11 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  - Timer function that alerts on phones and over Chromecast Audios.
  - Sets a UI theme based on time of day, or maintenance mode.
 
-Click here to see [How I've configured it](extras/readme_files/configuration.md) and how this repo is organised.
+Click here to see [how I've configured it](extras/readme_files/configuration.md) and how this repo is organised.
 
 I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these files to the correct place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
+
+In addition to backing up my config here, I also backup my entire /.homeassistant/ directory (including all my configuration files and secrets.yaml etc) to dropbox using the method described [here](https://github.com/martikainen87/Home-Automation/wiki/Backup-your-configuration-to-Dropbox) .
 
 ## Useful links/resources etc:
 
@@ -69,15 +71,6 @@ I use TravisCI to check my config every time it is pushed to Github.  This runs 
 
 ## Information
 
-[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This means my configuration is valid.
+[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This shows whether the configuration in this repo is valid.
 
 [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) <--- This is like my TODO list
-
-
-## Things to do:
-
-Put some images on here
-
-Timeline of automations / conditions to trigger
-
-Buy more stuff!

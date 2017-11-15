@@ -2,7 +2,7 @@
 #Element of the package#
 ########################
 
-- alias: 'Bedroom light on gradually with alarm'
+- alias: 'Bedroom light on and play music'
   hide_entity: False
   trigger:
     platform: template

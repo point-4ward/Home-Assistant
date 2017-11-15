@@ -23,8 +23,8 @@ radio_chromecast:
           {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.ccagroup
           {% endif %}
          media_content_id: >
-          {% if is_state("input_select.radio_station", "Free Radio CW") %}  http://webradio.radiomonitor.com/stream/Free-Coventry-AAC
-          {% elif is_state("input_select.radio_station", "Free Radio 80s") %} http://webradio.radiomonitor.com/stream/Free-80s-AAC
+          {% if is_state("input_select.radio_station", "Free Radio CW") %}  http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+          {% elif is_state("input_select.radio_station", "Free Radio 80s") %} http://tx.whatson.com/http_live_bauer.php?i=free80s.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
           {% elif is_state("input_select.radio_station", "Absolute Radio") %} http://player.absoluteradio.co.uk/tunein.php?i=ar24.aac
           {% elif is_state("input_select.radio_station", "Absolute 80s") %} http://player.absoluteradio.co.uk/tunein.php?i=a824.aac
           {% elif is_state("input_select.radio_station", "Absolute 90s") %} http://player.absoluteradio.co.uk/tunein.php?i=a924.aac

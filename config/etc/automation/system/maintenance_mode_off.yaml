@@ -3,7 +3,7 @@
 #'off' turns red theme off  #
 #############################
 
-alias: 'Maintenance mode on'
+alias: 'Maintenance mode off'
 trigger:
   platform: state
   entity_id: input_boolean.maintenance_mode
