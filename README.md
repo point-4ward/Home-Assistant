@@ -48,24 +48,18 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
  - Timer function that alerts on phones and over Chromecast Audios.
  - Sets a UI theme based on time of day, or maintenance mode.
+ 
+## Configuration
 
 Click here to see [how I've configured it](extras/readme_files/configuration.md) and how this repo is organised.
 
-I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these files to the correct place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
-
-In addition to backing up my config here, I also backup my entire /.homeassistant/ directory (including all my configuration files and secrets.yaml etc) to dropbox using the method described [here](https://github.com/martikainen87/Home-Automation/wiki/Backup-your-configuration-to-Dropbox) .
+Click here to see how I [manage backups and ensure my config is valid](extras/readme_files/backups.md) with GitHub, TravisCI and Dropbox.
 
 ## Useful links/resources etc:
 
-[Home Assistant](http://home-assistant.io)
+[Home Assistant](http://home-assistant.io) | [Owntracks](http://owntracks.org/) | [Yatse](http://yatse.tv/redmine/projects/yatse)
 
-[Owntracks](http://owntracks.org/)
-
-[Yatse](http://yatse.tv/redmine/projects/yatse)
-
-[HAdashboard](http://home-assistant.io/docs/ecosystem/hadashboard/dash_config/)
-
-[Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
+[HAdashboard](http://home-assistant.io/docs/ecosystem/hadashboard/dash_config/) | [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
 [HA examples](https://home-assistant.io/cookbook/) espescially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig) and [Bruh](https://github.com/bruhautomation/BRUH3-Home-Assistant-Configuration)
 
@@ -74,3 +68,5 @@ In addition to backing up my config here, I also backup my entire /.homeassistan
 [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION)
 
 [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) <--- This is like my TODO list
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) <--- If you have any ideas, they're always welcome.  Either submit an issue or a PR, or drop me a message!
