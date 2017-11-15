@@ -7,7 +7,7 @@ alias: "Lights on when dark"
 trigger:
   - platform: sun
     event: sunset
-    offset: "-00:30:00"
+    offset: "-00:40:00"
   - platform: state
     entity_id: group.all_devices
     to: 'home'
