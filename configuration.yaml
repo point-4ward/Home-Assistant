@@ -16,18 +16,18 @@ homeassistant: !include config/core/homeassistant.yaml
 ###################################
 
 frontend:
-  themes: !include_dir_merge_named config/themes/
+  themes: !include_dir_merge_named config/interface/themes/
 config:
 map:
-group: !include_dir_merge_named config/group/
-http: !include config/misc/http.yaml
+group: !include_dir_merge_named config/interface/group/
+http: !include config/interface/http.yaml
 duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_token
 recorder:
   purge_interval: 7
   purge_keep_days: 14
-logbook: !include config/misc/logbook.yaml
+logbook: !include config/interface/logbook.yaml
 
 #######################################
 ## My components/devices/sensors/etc ##
@@ -38,24 +38,24 @@ logbook: !include config/misc/logbook.yaml
 light:
   platform: hue
   host: !secret hue_light_host
-emulated_hue: !include config/misc/emulated_hue.yaml
+emulated_hue: !include config/components/emulated_hue.yaml
 device_tracker:
   - platform: owntracks
-mqtt: !include config/misc/mqtt.yaml  
-zone: !include_dir_list config/zone/
-media_player: !include config/misc/media_player.yaml
+mqtt: !include config/components/mqtt.yaml  
+zone: !include_dir_list config/components/zone/
+media_player: !include config/components/media_player.yaml
 tts:
   - platform: google
     cache: false
-telegram_bot: !include config/misc/telegram_bot.yaml
-notify: !include config/misc/notify.yaml
-camera: !include_dir_list config/camera/
+telegram_bot: !include config/components/telegram_bot.yaml
+notify: !include config/components/notify.yaml
+camera: !include_dir_list config/components/camera/
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret
 sun:
-sensor: !include_dir_merge_list config/sensor/
-weblink: !include config/misc/weblink.yaml
+sensor: !include_dir_merge_list config/components/sensor/
+weblink: !include config/components/weblink.yaml
 updater:
   include_used_components: true
 
@@ -63,9 +63,9 @@ updater:
 ## My automations/scripts/scenes/etc ##
 #######################################
 
-automation: !include_dir_list config/automation/
-script: !include_dir_merge_named config/script/
-scene: !include_dir_list config/scene/
-input_boolean: !include config/misc/input_boolean.yaml
-input_select: !include config/misc/input_select.yaml
-shell_command: !include config/misc/shell_command.yaml
+automation: !include_dir_list config/etc/automation/
+script: !include_dir_merge_named config/etc/script/
+scene: !include_dir_list config/etc/scene/
+input_boolean: !include config/etc/input_boolean.yaml
+input_select: !include config/etc/input_select.yaml
+shell_command: !include config/etc/shell_command.yaml
