@@ -71,6 +71,6 @@ In addition to backing up my config here, I also backup my entire /.homeassistan
 
 ## Information
 
-[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This shows whether the configuration in this repo is valid.
+[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSON)
 
 [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) <--- This is like my TODO list
