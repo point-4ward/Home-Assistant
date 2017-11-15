@@ -1,4 +1,4 @@
-## My configuration:
+# My configuration:
 
 See in the repo for all of my non-sensitive configuration files.  I've been playing with HA for a while now and have made a fair few changes, a few quick notes:
 

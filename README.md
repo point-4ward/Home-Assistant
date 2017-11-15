@@ -1,8 +1,4 @@
-[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant)
-
-[![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues)
-
-# My HA setup:
+# My Home Assistant setup:
 
 This is my current Home Automation setup.  Starting small and gradually growing as funds allow...
 
@@ -23,7 +19,7 @@ Gnd floor - Living room        Kitchen
           - Living room        Kitchen
 ```
 
-[Hardware and Software]((extras/readme_files/hardware_software.md) I am using.
+Click here to see the [Hardware and Software](extras/readme_files/hardware_software.md) I am using.
 
 ## What it does:
 
@@ -53,7 +49,7 @@ Gnd floor - Living room        Kitchen
  - Timer function that alerts on phones and over Chromecast Audios.
  - Sets a UI theme based on time of day, or maintenance mode.
 
-[How I've configured it](extras/readme_files/hardware_software)
+Click here to see [How I've configured it](extras/readme_files/configuration.md) and how this repo is organised.
 
 I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these files to the correct place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
 
@@ -70,6 +66,12 @@ I use TravisCI to check my config every time it is pushed to Github.  This runs 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
 [HA examples](https://home-assistant.io/cookbook/) espescially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig) and [Bruh](https://github.com/bruhautomation/BRUH3-Home-Assistant-Configuration)
+
+## Information
+
+[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This means my configuration is valid.
+
+[![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) <--- This is like my TODO list
 
 
 ## Things to do:
