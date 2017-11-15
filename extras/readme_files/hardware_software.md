@@ -1,4 +1,4 @@
-#The hardware and software I am using:
+# The hardware and software I am using:
 
 ## Hardware:
 
