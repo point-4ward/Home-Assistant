@@ -1,0 +1,26 @@
+############################################
+#Switches on the master bedroom lights when#
+#we are homeand the living room lights are #
+#switched off after 2130 hours             #
+############################################
+
+alias: bedtime lights
+trigger:
+  platform: state
+  entity_id: light.living_room
+  to: 'off'
+condition:
+  condition: and
+  conditions:
+    - condition: or
+      conditions:
+          - condition: time
+            after: '21:30:00'
+          - condition: sun
+            before: 'sunrise'
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'  
+action:
+  service: script.turn_on
+  entity_id: script.master_bedroom_relax

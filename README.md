@@ -59,7 +59,7 @@ Click here to see how I [manage backups and ensure my config is valid](extras/re
 
 [Home Assistant](http://home-assistant.io) | [Owntracks](http://owntracks.org/) | [Yatse](http://yatse.tv/redmine/projects/yatse)
 
-[HAdashboard](http://home-assistant.io/docs/ecosystem/hadashboard/dash_config/) | [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
+[Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
 [HA examples](https://home-assistant.io/cookbook/) espescially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig) and [Bruh](https://github.com/bruhautomation/BRUH3-Home-Assistant-Configuration)
 
