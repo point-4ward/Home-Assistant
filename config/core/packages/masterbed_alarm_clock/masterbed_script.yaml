@@ -6,7 +6,7 @@ masterbed_wake_up:
   sequence:
     - service: media_player.volume_set
       data:
-        entity_id: media_player.bedroomccacca
+        entity_id: media_player.bedroomcca
         volume_level: '0.30'
     - service: media_player.play_media
       data_template:
