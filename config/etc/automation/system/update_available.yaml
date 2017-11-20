@@ -10,4 +10,4 @@ trigger:
 action:
   service: notify.telegram_marc
   data:
-    message: 'Update for Home Assistant is available.'
+    message: 'Update for Home Assistant is available.  https://home-assistant.io/blog/'

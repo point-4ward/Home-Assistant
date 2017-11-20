@@ -5,6 +5,7 @@
 
 input_number: !include masterbed_alarm_clock/masterbed_input_number.yaml
 input_boolean: !include masterbed_alarm_clock/masterbed_input_boolean.yaml
+input_select: !include masterbed_alarm_clock/masterbed_input_select.yaml
 sensor: !include masterbed_alarm_clock/masterbed_sensor.yaml
 group: !include masterbed_alarm_clock/masterbed_group.yaml
 script: !include masterbed_alarm_clock/masterbed_script.yaml

@@ -41,6 +41,7 @@ light:
 emulated_hue: !include config/components/emulated_hue.yaml
 device_tracker:
   - platform: owntracks
+    max_gps_accuracy: 250
 mqtt: !include config/components/mqtt.yaml  
 zone: !include_dir_list config/components/zone/
 media_player: !include config/components/media_player.yaml

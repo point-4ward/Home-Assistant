@@ -19,7 +19,7 @@ condition:
       state: 'home'
     - condition: sun
       after: sunset
-      after_offset: "-00:30:00"
+      after_offset: "-00:40:00"
 action:
   - service: scene.turn_on
     entity_id: scene.livingroom_bright

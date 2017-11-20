@@ -2,13 +2,6 @@
 #Ways to be notified of key events#
 ###################################
 
-- platform: kodi
-  name: living_room_kodi
-  host: !secret media_host
-  port: !secret media_port
-  username: !secret media_username
-  password: !secret media_password
-
 - platform: telegram
   name: telegram_marc
   chat_id: !secret telegram_bot_chat_id

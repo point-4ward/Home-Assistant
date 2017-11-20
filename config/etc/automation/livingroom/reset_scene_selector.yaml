@@ -6,10 +6,10 @@
 alias: reset_scene_selector
 trigger:
   platform: state
-  entity_id: light.living_room_zwave_dimmer_level
+  entity_id: light.living_room
   to: 'off'
 action:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.living_room_scenes
-        option: Select
+  service: input_select.select_option
+  data:
+    entity_id: input_select.living_room_scenes
+    option: Select

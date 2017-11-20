@@ -1,0 +1,11 @@
+########################
+#Element of the package#
+########################
+
+master_bed_alarm_sound:
+  options:
+    - Free Radio
+    - Let Her Go
+    - Nightswimming
+  initial: Free Radio
+  icon: mdi:music

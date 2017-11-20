@@ -1,0 +1,12 @@
+########################
+#Element of the package#
+########################
+
+master_bed_alarm_sound:
+  name: Music
+  options:
+    - Free Radio CW
+    - Let Her Go
+    - Nightswimming
+  initial: Free Radio CW
+  icon: mdi:music
