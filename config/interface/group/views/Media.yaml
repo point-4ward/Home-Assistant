@@ -11,5 +11,6 @@ media:
     - media_player.kitchencca
     - media_player.bedroomcca
     - media_player.livingroomcca  
-    - media_player.ccagroup    
+    - media_player.everywhere_group
+    - media_player.downstairs_group
     - group.chromecast_radio

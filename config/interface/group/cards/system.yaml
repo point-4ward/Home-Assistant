@@ -3,6 +3,7 @@
 #################################
 
 System:
+  - updater.updater
   - sensor.installed_ha_version
   - sensor.ha_upstream
   - sensor.ssl_cert_expiry

@@ -17,6 +17,7 @@ homeassistant: !include config/core/homeassistant.yaml
 
 frontend:
   themes: !include_dir_merge_named config/interface/themes/
+  javascript_version: latest
 config:
 map:
 group: !include_dir_merge_named config/interface/group/

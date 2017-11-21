@@ -20,6 +20,7 @@ chromecast_radio:
     - Living Room
     - Kitchen
     - Master Bedroom
+    - Downstairs
     - Everywhere
   initial: Everywhere
   icon: mdi:speaker-wireless

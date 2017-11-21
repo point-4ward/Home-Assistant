@@ -13,6 +13,7 @@
         {% if is_state("input_select.chromecast_radio", "Kitchen") %} media_player.kitchencca
         {% elif is_state("input_select.chromecast_radio", "Living Room") %} media_player.livingroomcca
         {% elif is_state("input_select.chromecast_radio", "Master Bedroom") %} media_player.bedroomcca
-        {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.ccagroup
+        {% elif is_state("input_select.chromecast_radio", "Downstairs") %} media_player.downstairs_group
+        {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.everywhere_group
         {% endif %}
       volume_level: '{{  states.input_number.volume_radio.state  }}'
