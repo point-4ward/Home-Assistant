@@ -11,4 +11,3 @@ Livingroom:
     - media_player.living_room_kodi
     - media_player.livingroomcca
     - group.living_alarm_clock
-    - camera.living_room_android

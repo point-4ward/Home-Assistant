@@ -13,9 +13,6 @@ System:
   - sensor.last_boot
   - sensor.ram_used
   - sensor.since_last_boot
-  - sensor.speedtest_download
-  - sensor.speedtest_ping
-  - sensor.speedtest_upload
 
 Maintenance:
   - input_boolean.maintenance_mode

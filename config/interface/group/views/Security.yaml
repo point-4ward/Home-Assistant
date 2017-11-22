@@ -10,4 +10,3 @@ security:
     - group.email_security
     - group.alarm
     - group.security_sensors
-    - camera.living_room_android

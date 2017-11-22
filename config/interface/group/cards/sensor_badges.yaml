@@ -8,7 +8,6 @@ Time:
 
 Environment:
   - sun.sun
-  - sensor.moon
   - sensor.dark_sky_apparent_temperature
   - sensor.dark_sky_cloud_coverage
   - sensor.dark_sky_daily_high_apparent_temperature
@@ -36,6 +35,3 @@ Email Security: !secret email_security
 
 Calendar:
   - sensor.calendar
-
-Security Sensors:
-  - binary_sensor.living_room_android_motion_active

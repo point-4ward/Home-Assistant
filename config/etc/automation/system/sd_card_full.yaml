@@ -6,7 +6,7 @@
 alias: "Disk Use Alarm"
 trigger:
   platform: numeric_state
-  entity_id: sensor.disk_use_
+  entity_id: sensor.disk_used_
   above: 80
 action:
   - service: notify.telegram_marc
