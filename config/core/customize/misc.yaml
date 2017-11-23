@@ -24,3 +24,6 @@ sensor.installed_ha_version:
 
 sensor.calendar:
   icon: mdi:calendar-text
+
+sensor.dark_outside:
+  icon: mdi:theme-light-dark

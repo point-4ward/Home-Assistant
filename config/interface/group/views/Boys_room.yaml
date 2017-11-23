@@ -7,5 +7,4 @@ boys_room:
   name: Boys Room
   icon: mdi:human-handsdown
   entities:
-    - group.bedroom_two_lights
     - group.boys_alarm_clock

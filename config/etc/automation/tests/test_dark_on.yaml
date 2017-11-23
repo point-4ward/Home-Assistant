@@ -1,0 +1,14 @@
+##########################
+#Notification to test the#
+#reliability of a sensor #
+##########################
+
+alias: "Test dark outside sensor"
+trigger:
+  platform: state
+  entity_id: sensor.dark_outside
+  to: 'true'
+action:
+  - service: notify.telegram_marc
+    data:
+      message: 'The dark sensor has changed to true, I would have switched the lights on now if using this sensor.'

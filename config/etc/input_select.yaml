@@ -11,17 +11,6 @@ living_room_scenes:
   initial: Select
   icon: mdi:creation
 
-bedroom_two_scenes:
-  name: Scenes
-  options:
-    - Select
-    - Dim
-    - Normal
-    - Bright
-    - FULL
-  initial: Select
-  icon: mdi:creation
-
 master_bedroom_scenes:
   name: Scenes
   options:

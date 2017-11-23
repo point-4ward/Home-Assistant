@@ -9,13 +9,6 @@ master_bedroom_lights:
     - light.bedroom_stairs
     - input_select.master_bedroom_scenes
 
-bedroom_two_lights:
-  name: Lights
-  control: hidden
-  entities:
-    - light.boys_room_zwave_dimmer_level
-    - input_select.bedroom_two_scenes
-
 livingroom_lights:
   name: Lights
   entities:

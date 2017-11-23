@@ -1,0 +1,23 @@
+############################################
+#Takes the selection from an input_select  #
+#and converts this in to the scene selected#
+############################################
+
+alias: trigger_scene_master_bedroom
+trigger:
+  platform: state
+  entity_id: input_select.master_bedroom_scenes
+action:
+  service_template: >
+     {% if is_state ('input_select.master_bedroom_scenes' ,'Spring Blossom') %} script.master_bedroom_spring_blossom
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Savanna Sunset') %} script.master_bedroom_savanna_sunset
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Relax') %} script.master_bedroom_relax
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Reading') %} script.master_bedroom_read
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Nightlight') %} script.master_bedroom_nightlight
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Energize') %} script.master_bedroom_spring_energize
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Dimmed') %} script.master_bedroom_dimmed
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Concentrate') %} script.master_bedroom_concentrate
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Bright') %} script.master_bedroom_bright
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Arctic Aurora') %} script.master_bedroom_arctic_aurora
+     {% elif is_state ('input_select.master_bedroom_scenes' , 'Tropical Twilight') %} script.master_bedroom_tropical_twilight
+     {% endif %}

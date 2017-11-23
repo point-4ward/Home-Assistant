@@ -3,11 +3,14 @@
 #and converts this in to the scene selected#
 ############################################
 
-alias: trigger_scene_livingroom_dim
+alias: trigger_scene_living_room
 trigger:
   platform: state
   entity_id: input_select.living_room_scenes
-  to: 'Dim'
 action:
   service: scene.turn_on
-  entity_id: scene.livingroom_dim
+  data_template:
+    entity_id: >
+     {% if is_state ('input_select.living_room_scenes' ,'Bright') %} scene.livingroom_bright
+     {% elif is_state ('input_select.living_room_scenes' , 'Dim') %} scene.livingroom_dim
+     {% endif %}

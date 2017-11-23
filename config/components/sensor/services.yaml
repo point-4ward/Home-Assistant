@@ -23,11 +23,3 @@
 
 - platform: haveibeenpwned
   email: !secret haveibeenpwned_email
-
-- platform: template
-  sensors:
-    calendar:
-      value_template: >
-        {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
-        {{ states.calendar.marcforthrungmailcom.attributes.message }}
-      friendly_name: 'Next Event'

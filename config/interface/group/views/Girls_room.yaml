@@ -7,5 +7,4 @@ girls_room:
   name: Girls Room
   icon: mdi:human-female
   entities:
-    - group.bedroom_two_lights
     - group.boys_alarm_clock
