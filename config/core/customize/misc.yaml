@@ -27,3 +27,6 @@ sensor.calendar:
 
 sensor.dark_outside:
   icon: mdi:theme-light-dark
+
+sensor.master_bedroom_switch:
+  icon: mdi:remote

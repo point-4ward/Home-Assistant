@@ -11,6 +11,7 @@ information:
     - group.calendar
     - group.calendar_2
     - group.system
+    - group.hue
     - group.time
     - group.zwave
     - group.weblink
