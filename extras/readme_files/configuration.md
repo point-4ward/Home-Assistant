@@ -46,9 +46,9 @@ In cases where the new include file becomes large (I favour keeping them in bite
 zone: !include_dir_list config/components/zone/
 ```
 
-I have also used 'packages' in the core configuration to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights), the configuration files for which are also kept in bite-sized chunks using the above method, although the includes are nested slightly to prevent duplicates from recursively merged folders.
+I have also used 'packages' in the core configuration to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights and plays music), as these create a single device I have kept that configuration together.
 
-This means I can keep all the configuration files in an order that makes sense to me, and keeps them small so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` and `secrets.yaml` .  I then use a folder called 'extras' to hold anything else relevent to the install or to enhance this repo(like bash scripts and github resources).
+This means I can keep all the configuration files in an order that makes sense to me, and keeps them small so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` , `secrets.yaml` and the packages.  I then use a folder called 'extras' to hold anything else relevent to the install or to enhance this repo(like bash scripts and github resources).
 
 All of which, for me, leads to an easy to manage configuration system that looks something like this...
 
@@ -99,7 +99,6 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |
               |     |- customize_glob.yaml
               |     |- homeassistant.yaml
-              |     |- packages.yaml
               |     |
               |     |-----/customize/
               |     |     |
@@ -108,10 +107,6 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |-----/packages/
               |           |
               |           |...[File per package]
-              |           |		
-              |           |...[Folder per package for elements]
-              |                 |
-              |                 |...[File per package element]
               |			  
               |-----/etc/
               |     |

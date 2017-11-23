@@ -30,3 +30,21 @@ sensor.dark_outside:
 
 sensor.master_bedroom_switch:
   icon: mdi:remote
+
+sensor.mfsocialhomeassistant_last_build_id:
+  friendly_name: "Last build ID"
+
+sensor.mfsocialhomeassistant_last_build_finished_at:
+  friendly_name: "Last build time"
+
+sensor.mfsocialhomeassistant_last_build_state:
+  friendly_name: "Status"
+
+sensor.mfsocialhomeassistant_state:
+  hidden: true
+
+sensor.mfsocialhomeassistant_last_build_started_at:
+  hidden: true
+
+sensor.mfsocialhomeassistant_last_build_duration:
+  hidden: true

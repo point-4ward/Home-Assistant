@@ -40,9 +40,7 @@ light:
   platform: hue
   host: !secret hue_light_host
 emulated_hue: !include config/components/emulated_hue.yaml
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 250
+device_tracker: !include config/components/device_tracker.yaml
 mqtt: !include config/components/mqtt.yaml  
 zone: !include_dir_list config/components/zone/
 media_player: !include config/components/media_player.yaml

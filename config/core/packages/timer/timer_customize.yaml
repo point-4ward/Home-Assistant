@@ -1,6 +1,0 @@
-####################################
-#Customizing this packages entities#
-####################################
-
-sensor.timer_minutes:
-  hidden: true

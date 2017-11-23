@@ -1,7 +1,0 @@
-####################################
-#Customizing this packages entities#
-####################################
-
-sensor.boys_alarm_clock_time:
-  friendly_name: 'Alarm Time'
-  icon: mdi:alarm

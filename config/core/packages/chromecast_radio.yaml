@@ -1,11 +1,125 @@
 ####################################
 #A Radio player for the chromecasts#
 ####################################
-  
-input_select: !include chromecast_radio/chromecast_input_select.yaml
-input_number: !include chromecast_radio/chromecast_input_number.yaml
-group: !include chromecast_radio/chromecast_group.yaml
-script: !include chromecast_radio/chromecast_script.yaml
-automation: !include chromecast_radio/chromecast_automation.yaml
+
 homeassistant:
-  customize: !include chromecast_radio/chromecast_customize.yaml
+  customize:
+    script.radio_chromecast:
+      friendly_name: Start Playing
+      icon: mdi:play
+
+    script.stop_radio_chromecast:
+      friendly_name: Stop
+      icon: mdi:stop
+
+input_select:
+  radio_station:
+    name: 'Select Radio Station:'
+    options:
+      - Free Radio CW
+      - Free Radio 80s
+      - Absolute Radio
+      - Absolute 80s
+      - Absolute 90s
+      - Heart
+      - Heart 80s
+      - Sleep Radio
+
+  chromecast_radio:
+    name: 'Select Speakers:'
+    options:
+      - Living Room
+      - Kitchen
+      - Master Bedroom
+      - Downstairs
+      - Everywhere
+    initial: Everywhere
+    icon: mdi:speaker-wireless
+
+input_number:
+  volume_radio:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+group:
+  Chromecast Radio:
+    control: hidden
+    name: Chromecast Radio
+    entities:
+    - input_select.radio_station
+    - input_select.chromecast_radio
+    - script.radio_chromecast
+    - script.stop_radio_chromecast
+    - input_number.volume_radio
+
+script:
+  radio_chromecast:
+    alias: Play Radio on Chromecast Audio
+    sequence:
+      - service: media_player.volume_set
+        data_template:
+            entity_id: >
+              {% if is_state("input_select.chromecast_radio", "Kitchen") %} media_player.kitchencca
+              {% elif is_state("input_select.chromecast_radio", "Living Room") %} media_player.livingroomcca
+              {% elif is_state("input_select.chromecast_radio", "Master Bedroom") %} media_player.bedroomcca
+              {% elif is_state("input_select.chromecast_radio", "Downstairs") %} media_player.downstairs_group
+              {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.everywhere_group
+              {% endif %}
+            volume_level: '{{  states.input_number.volume_radio.state  }}'
+      -  service: media_player.play_media
+         data_template:
+           entity_id: >
+            {% if is_state("input_select.chromecast_radio", "Kitchen") %} media_player.kitchencca
+            {% elif is_state("input_select.chromecast_radio", "Living Room") %} media_player.livingroomcca
+            {% elif is_state("input_select.chromecast_radio", "Master Bedroom") %} media_player.bedroomcca
+            {% elif is_state("input_select.chromecast_radio", "Downstairs") %} media_player.downstairs_group
+            {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.everywhere_group
+            {% endif %}
+           media_content_id: >
+            {% if is_state("input_select.radio_station", "Free Radio CW") %}  http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+            {% elif is_state("input_select.radio_station", "Free Radio 80s") %} http://tx.whatson.com/http_live_bauer.php?i=free80s.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+            {% elif is_state("input_select.radio_station", "Absolute Radio") %} http://player.absoluteradio.co.uk/tunein.php?i=ar24.aac
+            {% elif is_state("input_select.radio_station", "Absolute 80s") %} http://player.absoluteradio.co.uk/tunein.php?i=a824.aac
+            {% elif is_state("input_select.radio_station", "Absolute 90s") %} http://player.absoluteradio.co.uk/tunein.php?i=a924.aac
+            {% elif is_state("input_select.radio_station", "Heart") %} http://media-ice.musicradio.com/HeartWestMids
+            {% elif is_state("input_select.radio_station", "Heart 80s") %} http://media-ice.musicradio.com/Heart80s
+            {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8453/stream
+            {% endif %}
+           media_content_type: 'audio/mp4'
+
+  stop_radio_chromecast:
+    alias: Stop Radio Chromecast
+    sequence:
+      - service: media_player.turn_off
+        data:
+          entity_id:
+            - media_player.kitchencca
+            - media_player.livingroomcca
+            - media_player.bedroomcca
+            - media_player.downstairs_group
+            - media_player.everywhere_group
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.volume_radio
+          value: 0.20
+
+automation:
+  - alias: 'Set Radio Volume'
+    trigger:
+      platform: state
+      entity_id: input_number.volume_radio
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.chromecast_radio", "Kitchen") %} media_player.kitchencca
+          {% elif is_state("input_select.chromecast_radio", "Living Room") %} media_player.livingroomcca
+          {% elif is_state("input_select.chromecast_radio", "Master Bedroom") %} media_player.bedroomcca
+          {% elif is_state("input_select.chromecast_radio", "Downstairs") %} media_player.downstairs_group
+          {% elif is_state("input_select.chromecast_radio", "Everywhere") %} media_player.everywhere_group
+          {% endif %}
+        volume_level: '{{  states.input_number.volume_radio.state  }}'

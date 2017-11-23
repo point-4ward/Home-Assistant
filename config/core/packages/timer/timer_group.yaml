@@ -1,8 +1,0 @@
-########################
-#Element of the package#
-########################
-
-quick_timer:
-  name: 'Timer'
-  entities:
-    - input_number.timer_minutes

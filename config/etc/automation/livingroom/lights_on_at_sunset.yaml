@@ -23,5 +23,5 @@ condition:
 action:
   - service: scene.turn_on
     entity_id: scene.livingroom_bright
-  - service: scene.turn_on
-    entity_id: scene.landing_evening
+  - service: script.turn_on
+    entity_id: script.landing_light_scene

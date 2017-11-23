@@ -1,0 +1,9 @@
+################################
+#Setting up the device trackers#
+#for presence detection        #
+################################
+
+- platform: owntracks
+  max_gps_accuracy: 250
+
+#- platform: bluetooth_tracker

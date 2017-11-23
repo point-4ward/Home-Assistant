@@ -16,3 +16,8 @@ System:
 
 Maintenance:
   - input_boolean.maintenance_mode
+
+Travis CI:
+  - sensor.mfsocialhomeassistant_last_build_id
+  - sensor.mfsocialhomeassistant_last_build_finished_at
+  - sensor.mfsocialhomeassistant_last_build_state

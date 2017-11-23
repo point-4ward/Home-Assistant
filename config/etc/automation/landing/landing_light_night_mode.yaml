@@ -16,7 +16,7 @@ condition:
       entity_id: group.all_devices
       state: 'home'
     - condition: time
-      after: '21:29:30'
+      after: '21:29:59'
 action:
   - service: scene.turn_on
     entity_id: scene.landing_night

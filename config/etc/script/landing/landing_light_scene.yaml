@@ -1,0 +1,13 @@
+################################
+#Sets the correct scene for the#
+#landing light when auto-on    #
+################################
+
+landing_light_scene:
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.landing_evening
+    - condition: time
+      after: '21:30:00'
+    - service: scene.turn_on
+      entity_id: scene.landing_night

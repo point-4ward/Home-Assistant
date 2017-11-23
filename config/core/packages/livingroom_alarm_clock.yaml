@@ -1,0 +1,138 @@
+############################################
+#An alarm clock feature that  plays either #
+#the radio or a song at the specified time #
+#and, if it is dark, switches the lights on#
+############################################
+
+homeassistant:
+  customize:
+    sensor.livingroom_alarm_clock_time:
+      friendly_name: 'Alarm Time'
+      icon: mdi:alarm
+
+input_number:
+  livingroom_alarm_clock_hour:
+    name: Hour
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+
+  livingroom_alarm_clock_minute:
+    name: Minute
+    icon: mdi:timer
+    initial: 15
+    min: 0
+    max: 55
+    step: 5
+
+#input_datetime:
+#  livingroom_alarm_clock_time:
+#    name: Time
+#    has_date: false
+#    has_time: true
+#    initial: '06:15'
+
+input_boolean:
+  livingroom_alarm_clock_status:
+    name: Activate Alarm
+    icon: mdi:alarm-check
+    initial: off
+
+  livingroom_alarm_clock_repeat:
+    name: Repeat?
+    icon: mdi:autorenew
+
+input_select:
+  livingroom_alarm_sound:
+    name: Music
+    options:
+      - Free Radio CW
+      - Let Her Go
+      - Nightswimming
+    initial: Free Radio CW
+    icon: mdi:music
+
+
+sensor:
+  - platform: template
+    sensors:
+      livingroom_alarm_clock_hour:
+        value_template: '{{ states.input_number.livingroom_alarm_clock_hour.state | int }}'
+      livingroom_alarm_clock_minute:
+        value_template: '{{ states.input_number.livingroom_alarm_clock_minute.state | int }}'
+      livingroom_alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.livingroom_alarm_clock_hour.state }}:
+          {%- if states.sensor.livingroom_alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.livingroom_alarm_clock_minute.state }}
+      livingroom_alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.livingroom_alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.livingroom_alarm_clock_hour.state }}:
+          {%- if states.sensor.livingroom_alarm_clock_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.livingroom_alarm_clock_minute.state }}
+
+group:
+  livingroom_alarm_clock:
+    control: hidden
+    name: 'Alarm Clock'
+    entities:
+      - input_select.livingroom_alarm_sound
+      - input_boolean.livingroom_alarm_clock_status
+      - sensor.livingroom_alarm_clock_time
+#      - input_datetime.livingroom_alarm_clock_time
+      - input_number.livingroom_alarm_clock_hour
+      - input_number.livingroom_alarm_clock_minute
+      - input_boolean.livingroom_alarm_clock_repeat
+
+script:
+  livingroom_wake_up:
+    sequence:
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.downstairs_group
+          volume_level: '0.20'
+      - service: media_player.play_media
+        data_template:
+          entity_id: media_player.downstairs_group
+          media_content_id: !secret livingroom_wake_up_script
+          media_content_type: 'audio/mp4'
+
+automation:
+  - alias: 'Livingroom play music'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.livingroom_alarm_clock_time_long.state }}'
+      #'{{ states.sensor.time.state == states.input_datetime.livingroom_alarm_clock_time.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.livingroom_alarm_clock_status
+      state: 'on'
+    action:
+      - service: script.livingroom_wake_up
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.livingroom_alarm_clock_status
+
+  - alias: 'livingroom clear boolean' 
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.livingroom_alarm_clock_time_long.state }}'
+      #'{{ states.sensor.time.state == states.input_datetime.livingroom_alarm_clock_time.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.livingroom_alarm_clock_repeat
+      state: 'off'
+    action:
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.livingroom_alarm_clock_status

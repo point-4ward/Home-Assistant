@@ -10,4 +10,4 @@ Livingroom:
     - group.livingroom_lights
     - media_player.living_room_kodi
     - media_player.livingroomcca
-    - group.living_alarm_clock
+    - group.livingroom_alarm_clock
