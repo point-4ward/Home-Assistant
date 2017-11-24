@@ -54,7 +54,6 @@ input_select:
     initial: Free Radio CW
     icon: mdi:music
 
-
 sensor:
   - platform: template
     sensors:

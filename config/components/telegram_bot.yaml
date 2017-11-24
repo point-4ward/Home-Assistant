@@ -6,5 +6,7 @@
 - platform: webhooks
   api_key: !secret telegram_bot_api_key
   allowed_chat_ids:
-    - !secret telegram_bot_chat_id
+    - !secret telegram_bot_chat_id_marc
+#    - !secret telegram_bot_chat_id_laura
+#    - !secret telegram_bot_chat_id_courtney
   parse_mode: html

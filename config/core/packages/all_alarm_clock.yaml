@@ -1,6 +1,6 @@
 #############################
-#An alarm clock feature that#
-#flashes living room lights #
+#This sets all the alarms in#
+#the house to the same time #
 #############################
 
 homeassistant:
@@ -29,6 +29,16 @@ input_number:
     max: 55
     step: 5
 
+input_select:
+  all_alarm_sound:
+    name: Music
+    options:
+      - Free Radio CW
+      - Let Her Go
+      - Nightswimming
+    initial: Free Radio CW
+    icon: mdi:music
+
 sensor:
   platform: template
   sensors:
@@ -49,6 +59,7 @@ group:
     control: hidden
     name: 'MASTER Alarm Clock'
     entities:
+      - input_select.all_alarm_sound
       - sensor.all_alarm_clock_time
       - input_number.all_alarm_clock_hour
       - input_number.all_alarm_clock_minute
@@ -58,6 +69,22 @@ script:
   all_sync:
     alias: Sync All Alarms
     sequence:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.livingroom_alarm_sound
+          value: '{{states.input_select.all_alarm_sound.state}}'
+#      - service: input_select.select_option
+#        data_template:
+#          entity_id: input_select.boys_alarm_sound
+#          value: '{{states.input_select.all_alarm_sound.state}}'
+#      - service: input_select.select_option
+#        data_template:
+#          entity_id: input_select.girls_alarm_sound
+#          value: '{{states.input_select.all_alarm_sound.state}}'
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.masterbed_alarm_sound
+          value: '{{states.input_select.all_alarm_sound.state}}'
       - service: input_number.set_value
         data_template: 
           entity_id:

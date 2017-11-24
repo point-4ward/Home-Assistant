@@ -54,7 +54,6 @@ input_select:
     initial: Free Radio CW
     icon: mdi:music
 
-
 sensor:
   - platform: template
     sensors:
@@ -98,11 +97,11 @@ script:
     sequence:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.masterbedcca
+          entity_id: media_player.bedroomcca
           volume_level: '0.20'
       - service: media_player.play_media
         data_template:
-          entity_id: media_player.masterbedcca
+          entity_id: media_player.bedroomcca
           media_content_id: !secret masterbed_wake_up_script
           media_content_type: 'audio/mp4'
       - condition: or

@@ -27,5 +27,5 @@
 - platform: hue
 
 - platform: travisci
-  api_key: 1e890c194004f80e2581988b828ddce294f5df90
+  api_key: !secret sensor_travisci
   

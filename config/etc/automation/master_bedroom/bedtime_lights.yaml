@@ -7,20 +7,14 @@
 alias: bedtime lights
 trigger:
   platform: state
-  entity_id: light.living_room
-  to: 'off'
+  entity_id: sensor.living_room_switch
+  to: '4_hold'
 condition:
-  condition: and
+  condition: or
   conditions:
-    - condition: or
-      conditions:
-          - condition: time
-            after: '21:30:00'
-          - condition: time
-            before: '06:00:00'
-    - condition: state
-      entity_id: group.all_devices
-      state: 'home'  
+    - condition: time
+      after: '21:30:00'
+    - condition: time
+      before: '06:00:00'
 action:
-  service: script.turn_on
-  entity_id: script.master_bedroom_relax
+  service: script.master_bedroom_relax

@@ -46,8 +46,7 @@ automation:
     action:
       - service: script.turn_off
         entity_id: script.timer
-      - service: script.turn_on
-        entity_id: script.timer
+      - service: script.timer
       
   - alias: "timer execute"
     trigger:
