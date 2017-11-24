@@ -10,8 +10,8 @@
     dark_outside:
         friendly_name: 'Dark outside'
         value_template: >
-          {% if (states.sun.sun.attributes.elevation | int < 30) %}true
-          {% elif ( (states.sun.sun.attributes.elevation | int < 40) and (states.sensor.dark_sky_cloud_coverage.state | int > 50)) %}true
+          {% if (states.sun.sun.attributes.elevation | int < 3) %}true
+          {% elif ( (states.sun.sun.attributes.elevation | int < 4) and (states.sensor.dark_sky_cloud_coverage.state | int > 50)) %}true
           {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
           {% else %}false
           {% endif %}

@@ -14,5 +14,9 @@ condition:
   state: 'off'
 action:
   service: notify.telegram_marc
-  data:
-    message: 'Home Assistant has restarted and is not in Maintenance Mode.  Power cut?'
+  data_template:
+    message: "Home Assistant has restarted and is not in Maintenance Mode.  Power cut?"
+    data:
+      keyboard:
+        - '/status'
+        - '/maintenance'

@@ -1,0 +1,24 @@
+###############################
+#This automation replies to a #
+#telegram message with the    #
+#status of the lights         # 
+###############################
+
+alias: 'Telegram reply with Lights'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/lights'
+action:
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: "The lights group is {{states.group.all_lights.state}}
+      
+      Living room lights are {{states.group.livingroom_lights.state}}.
+      
+      Landing lights are {{states.light.landing.state}}.
+      
+      Master bedroom lights are {{states.group.master_bedroom_lights.state}}."
+      keyboard: ["/onALL, /onLivingRoom", "/offALL, /onBedroom"]

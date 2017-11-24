@@ -1,0 +1,18 @@
+####################################
+#This automation switches away mode#
+#on when instructed via telegram   #
+####################################
+
+alias: 'Telegram set away mode'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/away'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.away_mode
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: 'Away mode has been turned on'

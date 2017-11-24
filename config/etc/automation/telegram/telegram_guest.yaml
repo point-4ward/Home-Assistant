@@ -1,0 +1,18 @@
+######################################
+#This automation switches guest      #
+#mode on when instructed via telegram#
+######################################
+
+alias: 'Telegram set guest mode'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/guest'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.guest_mode
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: 'Guest mode has been turned on'

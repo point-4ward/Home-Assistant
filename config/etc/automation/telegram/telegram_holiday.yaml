@@ -1,0 +1,18 @@
+######################################
+#This automation switches holiday    #
+#mode on when instructed via telegram#
+######################################
+
+alias: 'Telegram set holiday mode'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/holiday'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.holiday_mode
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: 'Holiday mode has been turned on'

@@ -8,6 +8,8 @@ tools:
   icon: mdi:wrench
   entities:
     - group.maintenance
+    - group.house_modes
+    - group.occupancy_modes
     - group.all_hue
     - group.quick_timer
     - group.all_alarm_clock

@@ -1,0 +1,18 @@
+##########################################
+#This automation switches on the bedroom #
+#lights when instructed via telegram     #
+##########################################
+
+alias: 'Telegram set bedroom lights on'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/onBedroom'
+action:
+  - service: homeassistant.turn_on
+    entity_id: light.master_bedroom
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: 'Bedroom lights have been turned on'

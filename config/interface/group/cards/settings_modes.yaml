@@ -1,0 +1,21 @@
+#################################
+#Placing entities on the card   #
+#################################
+
+house_modes:
+  name: House modes
+  control: hidden
+  entities:
+  - input_boolean.guest_mode
+  - input_boolean.away_mode
+  - input_boolean.holiday_mode
+
+occupancy_modes:
+  name: Occupancy Modes
+  control: hidden
+  entities:
+  - input_boolean.bathtime_mode
+  - input_boolean.kids_night_mode
+  - input_boolean.bedtime_mode
+  - input_boolean.school_day_mode
+  - input_boolean.cycling_mode

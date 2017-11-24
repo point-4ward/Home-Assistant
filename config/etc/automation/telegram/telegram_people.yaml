@@ -1,0 +1,25 @@
+#######################################
+#This automation replies to a telegram#
+#message with home and away status    #
+#######################################
+
+alias: 'Telegram reply with People'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/people'
+action:
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: "Currently the tracker group is {{states.group.all_devices.state}}.
+      
+      Marc is {{states.device_tracker.marcs_phone_marcs_pixel_phone.state}}.
+      
+      Laura is {{states.device_tracker.lauras_phone_lauras_phone.state}}.
+      
+      Courtney is not currently tracked.
+      
+      Guest mode is {{states.input_boolean.guest_mode.state}}."
+      keyboard: ["/away, /holiday" , "/guest, /lights"]

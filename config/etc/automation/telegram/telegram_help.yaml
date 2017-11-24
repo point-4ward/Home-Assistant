@@ -1,0 +1,18 @@
+###############################
+#This automation replies to a #
+#telegram message with a menu #
+#of available interactions    #
+###############################
+
+alias: 'Telegram reply with Help Menu'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/help'
+action:
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: 'Commands'
+      keyboard: ["/status, /people", "/lights, /guest", "/away, /holiday"]

@@ -1,0 +1,18 @@
+######################################
+#This automation switches off all the#
+#lights when instructed via telegram #
+######################################
+
+alias: 'Telegram set all lights off'
+trigger:
+  platform: event
+  event_type: telegram_command
+  event_data:
+    command: '/offALL'
+action:
+  - service: homeassistant.turn_off
+    entity_id: light.all_hue_lights
+  - service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: 'All lights have been turned off'
