@@ -6,6 +6,7 @@ house_modes:
   name: House modes
   control: hidden
   entities:
+  - group.phone_trackers
   - input_boolean.guest_mode
   - input_boolean.away_mode
   - input_boolean.holiday_mode

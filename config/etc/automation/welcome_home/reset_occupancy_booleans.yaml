@@ -1,0 +1,17 @@
+###########################################
+#Switches the guest mode, away mode and   #
+#holiday mode off when somebody comes home#
+###########################################
+
+alias: "Reset occupancy booleans"
+trigger:
+  - platform: state
+    entity_id: group.all_devices
+    to: 'home'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.guest_mode
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.away_mode
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.holiday_mode
