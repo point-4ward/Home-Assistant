@@ -1,6 +1,6 @@
 # How I manage backups
 
-I upload all my non-sensitive files to GitHub, which means I have a backup of them, but also I can check my config online for most things.  I will hopefully be able to edit the config on GitHub and then make my HA instance pull the updates so I can remotely reconfigure the machine if needed.
+I upload all my non-sensitive files to GitHub, which means I have a backup of them, but also I can check my config online for most things.  I will hopefully soon be able to edit the config on GitHub and then make my HA instance pull the updates so I can remotely reconfigure the machine if needed.
 
 I use TravisCI to check my config every time it is pushed to Github.  This runs a program that checks the configuration is sound and alerts me if it is not.  Because this requires a `secrets.yaml` file and an `SSL certificate` I have added fake versions of these in the extras/travis_ci folder.  My `.travis.yml` script then moves these files to the correct place before running the program to prevent false negatives.  The redacted version of `secrets.yaml` is identical in format and layout to my real `secrets.yaml` so you can see how it is organised.
 

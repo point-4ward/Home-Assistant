@@ -4,19 +4,12 @@
 
 alias: "Landing light night mode"
 trigger:
-  - platform: time
-    at: '21:30:00'
-  - platform: state
-    entity_id: group.all_devices
-    to: 'home'
+  platform: time
+  at: '21:30:00'
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: group.all_devices
-      state: 'home'
-    - condition: time
-      after: '21:29:59'
+  condition: state
+  entity_id: light.landing
+  state: 'on'
 action:
   - service: scene.turn_on
     entity_id: scene.landing_night

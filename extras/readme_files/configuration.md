@@ -8,7 +8,7 @@ In my configuration.yaml I have removed history component, discovery component a
  - The discovery component never discovered anything for me, so having it running in the background seemed a waste of resources.
  - The conversation component is superfluous with my amazon echo implementation, so again I've reclaimed some resources.
 
-Everybody has their own way of organising files, and they can get confusing, so I decided on an organisational method for mine from the start and this is how I work it:
+Everybody has their own way of organising files, and they can get confusing, so I decided on an organisational method for mine from the start (although I have adapted it as time has gone by!) and this is how I currently work it:
 
 In the '.homeassistant/' folder there are some files that can't be moved, so they obviously stay there.  Any that don't have to be there (and don't have to be in a specific location elswewhere, ie local icons in ./homeassistant/www/) go in a folder called config/
 
@@ -36,7 +36,7 @@ mqtt:
 
 	
 	
-Where the entry will take four lines or more, I use an include and place the include file in the config/ directory, in the subdirectory based on whether it is a 'core' element, an 'interface' element or whatever.  I use the exact name of the component for the include, eg:
+Where the entry will take four lines or more, I use an !include and place the include file in the config/ directory, in the subdirectory based on whether it is a 'core' element, an 'interface' element or whatever.  I use the exact name of the component for the include, eg:
 ```
 mqtt: !include config/components/mqtt.yaml
 ```
@@ -46,9 +46,9 @@ In cases where the new include file becomes large (I favour keeping them in bite
 zone: !include_dir_list config/components/zone/
 ```
 
-I have also used 'packages' in the core configuration to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights and plays music), as these create a single device I have kept that configuration together.
+I have also used 'packages' in the core configuration to group some items together in to a combined 'device' (like a radio player for my chromecasts, and an alarm clock function that switches on lights and plays music).  As these create a single device I have kept that configuration together.  You can copy a whole package to your configuration, change the entity_id's to match yours, and have a working device straight away if you wish.
 
-This means I can keep all the configuration files in an order that makes sense to me, and keeps them small so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` , `secrets.yaml` and the packages.  I then use a folder called 'extras' to hold anything else relevent to the install or to enhance this repo(like bash scripts and github resources).
+This means I can keep all the configuration files in an order that makes sense to me, and keeps them small (or packaged) so they are easy to debug.  The only files in my system with more than 50 lines are `configuration.yaml` , `secrets.yaml` and the packages.  I then use a folder called 'extras' to hold anything else relevent to the install or to enhance this repo(like bash scripts and github resources).
 
 All of which, for me, leads to an easy to manage configuration system that looks something like this...
 
@@ -70,10 +70,15 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |     |
         |     |...[bash scripts/github resources etc]
         |
+        |-----/custom_components/
+        |     |
+        |     |...[files for custom components]
+        |
         |-----/config/
               |
               |-----/components/
               |     |
+              |     |- device_tracker.yaml
               |     |- emulated_hue.yaml
               |     |- media_player.yaml
               |     |- mqtt.yaml
@@ -110,6 +115,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |			  
               |-----/etc/
               |     |
+              |     |- alert.yaml
               |     |- input_boolean.yaml
               |     |- input_select.yaml
               |     |- shell_command.yaml

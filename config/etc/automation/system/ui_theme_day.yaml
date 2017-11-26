@@ -2,7 +2,7 @@
 #Sets the daytime UI theme  #
 #############################
 
-alias: 'Evening UI theme'
+alias: 'Day UI theme'
 trigger:
   platform: sun
   event: sunrise

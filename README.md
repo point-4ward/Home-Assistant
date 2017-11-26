@@ -47,7 +47,7 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  - Monitors the instance for hacking attempts, notifies and blocks IP of attacker.
  - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
  - Timer function that alerts on phones and over Chromecast Audios.
- - Sets a UI theme based on time of day, or maintenance mode.
+ - Sets a UI theme based on time of day.
  
 ## Configuration
 
