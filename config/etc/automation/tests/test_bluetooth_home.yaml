@@ -1,0 +1,14 @@
+##########################
+#Notification to test the#
+#reliability of a sensor #
+##########################
+
+alias: "Test bluetooth tracker Marc"
+trigger:
+  platform: state
+  entity_id: device_tracker.forthygpixel
+  to: 'home'
+action:
+  - service: notify.telegram_marc
+    data:
+      message: 'The bluttoth sensor on your phone is home.'

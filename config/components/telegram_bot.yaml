@@ -3,17 +3,18 @@
 #telegram bot used for notifications#
 #####################################
 
-- platform: webhooks
+- platform: polling
   api_key: !secret telegram_bot_api_key_marc
   parse_mode: html
   allowed_chat_ids:
     - !secret telegram_bot_chat_id_marc
-
-- platform: webhooks
-  api_key: !secret telegram_bot_api_key_laura
-  parse_mode: html
-  allowed_chat_ids:
     - !secret telegram_bot_chat_id_laura
+
+#- platform: polling
+#  api_key: !secret telegram_bot_api_key_laura
+#  parse_mode: html
+#  allowed_chat_ids:
+#    - !secret telegram_bot_chat_id_laura
 
 #- platform: webhooks
 #  api_key: !secret telegram_bot_api_key

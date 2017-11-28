@@ -10,10 +10,8 @@
   scan_interval: 10800
   command: !secret sensor_ssl_command
 
-- platform: command_line
+- platform: version
   name: Installed HA version
-  command: "/home/hass/srv/bin/hass --version"
-  scan_interval: 86400
 
 - platform: rest
   resource: https://pypi.python.org/pypi/homeassistant/json

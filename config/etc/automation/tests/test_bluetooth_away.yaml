@@ -1,0 +1,14 @@
+##########################
+#Notification to test the#
+#reliability of a sensor #
+##########################
+
+alias: "Test bluetooth tracker Marc away"
+trigger:
+  platform: state
+  entity_id: device_tracker.forthygpixel
+  to: 'not_home'
+action:
+  - service: notify.telegram_marc
+    data:
+      message: 'The bluetooth sensor on your phone is not_home.'

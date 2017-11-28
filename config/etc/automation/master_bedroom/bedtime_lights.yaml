@@ -1,20 +1,13 @@
-############################################
-#Switches on the master bedroom lights when#
-#we are homeand the living room lights are #
-#switched off after 2130 hours             #
-############################################
+#############################################
+#Switches on the master bedroom lights when #
+#we are going up to bed via a press and hold#
+#on the off switch for the living room light#
+#############################################
 
 alias: bedtime lights
 trigger:
   platform: state
   entity_id: sensor.living_room_switch
   to: '4_hold'
-condition:
-  condition: or
-  conditions:
-    - condition: time
-      after: '21:30:00'
-    - condition: time
-      before: '06:00:00'
 action:
   service: script.master_bedroom_relax
