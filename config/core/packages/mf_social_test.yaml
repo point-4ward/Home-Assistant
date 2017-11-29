@@ -1,0 +1,222 @@
+########################################################################################
+#  Testing the mf_social sensors for darkness and bad weather.                         #
+#                                                                                      #
+#    **********************************************************************            #
+# You must have the sun: component, the time sensor and the darksky weather sensor     #
+# configured on your homeassistant installation before using this.                     #
+#    **********************************************************************            #
+#                                                                                      #
+#                                                                                      #
+#                                                                                      #
+#  If you do not currently use packages, create a directory in your                    #
+#  ./homeassistant/ directory and place the following line under your                  #
+#  'homeassistant:' entry in your configuration.yaml:                                  #
+#                                                                                      #
+#  packages: !include_dir_named packages/                                              #
+#                                                                                      #
+#  For example:                                                                        #
+#                                                                                      #
+#  homeassistant:                                                                      #
+#    name: Home                                                                        #
+#    latitude: !secret latitude                                                        #
+#    longitude: !secret longitude                                                      #
+#    elevation: !secret elevation                                                      #
+#    time_zone: !secret time_zone                                                      #
+#    unit_system: metric                                                               #
+#    customize: customize.yaml                                                         #
+#    packages: !include_dir_named packages/                                            #
+#                                                                                      #
+#  (I presume if you already use packages you will know how to integrate               #
+#     this file in to your configuration)                                              #
+#                                                                                      #
+#  Then create a new file and copy this in to it, save it in your packages             #
+#  folder and call it mf_social_test.yaml                                              #
+#                                                                                      #
+#  Edit the 'notify' option to your prefered notification media in all 5 places (near  #
+#  the bottom of the file), save and restart homeassistant.                            #
+#                                                                                      #
+#  (If you use your own default_view you will need to put group.mf_social_test         #
+#     on one of your views before you restart)                                         #
+#                                                                                      #
+#   Set the time on the mf_social_test card for when you want to receive the           #
+#   bad weather notification (around when you're leaving for work in the morning       #
+#   would be best), defaults to 7.30am.                                                #
+#                                                                                      #
+#   The two sensors will monitor your dark_sky and sun components and                  #
+#   attempt to work out when it is dark enough to switch the lights on,                #
+#   and light enough to switch them off.  It will also check whether                   #
+#   your journey to work is likely to be slightly longer due to frost                  #
+#   or heavy rain.                                                                     #
+#                                                                                      #
+#   You will receive notifications as follows:                                         #
+#                                                                                      #
+#   - everytime the light sensor thinks it is dark outside, and therefore              #
+#     would switch the lights on if used as the condition.                             #
+#   - everytime the light sensor thinks it is light outside, and therefore             #
+#     would switch the lights off if used as the condition.                            #
+#   - at the time you set with a report of 'frost', 'heavy_rain' or 'clear'            #
+#                                                                                      #
+#   Please update mf_social with how accurate it is for you and any false              #
+#   positives, false negatives or completely wrong results!                            #
+#                                                                                      #
+#   Thanks!                                                                            #
+#                                                                                      #
+########################################################################################
+
+homeassistant:
+  customize:
+    sensor.test_dark_outside:
+      icon: mdi:theme-light-dark
+
+    sensor.test_bad_weather:
+      icon: mdi:weather-snowy-rainy
+
+    sensor.notification_time:
+      friendly_name: 'Notification Time'
+      icon: mdi:alarm
+
+    sensor.notification_time_long:
+      hidden: true
+
+    sensor.notification_hour:
+      hidden: true
+
+    sensor.notification_minute:
+      hidden: true
+
+input_number:
+  notification_hour:
+    name: Hour
+    icon: mdi:timer
+    initial: 7
+    min: 0
+    max: 23
+    step: 1
+
+  notification_minute:
+    name: Minute
+    icon: mdi:timer
+    initial: 30
+    min: 0
+    max: 55
+    step: 5
+
+sensor:
+  - platform: template
+    sensors:
+  
+      test_dark_outside:
+        friendly_name: 'Dark outside'
+        value_template: >
+          {% if (states.sun.sun.attributes.elevation | int < 3) %}true
+          {% elif ( (states.sun.sun.attributes.elevation | int < 7) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+          {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
+          {% else %}false
+          {% endif %}
+
+      test_bad_weather:
+        friendly_name: 'Bad weather'
+        value_template: >
+          {% if ((states.sensor.dark_sky_daily_low_temperature.state | int < 4) and (states.sensor.dark_sky_dew_point.state | int < 6) and (states.sensor.dark_sky_wind_speed.state | int < 12) and (states.sensor.dark_sky_cloud_coverage.state | int < 20) and (states.sensor.dark_sky_humidity.state | int > 50)) %} frost
+          {% elif (states.sensor.dark_sky_precip_intensity | int > 7) %} heavy_rain
+          {% else %} clear
+          {% endif %}
+
+      notification_hour:
+        value_template: '{{ states.input_number.notification_hour.state | int }}'
+        
+      notification_minute:
+        value_template: '{{ states.input_number.notification_minute.state | int }}'
+        
+      notification_time:
+        value_template: >-
+          {{ states.sensor.notification_hour.state }}:
+          {%- if states.sensor.notification_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.notification_minute.state }}
+            
+      notification_time_long:
+        value_template: >-
+          {% if states.sensor.notification_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.notification_hour.state }}:
+          {%- if states.sensor.notification_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.notification_minute.state }}
+
+group:
+  mf_social_test:
+    name: mf_social test card
+    control: hidden
+    entities:
+      - sensor.test_dark_outside
+      - sensor.test_bad_weather
+      - sensor.notification_time
+      - input_number.notification_hour
+      - input_number.notification_minute
+
+automation:
+  - alias: 'Bad weather notification - clear'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: sensor.test_bad_weather
+      state: 'clear'
+    action:
+      - service: notify.telegram_marc
+        data:
+          message: 'The bad weather sensor is registering clear.'
+
+  - alias: 'Bad weather notification - frost'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: sensor.test_bad_weather
+      state: 'frost'
+    action:
+      - service: notify.telegram_marc
+        data:
+          message: 'The bad weather sensor is registering frost.'
+
+  - alias: 'Bad weather notification - heavy_rain'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: sensor.test_bad_weather
+      state: 'heavy_rain'
+    action:
+      - service: notify.telegram_marc
+        data:
+          message: 'The bad weather sensor is registering heavy rain.'
+
+  - alias: "Light notification - dark"
+    trigger:
+      platform: state
+      entity_id: sensor.test_dark_outside
+      to: 'true'
+    action:
+      - service: notify.telegram_marc
+        data:
+          message: 'The dark sensor has changed to true, I would have switched the lights on now if using this sensor.'
+
+  - alias: "Light notification - light"
+    trigger:
+      platform: state
+      entity_id: sensor.test_dark_outside
+      to: 'false'
+    action:
+      - service: notify.telegram_marc
+        data:
+          message: 'The dark sensor has changed to false, I would have switched the lights on now if using this sensor.'

@@ -28,6 +28,9 @@ sensor.calendar:
 sensor.dark_outside:
   icon: mdi:theme-light-dark
 
+sensor.bad_weather:
+  icon: mdi:weather-snowy-rainy
+
 sensor.master_bedroom_switch:
   icon: mdi:remote
 

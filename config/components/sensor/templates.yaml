@@ -7,11 +7,19 @@
         {{ states.calendar.marcforthrungmailcom.attributes.message }}
       friendly_name: 'Next Event'
       
-    dark_outside:
-        friendly_name: 'Dark outside'
-        value_template: >
-          {% if (states.sun.sun.attributes.elevation | int < 3) %}true
-          {% elif ( (states.sun.sun.attributes.elevation | int < 4) and (states.sensor.dark_sky_cloud_coverage.state | int > 50)) %}true
-          {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
-          {% else %}false
-          {% endif %}
+#    dark_outside:
+#      friendly_name: 'Dark outside'
+#      value_template: >
+#        {% if (states.sun.sun.attributes.elevation | int < 3) %}true
+#        {% elif ( (states.sun.sun.attributes.elevation | int < 7) and #(states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+#        {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
+#        {% else %}false
+#        {% endif %}
+
+#    bad_weather:
+#      friendly_name: 'Bad weather'
+#      value_template: >
+#        {% if ((states.sensor.dark_sky_daily_low_temperature.state | int < 4) and #(states.sensor.dark_sky_dew_point.state | int < 6) and #(states.sensor.dark_sky_wind_speed.state | int < 12) and #(states.sensor.dark_sky_cloud_coverage.state | int < 20) and #(states.sensor.dark_sky_humidity.state | int > 50)) %} frost
+#        {% elif (states.sensor.dark_sky_precip_intensity | int > 7) %} heavy_rain
+#        {% else %} clear
+#        {% endif %}

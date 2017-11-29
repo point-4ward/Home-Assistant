@@ -9,6 +9,7 @@ Time:
 Environment:
   - sun.sun
   - sensor.dark_outside
+  - sensor.bad_weather
   - sensor.dark_sky_apparent_temperature
   - sensor.dark_sky_cloud_coverage
   - sensor.dark_sky_daily_high_apparent_temperature
