@@ -8,3 +8,5 @@ kitchen:
   icon: mdi:silverware-variant
   entities:
     - media_player.kitchencca
+    - media_player.downstairs_group
+    - group.downstairs_alarm_clock

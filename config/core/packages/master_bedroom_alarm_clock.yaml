@@ -27,33 +27,6 @@ input_number:
     max: 55
     step: 5
 
-#input_datetime:
-#  masterbed_alarm_clock_time:
-#    name: Time
-#    has_date: false
-#    has_time: true
-#    initial: '06:15'
-
-input_boolean:
-  masterbed_alarm_clock_status:
-    name: Activate Alarm
-    icon: mdi:alarm-check
-    initial: off
-
-  masterbed_alarm_clock_repeat:
-    name: Repeat?
-    icon: mdi:autorenew
-
-input_select:
-  masterbed_alarm_sound:
-    name: Music
-    options:
-      - Free Radio CW
-      - Let Her Go
-      - Nightswimming
-    initial: Free Radio CW
-    icon: mdi:music
-
 sensor:
   - platform: template
     sensors:
@@ -79,6 +52,35 @@ sensor:
           {%- endif -%}
             {{ states.sensor.masterbed_alarm_clock_minute.state }}
 
+            
+
+#input_datetime:
+#  masterbed_alarm_clock_time:
+#    name: Alarm Time
+#    has_date: false
+#    has_time: true
+#    initial: '06:15'
+
+input_boolean:
+  masterbed_alarm_clock_status:
+    name: Activate Alarm
+    icon: mdi:alarm-check
+    initial: off
+
+  masterbed_alarm_clock_repeat:
+    name: Repeat?
+    icon: mdi:autorenew
+
+input_select:
+  masterbed_alarm_sound:
+    name: Music
+    options:
+      - Free Radio CW
+      - Let Her Go
+      - Nightswimming
+    initial: Free Radio CW
+    icon: mdi:music
+
 group:
   masterbed_alarm_clock:
     control: hidden
@@ -91,6 +93,26 @@ group:
       - input_number.masterbed_alarm_clock_hour
       - input_number.masterbed_alarm_clock_minute
       - input_boolean.masterbed_alarm_clock_repeat
+
+automation:
+  - alias: 'masterbed light on and play music'
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'
+      #'{{ states.sensor.time.state == states.input_datetime.masterbed_alarm_clock_time.state }}'
+    condition:
+      condition: state
+      entity_id: input_boolean.masterbed_alarm_clock_status
+      state: 'on'
+    action:
+      - service: script.masterbed_wake_up
+      - condition: state
+        entity_id: input_boolean.masterbed_alarm_clock_repeat
+        state: 'off'
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.masterbed_alarm_clock_status
 
 script:
   masterbed_wake_up:
@@ -114,34 +136,3 @@ script:
             after_offset: '-00:40:00'
       - service: scene.turn_on
         entity_id: scene.masterbed_wake_up
-
-automation:
-  - alias: 'masterbed light on and play music'
-    hide_entity: False
-    trigger:
-      platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'
-      #'{{ states.sensor.time.state == states.input_datetime.masterbed_alarm_clock_time.state }}'
-    condition:
-      condition: state
-      entity_id: input_boolean.masterbed_alarm_clock_status
-      state: 'on'
-    action:
-      - service: script.masterbed_wake_up
-      - service: input_boolean.turn_off
-        data:
-          entity_id: input_boolean.masterbed_alarm_clock_status
-
-  - alias: 'masterbed clear boolean' 
-    trigger:
-      platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'
-      #'{{ states.sensor.time.state == states.input_datetime.masterbed_alarm_clock_time.state }}'
-    condition:
-      condition: state
-      entity_id: input_boolean.masterbed_alarm_clock_repeat
-      state: 'off'
-    action:
-      - service: input_boolean.turn_off
-        data:
-          entity_id: input_boolean.masterbed_alarm_clock_status

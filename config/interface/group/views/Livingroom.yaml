@@ -10,4 +10,5 @@ Livingroom:
     - group.livingroom_lights
     - media_player.living_room_kodi
     - media_player.livingroomcca
-    - group.livingroom_alarm_clock
+    - media_player.downstairs_group
+    - group.downstairs_alarm_clock
