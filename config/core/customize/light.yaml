@@ -1,0 +1,16 @@
+################################
+#Hidden entities, setting icons#
+#and adding friendly names     #
+################################
+
+light.master_bedroom:
+  hidden: true
+
+light.living_room:
+  hidden: true
+
+light.landing_2:
+  hidden: true
+
+light.bathroom_2:
+  hidden: true

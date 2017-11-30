@@ -160,7 +160,6 @@ group:
 
 automation:
   - alias: 'Bad weather notification - clear'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
@@ -174,7 +173,6 @@ automation:
           message: 'The bad weather sensor is registering clear.'
 
   - alias: 'Bad weather notification - frost'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
@@ -188,7 +186,6 @@ automation:
           message: 'The bad weather sensor is registering frost.'
 
   - alias: 'Bad weather notification - heavy_rain'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
@@ -219,4 +216,4 @@ automation:
     action:
       - service: notify.telegram_marc
         data:
-          message: 'The dark sensor has changed to false, I would have switched the lights on now if using this sensor.'
+          message: 'The dark sensor has changed to false, I would have switched the lights off now if using this sensor.'

@@ -16,13 +16,14 @@ livingroom_lights:
     - light.living_room_right
     - input_select.living_room_scenes
 
-all_hue:
-  name: All Hue
-  entities:
-    - light.all_hue_lights
-
-landing_lights:
+other_lights:
   name: Lights
   control: hidden
   entities:
     - light.landing
+    - light.bathroom
+
+all_hue:
+  name: All Hue
+  entities:
+    - light.all_hue_lights

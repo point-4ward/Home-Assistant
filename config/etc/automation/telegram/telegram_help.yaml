@@ -14,5 +14,5 @@ action:
   - service: telegram_bot.send_message
     data_template:
       target: '{{ trigger.event.data.user_id }}'
-      message: 'Commands'
+      message: 'Commands...'
       keyboard: ["/status, /people", "/lights, /guest", "/away, /holiday"]

@@ -6,3 +6,4 @@ Hue:
   entities:
     - sensor.master_bedroom_switch
     - sensor.living_room_switch
+    - sensor.bathroom_motion

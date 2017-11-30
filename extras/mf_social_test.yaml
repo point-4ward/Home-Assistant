@@ -51,9 +51,9 @@
 #   You will receive notifications as follows:                                         #
 #                                                                                      #
 #   - everytime the light sensor thinks it is dark outside, and therefore              #
-#     would switch the lights on if used as the condition.                             #
+#     would switch the lights on if used as the trigger.                               #
 #   - everytime the light sensor thinks it is light outside, and therefore             #
-#     would switch the lights off if used as the condition.                            #
+#     would switch the lights off if used as the trigger.                              #
 #   - at the time you set with a report of 'frost', 'heavy_rain' or 'clear'            #
 #                                                                                      #
 #   Please update mf_social with how accurate it is for you and any false              #
@@ -160,7 +160,6 @@ group:
 
 automation:
   - alias: 'Bad weather notification - clear'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
@@ -174,7 +173,6 @@ automation:
           message: 'The bad weather sensor is registering clear.'
 
   - alias: 'Bad weather notification - frost'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
@@ -188,7 +186,6 @@ automation:
           message: 'The bad weather sensor is registering frost.'
 
   - alias: 'Bad weather notification - heavy_rain'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
@@ -219,4 +216,4 @@ automation:
     action:
       - service: notify.[YOUR PREFERENCE 5 OF 5]
         data:
-          message: 'The dark sensor has changed to false, I would have switched the lights on now if using this sensor.'
+          message: 'The dark sensor has changed to false, I would have switched the lights off now if using this sensor.'
