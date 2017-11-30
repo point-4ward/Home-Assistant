@@ -12,5 +12,5 @@ light.living_room:
 light.landing_2:
   hidden: true
 
-light.bathroom_2:
+light.bathroom:
   hidden: true

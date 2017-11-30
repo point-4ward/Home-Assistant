@@ -96,7 +96,6 @@ group:
 
 automation:
   - alias: 'masterbed light on and play music'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'

@@ -3,16 +3,16 @@
 #on when it is sunset and somebody is home#
 ###########################################
 
-alias: "Lights on when dark - already home"
+alias: "Lights on when dark - arriving home"
 trigger:
-  - platform: sun
-    event: sunset
-    offset: "-00:40:00"
+  - platform: state
+    entity_id: group.all_devices
+    to: 'home'
 condition:
-  condition: state
-  entity_id: group.all_devices
-  state: 'home'
+  condition: sun
+  after: sunset
+  after_offset: "-00:40:00"
 action:
   - service: scene.turn_on
-    entity_id: scene.livingroom_sunset
+    entity_id: scene.livingroom_bright
   - service: script.landing_light_scene
