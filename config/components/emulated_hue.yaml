@@ -8,3 +8,4 @@ listen_port: !secret hue_listen_port
 exposed_domains:
   - light
   - input_boolean
+  - switch

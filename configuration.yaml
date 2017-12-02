@@ -39,6 +39,7 @@ logbook: !include config/interface/logbook.yaml
 light:
   platform: hue
   host: !secret hue_light_host
+switch: !include config/components/switch.yaml
 emulated_hue: !include config/components/emulated_hue.yaml
 device_tracker: !include config/components/device_tracker.yaml
 mqtt: !include config/components/mqtt.yaml  

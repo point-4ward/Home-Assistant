@@ -1,0 +1,10 @@
+################################
+#Setting up the smart switches #
+################################
+
+- platform: tplink
+  host: !secret switch_tplink_host
+
+#- platform: broadlink
+#  host: !secret switch_broadlink_host
+#  mac: !secret switch_broadlink_mac
