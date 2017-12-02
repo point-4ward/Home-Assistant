@@ -8,6 +8,3 @@
   track_new_devices: false
 
 - platform: bluetooth_tracker
-
-- platform: owntracks
-  max_gps_accuracy: 250

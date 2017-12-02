@@ -25,9 +25,9 @@ action:
       
       Marc is at {{states.device_tracker.marc_pixel.state}}.
       
-      Laura is at {{states.device_tracker.lauras_phone_lauras_phone.state}}.
+      Laura is at {{states.device_tracker.laura_iphone.state}}.
       
-      Courtney is not currently tracked.
+      Courtney is at {{states.device_tracker.courtney_iphone.state}}.
       
       Guest mode is {{states.input_boolean.guest_mode.state}}.
       

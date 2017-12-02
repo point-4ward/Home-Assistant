@@ -10,4 +10,5 @@ location:
     - group.phone_trackers
     - camera.marc
     - camera.laura
+    - camera.courtney
     - group.travel_time

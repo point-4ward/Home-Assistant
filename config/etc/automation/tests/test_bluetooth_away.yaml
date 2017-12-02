@@ -7,9 +7,9 @@ alias: 'Test bluetooth tracker Marc away'
 initial_state: 'on'
 trigger:
   platform: state
-  entity_id: device_tracker.forthygpixel
+  entity_id: device_tracker.lauras_iphone
   to: 'not_home'
 action:
   - service: notify.telegram_marc
     data:
-      message: 'The bluetooth sensor on your phone is not_home.'
+      message: 'The bluetooth sensor on Lauras phone is not_home.'

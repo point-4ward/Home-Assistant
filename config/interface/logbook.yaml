@@ -10,3 +10,5 @@ exclude:
   domains:
     - weblink
     - sensor
+  entities:
+    - group.hue

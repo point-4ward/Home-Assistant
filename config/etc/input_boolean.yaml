@@ -31,7 +31,7 @@ kids_night_mode:
   icon: mdi:human-child
 
 bedtime_mode:
-  name: Bedtime
+  name: Bedtime mode
   icon: mdi:sleep
 
 maintenance_mode:

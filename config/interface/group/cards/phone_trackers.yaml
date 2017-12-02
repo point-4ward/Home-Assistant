@@ -5,4 +5,6 @@
 Phone trackers:
   - device_tracker.marc_pixel
   - device_tracker.forthygpixel
-  - device_tracker.lauras_phone_lauras_phone
+  - device_tracker.laura_iphone
+  - device_tracker.lauras_iphone
+  - device_tracker.courtney_iphone
