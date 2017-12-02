@@ -4,6 +4,7 @@
 ###########################################
 
 alias: 'Telegram set livingroom lights on'
+initial_state: 'on'
 trigger:
   platform: event
   event_type: telegram_command

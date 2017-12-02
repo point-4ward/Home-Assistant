@@ -5,6 +5,7 @@
 #############################################
 
 alias: bedtime lights
+initial_state: 'on'
 trigger:
   platform: state
   entity_id: sensor.living_room_switch

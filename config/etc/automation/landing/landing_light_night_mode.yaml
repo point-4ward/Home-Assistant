@@ -2,7 +2,8 @@
 #Switches the landing lights to a night light#
 ##############################################
 
-alias: "Landing light night mode"
+alias: 'Landing light night mode'
+initial_state: 'on'
 trigger:
   platform: time
   at: '21:30:00'

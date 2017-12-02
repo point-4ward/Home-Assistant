@@ -3,8 +3,11 @@
 #for presence detection        #
 ################################
 
-- platform: owntracks
+- platform: owntracks_http
   max_gps_accuracy: 250
   track_new_devices: false
 
 - platform: bluetooth_tracker
+
+- platform: owntracks
+  max_gps_accuracy: 250

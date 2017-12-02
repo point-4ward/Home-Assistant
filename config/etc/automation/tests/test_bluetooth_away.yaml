@@ -3,7 +3,8 @@
 #reliability of a sensor #
 ##########################
 
-alias: "Test bluetooth tracker Marc away"
+alias: 'Test bluetooth tracker Marc away'
+initial_state: 'on'
 trigger:
   platform: state
   entity_id: device_tracker.forthygpixel

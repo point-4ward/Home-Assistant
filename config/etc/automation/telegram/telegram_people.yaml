@@ -4,6 +4,7 @@
 #######################################
 
 alias: 'Telegram reply with People'
+initial_state: 'on'
 trigger:
   platform: event
   event_type: telegram_command
@@ -15,9 +16,9 @@ action:
       target: '{{ trigger.event.data.user_id }}'
       message: "Currently the tracker group is {{states.group.all_devices.state}}.
       
-      Marc is {{states.device_tracker.marcs_phone_marcs_pixel_phone.state}}.
+      Marc is at {{states.device_tracker.marc_pixel.state}}.
       
-      Laura is {{states.device_tracker.lauras_phone_lauras_phone.state}}.
+      Laura is at {{states.device_tracker.lauras_phone_lauras_phone.state}}.
       
       Courtney is not currently tracked.
       

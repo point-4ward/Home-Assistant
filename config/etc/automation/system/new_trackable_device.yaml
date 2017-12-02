@@ -1,0 +1,14 @@
+#################################
+#Sends a notification when a new#
+#trackable device is detected   #
+#################################
+
+alias: 'New trackable device detected'
+initial_state: 'on'
+trigger:
+  platform: event
+  event_type: device_tracker_new_device
+action:
+  service: notify.telegram_marc
+  data:
+    message: 'New trackable device detected'

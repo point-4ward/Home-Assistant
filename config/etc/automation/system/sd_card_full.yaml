@@ -3,7 +3,8 @@
 #my system becomes 80% full   #
 ###############################
 
-alias: "Disk Use Alarm"
+alias: 'Disk Use Alarm'
+initial_state: 'on'
 trigger:
   platform: numeric_state
   entity_id: sensor.disk_used_

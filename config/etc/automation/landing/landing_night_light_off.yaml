@@ -2,7 +2,8 @@
 #Switches the landing lights to a night light#
 ##############################################
 
-alias: "Landing night light off"
+alias: 'Landing night light off'
+initial_state: 'on'
 trigger:
   - platform: sun
     event: sunrise

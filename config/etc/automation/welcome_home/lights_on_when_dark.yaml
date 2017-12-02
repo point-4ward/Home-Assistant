@@ -3,7 +3,8 @@
 #on when it is sunset and somebody is home#
 ###########################################
 
-alias: "Lights on when dark - already home"
+alias: 'Lights on when dark - already home'
+initial_state: 'on'
 trigger:
   - platform: sun
     event: sunset

@@ -21,9 +21,7 @@ other_lights:
   control: hidden
   entities:
     - light.landing
-    - light.bathroom_2
+    - light.bathroom
 
-all_hue:
-  name: All Hue
-  entities:
-    - light.all_hue_lights
+All hue:
+  - light.all_hue_lights

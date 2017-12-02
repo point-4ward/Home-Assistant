@@ -5,6 +5,7 @@
 ########################################
 
 alias: 'Power cut notification'
+initial_state: 'on'
 trigger:
   platform: homeassistant
   event: start

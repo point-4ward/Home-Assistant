@@ -134,4 +134,4 @@ script:
             after: sunset
             after_offset: '-00:40:00'
       - service: scene.turn_on
-        entity_id: scene.masterbed_wake_up
+        entity_id: scene.master_bedroom_wake_up

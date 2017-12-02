@@ -4,6 +4,7 @@
 #######################################
 
 alias: reset_scene_selector
+initial_state: 'on'
 trigger:
   platform: state
   entity_id: light.master_bedroom

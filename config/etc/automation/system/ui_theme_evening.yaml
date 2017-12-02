@@ -3,6 +3,7 @@
 #############################
 
 alias: 'Evening UI theme'
+initial_state: 'on'
 trigger:
   platform: sun
   event: sunset

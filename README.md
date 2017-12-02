@@ -36,6 +36,8 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  - Automatically set living room lights to 'dim' when playing media (except music) and it is dark.
  - Automatically set living room lights to 'normal' when media (except music) pauses or stops.
  - Landing light comes on following the same rules as the living room light, but then dims to a night-light at 21.30 hours and switches off at sunrise.
+ - Bathroom light comes on when motion detected, and turns off a couple of minutes after last motion.
+ - Bathroom light only comes on when dark, and if after 2300 hours comes on dimmed.
  - Voice control for all the lights.
  - Voice control Kodi.
  - Voice output via Chromecast Audios.

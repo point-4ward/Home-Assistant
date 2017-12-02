@@ -5,6 +5,7 @@
 ##################################
 
 alias: 'Breach email haveibeenpwned personal'
+initial_state: 'on'
 trigger:
   platform: numeric_state
   entity_id: !secret sensor_email_personal

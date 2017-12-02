@@ -3,7 +3,8 @@
 #on when it is sunset and somebody is home#
 ###########################################
 
-alias: "Lights on when dark - arriving home"
+alias: 'Lights on when dark - arriving home'
+initial_state: 'on'
 trigger:
   - platform: state
     entity_id: group.all_devices

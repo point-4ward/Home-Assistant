@@ -5,6 +5,7 @@
 ###############################
 
 alias: 'Telegram reply with Help Menu'
+initial_state: 'on'
 trigger:
   platform: event
   event_type: telegram_command

@@ -3,7 +3,8 @@
 #failed logins to HA         #
 ##############################
 
-alias: "Send notification upon failed login attempt"
+alias: 'Send notification upon failed login attempt'
+initial_state: 'on'
 trigger:
   - platform: state
     entity_id: persistent_notification.httplogin

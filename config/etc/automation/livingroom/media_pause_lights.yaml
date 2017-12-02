@@ -3,7 +3,8 @@
 #--checks it is video (not music)###
 ####################################
 
-alias: "Media player paused (lights)"
+alias: 'Media player paused (lights)'
+initial_state: 'on'
 trigger:
   - platform: state
     entity_id: media_player.living_room_kodi

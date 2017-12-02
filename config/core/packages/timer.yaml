@@ -36,7 +36,7 @@ script:
         entity_id: input_number.timer_minutes
 
 automation:
-  - alias: "timer"
+  - alias: 'timer'
     trigger:
       platform: state
       entity_id: input_number.timer_minutes
@@ -48,7 +48,7 @@ automation:
         entity_id: script.timer
       - service: script.timer
       
-  - alias: "timer execute"
+  - alias: 'timer execute'
     trigger:
       platform: state
       entity_id: input_number.timer_minutes

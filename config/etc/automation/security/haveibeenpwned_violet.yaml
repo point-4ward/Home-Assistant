@@ -5,6 +5,7 @@
 ##################################
 
 alias: 'Breach email haveibeenpwned violet'
+initial_state: 'on'
 trigger:
   platform: numeric_state
   entity_id: !secret sensor_email_violet

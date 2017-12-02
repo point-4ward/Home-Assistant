@@ -2,7 +2,8 @@
 #Brings lights up when media stops#
 ###################################
 
-alias: "Media player stopped (lights)"
+alias: 'Media player stopped (lights)'
+initial_state: 'on'
 trigger:
   - platform: state
     entity_id: media_player.living_room_kodi

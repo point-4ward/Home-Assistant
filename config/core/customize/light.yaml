@@ -9,8 +9,8 @@ light.master_bedroom:
 light.living_room:
   hidden: true
 
-light.landing_2:
+light.landing_g:
   hidden: true
 
-light.bathroom:
+light.bathroom_g:
   hidden: true

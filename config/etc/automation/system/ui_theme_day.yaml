@@ -3,6 +3,7 @@
 #############################
 
 alias: 'Day UI theme'
+initial_state: 'on'
 trigger:
   platform: sun
   event: sunrise

@@ -4,6 +4,7 @@
 ############################################
 
 alias: trigger_scene_living_room
+initial_state: 'on'
 trigger:
   platform: state
   entity_id: input_select.living_room_scenes

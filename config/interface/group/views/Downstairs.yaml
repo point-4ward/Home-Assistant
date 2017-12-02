@@ -2,13 +2,14 @@
 #Placing cards/entites on a tab #
 #################################
 
-Livingroom:
+downstairs:
   view: yes
-  name: Living Room
+  name: Downstairs
   icon: mdi:sofa
   entities:
     - group.livingroom_lights
+    - group.downstairs_alarm_clock
     - media_player.living_room_kodi
     - media_player.livingroomcca
+    - media_player.kitchencca
     - media_player.downstairs_group
-    - group.downstairs_alarm_clock

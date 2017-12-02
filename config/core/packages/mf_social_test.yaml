@@ -198,7 +198,7 @@ automation:
         data:
           message: 'The bad weather sensor is registering heavy rain.'
 
-  - alias: "Light notification - dark"
+  - alias: 'Light notification - dark'
     trigger:
       platform: state
       entity_id: sensor.test_dark_outside
@@ -208,7 +208,7 @@ automation:
         data:
           message: 'The dark sensor has changed to true, I would have switched the lights on now if using this sensor.'
 
-  - alias: "Light notification - light"
+  - alias: 'Light notification - light'
     trigger:
       platform: state
       entity_id: sensor.test_dark_outside

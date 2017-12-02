@@ -2,12 +2,6 @@
 
 See in the repo for all of my non-sensitive configuration files.  I've been playing with HA for a while now and have made a fair few changes, a few quick notes:
 
-In my configuration.yaml I have removed history component, discovery component and conversation component. Most people seem to leave these in but I removed them because:
-
- - The history component paints lovely pretty bars of the state that your components have been in recently.  I didn't need this, and found that it was quite slow to render, so it's gone.  I find the logbook a far more useful tool anyway.
- - The discovery component never discovered anything for me, so having it running in the background seemed a waste of resources.
- - The conversation component is superfluous with my amazon echo implementation, so again I've reclaimed some resources.
-
 Everybody has their own way of organising files, and they can get confusing, so I decided on an organisational method for mine from the start (although I have adapted it as time has gone by!) and this is how I currently work it:
 
 In the '.homeassistant/' folder there are some files that can't be moved, so they obviously stay there.  Any that don't have to be there (and don't have to be in a specific location elswewhere, ie local icons in ./homeassistant/www/) go in a folder called config/
@@ -33,8 +27,6 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 ```
-
-	
 	
 Where the entry will take four lines or more, I use an !include and place the include file in the config/ directory, in the subdirectory based on whether it is a 'core' element, an 'interface' element or whatever.  I use the exact name of the component for the include, eg:
 ```
