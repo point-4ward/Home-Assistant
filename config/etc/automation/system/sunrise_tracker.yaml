@@ -1,0 +1,8 @@
+alias: 'sun going up'
+trigger:
+  platform: sun
+  event: sunrise
+  offset: '+00:35:00'
+action:
+  service: input_boolean.turn_off
+  entity_id: input_boolean.sunset_offset

@@ -3,6 +3,7 @@
 #and adding friendly names     #
 ################################
 
+#Lights
 light.master_bedroom:
   hidden: true
 
@@ -14,3 +15,15 @@ light.landing_g:
 
 light.bathroom_g:
   hidden: true
+
+#Input_boolean
+input_boolean.sunset_offset:
+  hidden: true
+
+#Groups
+group.all_automations:
+  hidden: false
+
+group.all_scripts:
+  hidden: false
+  control: hidden

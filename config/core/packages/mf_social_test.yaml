@@ -51,9 +51,9 @@
 #   You will receive notifications as follows:                                         #
 #                                                                                      #
 #   - everytime the light sensor thinks it is dark outside, and therefore              #
-#     would switch the lights on if used as the condition.                             #
+#     would switch the lights on if used as the trigger.                               #
 #   - everytime the light sensor thinks it is light outside, and therefore             #
-#     would switch the lights off if used as the condition.                            #
+#     would switch the lights off if used as the trigger.                              #
 #   - at the time you set with a report of 'frost', 'heavy_rain' or 'clear'            #
 #                                                                                      #
 #   Please update mf_social with how accurate it is for you and any false              #
@@ -71,21 +71,27 @@ homeassistant:
     sensor.test_bad_weather:
       icon: mdi:weather-snowy-rainy
 
-    sensor.notification_time:
+    sensor.test_notification_time:
       friendly_name: 'Notification Time'
       icon: mdi:alarm
 
-    sensor.notification_time_long:
+    sensor.test_notification_time_long:
       hidden: true
 
-    sensor.notification_hour:
+    sensor.test_notification_hour:
       hidden: true
 
-    sensor.notification_minute:
+    sensor.test_notification_minute:
       hidden: true
 
+    input_boolean.test_sunset_offset:
+      hidden: true
+
+input_boolean:
+  test_sunset_offset:
+  
 input_number:
-  notification_hour:
+  test_notification_hour:
     name: Hour
     icon: mdi:timer
     initial: 7
@@ -93,7 +99,7 @@ input_number:
     max: 23
     step: 1
 
-  notification_minute:
+  test_notification_minute:
     name: Minute
     icon: mdi:timer
     initial: 30
@@ -108,8 +114,9 @@ sensor:
       test_dark_outside:
         friendly_name: 'Dark outside'
         value_template: >
-          {% if (states.sun.sun.attributes.elevation | int < 3) %}true
-          {% elif ( (states.sun.sun.attributes.elevation | int < 7) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+          {% if (states.input_boolean.test_sunset_offset.state == 'on') %}true
+          {% elif (states.sun.sun.attributes.elevation | int < 3) %}true
+          {% elif ( (states.sun.sun.attributes.elevation | int < 6.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
           {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
           {% else %}false
           {% endif %}
@@ -122,30 +129,30 @@ sensor:
           {% else %} clear
           {% endif %}
 
-      notification_hour:
-        value_template: '{{ states.input_number.notification_hour.state | int }}'
+      test_notification_hour:
+        value_template: '{{ states.input_number.test_notification_hour.state | int }}'
         
-      notification_minute:
-        value_template: '{{ states.input_number.notification_minute.state | int }}'
+      test_notification_minute:
+        value_template: '{{ states.input_number.test_notification_minute.state | int }}'
         
-      notification_time:
+      test_notification_time:
         value_template: >-
-          {{ states.sensor.notification_hour.state }}:
-          {%- if states.sensor.notification_minute.state|length == 1 -%}
+          {{ states.sensor.test_notification_hour.state }}:
+          {%- if states.sensor.test_notification_minute.state|length == 1 -%}
             0
           {%- endif -%}
-            {{ states.sensor.notification_minute.state }}
+            {{ states.sensor.test_notification_minute.state }}
             
-      notification_time_long:
+      test_notification_time_long:
         value_template: >-
-          {% if states.sensor.notification_hour.state|length == 1 -%}
+          {% if states.sensor.test_notification_hour.state|length == 1 -%}
             0
           {%- endif -%}
-            {{ states.sensor.notification_hour.state }}:
-          {%- if states.sensor.notification_minute.state|length == 1 -%}
+            {{ states.sensor.test_notification_hour.state }}:
+          {%- if states.sensor.test_notification_minute.state|length == 1 -%}
             0
           {%- endif -%}
-            {{ states.sensor.notification_minute.state }}
+            {{ states.sensor.test_notification_minute.state }}
 
 group:
   mf_social_test:
@@ -154,15 +161,35 @@ group:
     entities:
       - sensor.test_dark_outside
       - sensor.test_bad_weather
-      - sensor.notification_time
-      - input_number.notification_hour
-      - input_number.notification_minute
+      - sensor.test_notification_time
+      - input_number.test_notification_hour
+      - input_number.test_notification_minute
 
 automation:
+  - alias: 'sun going down'
+    initial_state: 'on'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-00:35:00'
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.test_sunset_offset
+
+  - alias: 'sun going up'
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '+00:35:00'
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.test_sunset_offset
+
   - alias: 'Bad weather notification - clear'
+    initial_state: 'on'
     trigger:
       platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
+      value_template: '{{ states.sensor.time.state == states.sensor.test_notification_time_long.state }}'
     condition:
       condition: state
       entity_id: sensor.test_bad_weather
@@ -173,9 +200,10 @@ automation:
           message: 'The bad weather sensor is registering clear.'
 
   - alias: 'Bad weather notification - frost'
+    initial_state: 'on'
     trigger:
       platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
+      value_template: '{{ states.sensor.time.state == states.sensor.test_notification_time_long.state }}'
     condition:
       condition: state
       entity_id: sensor.test_bad_weather
@@ -186,9 +214,10 @@ automation:
           message: 'The bad weather sensor is registering frost.'
 
   - alias: 'Bad weather notification - heavy_rain'
+    initial_state: 'on'
     trigger:
       platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.notification_time_long.state }}'
+      value_template: '{{ states.sensor.time.state == states.sensor.test_notification_time_long.state }}'
     condition:
       condition: state
       entity_id: sensor.test_bad_weather
@@ -199,6 +228,7 @@ automation:
           message: 'The bad weather sensor is registering heavy rain.'
 
   - alias: 'Light notification - dark'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.test_dark_outside
@@ -209,6 +239,7 @@ automation:
           message: 'The dark sensor has changed to true, I would have switched the lights on now if using this sensor.'
 
   - alias: 'Light notification - light'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.test_dark_outside

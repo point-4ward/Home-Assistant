@@ -23,6 +23,9 @@ sensor.dark_outside:
 sensor.bad_weather:
   icon: mdi:weather-snowy-rainy
 
+sensor.home_occupied:
+  icon: mdi:home-map-marker
+
 sensor.master_bedroom_switch:
   icon: mdi:remote
 

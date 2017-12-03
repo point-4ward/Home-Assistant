@@ -1,0 +1,21 @@
+###############################################
+#Switches things off when there is nobody home#
+###############################################
+
+alias: 'Nobody home'
+initial_state: 'on'
+trigger:
+  - platform: state
+    entity_id: sensor.home_occupied
+    to: 'unoccupied'
+action:
+  - service: homeassistant.turn_on
+    entity_id: script.stop_radio_chromecast
+  - service: homeassistant.turn_off
+    entity_id: group.all_hue
+  - service: media_player.turn_off
+    entity_id: media_player.living_room_kodi
+  - service: homeassistant.turn_off
+    entity_id: group.all_switches
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.away_mode

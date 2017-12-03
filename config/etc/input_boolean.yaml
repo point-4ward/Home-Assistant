@@ -37,3 +37,5 @@ bedtime_mode:
 maintenance_mode:
   name: Maintenance mode
   icon: mdi:auto-fix
+
+sunset_offset:

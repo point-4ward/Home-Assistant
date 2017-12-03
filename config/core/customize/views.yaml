@@ -31,10 +31,3 @@ group.security:
 
 group.settings:
   order: 9
-
-group.all_automations:
-  hidden: false
-
-group.all_scripts:
-  hidden: false
-  control: hidden
