@@ -7,4 +7,4 @@ renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone -
 
 upgrade_hass: /bin/bash /home/hass/.homeassistant/extras/bash_scripts/upgrade-hass.sh
 
-sync_dropbox: /bin/bash python /home/hass/extras/bash_scripts/Dropbox-Uploader/dropbox_sync.py
+sync_dropbox: /bin/bash python /home/hass/extras/bash_scripts/dropbox_sync.py
