@@ -12,7 +12,7 @@ trigger:
 condition:
   condition: state
   entity_id: sensor.dark_outside
-  to: 'true'
+  state: 'true'
 action:
   - service: scene.turn_on
     entity_id: scene.livingroom_bright
