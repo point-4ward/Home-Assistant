@@ -12,7 +12,7 @@ action:
   - service: homeassistant.turn_on
     entity_id: script.stop_radio_chromecast
   - service: homeassistant.turn_off
-    entity_id: group.all_hue
+    entity_id: group.all_lights
   - service: media_player.turn_off
     entity_id: media_player.living_room_kodi
   - service: homeassistant.turn_off

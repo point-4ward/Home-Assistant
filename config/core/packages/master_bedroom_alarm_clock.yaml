@@ -133,13 +133,8 @@ script:
           entity_id: media_player.bedroomcca
           media_content_id: !secret masterbed_wake_up_script
           media_content_type: 'audio/mp4'
-      - condition: or
-        conditions:
-          - condition: sun
-            before: sunrise
-            before_offset: '-00:40:00'
-          - condition: sun
-            after: sunset
-            after_offset: '-00:40:00'
+      - condition: state
+        entity_id: sensor.dark_outside
+        state: 'true'
       - service: scene.turn_on
         entity_id: scene.master_bedroom_wake_up

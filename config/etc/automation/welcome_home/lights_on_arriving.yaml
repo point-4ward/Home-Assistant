@@ -10,9 +10,9 @@ trigger:
   entity_id: sensor.home_status
   to: 'Occupied'
 condition:
-  condition: sun
-  after: sunset
-  after_offset: "-00:40:00"
+  condition: state
+  entity_id: sensor.dark_outside
+  to: 'true'
 action:
   - service: scene.turn_on
     entity_id: scene.livingroom_bright

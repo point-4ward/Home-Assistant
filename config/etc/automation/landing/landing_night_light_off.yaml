@@ -5,9 +5,9 @@
 alias: 'Landing night light off'
 initial_state: 'on'
 trigger:
-  platform: sun
-  event: sunrise
-  offset: '+00:40:00'
+  platform: state
+  event: sensor.dark_outside
+  to: 'false'
 action:
   service: light.turn_off
   entity_id: light.landing

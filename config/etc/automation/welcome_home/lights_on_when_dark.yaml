@@ -6,9 +6,9 @@
 alias: 'Lights on when dark - already home'
 initial_state: 'on'
 trigger:
-  platform: sun
-  event: sunset
-  offset: "-00:40:00"
+  platform: state
+  entity_id: sensor.dark_outside
+  to: 'true'
 condition:
   condition: state
   entity_id: sensor.home_status
