@@ -1,17 +1,22 @@
+##################################################
+#Creating sensors that I can use to convert      #
+#readings from other services and create a       #
+# 'state' that can triggger/condtion automations #
+##################################################
+
 - platform: template
   sensors:
-
     calendar:
       value_template: >
         {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
         {{ states.calendar.marcforthrungmailcom.attributes.message }}
       friendly_name: 'Next Event'
     
-    home_occupied:
+    home_status:
       friendly_name: 'Home status'
       value_template: >
-        {% if (states.group.all_devices.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}occupied
-        {% else %} unoccupied
+        {% if (states.group.all_devices.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
+        {% else %} Unoccupied
         {% endif %}
       
     dark_outside:

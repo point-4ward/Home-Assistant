@@ -12,6 +12,7 @@ homeassistant:
       friendly_name: 'Alarm Time'
       icon: mdi:alarm
 
+
 input_number:
   all_alarm_clock_hour:
     name: Hour
@@ -29,6 +30,7 @@ input_number:
     max: 55
     step: 5
 
+
 input_select:
   all_alarm_sound:
     name: Music
@@ -39,13 +41,16 @@ input_select:
     initial: Free Radio CW
     icon: mdi:music
 
+
 sensor:
   platform: template
   sensors:
     all_alarm_clock_hour:
       value_template: '{{ states.input_number.all_alarm_clock_hour.state | int }}'
+
     all_alarm_clock_minute:
       value_template: '{{ states.input_number.all_alarm_clock_minute.state | int }}'
+
     all_alarm_clock_time:
       value_template: >-
         {{ states.sensor.all_alarm_clock_hour.state }}:
@@ -53,6 +58,7 @@ sensor:
         0
         {%- endif -%}
         {{ states.sensor.all_alarm_clock_minute.state }}
+
 
 group:
   all_alarm_clock:
@@ -64,6 +70,7 @@ group:
       - input_number.all_alarm_clock_hour
       - input_number.all_alarm_clock_minute
       - script.all_sync
+
 
 script:
   all_sync:

@@ -1,0 +1,8 @@
+######################################
+#Runs a bash script that syncs the   #
+#.homeassistant directory to dropbox #
+######################################
+
+sync_dropbox:
+  sequence:
+    - service: shell_command.sync_dropbox

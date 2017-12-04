@@ -6,12 +6,12 @@
 alias: 'Send notification upon failed login attempt'
 initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: persistent_notification.httplogin
+  platform: state
+  entity_id: persistent_notification.httplogin
 condition:
-  - condition: template
-    value_template: "{{ trigger.to_state.state != off }}"
+  condition: template
+  value_template: "{{ trigger.to_state.state != off }}"
 action:
-  - service: notify.telegram_marc
-    data_template:
-      message: "{{ trigger.to_state.state }}"
+  service: notify.telegram_marc
+  data_template:
+    message: "{{ trigger.to_state.state }}"

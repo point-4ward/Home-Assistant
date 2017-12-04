@@ -16,6 +16,7 @@ System:
 
 Maintenance:
   - input_boolean.maintenance_mode
+  - script.sync_dropbox
 
 Travis CI:
   - sensor.mfsocialhomeassistant_last_build_id

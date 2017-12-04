@@ -2,9 +2,8 @@
 #Placing cards/entites on a tab #
 #################################
 
-girls_room:
-  view: yes
-  name: Girls Room
-  icon: mdi:human-female
-  entities:
-    - group.boys_alarm_clock
+#girls_room:
+#  view: yes
+#  name: Girls Room
+#  icon: mdi:human-female
+#  entities:

@@ -1,4 +1,9 @@
+###########################################
+#Sets a boolean when the sun is going down#
+###########################################
+
 alias: 'sun going down'
+initial_state: 'on'
 trigger:
   platform: sun
   event: sunset

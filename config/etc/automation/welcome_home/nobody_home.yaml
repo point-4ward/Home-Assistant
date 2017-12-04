@@ -5,9 +5,9 @@
 alias: 'Nobody home'
 initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: sensor.home_occupied
-    to: 'unoccupied'
+  platform: state
+  entity_id: sensor.home_status
+  to: 'Unoccupied'
 action:
   - service: homeassistant.turn_on
     entity_id: script.stop_radio_chromecast

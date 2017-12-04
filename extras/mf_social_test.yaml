@@ -9,8 +9,8 @@
 #                                                                                      #
 #                                                                                      #
 #  If you do not currently use packages, create a directory in your                    #
-#  ./homeassistant/ directory and place the following line under your                  #
-#  'homeassistant:' entry in your configuration.yaml:                                  #
+#  ./homeassistant/ directory called packages and place the following line under       #
+#  your 'homeassistant:' entry in your configuration.yaml:                             #
 #                                                                                      #
 #  packages: !include_dir_named packages/                                              #
 #                                                                                      #
@@ -23,7 +23,7 @@
 #    elevation: !secret elevation                                                      #
 #    time_zone: !secret time_zone                                                      #
 #    unit_system: metric                                                               #
-#    customize: customize.yaml                                                         #
+#    customize: !include customize.yaml                                                         #
 #    packages: !include_dir_named packages/                                            #
 #                                                                                      #
 #  (I presume if you already use packages you will know how to integrate               #
@@ -87,8 +87,10 @@ homeassistant:
     input_boolean.test_sunset_offset:
       hidden: true
 
+
 input_boolean:
   test_sunset_offset:
+
   
 input_number:
   test_notification_hour:
@@ -107,10 +109,10 @@ input_number:
     max: 55
     step: 5
 
+
 sensor:
   - platform: template
-    sensors:
-  
+    sensors:  
       test_dark_outside:
         friendly_name: 'Dark outside'
         value_template: >
@@ -154,6 +156,7 @@ sensor:
           {%- endif -%}
             {{ states.sensor.test_notification_minute.state }}
 
+
 group:
   mf_social_test:
     name: mf_social test card
@@ -164,6 +167,7 @@ group:
       - sensor.test_notification_time
       - input_number.test_notification_hour
       - input_number.test_notification_minute
+
 
 automation:
   - alias: 'sun going down'

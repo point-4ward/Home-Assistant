@@ -12,5 +12,5 @@ condition:
   entity_id: light.landing
   state: 'on'
 action:
-  - service: scene.turn_on
-    entity_id: scene.landing_night
+  service: scene.turn_on
+  entity_id: scene.landing_night

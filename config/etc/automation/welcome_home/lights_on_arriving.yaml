@@ -6,12 +6,9 @@
 alias: 'Lights on when dark - arriving home'
 initial_state: 'on'
 trigger:
-#  - platform: state
-#    entity_id: sensor.home_occupied
-#    to: 'occupied'
-  - platform: state
-    entity_id: group.all_devices
-    to: home
+  platform: state
+  entity_id: sensor.home_status
+  to: 'Occupied'
 condition:
   condition: sun
   after: sunset

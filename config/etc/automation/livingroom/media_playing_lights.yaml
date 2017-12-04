@@ -6,9 +6,9 @@
 alias: 'Media player playing (lights)'
 initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: media_player.living_room_kodi
-    to: 'playing'
+  platform: state
+  entity_id: media_player.living_room_kodi
+  to: 'playing'
 condition:
   condition: and
   conditions:

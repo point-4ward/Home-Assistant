@@ -6,6 +6,7 @@ include:
   entities:
     - sensor.date
 
+
 exclude:
   domains:
     - weblink

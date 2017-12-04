@@ -12,6 +12,7 @@ homeassistant:
       friendly_name: Stop
       icon: mdi:stop
 
+
 input_select:
   radio_station:
     name: 'Select Radio Station:'
@@ -36,6 +37,7 @@ input_select:
     initial: Everywhere
     icon: mdi:speaker-wireless
 
+
 input_number:
   volume_radio:
     name: Volume
@@ -44,6 +46,7 @@ input_number:
     max: 1
     step: 0.05
     initial: '0.2'
+
 
 group:
   Chromecast Radio:
@@ -55,6 +58,7 @@ group:
     - script.radio_chromecast
     - script.stop_radio_chromecast
     - input_number.volume_radio
+
 
 script:
   radio_chromecast:

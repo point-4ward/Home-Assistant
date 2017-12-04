@@ -2,9 +2,8 @@
 #Placing cards/entites on a tab #
 #################################
 
-boys_room:
-  view: yes
-  name: Boys Room
-  icon: mdi:human-handsdown
-  entities:
-    - group.boys_alarm_clock
+#boys_room:
+#  view: yes
+#  name: Boys Room
+#  icon: mdi:human-handsdown
+#  entities:

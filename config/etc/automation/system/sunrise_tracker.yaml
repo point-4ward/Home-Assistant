@@ -1,4 +1,9 @@
+######################################
+#Sets a boolean when the sun comes up#
+######################################
+
 alias: 'sun going up'
+initial_state: 'on'
 trigger:
   platform: sun
   event: sunrise

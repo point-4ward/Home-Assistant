@@ -8,6 +8,7 @@ homeassistant:
     sensor.timer_minutes:
       hidden: true
 
+
 input_number:
   timer_minutes:
     name: Minutes
@@ -16,6 +17,7 @@ input_number:
     min: 0
     max: 60
     step: 1
+
 
 sensor:
   - platform: template
@@ -26,6 +28,14 @@ sensor:
         entity_id: 
           - input_number.timer_minutes
 
+
+group:
+  quick_timer:
+    name: 'Timer'
+    entities:
+      - input_number.timer_minutes
+
+
 script:
   timer:
     sequence:
@@ -34,6 +44,7 @@ script:
       data_template:
         value: '{{ states.input_number.timer_minutes.state|float - 0.25 }}'
         entity_id: input_number.timer_minutes
+
 
 automation:
   - alias: 'timer'
@@ -63,9 +74,3 @@ automation:
         entity_id: media_player.everywhere_group
         data:
           message: 'The timer has expired, The timer has expired'
-
-group:
-  quick_timer:
-    name: 'Timer'
-    entities:
-      - input_number.timer_minutes

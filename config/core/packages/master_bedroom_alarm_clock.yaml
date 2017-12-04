@@ -10,6 +10,7 @@ homeassistant:
       friendly_name: 'Alarm Time'
       icon: mdi:alarm
 
+
 input_number:
   masterbed_alarm_clock_hour:
     name: Hour
@@ -27,13 +28,16 @@ input_number:
     max: 55
     step: 5
 
+
 sensor:
   - platform: template
     sensors:
       masterbed_alarm_clock_hour:
         value_template: '{{ states.input_number.masterbed_alarm_clock_hour.state | int }}'
+
       masterbed_alarm_clock_minute:
         value_template: '{{ states.input_number.masterbed_alarm_clock_minute.state | int }}'
+
       masterbed_alarm_clock_time:
         value_template: >-
           {{ states.sensor.masterbed_alarm_clock_hour.state }}:
@@ -41,6 +45,7 @@ sensor:
             0
           {%- endif -%}
             {{ states.sensor.masterbed_alarm_clock_minute.state }}
+
       masterbed_alarm_clock_time_long:
         value_template: >-
           {% if states.sensor.masterbed_alarm_clock_hour.state|length == 1 -%}
@@ -52,7 +57,6 @@ sensor:
           {%- endif -%}
             {{ states.sensor.masterbed_alarm_clock_minute.state }}
 
-            
 
 #input_datetime:
 #  masterbed_alarm_clock_time:
@@ -60,6 +64,7 @@ sensor:
 #    has_date: false
 #    has_time: true
 #    initial: '06:15'
+
 
 input_boolean:
   masterbed_alarm_clock_status:
@@ -71,6 +76,7 @@ input_boolean:
     name: Repeat?
     icon: mdi:autorenew
 
+
 input_select:
   masterbed_alarm_sound:
     name: Music
@@ -80,6 +86,7 @@ input_select:
       - Nightswimming
     initial: Free Radio CW
     icon: mdi:music
+
 
 group:
   masterbed_alarm_clock:
@@ -93,6 +100,7 @@ group:
       - input_number.masterbed_alarm_clock_hour
       - input_number.masterbed_alarm_clock_minute
       - input_boolean.masterbed_alarm_clock_repeat
+
 
 automation:
   - alias: 'masterbed light on and play music'

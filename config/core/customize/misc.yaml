@@ -16,9 +16,11 @@ light.landing_g:
 light.bathroom_g:
   hidden: true
 
+
 #Input_boolean
 input_boolean.sunset_offset:
   hidden: true
+
 
 #Groups
 group.all_automations:

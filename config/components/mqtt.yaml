@@ -1,8 +1,7 @@
-#####################################
-#Connects HASS to the MQTT broker   #
-#which is needed to use owntracks   #
-#for presence detection and tracking#
-#####################################
+####################################
+#Connects HASS to the MQTT broker  #
+#to connect to other smart devices #
+####################################
 
 broker: !secret mqtt_broker
 port: !secret mqtt_port

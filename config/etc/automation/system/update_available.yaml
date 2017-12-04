@@ -9,6 +9,7 @@ trigger:
   platform: state
   entity_id: sensor.ha_upstream
 action:
-  service: notify.telegram_marc
-  data:
-    message: 'Update for Home Assistant is available.  https://home-assistant.io/blog/'
+  - delay: '00:30:00'
+  - service: notify.telegram_marc
+    data:
+      message: 'Update for Home Assistant is available.  https://home-assistant.io/blog/'

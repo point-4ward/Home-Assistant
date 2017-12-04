@@ -6,16 +6,13 @@
 alias: 'Lights on when dark - already home'
 initial_state: 'on'
 trigger:
-  - platform: sun
-    event: sunset
-    offset: "-00:40:00"
+  platform: sun
+  event: sunset
+  offset: "-00:40:00"
 condition:
   condition: state
-  entity_id: group.all_devices
-  state: 'home'
-#  condition: state
-#  entity_id: sensor.home_occupied
-#  state: 'occupied'
+  entity_id: sensor.home_status
+  state: 'Occupied'
 action:
   - service: scene.turn_on
     entity_id: scene.livingroom_sunset

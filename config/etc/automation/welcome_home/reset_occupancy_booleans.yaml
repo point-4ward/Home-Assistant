@@ -6,9 +6,9 @@
 alias: 'Reset occupancy booleans'
 initial_state: 'on'
 trigger:
-  - platform: state
-    entity_id: group.all_devices
-    to: 'home'
+  platform: state
+  entity_id: group.all_devices
+  to: 'home'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode

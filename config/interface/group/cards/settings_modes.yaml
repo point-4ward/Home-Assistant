@@ -6,7 +6,7 @@ house_modes:
   name: House modes
   control: hidden
   entities:
-  - sensor.home_occupied
+  - sensor.home_status
   - input_boolean.guest_mode
   - input_boolean.away_mode
   - input_boolean.holiday_mode
