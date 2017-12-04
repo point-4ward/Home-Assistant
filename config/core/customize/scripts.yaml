@@ -10,6 +10,9 @@ script.lullaby:
   can_cancel: false
   icon: mdi:creation
 
+script.sync_dropbox:
+  icon: mdi:dropbox
+
 script.master_bedroom_arctic_aurora:
   friendly_name: "Arctic Aurora"
 

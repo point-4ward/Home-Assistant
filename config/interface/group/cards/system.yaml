@@ -15,8 +15,10 @@ System:
   - sensor.since_last_boot
 
 Maintenance:
-  - input_boolean.maintenance_mode
-  - script.sync_dropbox
+  control: hidden
+  entities:
+    - input_boolean.maintenance_mode
+    - script.sync_dropbox
 
 Travis CI:
   - sensor.mfsocialhomeassistant_last_build_id
