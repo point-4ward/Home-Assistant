@@ -15,19 +15,19 @@ action:
   service: telegram_bot.send_message
   data_template:
     target: '{{ trigger.event.data.user_id }}'
-    message: " System is online!
+    message: "System is online!
       
       
-    It's been {{states.sensor.since_last_boot.state}} since last boot, and there are {{states.sensor.ssl_cert_expiry.state}} days left on the SSL certificate.
+    It has been {{states.sensor.since_last_boot.state}} since last boot, and there are {{states.sensor.ssl_cert_expiry.state}} days left on the SSL certificate.
       
       
     Currently the tracker group is {{states.group.all_devices.state}}.
       
-    Marc is at {{states.device_tracker.marc_pixel.state}}.
+    Marc is at {{states.device_tracker.forthygpixel.state}}.
       
-    Laura is at {{states.device_tracker.laura_iphone.state}}.
+    Laura is at {{states.device_tracker.lauras_iphone.state}}.
       
-    Courtney is at {{states.device_tracker.courtney_iphone.state}}.
+    Courtney is at {{states.device_tracker.iphone.state}}.
       
     Guest mode is {{states.input_boolean.guest_mode.state}}.
       
@@ -38,8 +38,5 @@ action:
       
     Landing lights are {{states.light.landing.state}}.
       
-    Master bedroom lights are {{states.group.master_bedroom_lights.state}}.
-      
-      
-    The weather at home is currently {{states.sensor.dark_sky_hourly_summary.state}}"
+    Master bedroom lights are {{states.group.master_bedroom_lights.state}}."
     keyboard: ["/lights, /people", "/help"]

@@ -3,9 +3,5 @@
 ####################################
 
 api_password: !secret api_password
-#ssl_certificate: !secret ssl_certificate
-#ssl_key: !secret ssl_key
-trusted_networks: 127.0.0.1
-base_url: !secret base_url
 ip_ban_enabled: True
 login_attempts_threshold: 3

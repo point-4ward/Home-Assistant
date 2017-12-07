@@ -21,13 +21,11 @@ frontend:
 config:
 group: !include_dir_merge_named config/interface/group/
 http: !include config/interface/http.yaml
-duckdns:
-  domain: !secret duckdns_domain
-  access_token: !secret duckdns_token
 recorder:
   purge_interval: 7
   purge_keep_days: 14
 logbook: !include config/interface/logbook.yaml
+panel_iframe: !include config/interface/panel_iframe.yaml
 
 #######################################
 ## My components/devices/sensors/etc ##

@@ -15,11 +15,11 @@ action:
   service: telegram_bot.send_message
   data_template:
     target: '{{ trigger.event.data.user_id }}'
-    message: "The lights group is {{states.group.all_lights.state}}
+    message: 'The lights group is {{states.group.all_lights.state}}
       
     Living room lights are {{states.group.livingroom_lights.state}}.
       
     Landing lights are {{states.light.landing.state}}.
       
-    Master bedroom lights are {{states.group.master_bedroom_lights.state}}."
+    Master bedroom lights are {{states.group.master_bedroom_lights.state}}.'
     keyboard: ["/onALL, /onLivingRoom", "/offALL, /onBedroom"]
