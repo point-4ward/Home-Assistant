@@ -19,6 +19,9 @@ Maintenance:
   entities:
     - input_boolean.maintenance_mode
     - script.sync_dropbox
+    - script.upgrade_hass
+    - script.github_push
+    - script.github_pull
 
 Travis CI:
   - sensor.mfsocialhomeassistant_last_build_id

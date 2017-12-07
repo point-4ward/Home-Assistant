@@ -1,0 +1,7 @@
+################################
+#Runs a bash script that pushes#
+#the config to github          #
+################################
+
+gihub_push:
+  sequence:

@@ -1,0 +1,7 @@
+################################
+#Runs a bash script that pulls #
+#the config from github        #
+################################
+
+gihub_pull:
+  sequence:
