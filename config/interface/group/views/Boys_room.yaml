@@ -2,8 +2,8 @@
 #Placing cards/entites on a tab #
 #################################
 
-#boys_room:
-#  view: yes
-#  name: Boys Room
-#  icon: mdi:human-handsdown
-#  entities:
+boys_room:
+  view: yes
+  name: Boys Room
+  icon: mdi:human-handsdown
+  entities:

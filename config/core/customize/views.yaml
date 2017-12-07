@@ -3,28 +3,28 @@
 #############################
 
 group.downstairs:
-  order: 0
-
-group.master_bedroom:
   order: 1
 
-group.boys_room:
+group.media:
   order: 2
 
-group.girls_room:
+group.master_bedroom:
   order: 3
 
-group.media:
+group.boys_room:
   order: 4
 
-group.tools:
+group.girls_room:
   order: 5
 
-group.information:
+group.tools:
   order: 6
 
-group.security:
+group.information:
   order: 7
 
-group.settings:
+group.security:
   order: 8
+
+group.settings:
+  order: 9

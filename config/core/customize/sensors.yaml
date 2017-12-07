@@ -3,10 +3,6 @@
 #and adding friendly names     #
 ################################
 
-sensor.ssl_cert_expiry:
-  friendly_name: "SSL certificate expiry"
-  icon: mdi:security-home
-
 sensor.ha_upstream:
   friendly_name: "Upstream HA version"
   icon: mdi:cloud-sync
