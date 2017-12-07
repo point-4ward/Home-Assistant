@@ -1,0 +1,36 @@
+##################################
+#Friendly names, setting icons   #
+##################################
+
+script.master_bedroom_arctic_aurora:
+  friendly_name: "Arctic Aurora"
+
+script.master_bedroom_bright:
+  friendly_name: "Bright"
+
+script.master_bedroom_concentrate:
+  friendly_name: "Concentrate"
+
+script.master_bedroom_dimmed:
+  friendly_name: "Dimmed"
+
+script.master_bedroom_energize:
+  friendly_name: "Energize"
+
+script.master_bedroom_nightlight:
+  friendly_name: "Nightlight"
+
+script.master_bedroom_read:
+  friendly_name: "Reading"
+
+script.master_bedroom_relax:
+  friendly_name: "Relax"
+
+script.master_bedroom_savanna_sunset:
+  friendly_name: "Savanna Sunset"
+
+script.master_bedroom_spring_blossom:
+  friendly_name: "Spring Blossom"
+
+script.master_bedroom_tropical_twilight:
+  friendly_name: "Tropical Twilight"

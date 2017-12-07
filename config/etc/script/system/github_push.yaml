@@ -3,5 +3,6 @@
 #the config to github          #
 ################################
 
-gihub_push:
+github_push:
+  alias: Push to Github
   sequence:

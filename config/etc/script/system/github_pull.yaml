@@ -3,5 +3,6 @@
 #the config from github        #
 ################################
 
-gihub_pull:
+github_pull:
+  alias: Pull from Github and Restart
   sequence:
