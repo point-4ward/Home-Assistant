@@ -20,12 +20,6 @@
 "light.*zwave*_2*":
   hidden: true
 
-"sensor.marc_to*":
-  icon: mdi:car
-
-"sensor.laura_to*":
-  icon: mdi:car
-
 "weblink.*":
   icon: mdi:web
 

@@ -17,17 +17,14 @@ group.girls_room:
 group.media:
   order: 4
 
-group.location:
+group.tools:
   order: 5
 
-group.tools:
+group.information:
   order: 6
 
-group.information:
+group.security:
   order: 7
 
-group.security:
-  order: 8
-
 group.settings:
-  order: 9
+  order: 8

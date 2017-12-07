@@ -1,9 +1,0 @@
-#################################
-#Placing entities on the card   #
-#################################
-
-Travel time:
-  - sensor.marc_to_home
-  - sensor.marc_to_laura
-  - sensor.laura_to_courtney
-  - sensor.marc_to_kids_house

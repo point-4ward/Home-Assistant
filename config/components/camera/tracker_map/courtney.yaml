@@ -1,9 +1,0 @@
-########################################
-#Creates a pin on a map for Courtney's #
-#location in the form of camera feed   #
-########################################
-
-name: Courtney
-platform: generic
-still_image_url: !secret tracker_cam_courtney
-limit_refetch_to_url_change: true

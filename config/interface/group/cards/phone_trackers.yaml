@@ -3,8 +3,6 @@
 #################################
 
 Phone trackers:
-  - device_tracker.marc_pixel
   - device_tracker.forthygpixel
-  - device_tracker.laura_iphone
   - device_tracker.lauras_iphone
-  - device_tracker.courtney_iphone
+  - device_tracker.iphone

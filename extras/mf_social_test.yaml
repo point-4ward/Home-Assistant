@@ -23,7 +23,7 @@
 #    elevation: !secret elevation                                                      #
 #    time_zone: !secret time_zone                                                      #
 #    unit_system: metric                                                               #
-#    customize: !include customize.yaml                                                         #
+#    customize: !include customize.yaml                                                #
 #    packages: !include_dir_named packages/                                            #
 #                                                                                      #
 #  (I presume if you already use packages you will know how to integrate               #
@@ -118,7 +118,8 @@ sensor:
         value_template: >
           {% if (states.input_boolean.test_sunset_offset.state == 'on') %}true
           {% elif (states.sun.sun.attributes.elevation | int < 3) %}true
-          {% elif ( (states.sun.sun.attributes.elevation | int < 6.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+          {% elif ( (states.sun.sun.attributes.elevation | int < 4.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+          {% elif ( (states.sun.sun.attributes.elevation | int < 6.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 85)) %}true
           {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
           {% else %}false
           {% endif %}

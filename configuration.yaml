@@ -19,7 +19,6 @@ frontend:
   themes: !include_dir_merge_named config/interface/themes/
   javascript_version: auto
 config:
-map:
 group: !include_dir_merge_named config/interface/group/
 http: !include config/interface/http.yaml
 duckdns:
@@ -41,16 +40,16 @@ light:
   host: !secret hue_light_host
 switch: !include config/components/switch.yaml
 emulated_hue: !include config/components/emulated_hue.yaml
-device_tracker: !include config/components/device_tracker.yaml
+device_tracker:
+  - platform: bluetooth_tracker
+    track_new_devices: false
 #mqtt: !include config/components/mqtt.yaml  
-zone: !include_dir_list config/components/zone/
 media_player: !include config/components/media_player.yaml
 tts:
   - platform: google
     cache: false
 telegram_bot: !include config/components/telegram_bot.yaml
 notify: !include config/components/notify.yaml
-camera: !include_dir_list config/components/camera/
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret

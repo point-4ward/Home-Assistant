@@ -1,9 +1,0 @@
-############################
-#Zone for Courtney's school#
-############################
-
-name: Courtneys School
-latitude: !secret courtneys_school_latitude
-longitude: !secret courtneys_school_longitude
-radius: 250
-icon: mdi:school

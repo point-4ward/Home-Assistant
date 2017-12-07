@@ -24,7 +24,8 @@
       value_template: >
         {% if (states.input_boolean.sunset_offset.state == 'on') %}true
         {% elif (states.sun.sun.attributes.elevation | int < 3) %}true
-        {% elif ( (states.sun.sun.attributes.elevation | int < 6.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+        {% elif ( (states.sun.sun.attributes.elevation | int < 4.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
+        {% elif ( (states.sun.sun.attributes.elevation | int < 6.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 85)) %}true
         {% elif (states.sensor.dark_sky_cloud_coverage.state | int > 90) %}true
         {% else %}false
         {% endif %}
