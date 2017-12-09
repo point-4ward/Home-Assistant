@@ -53,6 +53,7 @@ google:
   client_secret: !secret google_calendar_secret
 sun:
 sensor: !include_dir_merge_list config/components/sensor/
+binary_sensor: !include config/components/binary_sensor.yaml
 hue:
 weblink: !include config/components/weblink.yaml
 updater:

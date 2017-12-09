@@ -56,7 +56,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
         |
         |-----/www/
         |     |
-        |     |...[local pictures and files here]
+        |     |...[local files here]
         |
         |-----/extras/
         |     |
@@ -70,27 +70,18 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |
               |-----/components/
               |     |
-              |     |- device_tracker.yaml
+              |     |- binary_sensor.yaml
               |     |- emulated_hue.yaml
               |     |- media_player.yaml
               |     |- mqtt.yaml
               |     |- notify.yaml
+              |     |- switch.yaml
               |     |- telegram_bot.yaml
               |     |- weblink.yaml
-              |     |
-              |     |-----/camera/
-              |     |     |
-              |     |     |...[Folder per type]
-              |     |          |
-              |     |          |..[File per camera]
               |     |
               |     |-----/sensor/
               |     |      |
               |     |      |...[File for each group/set]
-              |     |
-              |     |-----/zone/
-              |            |			  
-              |            |...[File for each zone]
               |
               |-----/core/
               |     |
@@ -134,6 +125,7 @@ All of which, for me, leads to an easy to manage configuration system that looks
                     |
                     |- http.yaml
                     |- logbook.yaml
+                    |- panel_iframe.yaml
                     |
                     |-----/group/
                     |     |

@@ -1,0 +1,8 @@
+#################################
+#Placing entities on the card   #
+#################################
+
+Devices:
+  - binary_sensor.broadlink
+  - binary_sensor.hue_hub
+  - binary_sensor.tp_link

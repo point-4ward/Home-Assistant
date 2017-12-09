@@ -13,6 +13,7 @@ information:
     - group.calendar_2
     - group.system
     - group.hue
+    - group.devices
     - group.time
     - group.zwave
     - group.weblink

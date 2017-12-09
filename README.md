@@ -23,7 +23,7 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
 
 ## What it does:
 
- - Controllable from our phones over the internet, or via local network.
+ - Controllable from our phones over the internet (via VPN), or via local network.
  - Controls living room lights, bedroom lights and landing light.  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
  - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
  - Notifies us of key events via telegram and/or notifications on screen via kodi.
@@ -53,9 +53,11 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  
 ## Configuration
 
-Click here to see [how I've configured it](extras/readme_files/configuration.md) and how this repo is organised.
+Click [here](extras/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
 
-Click here to see how I [manage backups and ensure my config is valid](extras/readme_files/backups.md) with GitHub, TravisCI and Dropbox.
+Click [here](extras/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
+
+Click [here](extras/readme_files/screenshots.md) to see how it looks!
 
 ## Useful links/resources etc:
 
