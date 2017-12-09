@@ -3,6 +3,7 @@
 ########################################
 
 alias: Alert when a critical device goes offline
+initial_state: 'on'
 trigger:
   - platform: state
     entity_id:

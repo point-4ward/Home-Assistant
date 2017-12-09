@@ -2,11 +2,23 @@
 
 ## Living Room
 
-[![Living Room](../screenshots/Livingroom.png)]
+<p class='img'>
+  <img src='../screenshots/Livingroom.png' />
+  Living Room
+</p>
+
 
 ## Information
 
-[![Information](../screenshots/Information.png)]
+<p class='img'>
+  <img src='../screenshots/Information.png' />
+  Information
+</p>
+
 
 ## Tools
-[![Tools](../screenshots/Tools.png)]
+
+<p class='img'>
+  <img src='../screenshots/Tools.png' />
+  Tools
+</p>
