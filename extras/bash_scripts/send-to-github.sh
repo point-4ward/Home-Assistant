@@ -6,6 +6,8 @@
 ####################################
 
 cd /home/hass/.homeassistant
+git checkout -b upload
+git checkout upload
 git add .
 git status
 echo -n "Enter the Description for the Change: "
