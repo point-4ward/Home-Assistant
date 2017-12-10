@@ -14,6 +14,6 @@
   host: !secret switch_broadlink_host
   name: Broadlink
 
-#- platform: ping
-#  host: !secret cctv_host
-#  name: CCTV
+- platform: ping
+  host: !secret cctv_host
+  name: CCTV
