@@ -3,14 +3,14 @@
 
 ## Living Room
 
-![Living Room](../screenshots/Livingroom.png')
+![Living Room](../screenshots/Livingroom.png)
 
 
 ## Information
 
-![Information](../screenshots/Information.png')
+![Information](../screenshots/Information.png)
 
 
 ## Tools
 
-![Tools](../screenshots/Tools.png')
+![Tools](../screenshots/Tools.png)
