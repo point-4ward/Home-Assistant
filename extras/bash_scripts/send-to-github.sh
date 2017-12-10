@@ -14,5 +14,5 @@ git checkout upload
 git commit -m "Push from local."
 git push origin upload
 git checkout master
-git branch -d upload
+git branch -D upload
 exit
