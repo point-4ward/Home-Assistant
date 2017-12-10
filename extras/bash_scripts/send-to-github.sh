@@ -13,5 +13,5 @@ git status
 echo -n "Enter the Description for the Change: "
 read CHANGE_MSG
 git commit -m "${CHANGE_MSG}"
-git push origin upload
+git push - u origin upload
 exit
