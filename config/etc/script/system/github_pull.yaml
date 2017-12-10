@@ -7,3 +7,4 @@ github_pull:
   alias: Pull from Github and Restart
   sequence:
     - service: shell_command.github_pull
+    - service: homeassistant.restart
