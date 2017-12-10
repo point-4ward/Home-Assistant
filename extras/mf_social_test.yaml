@@ -125,12 +125,13 @@ sensor:
           {% endif %}
 
       test_bad_weather:
-        friendly_name: 'Bad weather'
-        value_template: >
-          {% if ((states.sensor.dark_sky_daily_low_temperature.state | int < 4) and (states.sensor.dark_sky_dew_point.state | int < 6) and (states.sensor.dark_sky_wind_speed.state | int < 12) and (states.sensor.dark_sky_cloud_coverage.state | int < 20) and (states.sensor.dark_sky_humidity.state | int > 50)) %} frost
-          {% elif (states.sensor.dark_sky_precip_intensity | int > 7) %} heavy_rain
-          {% else %} clear
-          {% endif %}
+      friendly_name: 'Bad weather'
+      value_template: >
+        {% if (states.sensor.dark_sky_precip.state == "snow") %}snow
+        {% elif ((states.sensor.dark_sky_daily_low_temperature.state | int < 4) and (states.sensor.dark_sky_dew_point.state | int < 6) and (states.sensor.dark_sky_wind_speed.state | int < 12) and (states.sensor.dark_sky_cloud_coverage.state | int < 20) and (states.sensor.dark_sky_humidity.state | int > 50)) %} frost
+        {% elif (states.sensor.dark_sky_precip_intensity | int > 7) %} heavy_rain
+        {% else %} clear
+        {% endif %}
 
       test_notification_hour:
         value_template: '{{ states.input_number.test_notification_hour.state | int }}'
