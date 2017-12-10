@@ -6,24 +6,20 @@ alias: Alert when a critical device goes offline
 initial_state: 'on'
 trigger:
   - platform: state
-    entity_id:
-      - binary_sensor.broadlink
-      - binary_sensor.hue_hub
-      - binary_sensor.tp_link
+    entity_id: binary_sensor.broadlink
     to: 'off'
     for:
       minutes: 2
-#condition:
-#  condition: and
-#  conditions:
-#    - condition: template
-#      value_template: >
-#        {% if states.automation.alert_when_a_critical_device_goes_offline.last_triggered is not none %}
-#        {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.alert_when_a_critical_device_goes_offline.attributes.last_triggered) | int > 3600 %} true {% else %} false
-#        {% endif %}
-#        {% else %}
-#        false
-#        {% endif %}
+  - platform: state
+    entity_id: binary_sensor.hue_hub
+    to: 'off'
+    for:
+      minutes: 2
+  - platform: state
+    entity_id: binary_sensor.tp_link
+    to: 'off'
+    for:
+      minutes: 2
 action:
   service: notify.telegram_marc
   data_template:

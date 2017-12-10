@@ -1,24 +1,16 @@
 # Screenshots
 
+
 ## Living Room
 
-<p class='img'>
-  <img src='../screenshots/Livingroom.png' />
-  Living Room
-</p>
+![Living Room](../screenshots/Livingroom.png')
 
 
 ## Information
 
-<p class='img'>
-  <img src='../screenshots/Information.png' />
-  Information
-</p>
+![Information](../screenshots/Information.png')
 
 
 ## Tools
 
-<p class='img'>
-  <img src='../screenshots/Tools.png' />
-  Tools
-</p>
+![Tools](../screenshots/Tools.png')

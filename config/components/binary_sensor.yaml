@@ -1,3 +1,7 @@
+###############################
+#Setting up the binary sensors#
+###############################
+
 - platform: ping
   host: !secret hue_light_host
   name: Hue Hub
@@ -9,3 +13,7 @@
 - platform: ping
   host: !secret switch_broadlink_host
   name: Broadlink
+
+#- platform: ping
+#  host: !secret cctv_host
+#  name: CCTV
