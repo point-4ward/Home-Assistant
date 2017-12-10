@@ -32,7 +32,7 @@
 #  Then create a new file and copy this in to it, save it in your packages             #
 #  folder and call it mf_social_test.yaml                                              #
 #                                                                                      #
-#  Edit the 'notify' option to your prefered notification media in all 5 places (near  #
+#  Edit the 'notify' option to your prefered notification media in all 6 places (near  #
 #  the bottom of the file), save and restart homeassistant.                            #
 #                                                                                      #
 #  (If you use your own default_view you will need to put group.mf_social_test         #
@@ -45,8 +45,8 @@
 #   The two sensors will monitor your dark_sky and sun components and                  #
 #   attempt to work out when it is dark enough to switch the lights on,                #
 #   and light enough to switch them off.  It will also check whether                   #
-#   your journey to work is likely to be slightly longer due to frost                  #
-#   or heavy rain.                                                                     #
+#   your journey to work is likely to be slightly longer due to frost,                 #
+#   snow or heavy rain.                                                                #
 #                                                                                      #
 #   You will receive notifications as follows:                                         #
 #                                                                                      #
@@ -54,7 +54,7 @@
 #     would switch the lights on if used as the trigger.                               #
 #   - everytime the light sensor thinks it is light outside, and therefore             #
 #     would switch the lights off if used as the trigger.                              #
-#   - at the time you set with a report of 'frost', 'heavy_rain' or 'clear'            #
+#   - at the time you set reporting 'snow', 'frost', 'heavy_rain' or 'clear'           #
 #                                                                                      #
 #   Please update mf_social with how accurate it is for you and any false              #
 #   positives, false negatives or completely wrong results!                            #
@@ -202,7 +202,7 @@ automation:
       entity_id: sensor.test_bad_weather
       state: 'clear'
     action:
-      - service: notify.[YOUR PREFERENCE 1 OF 5]
+      - service: notify.[YOUR PREFERENCE 1 OF 6]
         data:
           message: 'The bad weather sensor is registering clear.'
 
@@ -216,7 +216,7 @@ automation:
       entity_id: sensor.test_bad_weather
       state: 'frost'
     action:
-      - service: notify.[YOUR PREFERENCE 2 OF 5]
+      - service: notify.[YOUR PREFERENCE 2 OF 6]
         data:
           message: 'The bad weather sensor is registering frost.'
 
@@ -230,9 +230,23 @@ automation:
       entity_id: sensor.test_bad_weather
       state: 'heavy_rain'
     action:
-      - service: notify.[YOUR PREFERENCE 3 OF 5]
+      - service: notify.[YOUR PREFERENCE 3 OF 6]
         data:
           message: 'The bad weather sensor is registering heavy rain.'
+          
+  - alias: 'Bad weather notification - snow'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.test_notification_time_long.state }}'
+    condition:
+      condition: state
+      entity_id: sensor.test_bad_weather
+      state: 'snow'
+    action:
+      - service: notify.[YOUR PREFERENCE 4 OF 6]
+        data:
+          message: 'The bad weather sensor is registering snow.'
 
   - alias: 'Light notification - dark'
     initial_state: 'on'
@@ -241,7 +255,7 @@ automation:
       entity_id: sensor.test_dark_outside
       to: 'true'
     action:
-      - service: notify.[YOUR PREFERENCE 4 OF 5]
+      - service: notify.[YOUR PREFERENCE 5 OF 6]
         data:
           message: 'The dark sensor has changed to true, I would have switched the lights on now if using this sensor.'
 
@@ -252,6 +266,6 @@ automation:
       entity_id: sensor.test_dark_outside
       to: 'false'
     action:
-      - service: notify.[YOUR PREFERENCE 5 OF 5]
+      - service: notify.[YOUR PREFERENCE 6 OF 6]
         data:
           message: 'The dark sensor has changed to false, I would have switched the lights off now if using this sensor.'
