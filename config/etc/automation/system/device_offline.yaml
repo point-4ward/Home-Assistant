@@ -19,6 +19,11 @@ trigger:
     entity_id: binary_sensor.tp_link
     to: 'off'
     for:
+      minutes: 2  
+  - platform: state
+    entity_id: binary_sensor.cctv
+    to: 'off'
+    for:
       minutes: 2
 action:
   service: notify.telegram_marc
