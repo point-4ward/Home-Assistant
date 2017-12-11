@@ -104,6 +104,7 @@ group:
 
 automation:
   - alias: 'masterbed light on and play music'
+    initial_state: on
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'
