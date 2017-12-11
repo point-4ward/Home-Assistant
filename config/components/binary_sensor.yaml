@@ -17,3 +17,7 @@
 - platform: ping
   host: !secret cctv_host
   name: CCTV
+
+- platform: ping
+  host: !secret echo_host
+  name: Amazon Echo
