@@ -17,10 +17,12 @@ light.bathroom_g:
   hidden: true
 
 
-#Input_boolean
+#Inputs
 input_boolean.sunset_offset:
   hidden: true
 
+input_text.github_message:
+  icon: mdi:pencil
 
 #Groups
 group.all_automations:
