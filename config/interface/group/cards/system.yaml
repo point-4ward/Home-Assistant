@@ -20,8 +20,8 @@ Maintenance:
     - input_boolean.maintenance_mode
     - script.upgrade_hass
     - script.github_pull
-    - script.github_push
     - input_text.github_message
+    - script.github_push
     - script.sync_dropbox
 
 Travis CI:
