@@ -8,3 +8,5 @@ upgrade_hass: /home/hass/.homeassistant/extras/bash_scripts/upgrade-hass.sh
 sync_dropbox: /bin/bash 'python /home/hass/extras/bash_scripts/dropbox_sync.py'
 
 github_pull: /home/hass/.homeassistant/extras/bash_scripts/pull-from-github.sh
+
+#github_push: /home/hass/.homeassistant/extras/bash_scripts/send-to-github.sh {{github_message}}
