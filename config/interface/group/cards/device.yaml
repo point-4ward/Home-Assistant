@@ -7,3 +7,4 @@ Devices:
   - binary_sensor.hue_hub
   - binary_sensor.tp_link
   - binary_sensor.cctv
+  - binary_sensor.amazon_echo
