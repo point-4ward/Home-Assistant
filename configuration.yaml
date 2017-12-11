@@ -69,4 +69,5 @@ scene: !include_dir_list config/etc/scene/
 alert: !include config/etc/alert.yaml
 input_boolean: !include config/etc/input_boolean.yaml
 input_select: !include config/etc/input_select.yaml
+input_text: !include config/etc/input_text.yaml
 shell_command: !include config/etc/shell_command.yaml

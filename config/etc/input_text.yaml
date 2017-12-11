@@ -1,0 +1,7 @@
+######################################
+#Defines the input_text configuration#
+######################################
+
+github_message:
+  name: Commit Message
+  initial: Push from local

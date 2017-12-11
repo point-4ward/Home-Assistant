@@ -21,6 +21,7 @@ Maintenance:
     - script.upgrade_hass
     - script.github_pull
     - script.github_push
+    - input_text.github_message
     - script.sync_dropbox
 
 Travis CI:
