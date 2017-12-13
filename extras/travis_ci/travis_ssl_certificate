@@ -1,6 +1,0 @@
-##############################################
-#Travis CI is checking for an SSL certificate#
-#and key file, so this file is just a fake   #
-#one so it thinks it's found it and can test #
-#the rest of my configuration for validity   #
-##############################################
