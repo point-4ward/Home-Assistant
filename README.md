@@ -56,7 +56,7 @@ Click [here](extras/readme_files/configuration.md) to see how I've configured it
 
 Click [here](extras/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
 
-Click [here](extras/readme_files/screenshots.md) to see how it looks!
+Click [here](extras/readme_files/screenshots.md) to see how it looks! (Not working atmm sorry!)
 
 ## Useful links/resources etc:
 
