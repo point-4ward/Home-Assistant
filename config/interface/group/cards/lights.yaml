@@ -13,7 +13,7 @@ livingroom_lights:
   name: Lights
   entities:
     - light.lr_left
-    - light.lr_room_right
+    - light.lr_right
     - input_select.living_room_scenes
 
 other_lights:
