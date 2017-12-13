@@ -25,7 +25,7 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
 
  - Controllable from our phones over the internet (via VPN), or via local network.
  - Controls living room lights, bedroom lights and landing light.  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
- - Tracks our phones using owntracks and therefore knows whether or not anybody is at home.
+ - Tracks our phones using bluetooth and therefore knows whether or not anybody is at home.
  - Notifies us of key events via telegram and/or notifications on screen via kodi.
  - Reacts to incoming messages sent from telegram.
  - Master bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
@@ -45,7 +45,6 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  - Monitors email addresses for security breaches and notifies if insecure.
  - Monitors HomeAssistant for updates and notifies when update available.
  - Monitors HomeAssistant for restarts and alerts me if I was not doing maintenance, in case of power cuts.
- - Automatically updates Let's Encrypt certificate for SSL.
  - Monitors the instance for hacking attempts, notifies and blocks IP of attacker.
  - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
  - Timer function that alerts on phones and over Chromecast Audios.
