@@ -5,15 +5,15 @@
 master_bedroom_lights:
   name: Lights
   entities:
-    - light.bedroom_ceiling
-    - light.bedroom_stairs
+    - light.mb_ceiling
+    - light.mb_stairs
     - input_select.master_bedroom_scenes
 
 livingroom_lights:
   name: Lights
   entities:
-    - light.living_room_left
-    - light.living_room_right
+    - light.lr_left
+    - light.lr_room_right
     - input_select.living_room_scenes
 
 other_lights:
@@ -22,6 +22,3 @@ other_lights:
   entities:
     - light.landing
     - light.bathroom
-
-All hue:
-  - light.all_hue_lights
