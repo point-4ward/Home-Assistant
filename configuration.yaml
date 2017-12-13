@@ -41,7 +41,7 @@ emulated_hue: !include config/components/emulated_hue.yaml
 device_tracker:
   - platform: bluetooth_tracker
     track_new_devices: false
-#mqtt: !include config/components/mqtt.yaml  
+mqtt: !include config/components/mqtt.yaml  
 media_player: !include config/components/media_player.yaml
 tts:
   - platform: google

@@ -37,3 +37,6 @@ Email Security: !secret email_security
 
 Calendar:
   - sensor.calendar
+
+MQTT:
+  - sensor.doorbell

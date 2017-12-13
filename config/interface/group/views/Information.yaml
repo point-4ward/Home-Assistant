@@ -14,6 +14,7 @@ information:
     - group.system
     - group.hue
     - group.devices
+    - group.mqtt
     - group.time
     - group.zwave
     - group.weblink
