@@ -1,0 +1,14 @@
+#######################################
+#TEST of notification for the doorbell#
+#######################################
+
+alias: 'Doorbell test'
+initial_state: 'on'
+trigger:
+  platform: mqtt
+  topic: home-assistant/doorbell
+  payload: 'Ring'
+action:
+  service: notify.telegram_marc
+  data:
+    message: 'Doorbell test'
