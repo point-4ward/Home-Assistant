@@ -3,7 +3,6 @@ python:
   - "3.6.0"
 before_install:
   - mv extras/travis_ci/secrets_redacted.yaml secrets.yaml
-  - mv extras/travis_ci/travis_ssl_certificate travis_ssl_certificate
 install:
   - pip3 install homeassistant
 script:
