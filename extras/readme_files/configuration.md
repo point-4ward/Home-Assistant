@@ -19,18 +19,15 @@ media_player:
     host: 192.168.0.123  <----- Three lines
 
 #####Not fine
-mqtt:
-  broker: !secret mqtt_broker
-  port: !secret mqtt_port
-  client_id: !secret mqtt_client_id <---- Four lines or more
-  keepalive: 60
-  username: !secret mqtt_username
-  password: !secret mqtt_password
+http:
+  api_password: !secret api_password
+  ip_ban_enabled: True
+  login_attempts_threshold: 3     <----- Four lines or more
 ```
 	
 Where the entry will take four lines or more, I use an !include and place the include file in the config/ directory, in the subdirectory based on whether it is a 'core' element, an 'interface' element or whatever.  I use the exact name of the component for the include, eg:
 ```
-mqtt: !include config/components/mqtt.yaml
+http: !include config/interface/http.yaml
 ```
 
 In cases where the new include file becomes large (I favour keeping them in bite-sized chunks of around 50 lines or fewer), I split that file in to as many as are needed and place them in a folder named exactly after the component, eg:
@@ -73,7 +70,6 @@ All of which, for me, leads to an easy to manage configuration system that looks
               |     |- binary_sensor.yaml
               |     |- emulated_hue.yaml
               |     |- media_player.yaml
-              |     |- mqtt.yaml
               |     |- notify.yaml
               |     |- switch.yaml
               |     |- telegram_bot.yaml
