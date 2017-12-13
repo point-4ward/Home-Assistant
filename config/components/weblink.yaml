@@ -11,5 +11,3 @@ entities:
     url: https://github.com/mf-social/Home-Assistant
   - name: Travis CI
     url: https://travis-ci.org/
-  - name: Router
-    url: !secret weblink_router

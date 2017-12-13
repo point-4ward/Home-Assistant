@@ -6,3 +6,8 @@ kodi:
   title: 'Kodi'
   url: !secret iframe_kodi_url
   icon: mdi:kodi
+
+router:
+  title: 'Router'
+  url: !secret iframe_router_url
+  icon: mdi:access-point-network
