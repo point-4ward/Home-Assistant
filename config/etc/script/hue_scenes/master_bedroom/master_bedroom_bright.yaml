@@ -4,7 +4,7 @@
 
 master_bedroom_bright:
   sequence:
-    - service: light.hue_activate_scene
+    - service: hue.hue_activate_scene
       data:
         group_name: "Master Bedroom"
         scene_name: "Bright"
