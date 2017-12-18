@@ -9,11 +9,11 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/onLivingRoom'
+    command: '/LivingRoom'
 action:
-  - service: homeassistant.turn_on
+  - service: homeassistant.toggle
     entity_id: light.living_room
   - service: telegram_bot.send_message
     data_template:
       target: '{{ trigger.event.data.user_id }}'
-      message: 'Livingroom lights have been turned on'
+      message: 'Livingroom lights have been turned {{states.light.living_room.state}}.'
