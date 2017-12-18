@@ -1,6 +1,6 @@
 # My Home Assistant setup:
 
-This is my current Home Automation setup.  Starting small and gradually growing as funds allow...
+This is my current Home Automation setup.
 
 ## House:
 
@@ -19,7 +19,7 @@ Gnd floor - Living room        Kitchen
           - Living room        Kitchen
 ```
 
-Click here to see the [Hardware and Software](extras/readme_files/hardware_software.md) I am using.
+Click here to see the [Hardware and Software](extras/github_resources/readme_files/hardware_software.md) I am using.
 
 ## What it does:
 
@@ -52,11 +52,11 @@ Click here to see the [Hardware and Software](extras/readme_files/hardware_softw
  
 ## Configuration
 
-Click [here](extras/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
+Click [here](extras/github_resources/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
 
-Click [here](extras/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
+Click [here](extras/github_resources/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
 
-Click [here](extras/readme_files/screenshots.md) to see how it looks!
+Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks! (NOT WORKING - SORRY!)
 
 ## Useful links/resources etc:
 
