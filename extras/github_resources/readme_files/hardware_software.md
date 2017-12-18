@@ -30,5 +30,4 @@
  - Hue app (for config of hue lights/bridge)
  - Custom Alexa skill (to control Kodi via Echo Dot)
  - Google Home app (for config of Chromecasts)
- - Owntracks - presencedetection
  - Telegram - two way conversations with Home Assistant
