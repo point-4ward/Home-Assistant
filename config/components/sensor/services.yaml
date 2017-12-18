@@ -16,7 +16,7 @@
 - platform: haveibeenpwned
   email: !secret haveibeenpwned_email
 
-- platform: hue
+- platform: hue_sensor
 
 - platform: travisci
   api_key: !secret sensor_travisci
