@@ -18,10 +18,10 @@ action:
     message: "System is online!
       
       
-    It has been {{states.sensor.since_last_boot.state}} since last boot, and there are {{states.sensor.ssl_cert_expiry.state}} days left on the SSL certificate.
+    It has been {{states.sensor.since_last_boot.state}} since last boot.
       
       
-    Currently the tracker group is {{states.group.all_devices.state}}.
+    Currently home is {{states.sensor.home_status.state}}.
       
     Marc is at {{states.device_tracker.forthygpixel.state}}.
       
