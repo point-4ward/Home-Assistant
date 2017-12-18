@@ -60,7 +60,7 @@ Click [here](extras/github_resources/readme_files/screenshots.md) to see how it 
 
 ## Useful links/resources etc:
 
-[Home Assistant](http://home-assistant.io) | [Owntracks](http://owntracks.org/) | [Yatse](http://yatse.tv/redmine/projects/yatse)
+[Home Assistant](http://home-assistant.io) | [Yatse](http://yatse.tv/redmine/projects/yatse)
 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
