@@ -2,40 +2,7 @@
 #Action buttons to set modes on the UX#
 #######################################
 
-guest_mode:
-  name: Guest mode
-  icon: mdi:human-handsup
 
-holiday_mode:
-  name: Holiday mode
-  icon: mdi:airplane
 
-school_day_mode:
-  name: School Day mode
-  icon: mdi:school
 
-bathtime_mode:
-  name: Bathtime mode
-  icon: mdi:basket-fill
 
-cycling_mode:
-  name: Cycling to work mode
-  icon: mdi:bike
-
-away_mode:
-  name: Away mode
-  icon: mdi:alert-circle-outline
-
-kids_night_mode:
-  name: Kids night monitor
-  icon: mdi:human-child
-
-bedtime_mode:
-  name: Bedtime mode
-  icon: mdi:sleep
-
-maintenance_mode:
-  name: Maintenance mode
-  icon: mdi:auto-fix
-
-sunset_offset:
