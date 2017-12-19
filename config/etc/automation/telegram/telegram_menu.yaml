@@ -4,13 +4,13 @@
 #of available interactions    #
 ###############################
 
-alias: 'Telegram reply with Help Menu'
+alias: 'Telegram reply with Menu'
 initial_state: 'on'
 trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/help'
+    command: '/menu'
 action:
   service: telegram_bot.send_message
   data_template:

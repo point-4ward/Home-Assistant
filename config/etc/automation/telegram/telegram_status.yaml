@@ -39,4 +39,4 @@ action:
     Landing lights are {{states.light.landing.state}}.
       
     Master bedroom lights are {{states.group.master_bedroom_lights.state}}."
-    keyboard: ["/lights, /people", "/help"]
+    keyboard: ["/lights, /people", "/menu"]
