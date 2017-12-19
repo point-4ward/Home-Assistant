@@ -16,4 +16,4 @@ action:
   data_template:
     target: '{{ trigger.event.data.user_id }}'
     message: 'Commands...'
-    keyboard: ["/status, /people", "/lights, /guest", "/away, /holiday"]
+    keyboard: ["/lights, /occupancy", "/status"]
