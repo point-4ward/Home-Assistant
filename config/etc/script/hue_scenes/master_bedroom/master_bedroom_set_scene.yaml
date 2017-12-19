@@ -1,0 +1,10 @@
+################################
+#A one-touch scene controller  #
+################################
+
+master_bedroom_arctic_aurora:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "{{ scene }}"
