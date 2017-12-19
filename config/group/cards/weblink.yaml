@@ -1,9 +1,0 @@
-#################################
-#Placing entities on the card   #
-#################################
-
-Weblink:
-  - weblink.home_assistant
-  - weblink.ha_forums
-  - weblink.github
-  - weblink.travis_ci
