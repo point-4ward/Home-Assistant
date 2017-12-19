@@ -3,7 +3,3 @@
 #.homeassistant directory to dropbox #
 ######################################
 
-sync_dropbox:
-  alias: Sync Dropbox
-  sequence:
-    - service: shell_command.sync_dropbox

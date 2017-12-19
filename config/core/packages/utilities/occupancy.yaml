@@ -1,0 +1,75 @@
+device_tracker:
+  platform: bluetooth_tracker
+  new_device_defaults:
+    track_new_devices: false
+
+
+input_boolean:
+  guest_mode:
+    name: Guest mode
+    icon: mdi:human-handsup
+
+  holiday_mode:
+    name: Holiday mode
+    icon: mdi:airplane
+
+  school_day_mode:
+    name: School Day mode
+    icon: mdi:school
+
+  bathtime_mode:
+    name: Bathtime mode
+    icon: mdi:basket-fill
+
+  cycling_mode:
+    name: Cycling to work mode
+    icon: mdi:bike
+
+  away_mode:
+    name: Away mode
+    icon: mdi:alert-circle-outline
+
+  kids_night_mode:
+    name: Kids night monitor
+    icon: mdi:human-child
+
+  bedtime_mode:
+    name: Bedtime mode
+    icon: mdi:sleep
+
+
+sensor:
+  - platform: template
+    sensors:
+      home_status:
+        friendly_name: 'Home status'
+        value_template: >
+          {% if (states.group.all_devices.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
+          {% else %} Unoccupied
+          {% endif %}
+
+
+group:
+  Phone trackers:
+  - device_tracker.forthygpixel
+  - device_tracker.lauras_iphone
+  - device_tracker.iphone
+  
+  house_modes:
+    name: House modes
+    control: hidden
+    entities:
+    - sensor.home_status
+    - input_boolean.guest_mode
+    - input_boolean.away_mode
+    - input_boolean.holiday_mode
+
+  occupancy_modes:
+    name: Occupancy Modes
+    control: hidden
+    entities:
+    - input_boolean.bathtime_mode
+    - input_boolean.kids_night_mode
+    - input_boolean.bedtime_mode
+    - input_boolean.school_day_mode
+    - input_boolean.cycling_mode
