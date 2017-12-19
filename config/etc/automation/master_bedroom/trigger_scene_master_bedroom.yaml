@@ -12,9 +12,7 @@ condition:
   condition: template
   value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
 action:
-  service: script.master_bedroom_set scene
-  data_template:
-    scene: '{{states.input_select.master_bedroom_scenes.state}}'
+  service: script.master_bedroom_spring_blossom
 
 
 
