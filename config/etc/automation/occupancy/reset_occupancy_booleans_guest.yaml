@@ -12,5 +12,3 @@ trigger:
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.away_mode
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.holiday_mode

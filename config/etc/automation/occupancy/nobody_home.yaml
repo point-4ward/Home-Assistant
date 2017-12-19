@@ -15,8 +15,5 @@ action:
     entity_id: group.all_lights
   - service: media_player.turn_off
     entity_id: media_player.living_room_kodi
-  - condition: state
-    entity_id: input_boolean.guest_mode
-    state: 'off'
   - service: homeassistant.turn_on
     entity_id: input_boolean.away_mode
