@@ -1,5 +1,9 @@
 # My Home Assistant setup:
 
+
+**PLEASE NOTE I AM COMPLETELY RECONFIGURING HOW MY CONFIG FILES ARE ORGANISED AND THIS README IS OUT OF DATE, IT'S N MY LIST OF THINGS TO FIX!!**
+
+
 This is my current Home Automation setup.
 
 ## House:
