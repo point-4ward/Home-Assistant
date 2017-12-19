@@ -53,7 +53,6 @@ google:
 sun:
 sensor: !include_dir_merge_list config/components/sensor/
 binary_sensor: !include config/components/binary_sensor.yaml
-hue_sensor:
 weblink: !include config/components/weblink.yaml
 updater:
   include_used_components: true
