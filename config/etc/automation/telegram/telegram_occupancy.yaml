@@ -3,13 +3,13 @@
 #message with home and away status    #
 #######################################
 
-alias: 'Telegram reply with People'
+alias: 'Telegram reply with Occupancy'
 initial_state: 'on'
 trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/people'
+    command: '/occupancy'
 action:
   service: telegram_bot.send_message
   data_template:
