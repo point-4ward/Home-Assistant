@@ -1,7 +1,0 @@
-####################################
-#Connection information for Web UX #
-####################################
-
-api_password: !secret api_password
-ip_ban_enabled: True
-login_attempts_threshold: 3
