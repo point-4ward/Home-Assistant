@@ -1,0 +1,27 @@
+input_select:
+  living_room_scenes:
+    name: Scenes
+    options:
+      - Select
+      - Dim
+      - Bright
+    initial: Select
+    icon: mdi:creation
+
+  master_bedroom_scenes:
+    name: Scenes
+    options:
+      - Select
+      - Arctic Aurora
+      - Bright
+      - Concentrate
+      - Dimmed
+      - Energize
+      - Nightlight
+      - Read
+      - Relax
+      - Savanna Sunset
+      - Spring Blossom
+      - Tropical Twilight
+    initial: Select
+    icon: mdi:creation
