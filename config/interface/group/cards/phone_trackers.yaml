@@ -1,8 +1,0 @@
-#################################
-#Placing entities on the card   #
-#################################
-
-Phone trackers:
-  - device_tracker.forthygpixel
-  - device_tracker.lauras_iphone
-  - device_tracker.iphone

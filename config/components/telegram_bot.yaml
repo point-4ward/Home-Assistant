@@ -3,10 +3,3 @@
 #telegram bot used for notifications#
 #####################################
 
-- platform: polling
-  api_key: !secret telegram_bot_api_key
-  parse_mode: html
-  allowed_chat_ids:
-    - !secret telegram_bot_chat_id_marc
-    - !secret telegram_bot_chat_id_laura
-#    - !secret telegram_bot_chat_id_courtney
