@@ -5,6 +5,6 @@
 master_bedroom_arctic_aurora:
   sequence:
     - service: hue.hue_activate_scene
-      data:
+      data_template:
         group_name: "Master Bedroom"
         scene_name: "{{ scene }}"
