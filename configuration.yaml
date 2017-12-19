@@ -58,6 +58,4 @@ automation: !include_dir_list config/etc/automation/
 script: !include_dir_merge_named config/etc/script/
 scene: !include_dir_list config/etc/scene/
 alert: !include config/etc/alert.yaml
-input_boolean: !include config/etc/input_boolean.yaml
 input_select: !include config/etc/input_select.yaml
-shell_command: !include config/etc/shell_command.yaml
