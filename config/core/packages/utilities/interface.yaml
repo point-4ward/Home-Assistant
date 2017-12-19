@@ -31,6 +31,17 @@ panel_iframe:
     url: !secret iframe_router_url
     icon: mdi:access-point-network
 
+weblink:
+  entities:
+    - name: Home Assistant
+      url: https://home-assistant.io
+    - name: HA Forums
+      url: https://community.home-assistant.io/
+    - name: Github
+      url: https://github.com/mf-social/Home-Assistant
+    - name: Travis CI
+      url: https://travis-ci.org/
+
 
 frontend:
   javascript_version: auto
