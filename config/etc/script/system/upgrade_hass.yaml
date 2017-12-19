@@ -4,7 +4,3 @@
 #device, then runs HA upgrade and reboots#
 ##########################################
 
-upgrade_hass:
-  alias: Upgrade HA and Restart
-  sequence:
-    - service: shell_command.upgrade_hass
