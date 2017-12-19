@@ -2,14 +2,3 @@
 #Ways to be notified of key events#
 ###################################
 
-- platform: telegram
-  name: telegram_marc
-  chat_id: !secret telegram_bot_chat_id_marc
-
-- platform: telegram
-  name: telegram_laura
-  chat_id: !secret telegram_bot_chat_id_laura
-
-#- platform: telegram
-#  name: telegram_courtney
-#  chat_id: !secret telegram_bot_chat_id_courtney
