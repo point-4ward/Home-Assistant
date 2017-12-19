@@ -43,6 +43,14 @@ weblink:
       url: https://travis-ci.org/
 
 
+group:
+  Weblink:
+    - weblink.home_assistant
+    - weblink.ha_forums
+    - weblink.github
+    - weblink.travis_ci
+
+
 frontend:
   javascript_version: auto
   themes:
