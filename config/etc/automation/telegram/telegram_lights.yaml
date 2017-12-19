@@ -22,4 +22,4 @@ action:
     Landing lights are {{states.light.landing.state}}.
       
     Master bedroom lights are {{states.group.master_bedroom_lights.state}}.'
-    keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom"]
+    keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom", "/menu"]

@@ -4,20 +4,9 @@
 #####################################
 
 - platform: polling
-  api_key: !secret telegram_bot_api_key_marc
+  api_key: !secret telegram_bot_api_key
   parse_mode: html
   allowed_chat_ids:
     - !secret telegram_bot_chat_id_marc
     - !secret telegram_bot_chat_id_laura
-
-#- platform: polling
-#  api_key: !secret telegram_bot_api_key_laura
-#  parse_mode: html
-#  allowed_chat_ids:
-#    - !secret telegram_bot_chat_id_laura
-
-#- platform: webhooks
-#  api_key: !secret telegram_bot_api_key
-#  parse_mode: html
-#  allowed_chat_ids:
 #    - !secret telegram_bot_chat_id_courtney

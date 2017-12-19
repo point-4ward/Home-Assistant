@@ -16,4 +16,4 @@ action:
   - service: telegram_bot.send_message
     data_template:
       target: '{{ trigger.event.data.user_id }}'
-      message: 'All lights have been turned off'
+      message: 'All lights have been turned off.'

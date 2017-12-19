@@ -23,4 +23,4 @@ action:
     Courtney is at {{states.device_tracker.iphone.state}}.
       
     Guest mode is {{states.input_boolean.guest_mode.state}}.'
-    keyboard: ["/away, /holiday" , "/guest, /lights"]
+    keyboard: ["/away, /holiday" , "/guest, /lights", "/menu"]
