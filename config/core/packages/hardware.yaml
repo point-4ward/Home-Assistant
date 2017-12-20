@@ -1,9 +1,28 @@
 #zwave:
 #  usb_path: /dev/ttyAMA0
 
+
 hue:
   bridges:
     - host: !secret hue_light_host
+    
+    
+media_player:
+  - platform: cast
+
+  - platform: kodi
+    name: Living Room Kodi
+    host: !secret media_host
+    port: !secret media_port
+    enable_websocket: false
+    username: !secret media_username
+    password: !secret media_password
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data_template:
+        entity_id: '{{ entity_id }}'
+        method: System.Shutdown
+        
     
 switch: 
   - platform: tplink
@@ -24,6 +43,7 @@ switch:
 #      tv_lg_hdmi_2:
 #        friendly_name: 'TV Hdmi 2'
 #        command_on: ''
+
 
 input_select:
   living_room_scenes:
