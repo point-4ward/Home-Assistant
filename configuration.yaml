@@ -30,7 +30,6 @@ group: !include_dir_merge_named config/group/
 emulated_hue: !include config/components/emulated_hue.yaml
 mqtt:
   broker: !secret mqtt_broker
-media_player: !include config/components/media_player.yaml
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret
