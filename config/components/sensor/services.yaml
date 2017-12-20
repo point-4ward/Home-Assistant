@@ -4,14 +4,7 @@
 #sensor readings                  #
 ###################################
 
-- platform: version
-  name: Installed HA version
 
-- platform: rest
-  resource: https://pypi.python.org/pypi/homeassistant/json
-  name: HA upstream
-  value_template: '{{ value_json.info.version }}'
-  scan_interval: 3600
 
 - platform: haveibeenpwned
   email: !secret haveibeenpwned_email
