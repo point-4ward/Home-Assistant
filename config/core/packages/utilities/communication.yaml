@@ -10,3 +10,9 @@ emulated_hue:
     - light
     - input_boolean
     - switch
+
+
+sensor:
+  - platform: mqtt
+    name: "Doorbell"
+    state_topic: "home-assistant/doorbell"
