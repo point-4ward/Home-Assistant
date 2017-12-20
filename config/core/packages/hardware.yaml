@@ -74,6 +74,10 @@ input_select:
     icon: mdi:creation
 
 
+sensor:
+  - platform: hue_sensor
+  
+  
 binary_sensor:
   - platform: ping
     host: !secret hue_light_host
