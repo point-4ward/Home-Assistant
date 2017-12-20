@@ -1,3 +1,30 @@
+#zwave:
+#  usb_path: /dev/ttyAMA0
+
+hue:
+  bridges:
+    - host: !secret hue_light_host
+    
+switch: 
+  - platform: tplink
+    host: !secret switch_tplink_host
+
+  - platform: broadlink
+    host: !secret switch_broadlink_host
+    mac: !secret switch_broadlink_mac
+    friendly_name: 'IR remote'
+    switches:
+      tv_lg_on_off:
+        friendly_name: 'TV power'
+        command_on: 'JgAAAQABJ5QVEBISFTQUERUQExITERUQFTQVNBUREjcSNxM2FDUTNhMRFREUNRITEhIUERQ1FTQVNBU0FBETNxI3FDUTERUQFQAFJAABKUgTAAxOAAEoRxMADE4AASdJFQAMTAABJ0gVAAxNAAEoSBMADE4AAShHFQAMTAABJ0kTAAxOAAEoRxUADE0AAShHFAAMTQABKUcVAAxMAAEoRxUADE0AAShHFQAMTQABKEcUAAxNAAEoSBQADE0AAShHFQAMTQABKEgSAAxOAAEpRxQADE0AAShIFAAMTAABKUcVAAxNAAEoRxQADE0AAShIFAAMTQABKEcUAAxNAAEnSRQADQUAAAAAAAAAAA=='
+        command_off: 'JgCAAAABKZITERUQFTQVEBMSExEVEBUQEzYUNhMRFDUVNBU0FTQVNRQ1FBEUNRUQExEVEBU0FTQVEBM2FBEUNRQ1FTQVEBUQEwAFJwABJ0gVAAxNAAEnSBQADE0AAShIEwAMTgABKEcVAAxMAAEpRxUADE0AAShHEwAMTgABKEgUAA0FAAAAAAAAAAA='
+      tv_lg_hdmi_1:
+        friendly_name: 'TV Hdmi 1'
+        command_on: 'ZNyOPZtPBS3RwnscCDbyCxUQExITERUQFTQVNA=='
+#      tv_lg_hdmi_2:
+#        friendly_name: 'TV Hdmi 2'
+#        command_on: ''
+
 input_select:
   living_room_scenes:
     name: Scenes
