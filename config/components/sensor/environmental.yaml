@@ -1,9 +1,0 @@
-###################################
-#Obtains environmental information#
-#and presents it as sensor reading#
-###################################
-
-- platform: time_date
-  display_options:
-   - 'time'
-   - 'date'
