@@ -26,12 +26,7 @@ group: !include_dir_merge_named config/group/
 ## My components/devices/sensors/etc ##
 #######################################
 
-#zwave:
-#  usb_path: /dev/ttyAMA0
-hue:
-  bridges:
-    - host: !secret hue_light_host
-switch: !include config/components/switch.yaml
+
 emulated_hue: !include config/components/emulated_hue.yaml
 mqtt:
   broker: !secret mqtt_broker
