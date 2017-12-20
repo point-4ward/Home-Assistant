@@ -43,6 +43,11 @@ shell_command:
   #github_push: /home/hass/.homeassistant/extras/bash_scripts/send-to-github.sh {{github_message}}
 
 
+sensor:
+  - platform: travisci
+    api_key: !secret sensor_travisci
+    
+    
 group:
   Maintenance:
     control: hidden
