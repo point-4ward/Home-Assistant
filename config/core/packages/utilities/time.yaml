@@ -1,0 +1,18 @@
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_secret
+
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date
+
+  - platform: template
+    sensors:
+      calendar:
+        value_template: >
+          {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
+          {{ states.calendar.marcforthrungmailcom.attributes.message }}
+        friendly_name: 'Next Event'
