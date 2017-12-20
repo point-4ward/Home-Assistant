@@ -6,13 +6,14 @@ google:
 sensor:
   - platform: time_date
     display_options:
-    - 'time'
-    - 'date
+      - 'time'
+      - 'date'
 
   - platform: template
     sensors:
       calendar:
+        friendly_name: 'Next Event'
         value_template: >-
           {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
           {{ states.calendar.marcforthrungmailcom.attributes.message }}
-        friendly_name: 'Next Event'
+        
