@@ -1,0 +1,27 @@
+#
+#
+#
+#
+#MISC!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+#
+#
+
+homeassistant:
+  customize:
+    script.romance:
+      can_cancel: false
+      icon: mdi:creation
+
+    script.lullaby:
+      can_cancel: false
+      icon: mdi:creation
+
+
+group:
+  masterbed_modes:
+    name: Modes
+    control: hidden
+    entities:
+      - script.lullaby
+      - script.romance

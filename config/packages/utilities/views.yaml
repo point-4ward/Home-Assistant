@@ -1,0 +1,139 @@
+###########################################
+#                                         #
+# This package contains the configuration #
+# for the view groups used in the UI      #
+#                                         #
+###########################################
+
+
+homeassistant:
+  customize:
+    group.all_automations:
+      hidden: false
+
+    group.all_scripts:
+      hidden: false
+      control: hidden
+
+    group.downstairs:
+      order: 1
+
+    group.media:
+      order: 2
+
+    group.master_bedroom:
+      order: 3
+
+    group.boys_room:
+      order: 4
+
+    group.girls_room:
+      order: 5
+
+    group.tools:
+      order: 6
+
+    group.information:
+      order: 7
+
+    group.security:
+      order: 8
+
+    group.settings:
+      order: 9
+
+
+group:
+  downstairs:
+    view: yes
+    name: Downstairs
+    icon: mdi:sofa
+    entities:
+      - group.livingroom_lights
+      - group.xmas_switch
+      - group.downstairs_alarm_clock
+      - media_player.living_room_kodi
+      - media_player.livingroomcca
+      - media_player.kitchencca
+      - media_player.downstairs_group
+
+  media:
+    view: yes
+    name: Media
+    icon: mdi:speaker-wireless
+    entities:
+      - media_player.living_room_kodi
+      - media_player.kitchencca
+      - media_player.bedroomcca
+      - media_player.livingroomcca  
+      - media_player.everywhere_group
+      - media_player.downstairs_group
+      - group.chromecast_radio
+
+  master_bedroom:
+    view: yes
+    name: Master Bedroom
+    icon: mdi:hotel
+    entities:
+      - group.master_bedroom_lights
+      - group.masterbed_alarm_clock
+      - group.masterbed_modes
+      - media_player.bedroomcca
+
+  boys_room:
+    view: yes
+    name: Boys Room
+    icon: mdi:human-handsdown
+    entities:
+
+  girls_room:
+    view: yes
+    name: Girls Room
+    icon: mdi:human-female
+    entities:
+
+  tools:
+    view: yes
+    name: Tools
+    icon: mdi:wrench
+    entities:
+      - group.maintenance
+      - group.house_modes
+      - group.occupancy_modes
+      - group.other_lights
+      - group.all_lights
+      - group.quick_timer
+      - group.all_alarm_clock
+
+  information:
+    view: yes
+    name: Information
+    icon: mdi:information-variant
+    entities:
+      - group.phone_trackers
+      - group.environment
+      - group.calendar
+      - group.calendar_2
+      - group.system
+      - group.hue
+      - group.devices
+      - group.mqtt
+      - group.time
+      - group.zwave
+      - group.weblink
+      - group.travis_ci
+
+  security:
+    view: yes
+    name: Security
+    icon: mdi:security
+    entities:
+      - group.email_security
+
+  settings:
+    view: yes
+    name: Settings
+    icon: mdi:settings
+    entities:
+      - group.all_automations
+      - group.all_scripts

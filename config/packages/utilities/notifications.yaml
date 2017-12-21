@@ -1,9 +1,16 @@
+#################################################
+#                                               #
+# This package contains the components I use to #
+# notify, and be notified by, homeassistant     #
+#                                               #
+#################################################
 
 
 tts:
   platform: google
   cache: false
 
+  
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_bot_api_key
@@ -12,6 +19,7 @@ telegram_bot:
       - !secret telegram_bot_chat_id_marc
       - !secret telegram_bot_chat_id_laura
 #      - !secret telegram_bot_chat_id_courtney
+
 
 notify:
   - platform: telegram

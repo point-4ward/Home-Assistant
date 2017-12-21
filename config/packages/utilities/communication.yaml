@@ -1,0 +1,36 @@
+###########################################################
+#                                                         #
+# This package contains the components and sensors I use  #
+# that communicate with homeassistant automatically,      #
+# rather than via the UI or interactively via telegram    #
+#                                                         #
+###########################################################
+
+
+homeassistant:
+  customize:
+    sensor.doorbell:
+      icon: mdi:bell-ring
+
+mqtt:
+  broker: !secret mqtt_broker
+  
+  
+emulated_hue:
+  host_ip: !secret hue_host_ip
+  listen_port: !secret hue_listen_port
+  exposed_domains:
+    - light
+    - input_boolean
+    - switch
+
+
+sensor:
+  - platform: mqtt
+    name: "Doorbell"
+    state_topic: "home-assistant/doorbell"
+
+
+group:
+  MQTT:
+    - sensor.doorbell

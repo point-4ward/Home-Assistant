@@ -1,0 +1,19 @@
+##########################################
+#                                        #
+# This package contains the sensors and  #
+# UI elements for my security monitoring #
+#                                        #
+##########################################
+
+homeassistant:
+  customize_glob:
+    "sensor.breaches*":
+      icon: mdi:email-secure
+
+sensor:
+  - platform: haveibeenpwned
+    email: !secret haveibeenpwned_email
+
+
+group:
+  Email Security: !secret email_security

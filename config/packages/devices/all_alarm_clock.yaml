@@ -1,7 +1,11 @@
-#############################
-#This sets all the alarms in#
-#the house to the same time #
-#############################
+###########################################################
+#                                                         #
+# This package creates a device that syncs all the alarm  #
+# clock packages to the same time and music so we can     #
+# wake up the whole house at the same time!               #
+#                                                         #
+###########################################################
+
 
 homeassistant:
   customize:
