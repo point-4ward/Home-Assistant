@@ -1,8 +1,0 @@
-#################################
-#Placing entities on the card   #
-#################################
-
-Zwave:
-  - zwave.boys_room_zwave_dimmer
-  - zwave.living_room_zwave_dimmer
-  - zwave.zwaveme_razberry_controller_2016_zwave

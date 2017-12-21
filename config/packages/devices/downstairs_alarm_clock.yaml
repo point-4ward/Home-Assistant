@@ -1,8 +1,15 @@
-############################################
-#An alarm clock feature that  plays either #
-#the radio or a song at the specified time #
-#and, if it is dark, switches the lights on#
-############################################
+########################################################################
+#                                                                      #
+# This package creates an alarm clock which:                           #
+# - allows you to select what music plays when it goes off             #
+# - allows to select if one time alarm, or repeating                   #
+#                                                                      #
+#                                                                      #
+#         ******This one is for the Living Room so******               #
+#         ******  doesn't worry about the lights  ******               #
+#                                                                      #
+########################################################################
+
 
 homeassistant:
   customize:

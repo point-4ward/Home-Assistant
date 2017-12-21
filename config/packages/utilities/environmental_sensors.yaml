@@ -1,9 +1,27 @@
-#enviromental sensors
+#####################################################
+#                                                   #
+# This package contains the components and sensors  #
+# I use to monitor the environmental factors        #
+# where I live, the UI elements to display them     #
+# and automations I use to fine tune the sensor     #
+#                                                   #
+#####################################################
+
+
+homeassistant:
+  customize:
+    input_boolean.sunset_offset:
+      hidden: true
+    
+    sensor.dark_outside:
+      icon: mdi:theme-light-dark
+
+    sensor.bad_weather:
+      icon: mdi:weather-snowy-rainy
+
 
 sun:
 
-input_boolean:
-  sunset_offset:
 
 sensor:
   - platform: darksky
@@ -56,6 +74,40 @@ sensor:
           {% elif (states.sensor.dark_sky_precip_intensity | int > 7) %} heavy_rain
           {% else %} clear
           {% endif %}
+
+
+input_boolean:
+  sunset_offset:
+
+
+group:
+  Environment:
+    - sun.sun
+    - sensor.dark_outside
+    - sensor.bad_weather
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_daily_high_apparent_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_low_apparent_temperature
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_daily_max_precip_intensity
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_minutely_summary
+    - sensor.dark_sky_ozone
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_wind_speed
+
 
 automation:
   - alias: 'sun going up'

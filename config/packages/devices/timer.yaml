@@ -1,7 +1,11 @@
-########################################
-#An quick timer that announces over the#
-#chromecasts when it gets to zero      #
-########################################
+###################################################
+#                                                 #
+# This package creates a quick timer device that  #
+# allows me to drag a slider to select the time   #
+# and then notifies me when the timer has expired #
+#                                                 #
+###################################################
+
 
 homeassistant:
   customize:

@@ -1,8 +1,0 @@
-#################################
-#Placing entities on the card   #
-#################################
-
-Hue:
-  - sensor.master_bedroom_switch
-  - sensor.living_room_switch
-  - sensor.bathroom_motion_motion

@@ -1,3 +1,21 @@
+#####################################################
+#                                                   #
+# This package creates a device with 2 UI elements  #
+# that monitor whether there is anybody at home,    #
+# and provides modes that assist with automations.  #
+#                                                   #
+# It also includes a guest mode option for people   #
+# that may be in the house, but aren't tracked.     #
+#                                                   #
+#####################################################
+
+
+homeassistant:
+  customize:
+    sensor.home_status:
+      icon: mdi:home-map-marker
+
+
 device_tracker:
   platform: bluetooth_tracker
   new_device_defaults:
@@ -51,28 +69,28 @@ sensor:
 
 group:
   Phone trackers:
-  - device_tracker.forthygpixel
-  - device_tracker.lauras_iphone
-  - device_tracker.iphone
+    - device_tracker.forthygpixel
+    - device_tracker.lauras_iphone
+    - device_tracker.iphone
   
   house_modes:
     name: House modes
     control: hidden
     entities:
-    - sensor.home_status
-    - input_boolean.guest_mode
-    - input_boolean.away_mode
-    - input_boolean.holiday_mode
+      - sensor.home_status
+      - input_boolean.guest_mode
+      - input_boolean.away_mode
+      - input_boolean.holiday_mode
 
   occupancy_modes:
     name: Occupancy Modes
     control: hidden
     entities:
-    - input_boolean.bathtime_mode
-    - input_boolean.kids_night_mode
-    - input_boolean.bedtime_mode
-    - input_boolean.school_day_mode
-    - input_boolean.cycling_mode
+      - input_boolean.bathtime_mode
+      - input_boolean.kids_night_mode
+      - input_boolean.bedtime_mode
+      - input_boolean.school_day_mode
+      - input_boolean.cycling_mode
     
     
 alert:
@@ -85,4 +103,4 @@ alert:
       - 120
     skip_first: true
     notifiers:
-     - telegram_marc
+      - telegram_marc

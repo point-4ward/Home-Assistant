@@ -1,6 +1,12 @@
-####################################
-#A Radio player for the chromecasts#
-####################################
+#########################################################
+#                                                       #
+# This package creates a device which provides a radio  #
+# player of sorts in the front end, alowing to select   #
+# from a list of radio stations, and play them across   #
+# the chromecasts, basically like a sonos system        #
+#                                                       #
+#########################################################
+
 
 homeassistant:
   customize:
@@ -110,6 +116,7 @@ script:
         data_template:
           entity_id: input_number.volume_radio
           value: 0.20
+
 
 automation:
   - alias: 'Set Radio Volume'

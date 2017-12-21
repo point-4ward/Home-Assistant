@@ -1,4 +1,18 @@
-#interface
+##########################################################
+#                                                        #
+# This package contains the components and UI elements I #
+# use to configure the homeassistant web-based interface #
+#                                                        #
+##########################################################
+
+
+homeassistant:
+  customize_glob:
+    "weblink.*":
+      icon: mdi:web
+
+
+
 http:
   api_password: !secret api_password
   ip_ban_enabled: True
@@ -11,6 +25,7 @@ config:
 recorder:
   purge_interval: 7
   purge_keep_days: 14
+
 
 logbook:
   exclude:
@@ -30,6 +45,7 @@ panel_iframe:
     title: 'Router'
     url: !secret iframe_router_url
     icon: mdi:access-point-network
+
 
 weblink:
   entities:

@@ -1,0 +1,51 @@
+#########################################
+#                                       #
+# This package contains the components, #
+# sensors and UI elements I use for     #
+# time management within homeassistant  #
+#                                       #
+#########################################
+
+homeassistant:
+  customize:
+    sensor.calendar:
+      icon: mdi:calendar-text
+
+  customize_glob:
+    "sensor.*clock_hour*":
+      hidden: true
+
+    "sensor.*clock_minute*":
+      hidden: true
+
+    "sensor.*clock_time_long*":
+      hidden: true
+
+
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_secret
+
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+
+  - platform: template
+    sensors:
+      calendar:
+        friendly_name: 'Next Event'
+        value_template: >-
+          {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
+          {{ states.calendar.marcforthrungmailcom.attributes.message }}
+
+
+group:
+  Time:
+    - sensor.time
+    - sensor.date
+
+  Calendar:
+    - sensor.calendar
