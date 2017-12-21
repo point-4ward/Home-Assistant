@@ -1,58 +1,24 @@
 # My Home Assistant setup:
 
 
-**PLEASE NOTE I AM COMPLETELY RECONFIGURING HOW MY CONFIG FILES ARE ORGANISED AND THIS README IS OUT OF DATE, IT'S N MY LIST OF THINGS TO FIX!!**
+**PLEASE NOTE I AM COMPLETELY RECONFIGURING HOW MY CONFIG FILES ARE ORGANISED AND THIS README IS OUT OF DATE, IT'S ON MY LIST OF THINGS TO FIX!!**
 
 
 This is my current Home Automation setup.
 
 ## House:
 
-3 storey townhouse, laid out (basically) like...
+3 storey townhouse, consisting of:
+ - A living area on the groung floor (Living room and kitchen/diner)
+ - Hall stairs and landing leading to first floor.
+ - Boys' bedroom, Girls' bedroom and bathroom on the first floor.
+ - Stairs leading to Master bedroom on the second floor.
 
-```
-            **Front**            **Back**
-
-2nd floor - Master bedroom     Master bedroom
-          - Master bedroom     Master bedroom
-
-1st floor - Boys room          Bathroom
-          - Boys room          Girls room
-
-Gnd floor - Living room        Kitchen
-          - Living room        Kitchen
-```
-
-Click here to see the [Hardware and Software](extras/github_resources/readme_files/hardware_software.md) I am using.
+Click here to see the [Hardware and Software](extras/github_resources/readme_files/hardware_software.md) I am using around the house.
 
 ## What it does:
 
- - Controllable from our phones over the internet (via VPN), or via local network.
- - Controls living room lights, bedroom lights and landing light.  The master bedroom lights are multicoloured and can be set to preset scenes or controlled individually.  The living room lights are white but can be set to preset brightness or controlled to any desired level.
- - Tracks our phones using bluetooth and therefore knows whether or not anybody is at home.
- - Notifies us of key events via telegram and/or notifications on screen via kodi.
- - Reacts to incoming messages sent from telegram.
- - Master bedroom lights can also be controlled by Hue Tap which has 4 buttons (3 pre-programmed scenes and off).
- - Living room lights can also be controlled with Hue Dimmer.
- - Automatically pause media during phone call using Yatse.
- - Automatically turn living room lights on when it gets dark and somebody is home.
- - Automatically turn living room lights on if the house is empty and somebody arrives home in the dark.
- - Automatically set living room lights to 'dim' when playing media (except music) and it is dark.
- - Automatically set living room lights to 'normal' when media (except music) pauses or stops.
- - Landing light comes on following the same rules as the living room light, but then dims to a night-light at 21.30 hours and switches off at sunrise.
- - Bathroom light comes on when motion detected, and turns off a couple of minutes after last motion.
- - Bathroom light only comes on when dark, and if after 2300 hours comes on dimmed.
- - Voice control for all the lights.
- - Voice control Kodi.
- - Voice output via Chromecast Audios.
- - Multiroom audio with streaming radio stations.
- - Monitors email addresses for security breaches and notifies if insecure.
- - Monitors HomeAssistant for updates and notifies when update available.
- - Monitors HomeAssistant for restarts and alerts me if I was not doing maintenance, in case of power cuts.
- - Monitors the instance for hacking attempts, notifies and blocks IP of attacker.
- - Alarm clock function that switches on lights and sends an audio alert through Chromecast Audios.
- - Timer function that alerts on phones and over Chromecast Audios.
- - Sets a UI theme based on time of day.
+**This section needs re-writing as timeline / automation based.**
  
 ## Configuration
 
@@ -60,7 +26,7 @@ Click [here](extras/github_resources/readme_files/configuration.md) to see how I
 
 Click [here](extras/github_resources/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
 
-Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks! (NOT WORKING - SORRY!)
+Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks! **(NOT WORKING - SORRY!)**
 
 ## Useful links/resources etc:
 
