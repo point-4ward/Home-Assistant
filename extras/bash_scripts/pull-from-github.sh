@@ -8,4 +8,5 @@
 cd /home/hass/.homeassistant/
 git checkout master
 git pull
+git branch -D upload
 sudo systemctl restart home-assistant.service
