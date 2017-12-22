@@ -1,0 +1,122 @@
+##########################################
+#                                        #
+# This package contains the sensors and  #
+# UI elements for my security monitoring #
+#                                        #
+##########################################
+
+homeassistant:
+  customize_glob:
+    "sensor.breaches*":
+      icon: mdi:email-secure
+
+sensor:
+  - platform: haveibeenpwned
+    email: !secret haveibeenpwned_email
+
+
+group:
+  Email Security: !secret email_security
+
+
+automation:
+  - alias: 'Send notification upon failed login attempt'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: persistent_notification.httplogin
+    condition:
+      condition: template
+      value_template: "{{ trigger.to_state.state != off }}"
+    action:
+      service: notify.telegram_marc
+      data_template:
+        message: "{{ trigger.to_state.state }}"
+
+  - alias: 'Breach email haveibeenpwned connor'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_connor
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on Connor email address'
+
+  - alias: 'Breach email haveibeenpwned hass'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_hass
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on your HA email address'
+
+  - alias: 'Breach email haveibeenpwned daniel'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_daniel
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on Daniel email address'
+
+  - alias: 'Breach email haveibeenpwned laura'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_laura
+      above: 1
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on Laura email address'
+
+  - alias: 'Breach email haveibeenpwned violet'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_violet
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on Violet email address'
+    
+  - alias: 'Breach email haveibeenpwned social'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_social
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on your social email address'
+
+  - alias: 'Breach email haveibeenpwned run'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_run
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on your admin/run email address'
+        
+  - alias: 'Breach email haveibeenpwned personal'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: !secret sensor_email_personal
+      above: 0
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Warning - HaveIbeenPwned detected a breach on your personal email address'

@@ -1,0 +1,200 @@
+#####################################################
+#                                                   #
+# This package creates a device with 2 UI elements  #
+# that monitor whether there is anybody at home,    #
+# and provides modes that assist with automations.  #
+#                                                   #
+# It also includes a guest mode option for people   #
+# that may be in the house, but aren't tracked.     #
+#                                                   #
+#####################################################
+
+
+homeassistant:
+  customize:
+    sensor.home_status:
+      icon: mdi:home-map-marker
+
+    sensor.tracker_status:
+      icon: mdi:home-account
+
+
+device_tracker:
+  platform: bluetooth_tracker
+  new_device_defaults:
+    track_new_devices: false
+
+
+input_boolean:
+  guest_mode:
+    name: Guest mode
+    icon: mdi:human-handsup
+
+  holiday_mode:
+    name: Holiday mode
+    icon: mdi:airplane
+
+  school_day_mode:
+    name: School Day mode
+    icon: mdi:school
+
+  bathtime_mode:
+    name: Bathtime mode
+    icon: mdi:basket-fill
+
+  cycling_mode:
+    name: Cycling to work mode
+    icon: mdi:bike
+
+  away_mode:
+    name: Away mode
+    icon: mdi:alert-circle-outline
+
+  kids_night_mode:
+    name: Kids night monitor
+    icon: mdi:human-child
+
+  bedtime_mode:
+    name: Bedtime mode
+    icon: mdi:sleep
+
+
+sensor:
+  - platform: template
+    sensors:
+      home_status:
+        friendly_name: 'Home status'
+        value_template: >-
+          {% if (states.group.all_devices.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
+          {% else %} Unoccupied
+          {% endif %}
+
+      tracker_status:
+        friendly_name: 'Occupied by'
+        value_template: >-
+          {% if ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'home')) %} MF_LS_CG
+          {% elif ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'not_home')) %} MF_LS
+          {% elif ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'home')) %} MF_CG
+          {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'home')) %} LS_CG
+          {% elif ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'not_home')) %} MF
+          {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'not_home')) %} LS
+          {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'home')) %} CG
+          {% elif (states.input_boolean.guest_mode.state == 'on') %} Guest
+          {% else %} Unknown
+          {% endif %}
+
+
+group:
+  Phone trackers:
+    - device_tracker.forthygpixel
+    - device_tracker.lauras_iphone
+    - device_tracker.iphone
+  
+  occupancy_modes:
+    name: Occupancy
+    control: hidden
+    entities:
+      - sensor.home_status
+      - sensor.tracker_status
+      - input_boolean.guest_mode
+      - input_boolean.away_mode
+      - input_boolean.holiday_mode
+
+  home_modes:
+    name: Home Modes
+    control: hidden
+    entities:
+      - input_boolean.bathtime_mode
+      - input_boolean.kids_night_mode
+      - input_boolean.bedtime_mode
+      - input_boolean.school_day_mode
+      - input_boolean.cycling_mode
+    
+    
+alert:
+  guest_mode_alert:
+    name: Guest Mode has been on for a long time
+    done_message: Guest Mode de-activated
+    entity_id: input_boolean.guest_mode
+    repeat:
+      - 240
+      - 120
+    skip_first: true
+    notifiers:
+      - telegram_marc
+
+  unknown_occupier_alert:
+    name: The occupier is unknown
+    done_message: Fixed unknown occupier
+    entity_id: sensor.tracker_status
+    state: 'Unknown'
+    repeat:
+      - 60
+    notifiers:
+      - telegram_marc
+
+
+automation:
+  - alias: 'Reset occupancy booleans'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      to: 'home'
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.guest_mode
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.away_mode
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.holiday_mode
+
+  - alias: 'Reset occupancy booleans - guest'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: input_boolean.guest_mode
+      to: 'on'
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.away_mode
+    
+  - alias: 'Nobody home'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.home_status
+      to: 'Unoccupied'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: script.stop_radio_chromecast
+      - service: homeassistant.turn_off
+        entity_id: group.all_lights
+      - service: media_player.turn_off
+        entity_id: media_player.living_room_kodi
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.away_mode
+    
+  - alias: 'Set Holiday Mode'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: input_boolean.away_mode
+      to: 'on'
+      for:
+        hours: 48
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.holiday_mode
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.away_mode
+
+  - alias: 'New trackable device detected'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: device_tracker_new_device
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'New trackable device detected'
