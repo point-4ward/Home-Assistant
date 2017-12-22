@@ -6,7 +6,7 @@
 
 automation:
   - alias: "Bin day reminder"
-    intitial_state: 'on'
+    initial_state: 'on'
     trigger:
       platform: time
       at: '18:15:00'
