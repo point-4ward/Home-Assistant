@@ -1,0 +1,128 @@
+########################################################
+#                                                      #
+# This package contains automations that respond to    #
+# interactive commands by actioning the request        #
+#                                                      #
+########################################################
+
+
+automation:
+  - alias: 'Telegram set livingroom lights on'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/LivingRoom'
+    action:
+      - service: homeassistant.toggle
+        entity_id: light.living_room
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Livingroom lights have been turned {{states.light.living_room.state}}.'
+
+  - alias: 'Telegram set bedroom lights on'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/Bedroom'
+    action:
+      - service: homeassistant.toggle
+        entity_id: light.master_bedroom
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Bedroom lights have been turned {{states.light.master_bedroom.state}}.'
+
+  - alias: 'Telegram set all lights on'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/onALL'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: group.all_lights
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'All lights have been turned on.'
+
+  - alias: 'Telegram set all lights off'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/offALL'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: group.all_lights
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'All lights have been turned off.'
+
+  - alias: 'Telegram set maintenance mode'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/maintenance'
+    action:
+      - service: input_boolean.toggle
+        entity_id: input_boolean.maintenance_mode
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Maintenance mode has been turned {{states.input_boolean.maintenance_mode.state}}.'
+
+  - alias: 'Telegram set holiday mode'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/holiday'
+    action:
+      - service: input_boolean.toggle
+        entity_id: input_boolean.holiday_mode
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Holiday mode has been turned {{states.input_boolean.holiday_mode.state}}'
+
+  - alias: 'Telegram set guest mode'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/guest'
+    action:
+      - service: input_boolean.toggle
+        entity_id: input_boolean.guest_mode
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Guest mode has been turned {{states.input_boolean.guest_mode.state}}.'
+
+  - alias: 'Telegram set away mode'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/away'
+    action:
+      - service: input_boolean.toggle
+        entity_id: input_boolean.away_mode
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Away mode has been turned {{states.input_boolean.away_mode.state}}'

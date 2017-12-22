@@ -1,0 +1,138 @@
+############################################
+#                                          #
+# This package manages the lighting scenes #
+#                                          #
+############################################
+
+
+scene:
+  - name: Landing_evening
+    entities:
+      light.landing:
+        state: on
+        transition: 4
+        brightness: 180
+        rgb_color: [255,206,119]
+
+  - name: Landing_night
+    entities:
+      light.landing:
+        state: on
+        transition: 4
+        brightness: 85
+        rgb_color: [254,63,189]
+
+  - name: Livingroom dim
+    entities:
+      light.living_room:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Livingroom movie
+    entities:
+      light.living_room:
+        state: on
+        transition: 4
+        brightness: 35
+
+  - name: Livingroom bright
+    entities:
+      light.living_room:
+        state: on
+        transition: 3
+        brightness: 255
+
+  - name: Livingroom sunset
+    entities:
+      light.living_room:
+        state: on
+        transition: 600
+        brightness: 255
+
+  - name: Master bedroom wake up
+    entities:
+      light.master_bedroom:
+        state: on
+        transition: 120
+        brightness: 180
+        rgb_color: [255,160,39]
+
+
+script:
+  master_bedroom_tropical_twilight:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Tropical twilight"
+
+  master_bedroom_spring_blossom:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Spring blossom"
+
+  master_bedroom_savanna_sunset:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Savanna sunset"
+
+  master_bedroom_relax:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Relax"
+
+  master_bedroom_read:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Read"
+
+  master_bedroom_nightlight:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Nightlight"
+
+  master_bedroom_energize:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Energize"
+
+  master_bedroom_concentrate:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Concentrate"
+
+  master_bedroom_bright:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Bright"
+
+  master_bedroom_dimmed:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Dimmed"
+
+  master_bedroom_arctic_aurora:
+    sequence:
+      - service: hue.hue_activate_scene
+        data:
+          group_name: "Master Bedroom"
+          scene_name: "Arctic aurora"
