@@ -10,7 +10,6 @@ cd /home/hass/.homeassistant
 git add .
 git status
 git checkout -b upload
-git checkout upload
 git commit -m "Push from local."
 git push origin upload
 exit
