@@ -80,6 +80,7 @@ sensor:
           {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'not_home')) %} LS
           {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'home')) %} CG
           {% elif (states.input_boolean.guest_mode.state == 'on') %} Guest
+          {% elif (states.sensor.home_status.state == 'Unoccupied') %} NA
           {% else %} Unknown
           {% endif %}
 
