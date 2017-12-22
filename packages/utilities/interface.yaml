@@ -28,6 +28,10 @@ recorder:
 
 
 logbook:
+  include:
+    entities:
+      - sensor.tracker_status
+      
   exclude:
     domains:
       - weblink
