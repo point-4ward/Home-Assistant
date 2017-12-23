@@ -20,6 +20,17 @@ group:
 
 
 automation:
+  - alias: 'Doorbell test'
+    initial_state: 'on'
+    trigger:
+      platform: mqtt
+      topic: home-assistant/doorbell
+      payload: 'Ring'
+    action:
+      service: notify.telegram_marc
+      data:
+        message: 'Doorbell test'
+
   - alias: 'Send notification upon failed login attempt'
     initial_state: 'on'
     trigger:
