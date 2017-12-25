@@ -99,6 +99,7 @@ group:
     icon: mdi:wrench
     entities:
       - group.maintenance
+      - group.travis_ci
       - group.occupancy_modes
       - group.home_modes
       - group.other_lights
@@ -121,8 +122,6 @@ group:
       - group.mqtt
       - group.time
       - group.zwave
-      - group.weblink
-      - group.travis_ci
 
   security:
     view: yes
