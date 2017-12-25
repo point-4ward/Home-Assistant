@@ -130,7 +130,9 @@ alert:
     entity_id: sensor.tracker_status
     state: 'Unknown'
     repeat:
+      - 1
       - 60
+    skip_first: true
     notifiers:
       - telegram_marc
 
@@ -156,6 +158,10 @@ automation:
       platform: state
       entity_id: input_boolean.guest_mode
       to: 'on'
+    condition:
+      condition: state
+      entity_id: sensor.home_status
+      state: 'Unoccupied' 
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.away_mode
@@ -183,7 +189,7 @@ automation:
       entity_id: input_boolean.away_mode
       to: 'on'
       for:
-        hours: 48
+        hours: 24
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.holiday_mode
