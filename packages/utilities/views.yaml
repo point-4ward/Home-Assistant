@@ -69,6 +69,7 @@ group:
       - media_player.everywhere_group
       - media_player.downstairs_group
       - group.chromecast_radio
+      - group.google_music
 
   master_bedroom:
     view: yes
