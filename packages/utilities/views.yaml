@@ -129,7 +129,7 @@ group:
     icon: mdi:security
     entities:
       - alarm_control_panel.alarm
-      - group.email_security
+      - group.alarm
 
   settings:
     view: yes

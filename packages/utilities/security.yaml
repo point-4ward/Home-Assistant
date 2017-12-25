@@ -26,6 +26,9 @@ sensor:
 
 group:
   Email Security: !secret email_security
+  
+  Alarm:
+    - alarm_control_panel.alarm
 
 
 automation:
