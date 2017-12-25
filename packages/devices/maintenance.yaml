@@ -54,6 +54,14 @@ input_text:
   github_message:
     name: Commit Message
     initial: Push from local
+    
+    
+weblink:
+  entities:
+    - name: Github
+      url: https://github.com/mf-social/Home-Assistant
+    - name: Travis CI
+      url: https://travis-ci.org/
 
 
 script:
@@ -103,8 +111,11 @@ group:
       - input_text.github_message
       - script.github_push
       - script.sync_dropbox
+      - weblink.github
+    
 
   Travis CI:
     - sensor.mfsocialhomeassistant_last_build_id
     - sensor.mfsocialhomeassistant_last_build_finished_at
     - sensor.mfsocialhomeassistant_last_build_state
+    - weblink.travis_ci

@@ -26,9 +26,10 @@ input_select:
     name: Media player
     options:
      - "kitchencca"
-     - "bad"
-     - "hele_huset"
-     - "stue_kjokken"
+     - "livingroomcca" 
+     - "bedroomcca" 
+     - "downstairs_group" 
+     - "everywhere group" 
     icon: mdi:speaker-wireless
 
 
@@ -59,6 +60,7 @@ group:
     - input_select.google_music
     - input_select.google_media_player
     - input_number.volume_google_music
+
 
 automation:
   - alias: "Stop google music"
@@ -92,4 +94,4 @@ automation:
         entity_id: >
           {% if is_state("input_select.google_media_player", "kitchencca") %} media_player.kitchencca
           {% endif %}
-        volume_level: '{{  states.input_number.volume_radio.state  }}'
+        volume_level: '{{  states.input_number.volume_google_music.state  }}'

@@ -12,6 +12,9 @@ automation:
       platform: state
       entity_id: light.master_bedroom
       to: 'off'
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
     action:
       service: input_select.select_option
       data:
@@ -24,6 +27,9 @@ automation:
       platform: state
       entity_id: light.living_room
       to: 'off'
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
     action:
       service: input_select.select_option
       data:

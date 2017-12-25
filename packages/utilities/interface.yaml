@@ -51,26 +51,6 @@ panel_iframe:
     icon: mdi:access-point-network
 
 
-weblink:
-  entities:
-    - name: Home Assistant
-      url: https://home-assistant.io
-    - name: HA Forums
-      url: https://community.home-assistant.io/
-    - name: Github
-      url: https://github.com/mf-social/Home-Assistant
-    - name: Travis CI
-      url: https://travis-ci.org/
-
-
-group:
-  Weblink:
-    - weblink.home_assistant
-    - weblink.ha_forums
-    - weblink.github
-    - weblink.travis_ci
-
-
 frontend:
   javascript_version: auto
   themes:
