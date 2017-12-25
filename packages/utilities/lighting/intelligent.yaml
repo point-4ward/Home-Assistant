@@ -13,6 +13,10 @@ automation:
       platform: state
       entity_id: sensor.dark_outside
       to: 'false'
+    condition:
+      condition: state
+      entity_id: sensor.home_status
+      state: 'Occupied'
     action:
       service: homeassistant.turn_off
       entity_id: group.all_lights
