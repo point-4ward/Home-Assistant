@@ -128,8 +128,8 @@ group:
     name: Security
     icon: mdi:security
     entities:
-      - alarm_control_panel.alarm
       - group.alarm
+      - group.email_security
 
   settings:
     view: yes
