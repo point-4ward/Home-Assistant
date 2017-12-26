@@ -2,8 +2,8 @@
 #                                                       #
 # This package creates a device which provides a radio  #
 # player of sorts in the front end, allowing to select  #
-# from a list of radio stations, and play them across   #
-# the chromecasts, basically like a sonos system        #
+# a radio station, or a google music playlist and play  #
+# them across the chromecasts, like a Sonos system      #
 #                                                       #
 #########################################################
 
@@ -179,5 +179,5 @@ automation:
             - media_player.everywhere_group
       - service: input_number.set_value
         data_template:
-          entity_id: input_number.volume_google_music
+          entity_id: input_number.volume_radio
           value: 0.20
