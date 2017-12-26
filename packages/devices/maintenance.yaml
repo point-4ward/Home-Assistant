@@ -110,12 +110,12 @@ group:
       - script.github_pull
       - input_text.github_message
       - script.github_push
-      - script.sync_dropbox
       - weblink.github
+      - script.sync_dropbox
     
 
   Travis CI:
+    - weblink.travis_ci
+    - sensor.mfsocialhomeassistant_last_build_state
     - sensor.mfsocialhomeassistant_last_build_id
     - sensor.mfsocialhomeassistant_last_build_finished_at
-    - sensor.mfsocialhomeassistant_last_build_state
-    - weblink.travis_ci
