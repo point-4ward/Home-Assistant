@@ -1,0 +1,183 @@
+#########################################################
+#                                                       #
+# This package creates a device which provides a radio  #
+# player of sorts in the front end, allowing to select  #
+# from a list of radio stations, and play them across   #
+# the chromecasts, basically like a sonos system        #
+#                                                       #
+#########################################################
+
+
+input_boolean:
+  play_radio:
+    name: Radio
+    initial: off
+    icon: mdi:play
+
+    
+input_select:
+  radio_station:
+    name: 'Select Radio Station:'
+    options:
+      - Free Radio CW
+      - Free Radio 80s
+      - Absolute Radio
+      - Absolute 80s
+      - Absolute 90s
+      - Heart
+      - Heart 80s
+      - Sleep Radio
+    icon: mdi:radio
+
+  google_music:
+    name: Select Playlist
+    options:
+      - " "
+    icon: mdi:music
+
+  media_player:
+    name: Speakers
+    options:
+     - "kitchencca"
+     - "livingroomcca" 
+     - "bedroomcca" 
+     - "downstairs_group" 
+     - "everywhere group" 
+    icon: mdi:speaker-wireless
+
+
+input_number:
+  volume_radio:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+
+switch:
+ - platform: gmusic
+   user: !secret google_music_user
+   password: !secret google_music_pass
+   device_id: !secret google_music_device_id
+   media_player: media_player
+   playlist: google_music
+
+
+group:
+  Music:
+    control: hidden
+    name: Music
+    entities:
+      - input_number.volume_radio
+      - input_select.media_player
+      - input_boolean.play_radio
+      - input_select.radio_station
+      - switch.google_music
+      - input_select.google_music
+
+
+automation:
+  - alias: 'Play Radio'
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_boolean.play_radio
+      to: 'on'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.google_music
+      - service: media_player.volume_set
+        data_template:
+            entity_id: >
+              {% if is_state("input_select.media_player", "kitchencca") %} media_player.kitchencca
+              {% elif is_state("input_select.media_player", "livingroomcca") %} media_player.livingroomcca
+              {% elif is_state("input_select.media_player", "bedroomcca") %} media_player.bedroomcca
+              {% elif is_state("input_select.media_player", "downstairs_group") %} media_player.downstairs_group
+              {% elif is_state("input_select.media_player", "everywhere_group") %} media_player.everywhere_group
+              {% endif %}
+            volume_level: '{{  states.input_number.volume_radio.state  }}'
+      -  service: media_player.play_media
+         data_template:
+           entity_id: >
+            {% if is_state("input_select.media_player", "kitchencca") %} media_player.kitchencca
+            {% elif is_state("input_select.media_player", "livingroomcca") %} media_player.livingroomcca
+            {% elif is_state("input_select.media_player", "bedroomcca") %} media_player.bedroomcca
+            {% elif is_state("input_select.media_player", "downstairs_group") %} media_player.downstairs_group
+            {% elif is_state("input_select.media_player", "everywhere_group") %} media_player.everywhere_group
+            {% endif %}
+           media_content_id: >
+            {% if is_state("input_select.radio_station", "Free Radio CW") %}  http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+            {% elif is_state("input_select.radio_station", "Free Radio 80s") %} http://tx.whatson.com/http_live_bauer.php?i=free80s.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+            {% elif is_state("input_select.radio_station", "Absolute Radio") %} http://player.absoluteradio.co.uk/tunein.php?i=ar24.aac
+            {% elif is_state("input_select.radio_station", "Absolute 80s") %} http://player.absoluteradio.co.uk/tunein.php?i=a824.aac
+            {% elif is_state("input_select.radio_station", "Absolute 90s") %} http://player.absoluteradio.co.uk/tunein.php?i=a924.aac
+            {% elif is_state("input_select.radio_station", "Heart") %} http://media-ice.musicradio.com/HeartWestMids
+            {% elif is_state("input_select.radio_station", "Heart 80s") %} http://media-ice.musicradio.com/Heart80s
+            {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8453/stream
+            {% endif %}
+           media_content_type: 'audio/mp4'
+
+  - alias: 'Stop Radio if Google Music selected'
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: switch.google_music
+      to: 'on'
+    condition:
+      condition: state
+      entity_id: input_boolean.play_radio
+      state: 'on'
+    action:
+      service: homeassistant.turn_off
+      entity_id: input_boolean.play_radio
+
+  - alias: 'Set Music Volume'
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_number.volume_radio
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.media_player", "kitchencca") %} media_player.kitchencca
+          {% elif is_state("input_select.media_player", "livingroomcca") %} media_player.livingroomcca
+          {% elif is_state("input_select.media_player", "bedroomcca") %} media_player.bedroomcca
+          {% elif is_state("input_select.media_player", "downstairs_group") %} media_player.downstairs_group
+          {% elif is_state("input_select.media_player", "everywhere_group") %} media_player.everywhere_group
+          {% endif %}
+        volume_level: '{{  states.input_number.volume_radio.state  }}'
+
+  - alias: "Stop music"
+    initial_state: on
+    trigger:
+      - platform: state
+        entity_id: input_boolean.play_radio
+        to: 'off'
+      - platform: state
+        entity_id: switch.google_music
+        to: 'off'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.play_radio
+          state: 'off'
+        - condition: state
+          entity_id: switch.google_music
+          state: 'off'
+    action:
+      - service: media_player.turn_off
+        data:
+          entity_id:
+            - media_player.kitchencca
+            - media_player.livingroomcca
+            - media_player.bedroomcca
+            - media_player.downstairs_group
+            - media_player.everywhere_group
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.volume_google_music
+          value: 0.20

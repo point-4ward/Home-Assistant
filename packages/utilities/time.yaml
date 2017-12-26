@@ -46,6 +46,4 @@ group:
   Time:
     - sensor.time
     - sensor.date
-
-  Calendar:
     - sensor.calendar

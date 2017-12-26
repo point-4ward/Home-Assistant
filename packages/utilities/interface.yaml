@@ -27,11 +27,7 @@ recorder:
   purge_keep_days: 14
 
 
-logbook:
-  include:
-    entities:
-      - sensor.tracker_status
-      
+logbook:      
   exclude:
     domains:
       - weblink
