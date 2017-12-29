@@ -5,6 +5,8 @@
 # a radio station, or a google music playlist and play  #
 # them across the chromecasts, like a Sonos system      #
 #                                                       #
+# DEPENDS ON: pip gmusicapi                             #
+#                                                       #
 #########################################################
 
 

@@ -2,6 +2,8 @@
 #                                                       #
 # This package contains automations that send reminders #
 #                                                       #
+# DEPENDS ON: Occupancy package                         #
+#                                                       #
 #########################################################
 
 automation:

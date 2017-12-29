@@ -8,6 +8,8 @@
 #                                                                      #
 #         ******This one is for the Master Bedroom******               #
 #                                                                      #
+# DEPENDS ON: Environmental_sensors                                    #
+#                                                                      #
 ########################################################################
 
 
@@ -117,9 +119,14 @@ automation:
       value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'
       #'{{ states.sensor.time.state == states.input_datetime.masterbed_alarm_clock_time.state }}'
     condition:
-      condition: state
-      entity_id: input_boolean.masterbed_alarm_clock_status
-      state: 'on'
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.all_devices
+          state: 'home'
+        - condition: state
+          entity_id: input_boolean.masterbed_alarm_clock_status
+          state: 'on'
     action:
       - service: script.masterbed_wake_up
       - condition: state
