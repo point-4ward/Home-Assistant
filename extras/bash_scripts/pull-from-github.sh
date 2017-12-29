@@ -1,9 +1,10 @@
 #!/bin/bash
 
-####################################
-## This script pulls my selected ##
-## files to my github repo        ##
-####################################
+#####################################
+## This script pulls my selected   ##
+## files to my github repo, and    ##
+## treats them as the 'master copy ##
+#####################################
 
 cd /home/hass/.homeassistant/
 git checkout master

@@ -1,9 +1,11 @@
-#!/bin/bash -x
+#!/bin/bash
 
-##########################################
-## This script upgrades the OS on my pi,##
-## upgrades HA then reboots the device  ##
-##########################################
+###########################################
+## This script upgrades the OS on my pi, ##
+## upgrades HA then reboots the device   ##
+## having pulled any config changes from ##
+## Github if needed.                     ##
+###########################################
 
 cd /home/hass/.homeassistant/
 git checkout master

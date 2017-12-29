@@ -31,13 +31,7 @@ The end result looks like this:
     |
     |-----/packages/
     |      |
-    |      |-----/devices/
-    |      |      |        
-    |      |      |-[file per packaged device]
-    |      |
-    |      |-----/utilities/
-    |             |
-    |             |-[file per packaged utility]
+    |      |[file per package]
     |
     |
     |-----/extras/
