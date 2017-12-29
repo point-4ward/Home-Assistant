@@ -1,4 +1,4 @@
-#Credits for inspirations in packages
+# Credits for inspirations in packages
 
 The dark sensor in environmental_sensors was inspired by ih8gates *TODO - link to thread*
 
