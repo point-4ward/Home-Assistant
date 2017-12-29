@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 #################################################
 ## This script runs the dropbox_sync.py script ##
