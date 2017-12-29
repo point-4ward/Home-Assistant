@@ -1,4 +1,4 @@
-#Bash scripts
+# Bash scripts
 
 The github bash scripts here were inspired by BrianJKing and thomasheuthsian *TODO - links*
 
