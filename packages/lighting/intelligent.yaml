@@ -3,6 +3,8 @@
 # This package contains the automations that intelligently #
 # control lighting based on weather/occupancy/time etc     #
 #                                                          #
+# DEPENDS ON: Occupancy and Environmental_sensors          #
+#                                                          #
 ############################################################
 
 

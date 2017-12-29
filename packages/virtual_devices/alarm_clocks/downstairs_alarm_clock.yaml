@@ -117,9 +117,14 @@ automation:
       value_template: '{{ states.sensor.time.state == states.sensor.downstairs_alarm_clock_time_long.state }}'
       #'{{ states.sensor.time.state == states.input_datetime.downstairs_alarm_clock_time.state }}'
     condition:
-      condition: state
-      entity_id: input_boolean.downstairs_alarm_clock_status
-      state: 'on'
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.all_devices
+          state: 'home'
+        - condition: state
+          entity_id: input_boolean.downstairs_alarm_clock_status
+          state: 'on'
     action:
       - service: script.downstairs_wake_up
       - condition: state
