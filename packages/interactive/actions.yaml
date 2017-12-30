@@ -15,6 +15,9 @@ homeassistant:
     
     input_boolean.radio_house:
       hidden: true
+    
+    input_boolean.music_off:
+      hiden: true
 
 
 input_boolean:
@@ -25,6 +28,10 @@ input_boolean:
   radio_everywhere:
     name: Radio everywhere
     initial: off
+
+  music_off:
+    name: Music
+    initial: on
 
 
 automation:
@@ -54,6 +61,19 @@ automation:
         entity_id: input_boolean.radio_downstairs
       - service: input_boolean.turn_off
         entity_id: input_boolean.radio_everywhere
+
+  - alias: 'Alexa music off'
+    trigger:
+      platform: state
+      entity_id: input_boolean.music_off
+      to: 'off'
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.music_off
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.play_radio
+      - service: switch.turn_off
+        entity_id: switch.google_music
 
   - alias: 'Telegram set livingroom lights on'
     trigger:
