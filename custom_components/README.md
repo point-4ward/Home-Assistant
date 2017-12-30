@@ -2,6 +2,6 @@
 
 These are the custom_components I use in my HA.
 
-The gmusic switch - *TODO - link to the gmusic thread*
+The gmusic switch by Danielhiversen - https://community.home-assistant.io/t/google-music-in-ha/10976
 
-The Hue sensor - *TODO - link to robmarkcole's Github*
+The Hue sensor by RobMarkCole - https://github.com/robmarkcole/Hue-sensors-HASS
