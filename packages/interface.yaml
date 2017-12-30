@@ -140,7 +140,7 @@ automation:
       - service_template: frontend.set_theme
         data_template:
           name: >-
-            {% if (states.sensor.dark_outside.state == "true") %} midnight
-            {% elif (now().hour == "23") %} darkcyan
+            {% if (now().hour == 23) %} darkcyan
+            {% elif (states.sensor.dark_outside.state == "true") %} midnight
             {% else %} default
             {% endif %}
