@@ -8,9 +8,9 @@ I have put a comment block at the top of each file that hopefully will explain w
 
 All your homeassistant files are contained within your `/path/to/.homeassistant/` directory.  Inside this directory are some files that can't be moved such as `secrets.yaml` , `known_devices.yaml` and (most importantly) `configuration.yaml` .
 
-There are various ways to split the configuration.yaml in to smaller chunks with !include statements, this is detailed here **TODO - link to splitting configuration**
+There are various ways to split the configuration.yaml in to smaller chunks with !include statements, this is detailed here > https://home-assistant.io/docs/configuration/splitting_configuration/
 
-I've chosen to split the configuration in to packages (detailed here **TODO - link to packages docs**), and create devices or utilities by grouping components and sensors together.  These are placed in a folder called `packages/` .
+I've chosen to split the configuration in to packages (detailed here > https://home-assistant.io/docs/configuration/packages/ ), and create devices or utilities by grouping components and sensors together.  These are placed in a folder called `packages/` .
 
 I then have an `extras/` folder that contains my bash scripts and github resources (including a redacted version of my `secrets.yaml` ).  I also have a `private/` folder that contains things relevant to my installation but I don't want to upload to github as they contain sensitive information and sanitised versions will be of no use to anyone.
 
