@@ -7,7 +7,6 @@
 
 automation:
   - alias: reset_scene_selector master_bedroom
-    initial_state: 'on'
     trigger:
       platform: state
       entity_id: light.master_bedroom
@@ -22,7 +21,6 @@ automation:
         option: Select
 
   - alias: reset_scene_selector living_room
-    initial_state: 'on'
     trigger:
       platform: state
       entity_id: light.living_room
@@ -37,7 +35,6 @@ automation:
         option: Select
 
   - alias: trigger_scene_master_bedroom
-    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_select.master_bedroom_scenes
@@ -60,7 +57,6 @@ automation:
          {% endif %}
 
   - alias: trigger_scene_living_room
-    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_select.living_room_scenes

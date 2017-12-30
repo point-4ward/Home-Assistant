@@ -12,7 +12,6 @@
 
 automation:
   - alias: xmas lights off
-    initial_state: 'on'
     trigger:
       platform: state
       entity_id: light.living_room
@@ -22,7 +21,6 @@ automation:
       entity_id: switch.xmas_lights
 
   - alias: "Xmas lights"
-    initial_state: on
     trigger:
       platform: state
       entity_id: light.living_room

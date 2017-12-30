@@ -6,13 +6,6 @@
 ##########################################################
 
 
-homeassistant:
-  customize_glob:
-    "weblink.*":
-      icon: mdi:web
-
-
-
 http:
   api_password: !secret api_password
   ip_ban_enabled: True
@@ -128,7 +121,6 @@ frontend:
 
 automation:
   - alias: Set UI theme
-    initial_state: 'on' 
     trigger:
       - platform: homeassistant
         event: start
