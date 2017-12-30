@@ -9,6 +9,11 @@
 
 
 homeassistant:
+  customize_glob:
+    "weblink.*":
+      icon: mdi:web
+
+
   customize:
     input_text.github_message:
       icon: mdi:pencil

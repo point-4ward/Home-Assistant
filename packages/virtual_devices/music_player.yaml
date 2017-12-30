@@ -84,7 +84,6 @@ group:
 
 automation:
   - alias: 'Play Radio'
-    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.play_radio
@@ -124,7 +123,6 @@ automation:
            media_content_type: 'audio/mp4'
 
   - alias: 'Stop Radio if Google Music selected'
-    initial_state: on
     trigger:
       platform: state
       entity_id: switch.google_music
@@ -138,7 +136,6 @@ automation:
       entity_id: input_boolean.play_radio
 
   - alias: 'Set Music Volume'
-    initial_state: on
     trigger:
       platform: state
       entity_id: input_number.volume_radio
@@ -155,7 +152,6 @@ automation:
         volume_level: '{{  states.input_number.volume_radio.state  }}'
 
   - alias: "Stop music"
-    initial_state: on
     trigger:
       - platform: state
         entity_id: input_boolean.play_radio
