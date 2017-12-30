@@ -46,7 +46,7 @@ input_select:
      - "livingroomcca" 
      - "bedroomcca" 
      - "downstairs_group" 
-     - "everywhere group" 
+     - "everywhere_group" 
     icon: mdi:speaker-wireless
 
 
