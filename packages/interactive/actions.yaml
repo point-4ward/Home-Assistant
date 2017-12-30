@@ -31,7 +31,7 @@ input_boolean:
 
   music_off:
     name: Music
-    initial: on    
+    initial: on
 
 
 automation:
