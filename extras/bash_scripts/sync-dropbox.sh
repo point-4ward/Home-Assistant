@@ -5,6 +5,6 @@
 ## as I could not get it to run directly!      ##
 #################################################
 
-cd /home/hass/.homeassistant/extras/bash_scripts/
+cd /home/hass/.homeassistant/private/
 python dropbox_sync.py
 exit
