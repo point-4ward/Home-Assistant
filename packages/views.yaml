@@ -50,7 +50,6 @@ group:
     icon: mdi:sofa
     entities:
       - group.livingroom_lights
-      - group.xmas_switch
       - group.downstairs_alarm_clock
       - media_player.living_room_kodi
       - media_player.livingroomcca
@@ -76,6 +75,7 @@ group:
     icon: mdi:hotel
     entities:
       - group.master_bedroom_lights
+      - group.smart_switch
       - group.masterbed_alarm_clock
       - group.masterbed_modes
       - media_player.bedroomcca
