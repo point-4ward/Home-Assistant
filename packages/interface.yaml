@@ -40,7 +40,7 @@ panel_iframe:
     icon: mdi:access-point-network
 
   alexa:
-    title: 'Alexa
+    title: 'Alexa'
     url: !secret iframe_alexa_url
     icon: mdi:account-circle
 
