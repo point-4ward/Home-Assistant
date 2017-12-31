@@ -39,11 +39,6 @@ panel_iframe:
     url: !secret iframe_router_url
     icon: mdi:access-point-network
 
-  alexa:
-    title: 'Alexa'
-    url: !secret iframe_alexa_url
-    icon: mdi:account-circle
-
 
 frontend:
   javascript_version: auto

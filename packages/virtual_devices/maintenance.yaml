@@ -67,6 +67,8 @@ weblink:
       url: https://github.com/mf-social/Home-Assistant
     - name: Travis CI
       url: https://travis-ci.org/
+    - name: Configure Alexa
+      url: https://alexa.amazon.co.uk/spa/index.html#smart-home
 
 
 script:
@@ -117,7 +119,7 @@ group:
       - script.github_push
       - weblink.github
       - script.sync_dropbox
-    
+      - weblink.configure_alexa
 
   Travis CI:
     - weblink.travis_ci
