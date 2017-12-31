@@ -113,6 +113,7 @@ group:
     entities:
       - group.phone_trackers
       - group.environment
+      - group.weather_alerts
       - group.calendar
       - group.system
       - group.hue
