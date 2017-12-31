@@ -8,23 +8,3 @@
 # off automations, or anything else seasonal       #
 #                                                  #
 ####################################################
-
-
-automation:
-  - alias: xmas lights off
-    trigger:
-      platform: state
-      entity_id: light.living_room
-      to: 'off'
-    action:
-      service: homeassistant.turn_off
-      entity_id: switch.xmas_lights
-
-  - alias: "Xmas lights"
-    trigger:
-      platform: state
-      entity_id: light.living_room
-      to: 'on'
-    action:
-      service: homeassistant.turn_on
-      entity_id: switch.xmas_lights
