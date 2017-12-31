@@ -124,3 +124,15 @@ group:
     - sensor.mfsocialhomeassistant_last_build_state
     - sensor.mfsocialhomeassistant_last_build_id
     - sensor.mfsocialhomeassistant_last_build_finished_at
+
+
+alert:
+  maintenance_mode_alert:
+    name: Maintenance Mode has been on for a long time
+    done_message: Maintenance Mode de-activated
+    entity_id: input_boolean.maintenance_mode
+    repeat:
+      - 60
+    skip_first: true
+    notifiers:
+      - telegram_marc
