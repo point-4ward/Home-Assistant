@@ -20,20 +20,6 @@ automation:
         entity_id: input_select.master_bedroom_scenes
         option: Select
 
-  - alias: reset_scene_selector living_room
-    trigger:
-      platform: state
-      entity_id: light.living_room
-      to: 'off'
-    condition:
-      condition: template
-      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
-    action:
-      service: input_select.select_option
-      data:
-        entity_id: input_select.living_room_scenes
-        option: Select
-
   - alias: trigger_scene_master_bedroom
     trigger:
       platform: state
@@ -54,19 +40,4 @@ automation:
          {% elif is_state ('input_select.master_bedroom_scenes' , 'Bright') %} script.master_bedroom_bright
          {% elif is_state ('input_select.master_bedroom_scenes' , 'Arctic Aurora') %} script.master_bedroom_arctic_aurora
          {% elif is_state ('input_select.master_bedroom_scenes' , 'Tropical Twilight') %} script.master_bedroom_tropical_twilight
-         {% endif %}
-
-  - alias: trigger_scene_living_room
-    trigger:
-      platform: state
-      entity_id: input_select.living_room_scenes
-    condition:
-      condition: template
-      value_template: "{{ not is_state('input_select.living_room_scenes' ,'Select') }}"
-    action:
-      service: scene.turn_on
-      data_template:
-        entity_id: >-
-         {% if is_state ('input_select.living_room_scenes' ,'Bright') %} scene.livingroom_bright
-         {% elif is_state ('input_select.living_room_scenes' , 'Dim') %} scene.livingroom_dim
          {% endif %}

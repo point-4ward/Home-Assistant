@@ -141,7 +141,9 @@ group:
     entities:
       - light.lr_left
       - light.lr_right
-      - input_select.living_room_scenes
+      - scene.livingroom_bright
+      - scene.livingroom_dim
+      - scene.livingroom_movie
 
   other_lights:
     name: Lights
