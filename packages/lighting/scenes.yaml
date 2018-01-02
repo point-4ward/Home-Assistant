@@ -5,6 +5,12 @@
 ############################################
 
 
+homeassistant:
+  customize_glob:
+    "scene.*":
+      icon: mdi:creation
+
+
 scene:
   - name: Landing_evening
     entities:
