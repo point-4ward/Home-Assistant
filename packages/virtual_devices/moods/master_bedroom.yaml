@@ -17,8 +17,8 @@ homeassistant:
 
 
 group:
-  masterbed_modes:
-    name: Modes
+  masterbed_moods:
+    name: Moods
     control: hidden
     entities:
       - script.lullaby

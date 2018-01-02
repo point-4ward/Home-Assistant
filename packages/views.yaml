@@ -77,7 +77,7 @@ group:
       - group.master_bedroom_lights
       - group.smart_switch
       - group.masterbed_alarm_clock
-      - group.masterbed_modes
+      - group.masterbed_moods
       - media_player.bedroomcca
 
   boys_room:
