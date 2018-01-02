@@ -18,6 +18,9 @@ homeassistant:
     sensor.tracker_status:
       icon: mdi:home-account
 
+    group.adults:
+      hidden: true
+
 
 device_tracker:
   platform: bluetooth_tracker
@@ -65,7 +68,7 @@ sensor:
       home_status:
         friendly_name: 'Home status'
         value_template: >-
-          {% if (states.group.all_devices.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
+          {% if (states.group.phone_trackers.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
           {% else %} Unoccupied
           {% endif %}
 
@@ -90,6 +93,10 @@ group:
     - device_tracker.forthygpixel
     - device_tracker.lauras_iphone
     - device_tracker.iphone
+
+  Adults:
+    - device_tracker.forthygpixel
+    - device_tracker.lauras_iphone
   
   occupancy_modes:
     name: Occupancy
@@ -141,7 +148,7 @@ automation:
   - alias: 'Reset occupancy booleans'
     trigger:
       platform: state
-      entity_id: group.all_devices
+      entity_id: group.phone_trackers
       to: 'home'
     action:
       - service: input_boolean.turn_off
@@ -170,8 +177,10 @@ automation:
       entity_id: sensor.home_status
       to: 'Unoccupied'
     action:
-      - service: homeassistant.turn_on
-        entity_id: script.stop_radio_chromecast
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.input_boolean.play_radio
+      - service: switch.turn_off
+        entity_id: switch.google_music
       - service: homeassistant.turn_off
         entity_id: group.all_lights
       - service: media_player.turn_off

@@ -69,6 +69,10 @@ weblink:
       url: https://travis-ci.org/
     - name: Configure Alexa
       url: https://alexa.amazon.co.uk/spa/index.html#smart-home
+    - name: Dropbox
+      url: https://dropbox.com
+    - name: Router
+      url: !secret weblink_router
 
 
 script:
@@ -119,7 +123,11 @@ group:
       - script.github_push
       - weblink.github
       - script.sync_dropbox
+      - weblink.dropbox
+
+  Configure external:
       - weblink.configure_alexa
+      - weblink.router
 
   Travis CI:
     - weblink.travis_ci

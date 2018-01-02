@@ -1,9 +1,7 @@
 # Credits for inspirations in packages
 
-The dark sensor in environmental_sensors was inspired by ih8gates *TODO - link to thread*
+The dark sensor in environmental_sensors was inspired by ih8gates - https://community.home-assistant.io/t/virtual-light-sensor/31975/10?u=mf_social
 
-The speech and notify engine in notifications was inspired by CCostan *TODO* - link to github
+The speech and notify engine in notifications, and the hardware monitoring in the system package, were inspired by CCostan https://github.com/CCOSTAN/Home-AssistantConfig
 
-The hardware monitoring in the system package was inspired by CCostan's and ntalekt *TODO* - link to github
-
-The theming in the interface package came from ... *TODO - link to creators of the scenes, link to thread for the UI automation*
+The theming in the interface package came from Broesie and marcelhoffs, and the theme switcher was inspired by Mike1 - https://community.home-assistant.io/c/projects/themes

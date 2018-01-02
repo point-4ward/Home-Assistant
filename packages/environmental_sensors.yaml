@@ -19,6 +19,9 @@ homeassistant:
     sensor.bad_weather:
       icon: mdi:weather-snowy-rainy
 
+    sensor.pws_alerts:
+      icon: mdi:alert-decagram
+
 
 sun:
 
