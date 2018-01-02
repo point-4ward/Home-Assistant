@@ -37,7 +37,7 @@ panel_iframe:
 
 frontend:
   javascript_version: auto
-  themes: !include ../extras/themes.yaml
+  themes: !include ../extras/includes/themes.yaml
 
 
 automation:
