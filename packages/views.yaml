@@ -105,6 +105,7 @@ group:
       - group.all_lights
       - group.quick_timer
       - group.all_alarm_clock
+      - group.configure_external
 
   information:
     view: yes
