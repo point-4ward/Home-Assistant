@@ -95,15 +95,6 @@ binary_sensor:
 
 
 input_select:
-  living_room_scenes:
-    name: Scenes
-    options:
-      - Select
-      - Dim
-      - Bright
-    initial: Select
-    icon: mdi:creation
-
   master_bedroom_scenes:
     name: Scenes
     options:
