@@ -178,7 +178,7 @@ automation:
       to: 'Unoccupied'
     action:
       - service: homeassistant.turn_off
-        entity_id: input_boolean.input_boolean.play_radio
+        entity_id: input_boolean.play_radio
       - service: switch.turn_off
         entity_id: switch.google_music
       - service: homeassistant.turn_off
