@@ -96,6 +96,16 @@ script:
     sequence:
       - service: shell_command.sync_dropbox
 
+  quick_restart:
+    alias: Restart Homeassistant
+    sequence:
+      - service: shell_command.quick_restart
+
+  quick_reboot:
+    alias: Reboot Node-zero
+    sequence:
+      - service: shell_command.quick_reboot
+
 
 shell_command:
   upgrade_hass: /home/hass/.homeassistant/extras/bash_scripts/upgrade-hass.sh
@@ -103,6 +113,10 @@ shell_command:
   sync_dropbox: /home/hass/.homeassistant/extras/bash_scripts/sync-dropbox.sh
 
   github_pull: /home/hass/.homeassistant/extras/bash_scripts/pull-from-github.sh
+
+  quick_restart: sudo systemctl restart home-assistant.service
+
+  quick_reboot: sudo reboot
 
   #github_push: /home/hass/.homeassistant/extras/bash_scripts/send-to-github.sh {{github_message}}
 
@@ -117,6 +131,8 @@ group:
     control: hidden
     entities:
       - input_boolean.maintenance_mode
+      - script.quick_restart
+      - script.quick_reboot
       - script.upgrade_hass
       - script.github_pull
       - input_text.github_message

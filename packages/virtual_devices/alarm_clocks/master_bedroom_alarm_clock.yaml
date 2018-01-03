@@ -86,17 +86,6 @@ input_boolean:
     icon: mdi:autorenew
 
 
-input_select:
-  masterbed_alarm_sound:
-    name: Music
-    options:
-      - Free Radio CW
-      - Let Her Go
-      - Nightswimming
-    initial: Free Radio CW
-    icon: mdi:music
-
-
 group:
   masterbed_alarm_clock:
     control: hidden
@@ -145,7 +134,7 @@ script:
       - service: media_player.play_media
         data_template:
           entity_id: media_player.bedroomcca
-          media_content_id: !secret masterbed_wake_up_script
+          media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
           media_content_type: 'audio/mp4'
       - condition: state
         entity_id: sensor.dark_outside
