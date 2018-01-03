@@ -7,9 +7,9 @@
 
 homeassistant:
   customize:
-    script.romance:
-      can_cancel: false
-      icon: mdi:creation
+#    script.romance:
+#      can_cancel: false
+#      icon: mdi:creation
 
     script.lullaby:
       can_cancel: false
@@ -22,7 +22,7 @@ group:
     control: hidden
     entities:
       - script.lullaby
-      - script.romance
+#      - script.romance
 
 
 script:
@@ -38,7 +38,7 @@ script:
           entity_id: media_player.bedroomcca
           media_content_id: http://37.59.28.208:8543/stream
           media_content_type: 'audio/mp4'
-      - service: light.hue_activate_scene
+      - service: hue.hue_activate_scene
         data:
           group_name: "Master Bedroom"
           scene_name: "Nightlight"
@@ -65,43 +65,43 @@ script:
       - service: homeassistant.turn_off
         entity_id: light.master_bedroom
 
-  romance:
-    alias: Romance Mode
-    sequence:
-      - service: light.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Spring blossom"
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.bedroomcca
-          volume_level: '0.20'
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.bedroomcca
-          media_content_id: !secret romance_track1
-          media_content_type: 'audio/mp4'
-      - delay: '00:03:39'
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.bedroomcca
-          media_content_id: !secret romance_track2
-          media_content_type: 'audio/mp4'
-      - delay: '00:04:29'
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.bedroomcca
-          media_content_id: !secret romance_track3
-          media_content_type: 'audio/mp4'
-      - delay: '00:03:17'
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.bedroomcca
-          media_content_id: !secret romance_track4
-          media_content_type: 'audio/mp4'
-      - delay: '00:02:58'
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.bedroomcca
-          media_content_id: !secret romance_track5
-          media_content_type: 'audio/mp4'
+  # romance:
+    # alias: Romance Mode
+    # sequence:
+      # - service: hue.hue_activate_scene
+        # data:
+          # group_name: "Master Bedroom"
+          # scene_name: "Spring blossom"
+      # - service: media_player.volume_set
+        # data:
+          # entity_id: media_player.bedroomcca
+          # volume_level: '0.20'
+      # - service: media_player.play_media
+        # data:
+          # entity_id: media_player.bedroomcca
+          # media_content_id: !secret romance_track1
+          # media_content_type: 'audio/mp4'
+      # - delay: '00:03:39'
+      # - service: media_player.play_media
+        # data:
+          # entity_id: media_player.bedroomcca
+          # media_content_id: !secret romance_track2
+          # media_content_type: 'audio/mp4'
+      # - delay: '00:04:29'
+      # - service: media_player.play_media
+        # data:
+          # entity_id: media_player.bedroomcca
+          # media_content_id: !secret romance_track3
+          # media_content_type: 'audio/mp4'
+      # - delay: '00:03:17'
+      # - service: media_player.play_media
+        # data:
+          # entity_id: media_player.bedroomcca
+          # media_content_id: !secret romance_track4
+          # media_content_type: 'audio/mp4'
+      # - delay: '00:02:58'
+      # - service: media_player.play_media
+        # data:
+          # entity_id: media_player.bedroomcca
+          # media_content_id: !secret romance_track5
+          # media_content_type: 'audio/mp4'

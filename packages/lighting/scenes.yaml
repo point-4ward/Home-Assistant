@@ -66,79 +66,9 @@ scene:
 
 
 script:
-  master_bedroom_tropical_twilight:
+  set_hue_scene:
     sequence:
       - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Tropical twilight"
-
-  master_bedroom_spring_blossom:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Spring blossom"
-
-  master_bedroom_savanna_sunset:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Savanna sunset"
-
-  master_bedroom_relax:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Relax"
-
-  master_bedroom_read:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Read"
-
-  master_bedroom_nightlight:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Nightlight"
-
-  master_bedroom_energize:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Energize"
-
-  master_bedroom_concentrate:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Concentrate"
-
-  master_bedroom_bright:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Bright"
-
-  master_bedroom_dimmed:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Dimmed"
-
-  master_bedroom_arctic_aurora:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Arctic aurora"
+        data_template:
+          group_name: '{{ group }}'
+          scene_name: '{{ scene }}'
