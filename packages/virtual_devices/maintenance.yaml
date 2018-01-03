@@ -29,6 +29,12 @@ homeassistant:
 
     script.github_pull:
       icon: mdi:github-box
+
+    script.quick_reboot:
+      icon: mdi:raspberrypi
+
+    script.quick_restart:
+      icon: mdi:home-assistant
     
     sensor.mfsocialhomeassistant_last_build_id:
       friendly_name: "Last build ID"
