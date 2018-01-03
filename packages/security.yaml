@@ -23,6 +23,14 @@ sensor:
   - platform: haveibeenpwned
     email: !secret haveibeenpwned_email
 
+binary_sensor:
+  - platform: mqtt
+    state_topic: "sensor-zero/Motion/Motion"
+    name: "TEST-Motion"
+    payload_on: 1
+    payload_off: 0
+    device_class: motion
+
 
 group:
   Email Security: !secret email_security
