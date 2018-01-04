@@ -129,6 +129,7 @@ group:
     icon: mdi:security
     entities:
       - group.alarm
+      - group.motion_sensors
       - group.email_security
 
   settings:
