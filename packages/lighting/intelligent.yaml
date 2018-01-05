@@ -68,7 +68,10 @@ automation:
       entity_id: sensor.living_room_switch
       to: '4_hold'
     action:
-      service: script.master_bedroom_relax
+      service: script.set_hue_scene
+      data_template:
+        group: "Master Bedroom"
+        scene: "Relax"
 
   - alias: 'Media player playing (lights)'
     trigger:
