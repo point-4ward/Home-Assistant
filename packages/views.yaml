@@ -52,9 +52,9 @@ group:
       - group.livingroom_lights
       - group.downstairs_alarm_clock
       - media_player.living_room_kodi
-      - media_player.livingroomcca
-      - media_player.kitchencca
-      - media_player.downstairs_group
+      - media_player.livingroom
+      - media_player.kitchen
+      - media_player.downstairs
 
   media:
     view: yes
@@ -62,11 +62,14 @@ group:
     icon: mdi:speaker-wireless
     entities:
       - media_player.living_room_kodi
-      - media_player.kitchencca
-      - media_player.bedroomcca
-      - media_player.livingroomcca  
-      - media_player.everywhere_group
-      - media_player.downstairs_group
+      - media_player.kitchen
+      - media_player.bedroom
+      - media_player.livingroom
+      - media_player.boys
+      - media_player.girls      
+      - media_player.everywhere
+      - media_player.downstairs
+      - media_player.kids
       - group.music
 
   master_bedroom:
@@ -78,19 +81,23 @@ group:
       - group.smart_switch
       - group.masterbed_alarm_clock
       - group.masterbed_moods
-      - media_player.bedroomcca
+      - media_player.bedroom
 
   boys_room:
     view: yes
     name: Boys Room
     icon: mdi:human-handsdown
     entities:
+      - group.boys_alarm_clock
+      - media_player.boys
 
   girls_room:
     view: yes
     name: Girls Room
     icon: mdi:human-female
     entities:
+      - group.girls_alarm_clock
+      - media_player.girls
 
   tools:
     view: yes

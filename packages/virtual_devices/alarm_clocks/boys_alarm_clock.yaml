@@ -6,7 +6,7 @@
 # - allows to select if one time alarm, or repeating                   #
 #                                                                      #
 #                                                                      #
-#         ******This one is for the Master Bedroom******               #
+#         ******This one is for the Boys Bedroom******               #
 #                                                                      #
 # DEPENDS ON: Environmental_sensors                                    #
 #                                                                      #
@@ -15,13 +15,13 @@
 
 homeassistant:
   customize:
-    sensor.masterbed_alarm_clock_time:
+    sensor.boys_alarm_clock_time:
       friendly_name: 'Alarm Time'
       icon: mdi:alarm
 
 
 input_number:
-  masterbed_alarm_clock_hour:
+  boys_alarm_clock_hour:
     name: Hour
     icon: mdi:timer
     initial: 6
@@ -29,7 +29,7 @@ input_number:
     max: 23
     step: 1
 
-  masterbed_alarm_clock_minute:
+  boys_alarm_clock_minute:
     name: Minute
     icon: mdi:timer
     initial: 15
@@ -41,34 +41,34 @@ input_number:
 sensor:
   - platform: template
     sensors:
-      masterbed_alarm_clock_hour:
-        value_template: '{{ states.input_number.masterbed_alarm_clock_hour.state | int }}'
+      boys_alarm_clock_hour:
+        value_template: '{{ states.input_number.boys_alarm_clock_hour.state | int }}'
 
-      masterbed_alarm_clock_minute:
-        value_template: '{{ states.input_number.masterbed_alarm_clock_minute.state | int }}'
+      boys_alarm_clock_minute:
+        value_template: '{{ states.input_number.boys_alarm_clock_minute.state | int }}'
 
-      masterbed_alarm_clock_time:
+      boys_alarm_clock_time:
         value_template: >-
-          {{ states.sensor.masterbed_alarm_clock_hour.state }}:
-          {%- if states.sensor.masterbed_alarm_clock_minute.state|length == 1 -%}
+          {{ states.sensor.boys_alarm_clock_hour.state }}:
+          {%- if states.sensor.boys_alarm_clock_minute.state|length == 1 -%}
             0
           {%- endif -%}
-            {{ states.sensor.masterbed_alarm_clock_minute.state }}
+            {{ states.sensor.boys_alarm_clock_minute.state }}
 
-      masterbed_alarm_clock_time_long:
+      boys_alarm_clock_time_long:
         value_template: >-
-          {% if states.sensor.masterbed_alarm_clock_hour.state|length == 1 -%}
+          {% if states.sensor.boys_alarm_clock_hour.state|length == 1 -%}
             0
           {%- endif -%}
-            {{ states.sensor.masterbed_alarm_clock_hour.state }}:
-          {%- if states.sensor.masterbed_alarm_clock_minute.state|length == 1 -%}
+            {{ states.sensor.boys_alarm_clock_hour.state }}:
+          {%- if states.sensor.boys_alarm_clock_minute.state|length == 1 -%}
             0
           {%- endif -%}
-            {{ states.sensor.masterbed_alarm_clock_minute.state }}
+            {{ states.sensor.boys_alarm_clock_minute.state }}
 
 
 #input_datetime:
-#  masterbed_alarm_clock_time:
+#  boys_alarm_clock_time:
 #    name: Alarm Time
 #    has_date: false
 #    has_time: true
@@ -76,46 +76,45 @@ sensor:
 
 
 input_boolean:
-  masterbed_alarm_clock_status:
+  boys_alarm_clock_status:
     name: Activate Alarm
     icon: mdi:alarm-check
     initial: off
 
-  masterbed_alarm_clock_repeat:
+  boys_alarm_clock_repeat:
     name: Repeat?
     icon: mdi:autorenew
 
 
 scene:
-  - name: Master bedroom wake up
+  - name: Boys wake up
     entities:
-      light.master_bedroom:
+      light.boys:
         state: on
         transition: 120
         brightness: 180
-        rgb_color: [255,160,39]
 
 
 group:
-  masterbed_alarm_clock:
+  boys_alarm_clock:
     control: hidden
     name: 'Alarm Clock'
     entities:
-      - input_select.masterbed_alarm_sound
-      - input_boolean.masterbed_alarm_clock_status
-      - sensor.masterbed_alarm_clock_time
-#      - input_datetime.masterbed_alarm_clock_time
-      - input_number.masterbed_alarm_clock_hour
-      - input_number.masterbed_alarm_clock_minute
-      - input_boolean.masterbed_alarm_clock_repeat
+      - input_select.boys_alarm_sound
+      - input_boolean.boys_alarm_clock_status
+      - sensor.boys_alarm_clock_time
+#      - input_datetime.boys_alarm_clock_time
+      - input_number.boys_alarm_clock_hour
+      - input_number.boys_alarm_clock_minute
+      - input_boolean.boys_alarm_clock_repeat
 
 
 automation:
-  - alias: 'masterbed light on and play music'
+  - alias: 'boys light on and play music'
     trigger:
       platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.masterbed_alarm_clock_time_long.state }}'
-      #'{{ states.sensor.time.state == states.input_datetime.masterbed_alarm_clock_time.state }}'
+      value_template: '{{ states.sensor.time.state == states.sensor.boys_alarm_clock_time_long.state }}'
+      #'{{ states.sensor.time.state == states.input_datetime.boys_alarm_clock_time.state }}'
     condition:
       condition: and
       conditions:
@@ -123,32 +122,32 @@ automation:
           entity_id: group.all_devices
           state: 'home'
         - condition: state
-          entity_id: input_boolean.masterbed_alarm_clock_status
+          entity_id: input_boolean.boys_alarm_clock_status
           state: 'on'
     action:
-      - service: script.masterbed_wake_up
+      - service: script.boys_wake_up
       - condition: state
-        entity_id: input_boolean.masterbed_alarm_clock_repeat
+        entity_id: input_boolean.boys_alarm_clock_repeat
         state: 'off'
       - service: input_boolean.turn_off
         data:
-          entity_id: input_boolean.masterbed_alarm_clock_status
+          entity_id: input_boolean.boys_alarm_clock_status
 
 
 script:
-  masterbed_wake_up:
+  boys_wake_up:
     sequence:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.bedroom
+          entity_id: media_player.boys
           volume_level: '0.20'
       - service: media_player.play_media
         data_template:
-          entity_id: media_player.bedroom
+          entity_id: media_player.boys
           media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
           media_content_type: 'audio/mp4'
       - condition: state
         entity_id: sensor.dark_outside
         state: 'true'
       - service: scene.turn_on
-        entity_id: scene.master_bedroom_wake_up
+        entity_id: scene.boys_wake_up

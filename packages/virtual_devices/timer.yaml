@@ -75,6 +75,6 @@ automation:
         data:
           message: "The timer has expired - Home Assistant"
       - service: tts.google_say
-        entity_id: media_player.everywhere_group
+        entity_id: media_player.everywhere
         data:
           message: 'The timer has expired, The timer has expired'

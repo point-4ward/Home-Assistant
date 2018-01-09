@@ -73,16 +73,16 @@ script:
           entity_id:
             - input_number.livingroom_alarm_clock_hour
           value: '{{states.input_number.all_alarm_clock_hour.state | float}}'
-#      - service: input_number.set_value
-#        data_template: 
-#          entity_id:
-#            - input_number.boys_alarm_clock_hour
-#          value: '{{states.input_number.all_alarm_clock_hour.state | float}}'
-#      - service: input_number.set_value
-#        data_template: 
-#          entity_id:
-#            - input_number.girls_alarm_clock_hour
-#         value: '{{states.input_number.all_alarm_clock_hour.state | float}}'
+      - service: input_number.set_value
+        data_template: 
+          entity_id:
+            - input_number.boys_alarm_clock_hour
+          value: '{{states.input_number.all_alarm_clock_hour.state | float}}'
+      - service: input_number.set_value
+        data_template: 
+          entity_id:
+            - input_number.girls_alarm_clock_hour
+          value: '{{states.input_number.all_alarm_clock_hour.state | float}}'
       - service: input_number.set_value
         data_template: 
           entity_id:
@@ -93,16 +93,16 @@ script:
           entity_id:
             - input_number.livingroom_alarm_clock_minute
           value: '{{states.input_number.all_alarm_clock_minute.state | float}}'
-#      - service: input_number.set_value
-#        data_template: 
-#          entity_id:
-#            - input_number.boys_alarm_clock_minute
-#          value: '{{states.input_number.all_alarm_clock_minute.state | float}}'
-#      - service: input_number.set_value
-#        data_template: 
-#          entity_id:
-#            - input_number.girls_alarm_clock_minute
-#          value: '{{states.input_number.all_alarm_clock_minute.state | float}}'
+      - service: input_number.set_value
+        data_template: 
+          entity_id:
+            - input_number.boys_alarm_clock_minute
+          value: '{{states.input_number.all_alarm_clock_minute.state | float}}'
+      - service: input_number.set_value
+        data_template: 
+          entity_id:
+            - input_number.girls_alarm_clock_minute
+          value: '{{states.input_number.all_alarm_clock_minute.state | float}}'
       - service: input_number.set_value
         data_template: 
           entity_id:
@@ -112,13 +112,13 @@ script:
         data: 
           entity_id:
             - input_boolean.livingroom_alarm_clock_status
-#            - input_boolean.boys_alarm_clock_status
-#            - input_boolean.girls_alarm_clock_status
+            - input_boolean.boys_alarm_clock_status
+            - input_boolean.girls_alarm_clock_status
             - input_boolean.masterbed_alarm_clock_status
       - service: input_boolean.turn_off
         data:
           entity_id:
             - input_boolean.livingroom_alarm_clock_repeat
-#            - input_boolean.boys_alarm_clock_repeat
-#            - input_boolean.girls_alarm_clock_repeat
+            - input_boolean.boys_alarm_clock_repeat
+            - input_boolean.girls_alarm_clock_repeat
             - input_boolean.masterbed_alarm_clock_repeat

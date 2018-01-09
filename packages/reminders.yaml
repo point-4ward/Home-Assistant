@@ -25,6 +25,6 @@ automation:
       (states.sensor.tracker_status.state == 'LS')}}"
       - delay: 00:15:00
       - service: tts.google_say
-        entity_id: media_player.everywhere_group
+        entity_id: media_player.everywhere
         data:
           message: 'The bins need to go out tonight.'

@@ -127,7 +127,7 @@ script:
     sequence:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.downstairs_group
+          entity_id: media_player.downstairs
           volume_level: '0.20'
       - service: media_player.play_media
         data_template:
