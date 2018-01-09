@@ -89,7 +89,7 @@ input_boolean:
 scene:
   - name: Girls wake up
     entities:
-      light.master_bedroom:
+      light.girls:
         state: on
         transition: 120
         brightness: 180
