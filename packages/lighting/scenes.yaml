@@ -56,14 +56,6 @@ scene:
         transition: 600
         brightness: 255
 
-  - name: Master bedroom wake up
-    entities:
-      light.master_bedroom:
-        state: on
-        transition: 120
-        brightness: 180
-        rgb_color: [255,160,39]
-
 
 script:
   set_hue_scene:

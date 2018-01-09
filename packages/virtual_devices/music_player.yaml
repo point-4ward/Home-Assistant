@@ -7,7 +7,7 @@
 #                                                       #
 # DEPENDS ON: pip gmusicapi                             #
 #                                                       #
-# CREDIT TO: BobNL and ?????? for the inspiration       #
+# CREDITS: BobNL and Danielhiversen for the inspiration #
 #                                                       #
 #########################################################
 
@@ -42,11 +42,14 @@ input_select:
   media_player:
     name: Speakers
     options:
-     - "kitchencca"
-     - "livingroomcca" 
-     - "bedroomcca" 
-     - "downstairs_group" 
-     - "everywhere_group" 
+      - "downstairs" 
+      - "everywhere"
+      - "kitchen"
+      - "livingroom" 
+      - "bedroom" 
+      - "boys"
+      - "girls"
+      - "kids"
     icon: mdi:speaker-wireless
 
 
@@ -93,23 +96,11 @@ automation:
         entity_id: switch.google_music
       - service: media_player.volume_set
         data_template:
-            entity_id: >
-              {% if is_state("input_select.media_player", "kitchencca") %} media_player.kitchencca
-              {% elif is_state("input_select.media_player", "livingroomcca") %} media_player.livingroomcca
-              {% elif is_state("input_select.media_player", "bedroomcca") %} media_player.bedroomcca
-              {% elif is_state("input_select.media_player", "downstairs_group") %} media_player.downstairs_group
-              {% elif is_state("input_select.media_player", "everywhere_group") %} media_player.everywhere_group
-              {% endif %}
+            entity_id: 'media_player.{{states.input_select.media_player.state}}' 
             volume_level: '{{  states.input_number.volume_radio.state  }}'
       -  service: media_player.play_media
          data_template:
-           entity_id: >
-            {% if is_state("input_select.media_player", "kitchencca") %} media_player.kitchencca
-            {% elif is_state("input_select.media_player", "livingroomcca") %} media_player.livingroomcca
-            {% elif is_state("input_select.media_player", "bedroomcca") %} media_player.bedroomcca
-            {% elif is_state("input_select.media_player", "downstairs_group") %} media_player.downstairs_group
-            {% elif is_state("input_select.media_player", "everywhere_group") %} media_player.everywhere_group
-            {% endif %}
+           entity_id: 'media_player.{{states.input_select.media_player.state}}'
            media_content_id: >
             {% if is_state("input_select.radio_station", "Free Radio CW") %}  http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
             {% elif is_state("input_select.radio_station", "Free Radio 80s") %} http://tx.whatson.com/http_live_bauer.php?i=free80s.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
@@ -142,13 +133,7 @@ automation:
     action:
       service: media_player.volume_set
       data_template:
-        entity_id: >
-          {% if is_state("input_select.media_player", "kitchencca") %} media_player.kitchencca
-          {% elif is_state("input_select.media_player", "livingroomcca") %} media_player.livingroomcca
-          {% elif is_state("input_select.media_player", "bedroomcca") %} media_player.bedroomcca
-          {% elif is_state("input_select.media_player", "downstairs_group") %} media_player.downstairs_group
-          {% elif is_state("input_select.media_player", "everywhere_group") %} media_player.everywhere_group
-          {% endif %}
+        entity_id: 'media_player.{{states.input_select.media_player.state}}'
         volume_level: '{{  states.input_number.volume_radio.state  }}'
 
   - alias: "Stop music"
@@ -172,11 +157,14 @@ automation:
       - service: media_player.turn_off
         data:
           entity_id:
-            - media_player.kitchencca
-            - media_player.livingroomcca
-            - media_player.bedroomcca
-            - media_player.downstairs_group
-            - media_player.everywhere_group
+            - media_player.kitchen
+            - media_player.livingroom
+            - media_player.bedroom
+            - media_player.downstairs
+            - media_player.everywhere
+            - media_player.boys
+            - media_player.girls
+            - media_player.kids
       - service: input_number.set_value
         data_template:
           entity_id: input_number.volume_radio
