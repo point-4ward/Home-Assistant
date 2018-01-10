@@ -12,15 +12,13 @@ homeassistant:
   customize:
     input_boolean.sunset_offset:
       hidden: true
+      emulated_hue_hidden: true
     
     sensor.dark_outside:
       icon: mdi:theme-light-dark
 
     sensor.bad_weather:
       icon: mdi:weather-snowy-rainy
-
-    sensor.pws_alerts:
-      icon: mdi:alert-decagram
 
 
 sun:
@@ -55,11 +53,6 @@ sensor:
       - apparent_temperature_max
       - apparent_temperature_min
       - precip_intensity_max
-
-  - platform: wunderground
-    api_key: !secret wunderground_api_key
-    monitored_conditions:
-      - alerts
 
   - platform: template
     sensors:
@@ -116,34 +109,8 @@ group:
     - sensor.dark_sky_wind_bearing
     - sensor.dark_sky_wind_speed
 
-  Weather Alerts:
-    - sensor.pws_alerts
-
 
 automation:
-  - alias: 'Weather Alert Notification'
-    trigger:
-      platform: state
-      entity_id: sensor.pws_alerts
-    condition:
-      condition: template
-      value_template: '{{states.sensor.pws_alerts.state | int > 0}}'
-    action:
-      - service: persistent_notification.dismiss
-        data:
-          notification_id: "wxalert"
-      - data_template:
-          notification_id: "wxalert"
-          message: '{{ states.sensor.pws_alerts.attributes.Message }}'
-          title: '{{ states.sensor.pws_alerts.attributes.Description }}'
-        service_template: >-
-          {% if states.sensor.pws_alerts.attributes.Message %}
-          persistent_notification.create
-          {% endif %}
-      - service: notify.telegram_marc
-        data_template:
-          message: "NWS: {{ states.sensor.pws_alerts.attributes.Description }}"
-
   - alias: 'sun going up'
     trigger:
       platform: sun

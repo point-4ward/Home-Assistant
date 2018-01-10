@@ -7,12 +7,6 @@
 ###################################################
 
 
-homeassistant:
-  customize:
-    sensor.timer_minutes:
-      hidden: true
-
-
 input_number:
   timer_minutes:
     name: Minutes
@@ -23,14 +17,10 @@ input_number:
     step: 1
 
 
-sensor:
-  - platform: template
-    sensors:
-      timer_minutes:
-        friendly_name: 'Timer minutes'
-        value_template: '{{states.input_number.timer_minutes.state|round(2)}}'
-        entity_id: 
-          - input_number.timer_minutes
+timer:
+  quick_timer:
+    name: Quick Timer
+    icon: mdi:clock-end
 
 
 group:
@@ -38,38 +28,30 @@ group:
     name: 'Timer'
     entities:
       - input_number.timer_minutes
-
-
-script:
-  timer:
-    sequence:
-    - delay: '00:00:15'
-    - service: input_number.set_value
-      data_template:
-        value: '{{ states.input_number.timer_minutes.state|float - 0.25 }}'
-        entity_id: input_number.timer_minutes
+      - timer.quick_timer
 
 
 automation:
-  - alias: 'timer'
+  - alias: 'timer set'
     trigger:
       platform: state
       entity_id: input_number.timer_minutes
-    condition:
-      - condition: template
-        value_template: '{{ states.input_number.timer_minutes.state|float > 0}}'
     action:
-      - service: script.turn_off
-        entity_id: script.timer
-      - service: script.timer
-      
-  - alias: 'timer execute'
-    trigger:
-      platform: state
-      entity_id: input_number.timer_minutes
-    condition:
+      - service: timer.start
+        entity_id: timer.quick_timer
+        data_template:
+          duration: '00:{{states.input_number.timer_minutes.state|int}}:00'
       - condition: template
-        value_template: '{{ states.input_number.timer_minutes.state|float == 0.25}}'
+        value_template: '{{ states.input_number.timer_minutes.state|float == 0}}'
+      - service: timer.cancel
+        entity_id: timer.quick_timer
+      
+  - alias: 'timer expired'
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.quick_timer
     action:
       - service: notify.telegram_marc
         data:
