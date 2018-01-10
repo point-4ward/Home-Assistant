@@ -10,9 +10,9 @@ All your homeassistant files are contained within your `/path/to/.homeassistant/
 
 There are various ways to split the configuration.yaml in to smaller chunks with !include statements, this is detailed here > https://home-assistant.io/docs/configuration/splitting_configuration/
 
-I've chosen to split the configuration in to packages (detailed here > https://home-assistant.io/docs/configuration/packages/ ), and create devices or utilities by grouping components and sensors together.  These are placed in a folder called `packages/` .
+I've chosen to split the configuration in to packages (detailed here > https://home-assistant.io/docs/configuration/packages/ ), and create devices or utilities by grouping components and sensors together.  These are placed in a folder called `packages/` .  Where a config item is really long (like the list if ir codes to control my AV devices) I have used includes to keep things neat.
 
-I then have an `extras/` folder that contains my bash scripts and github resources (including a redacted version of my `secrets.yaml` ).  I also have a `private/` folder that contains things relevant to my installation but I don't want to upload to github as they contain sensitive information and sanitised versions will be of no use to anyone.
+I then have an `extras/` folder that contains my bash scripts, includes and github resources (including a redacted version of my `secrets.yaml` ).  I also have a `private/` folder that contains things relevant to my installation but I don't want to upload to github as they contain sensitive information and sanitised versions will be of no use to anyone.
 
 The end result looks like this:
 
