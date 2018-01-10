@@ -69,7 +69,7 @@ switch:
     host: !secret switch_broadlink_host
     mac: !secret switch_broadlink_mac
     friendly_name: 'IR remote'
-    switches: !include ../extras/includes/ir_codes/virgin.yaml
+    switches: !include_dir_merge_named ../extras/includes/ir_codes/
 
 
 sensor:
