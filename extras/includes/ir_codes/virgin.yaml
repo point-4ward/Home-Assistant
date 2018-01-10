@@ -1,0 +1,171 @@
+'virgin_key_0':
+  friendly_name: "Virgin_KEY_0"
+  command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR0dHQALpA0FAAAAAAAAAAAAAAAAAAA='
+  
+'virgin_key_1':
+  friendly_name: "Virgin_KEY_1"
+  command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR06HQALhw0FAAAAAAAAAAAAAAAAAAA='
+  
+'virgin_key_2':
+  friendly_name: "Virgin_KEY_2"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHR0dOjoAC6QNBQ=='
+  
+'virgin_key_3':
+  friendly_name: "Virgin_KEY_3"
+  command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dOh0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
+  
+'virgin_key_4':
+  friendly_name: "Virgin_KEY_4"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTo6HR0AC6QNBQ=='
+  
+'virgin_key_5':
+  friendly_name: "Virgin_KEY_5"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTo6Oh0AC4cNBQ=='
+  
+'virgin_key_6':
+  friendly_name: "Virgin_KEY_6"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTodHToAC6QNBQ=='
+  
+'virgin_key_7':
+  friendly_name: "Virgin_KEY_7"
+  command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHTodHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
+  
+'virgin_key_8':
+  friendly_name: "Virgin_KEY_8"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR06Oh0dHR0AC6QNBQ=='
+  
+'virgin_key_9':
+  friendly_name: "Virgin_KEY_9"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR06Oh0dOh0AC4cNBQ=='
+  
+'virgin_key_power':
+  friendly_name: "Virgin_KEY_POWER"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dHR06HR06HR0AC6QNBQ=='
+  
+'virgin_key_pause':
+  friendly_name: "Virgin_KEY_PAUSE"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dOjodHTodHR0AC4cNBQ=='
+  
+'virgin_key_last':
+  friendly_name: "Virgin_KEY_LAST"
+  command_on: 'JgAUAB0dOh0dOjo6Oh0dOjo6Oh0dAAukDQUAAA=='
+  
+'virgin_myshows':
+  friendly_name: "Virgin_MYSHOWS"
+  command_on: 'JgAUAB0dOh0dOjo6Oh0dOjo6OjodAAuHDQUAAA=='
+  
+'virgin_thumbsdown':
+  friendly_name: "Virgin_THUMBSDOWN"
+  command_on: 'JgAUAB0dOh0dOjo6Oh0dOjo6HR06AAukDQUAAA=='
+  
+'virgin_thumbsup':
+  friendly_name: "Virgin_THUMBSUP"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dOjo6HR0dHR0AC4cNBQ=='
+  
+'virgin_key_slow':
+  friendly_name: "Virgin_KEY_SLOW"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dOh0dOh0dHR0AC6QNBQ=='
+  
+'virgin_key_clear':
+  friendly_name: "Virgin_KEY_CLEAR"
+  command_on: 'JgAWAB0dOh0dOjo6Oh0dOh0dOh0dOh0AC4cNBQ=='
+  
+'virgin_key_subtitle':
+  friendly_name: "Virgin_KEY_SUBTITLE"
+  command_on: 'JgAUAB0dOh0dOjo6Oh0dOh0dOjo6AAukDQUAAA=='
+  
+'virgin_key_channelup':
+  friendly_name: "Virgin_KEY_CHANNELUP"
+  command_on: 'JgAWAB0dOh0dOjo6Ojo6HR0dHR0dHR0AC6QNBQ=='
+  
+'virgin_key_channeldown':
+  friendly_name: "Virgin_KEY_CHANNELDOWN"
+  command_on: 'JgAWAB0dOh0dOjo6Ojo6HR0dHR0dOh0AC4cNBQ=='
+  
+'virgin_key_zoom':
+  friendly_name: "Virgin_KEY_ZOOM"
+  command_on: 'JgAUAB0dOh0dOjo6Ojo6HR0dHTo6AAukDQUAAA=='
+  
+'virgin_key_back':
+  friendly_name: "Virgin_KEY_BACK"
+  command_on: 'JgASAB0dOh0dOjo6Ojo6Ojo6OgALpA0FAAAAAA=='
+  
+'virgin_key_forward':
+  friendly_name: "Virgin_KEY_FORWARD"
+  command_on: 'JgAUAB0dOh0dOjo6Ojo6Ojo6HR0dAAuHDQUAAA=='
+  
+'virgin_key_info':
+  friendly_name: "Virgin_KEY_INFO"
+  command_on: 'JgAWAB0dOh0dOjo6Ojo6Oh0dHR0dHR0AC4cNBQ=='
+  
+'virgin_key_play':
+  friendly_name: "Virgin_KEY_PLAY"
+  command_on: 'JgAWAB0dOh0dOjo6OjodHTodHR0dHR0AC6QNBQ=='
+  
+'virgin_key_rewind':
+  friendly_name: "Virgin_KEY_REWIND"
+  command_on: 'JgAUAB0dOh0dOjo6OjodHTodHTo6AAukDQUAAA=='
+  
+'virgin_key_fastforward':
+  friendly_name: "Virgin_KEY_FASTFORWARD"
+  command_on: 'JgAUAB0dOh0dOjo6OjodHTo6Oh0dAAukDQUAAA=='
+  
+'virgin_key_stop':
+  friendly_name: "Virgin_KEY_STOP"
+  command_on: 'JgAUAB0dOh0dOjo6OjodHTo6HR06AAukDQUAAA=='
+  
+'virgin_key_record':
+  friendly_name: "Virgin_KEY_RECORD"
+  command_on: 'JgAWAB0dOh0dOjo6OjodHTo6HR0dHR0AC4cNBQ=='
+  
+'virgin_key_home':
+  friendly_name: "Virgin_KEY_HOME"
+  command_on: 'JgAYADodHR0dOjo6Oh0dHR06HR0dHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
+  
+'virgin_key_up':
+  friendly_name: "Virgin_KEY_UP"
+  command_on: 'JgAWADodHR0dOjo6Oh0dOjodHR0dHR0AC6QNBQ=='
+  
+'virgin_key_down':
+  friendly_name: "Virgin_KEY_DOWN"
+  command_on: 'JgAWADodHR0dOjo6Oh0dOjodHR0dOh0AC4cNBQ=='
+  
+'virgin_key_epg':
+  friendly_name: "Virgin_KEY_EPG"
+  command_on: 'JgAUADodHR0dOjo6Oh0dOjodHTo6AAukDQUAAA=='
+  
+'virgin_key_tv':
+  friendly_name: "Virgin_KEY_TV"
+  command_on: 'JgAWADodHR0dOjo6Oh0dOjodHTodHR0AC4cNBQ=='
+  
+'virgin_key_left':
+  friendly_name: "Virgin_KEY_LEFT"
+  command_on: 'JgAUADodHR0dOjo6Oh0dOjo6OjodAAuHDQUAAA=='
+  
+'virgin_key_right':
+  friendly_name: "Virgin_KEY_RIGHT"
+  command_on: 'JgAUADodHR0dOjo6Oh0dOjo6HR06AAukDQUAAA=='
+  
+'virgin_key_ok':
+  friendly_name: "Virgin_KEY_OK"
+  command_on: 'JgAWADodHR0dOjo6Oh0dOjo6HR0dHR0AC4cNBQ=='
+  
+'virgin_key_text':
+  friendly_name: "Virgin_KEY_TEXT"
+  command_on: 'JgASADodHR0dOjo6Ojo6Ojo6OgALpA0FAAAAAA=='
+  
+'virgin_key_red':
+  friendly_name: "Virgin_KEY_RED"
+  command_on: 'JgAUADodHR0dOjo6Ojo6Ojo6HR0dAAuHDQUAAA=='
+  
+'virgin_key_green':
+  friendly_name: "Virgin_KEY_GREEN"
+  command_on: 'JgAUADodHR0dOjo6Ojo6Oh0dOh0dAAukDQUAAA=='
+  
+'virgin_key_yellow':
+  friendly_name: "Virgin_KEY_YELLOW"
+  command_on: 'JgAUADodHR0dOjo6Ojo6Oh0dOjodAAuHDQUAAA=='
+  
+'virgin_key_blue':
+  friendly_name: "Virgin_KEY_BLUE"
+  command_on: 'JgAUADodHR0dOjo6Ojo6Oh0dHR06AAukDQUAAA=='
