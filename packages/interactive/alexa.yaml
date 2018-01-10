@@ -1,0 +1,85 @@
+########################################################
+#                                                      #
+# This package contains automations that respond to    #
+# voice commands by actioning the request              #
+#                                                      #
+# DEPENDS ON: Communication package                    #
+#                                                      #
+########################################################
+
+homeassistant:
+  customize:
+    input_boolean.radio_downstairs:
+      hidden: true
+    
+    input_boolean.radio_everywhere:
+      hidden: true
+
+
+  customize_glob:
+    "input_boolean.*repeat*":
+      emulated_hue_hidden: true
+
+    "input_boolean.*alarm*":
+      emulated_hue_hidden: true
+
+
+input_boolean:
+  radio_downstairs:
+    name: Radio downstairs
+    initial: off
+  
+  radio_everywhere:
+    name: Radio everywhere
+    initial: off
+
+
+automation:
+  - alias: 'Alexa play radio'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.radio_downstairs
+        to: 'on'
+      - platform: state
+        entity_id: input_boolean.radio_everywhere
+        to: 'on'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.radio_station
+          option: Free Radio CW
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.media_player
+          option: >-
+            {% if is_state ('input_boolean.radio_downstairs' , 'on') %} downstairs_group
+            {% elif is_state ('input_boolean.radio_everywhere' , 'on') %} everywhere_group
+            {% endif %}
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.play_radio
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.radio_downstairs
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.radio_everywhere
+
+  - alias: 'Alexa bedtime mode'
+    trigger:
+      platform: state
+      entity_id: input_boolean.bedtime_mode
+      to: 'on'
+    action:
+      - service: tts.google_say
+        entity_id: media_player.livingroom
+        data:
+          message: 'Bedtime mode activated'
+      - service: homeassistant.turn_off
+        entity_id: light.living_room
+      # - service: script.set_hue_scene
+        # data:
+          # group: "Master Bedroom"
+          # scene: "Relax"
+      # - delay: 00:03:00
+      # - Do a nighttime briefing
+      # - switch alarm to armed nighttime
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.bedtime_mode
