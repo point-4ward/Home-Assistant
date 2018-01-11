@@ -129,7 +129,7 @@ alert:
       - 120
     skip_first: true
     notifiers:
-      - telegram_marc
+      - mf
 
   unknown_occupier_alert:
     name: The occupier is unknown
@@ -141,7 +141,7 @@ alert:
       - 60
     skip_first: true
     notifiers:
-      - telegram_marc
+      - mf
 
 
 automation:
@@ -206,6 +206,6 @@ automation:
       platform: event
       event_type: device_tracker_new_device
     action:
-      service: notify.telegram_marc
+      service: notify.mf
       data:
         message: 'New trackable device detected'
