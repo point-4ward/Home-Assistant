@@ -16,36 +16,36 @@ telegram_bot:
     api_key: !secret telegram_bot_api_key
     parse_mode: html
     allowed_chat_ids:
-      - !secret telegram_bot_chat_id_marc
-      - !secret telegram_bot_chat_id_laura
-#      - !secret telegram_bot_chat_id_courtney
+      - !secret telegram_bot_chat_id_mf
+      - !secret telegram_bot_chat_id_ls
+#      - !secret telegram_bot_chat_id_cg
 
 
 notify:
   - platform: telegram
-    name: telegram_marc
-    chat_id: !secret telegram_bot_chat_id_marc
+    name: mf
+    chat_id: !secret telegram_bot_chat_id_mf
 
   - platform: telegram
-    name: telegram_laura
-    chat_id: !secret telegram_bot_chat_id_laura
+    name: ls
+    chat_id: !secret telegram_bot_chat_id_ls
 
   #- platform: telegram
-  #  name: telegram_courtney
-  #  chat_id: !secret telegram_bot_chat_id_courtney
+  #  name: cg
+  #  chat_id: !secret telegram_bot_chat_id_ccg
 
 #script:
 #  notify_engine:
 #    sequence:
 #    - service_template: >
-#          {% if who == 'marc' %}
-#            notify.telegram_marc
-#          {% elif who == 'laura' %}
-#            notify.telegram_laura
+#          {% if who == 'mf' %}
+#            notify.mf
+#          {% elif who == 'ls' %}
+#            notify.ls
 #          {% elif who == 'adults' %}
-#            notify.telegram_marc , notify.telegram_laura
+#            adults
 #          {% else %}
-#            notify.telegram_marc , notify.telegram_laura, notify.telegram_courtney
+#            all
 #          {% endif %}
 #          
 #      data_template:

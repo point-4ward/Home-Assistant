@@ -63,7 +63,7 @@ automation:
       entity_id: sensor.ha_upstream
     action:
       - delay: '00:30:00'
-      - service: notify.telegram_marc
+      - service: notify.mf
         data:
           message: 'Update for Home Assistant is available.  https://home-assistant.io/blog/'
 
@@ -73,7 +73,7 @@ automation:
       entity_id: sensor.disk_used_
       above: 80
     action:
-      - service: notify.telegram_marc
+      - service: notify.mf
         data:
           message: 'Your harddrive is running out of Space!'
       - service: persistent_notification.create
@@ -91,7 +91,7 @@ automation:
       entity_id: input_boolean.maintenance_mode
       state: 'off'
     action:
-      service: notify.telegram_marc
+      service: notify.mf
       data_template:
         message: "Home Assistant has restarted and is not in Maintenance Mode.  Power cut?"
         data:
@@ -122,7 +122,7 @@ automation:
         for:
           minutes: 2
     action:
-      service: notify.telegram_marc
+      service: notify.mf
       data_template:
         message: '{{trigger.to_state.attributes.friendly_name}} has gone offline.'
 
@@ -165,7 +165,7 @@ automation:
             {%- endfor %}
             {% endmacro %}
             {{ battery_level() }}
-      - service: notify.telegram_marc
+      - service: notify.mf
         data_template:
           title: "Battery status"
           message: >-

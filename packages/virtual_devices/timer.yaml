@@ -53,7 +53,7 @@ automation:
       event_data:
         entity_id: timer.quick_timer
     action:
-      - service: notify.telegram_marc
+      - service: notify.mf
         data:
           message: "The timer has expired - Home Assistant"
       - service: tts.google_say
