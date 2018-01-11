@@ -74,11 +74,11 @@ automation:
           message: 'Bedtime mode activated'
       - service: homeassistant.turn_off
         entity_id: light.living_room
-      # - service: script.set_hue_scene
-        # data:
-          # group: "Master Bedroom"
-          # scene: "Relax"
-      # - delay: 00:03:00
+      - service: script.set_hue_scene
+        data:
+          group: "Master Bedroom"
+          scene: "Relax"
+      - delay: 00:03:00
       # - Do a nighttime briefing
       # - switch alarm to armed nighttime
       - service: input_boolean.turn_off
