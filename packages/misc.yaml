@@ -8,3 +8,83 @@
 # off automations, or anything else seasonal       #
 #                                                  #
 ####################################################
+
+
+##State card tiles test
+
+homeassistant:
+  customize:
+    input_text.dummy_tiles:
+      custom_ui_state_card: state-card-tiles
+      config:
+        columns: 3
+        column_width: 75px
+        row_height: 75px
+        entities:
+          - entity: input_boolean.switch1
+            label: S1
+          - entity: input_boolean.switch2
+            label: S2
+            column: 3
+            row_span: 3
+          - entity: script.switches_off
+            icon: mdi:power
+            column_span: 2
+            row_span: 2
+          - entity: script.press_button
+            label: ^
+            column: 2
+            row: 4
+            data: {value: top}
+          - entity: script.press_button
+            label: <
+            column: 1
+            row: 5
+            data: {value: left}
+          - entity: script.press_button
+            image: /local/ok.png
+            column: 2
+            row: 5
+            data: {value: ok}
+          - entity: script.press_button
+            label: ">"
+            column: 3
+            row: 5
+            data: {value: right}
+          - entity: script.press_button
+            label: v
+            column: 2
+            row: 6
+            data: {value: value}
+
+frontend:
+  extra_html_url:
+    - /local/custom_ui/state-card-tiles.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-tiles.html
+    
+input_boolean:
+  switch1:
+  switch2:
+
+script:
+  switches_off:
+    sequence:
+      service: input_boolean.turn_off
+  press_button:
+    sequence:
+      service: input_text.set_value
+      data:
+        entity_id: input_text.command
+      data_template:
+        value: "{{ value }}"
+input_text:
+  command:
+    name: Button
+  dummy_tiles:
+    name: dummy
+group:
+  g1:
+    name: Tiles showcase
+    entities:
+      - input_text.dummy_tiles
