@@ -4,7 +4,7 @@ See in the repo for all of my non-sensitive configuration files.  I've been play
 
 I have put a comment block at the top of each file that hopefully will explain what each one is for, should anyone want to use this repo as a learning tool, or for anyone that wants to copy any of the packages.
 
-#How it works:
+# How it works:
 
 All your homeassistant files are contained within your `/path/to/.homeassistant/` directory.  Inside this directory are some files that can't be moved such as `secrets.yaml` , `known_devices.yaml` and (most importantly) `configuration.yaml` .
 
@@ -42,8 +42,12 @@ The end result looks like this:
            |
            |
            |-----/github_resources/
+           |      |
+           |      |- secrets_redacted.yaml
+           |      |
+           |      |-[readme files, screenshots and guides]
+           |
+           |-----/includes/
                   |
-                  |- secrets_redacted.yaml
-                  |
-                  |-[readme files, screenshots and guides]
+                  |-[included files for long configuration options]
 ```
