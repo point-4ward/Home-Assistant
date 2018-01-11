@@ -1,10 +1,14 @@
 # My Home Assistant setup:
 
-
-**PLEASE NOTE I AM CURRENTLY UPDATING THE README'S SO SOME THINGS MAY BE A BIT OUT OF DATE - I'M WORKING ON IT!**
-
-
 This is my current Home Automation setup.
+
+## Information
+
+| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) | [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) |
+|:---:|:---:|:---:|
+| This shows whether the configuration | This is like my TODO list | If you have any ideas, they're always |
+| in this repo is valid. |  | welcome.  Either submit an issue or a PR, |
+| [Version I'm running.](.HA_VERSION) |  | or drop me a message! |
 
 ## House:
 
@@ -14,11 +18,11 @@ This is my current Home Automation setup.
  - Boys' bedroom, Girls' bedroom and bathroom on the first floor.
  - Stairs leading to Master bedroom on the second floor.
 
-Click here to see the [Hardware and Software](extras/github_resources/readme_files/hardware_software.md) I am using around the house.
+Click [here](extras/github_resources/readme_files/hardware_software.md) to see the Hardware and Software I am using around the house.
 
 ## What it does:
 
-**This section needs re-writing as timeline / automation based.**
+**This section needs re-writing as timeline / automation based. - (coming soon)**
  
 ## Configuration
 
@@ -35,11 +39,3 @@ Click [here](extras/github_resources/readme_files/screenshots.md) to see how it 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
 [HA examples](https://home-assistant.io/cookbook/) espescially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig) and [Bruh](https://github.com/bruhautomation/BRUH3-Home-Assistant-Configuration)
-
-## Information
-
-[![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) <---This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION)
-
-[![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) <--- This is like my TODO list
-
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) <--- If you have any ideas, they're always welcome.  Either submit an issue or a PR, or drop me a message!
