@@ -51,6 +51,35 @@ homeassistant:
             icon: mdi:volume-off
             column: 5
 
+    input_text.bedroom:
+      custom_ui_state_card: state-card-tiles
+      config:
+        columns: 5
+        column_width: 75px
+        row_height: 75px
+        entities:
+          - entity: light.master_bedroom
+            icon: mdi:lightbulb
+            column: 1
+          - entity: script.remote_masterbed_bright
+            label: Bright
+            column: 2
+          - entity: script.remote_masterbed_relax
+            label: Relax
+            column: 3
+          - entity: script.remote_masterbed_dim
+            label: Dim
+            column: 4
+          - entity: script.remote_masterbed_nightlight
+            label: Nightlight
+            column: 5
+            
+          - row: 2
+            entity: switch.heater
+            label: Heater
+            column: 1
+            column_span: 2
+
 
 script:
   remote_livingroom_bright:
@@ -106,10 +135,41 @@ script:
       - service: switch.turn_off
         entity_id: switch.google_music
 
+  remote_masterbed_bright:
+    sequence:
+      - service: script.set_hue_scene
+        data:
+          group: "Master Bedroom"
+          scene: "Bright"
+
+  remote_masterbed_relax:
+    sequence:
+      - service: script.set_hue_scene
+        data:
+          group: "Master Bedroom"
+          scene: "Relax"
+
+  remote_masterbed_dim:
+    sequence:
+      - service: script.set_hue_scene
+        data:
+          group: "Master Bedroom"
+          scene: "Dimmed"
+
+  remote_masterbed_nightlight:
+    sequence:
+      - service: script.set_hue_scene
+        data:
+          group: "Master Bedroom"
+          scene: "Nightlight"
+
 
 input_text:
   downstairs:
     name: downstairs
+
+  bedroom:
+    name: bedroom
 
 
 group:
@@ -117,3 +177,8 @@ group:
     name: Downstairs
     entities:
       - input_text.downstairs
+
+  tiles_bedroom:
+    name: Bedroom
+    entities:
+      - input_text.bedroom
