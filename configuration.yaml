@@ -18,4 +18,4 @@ homeassistant:
   packages: !include_dir_named packages/
   customize_domain:
     automation:
-      initial_state: on
+      initial_state: 'on'
