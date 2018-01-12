@@ -24,6 +24,7 @@ entities:
   - entity: switch.virgin_key_left
     icon: mdi:arrow-left
     column: 3
+    row: 3
   - entity: switch.virgin_key_ok
     label: OK
     column: 4
@@ -73,12 +74,15 @@ entities:
   - entity: switch.virgin_key_2
     label: 2
     column: 3
+    row: 7
   - entity: switch.virgin_key_3
     label: 3
     column: 5
+    row: 7
   - entity: switch.virgin_key_back
     label: Back
     column: 7
+    row: 7
 
   - row: 8
     entity: switch.virgin_key_4
