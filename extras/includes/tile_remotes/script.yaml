@@ -1,0 +1,80 @@
+remote_livingroom_bright:
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.livingroom_bright
+
+remote_livingroom_dim:
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.livingroom_dim
+
+remote_livingroom_movie:
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.livingroom_movie
+
+remote_show_tv:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.lgtv_hdmi_1
+    - service: switch.turn_on
+      entity_id: switch.lgtv_power_on
+    - delay: 00:00:08
+    - service: switch.turn_on
+      entity_id: switch.lgtv_hdmi_1
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.show_tv
+
+remote_show_cctv:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.lgtv_hdmi_2
+    - service: switch.turn_on
+      entity_id: switch.lgtv_power_on
+    - delay: 00:00:08
+    - service: switch.turn_on
+      entity_id: switch.lgtv_hdmi_2
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.show_cctv
+
+remote_tv_off:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.lgtv_power_off
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_off
+
+remote_radio_off:
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.play_radio
+    - service: switch.turn_off
+      entity_id: switch.google_music
+
+remote_masterbed_bright:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Master Bedroom"
+        scene: "Bright"
+
+remote_masterbed_relax:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Master Bedroom"
+        scene: "Relax"
+
+remote_masterbed_dim:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Master Bedroom"
+        scene: "Dimmed"
+
+remote_masterbed_nightlight:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Master Bedroom"
+        scene: "Nightlight"

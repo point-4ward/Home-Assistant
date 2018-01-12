@@ -1,0 +1,25 @@
+columns: 5
+column_width: 75px
+row_height: 75px
+entities:
+  - entity: light.master_bedroom
+    icon: mdi:lightbulb
+    column: 1
+  - entity: script.remote_masterbed_bright
+    label: Bright
+    column: 2
+  - entity: script.remote_masterbed_relax
+    label: Relax
+    column: 3
+  - entity: script.remote_masterbed_dim
+    label: Dim
+    column: 4
+  - entity: script.remote_masterbed_nightlight
+    label: Nightlight
+    column: 5
+          
+  - row: 2
+    entity: switch.heater
+    label: Heater
+    column: 1
+    column_span: 2
