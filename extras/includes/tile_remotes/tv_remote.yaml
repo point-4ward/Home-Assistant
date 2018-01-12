@@ -1,6 +1,6 @@
 columns: 7
-column_width: 65px
-row_height: 65px
+column_width: 45px
+row_height: 45px
 entities:
   - entity: script.remote_show_tv
     icon: mdi:television-classic
@@ -52,15 +52,19 @@ entities:
   - entity: switch.virgin_key_play
     icon: mdi:play
     column: 2
+    row: 6
   - entity: switch.virgin_key_pause
     icon: mdi:pause
     column: 4
+    row: 6
   - entity: switch.virgin_key_stop
     icon: mdi:stop
     column: 5
+    row: 6
   - entity: switch.virgin_key_fastforward
     icon: mdi:fast-forward
     column: 7
+    row: 6
 
   - row: 7
     entity: switch.virgin_key_1
