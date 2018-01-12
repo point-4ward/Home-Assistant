@@ -24,7 +24,6 @@ input_number:
   girls_alarm_clock_hour:
     name: Hour
     icon: mdi:timer
-    initial: 6
     min: 0
     max: 23
     step: 1
@@ -32,7 +31,6 @@ input_number:
   girls_alarm_clock_minute:
     name: Minute
     icon: mdi:timer
-    initial: 15
     min: 0
     max: 55
     step: 5
@@ -72,14 +70,12 @@ sensor:
 #    name: Alarm Time
 #    has_date: false
 #    has_time: true
-#    initial: '06:15'
 
 
 input_boolean:
   girls_alarm_clock_status:
     name: Activate Alarm
     icon: mdi:alarm-check
-    initial: off
 
   girls_alarm_clock_repeat:
     name: Repeat?

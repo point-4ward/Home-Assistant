@@ -1,0 +1,119 @@
+homeassistant:
+  customize:
+    input_text.downstairs:
+      custom_ui_state_card: state-card-tiles
+      config:
+        columns: 5
+        column_width: 75px
+        row_height: 75px
+        entities:
+          - entity: light.living_room
+            icon: mdi:lightbulb
+            column: 1
+            column_span: 2
+          - entity: script.remote_livingroom_bright
+            label: Bright
+            column: 3
+          - entity: script.remote_livingroom_dim
+            label: Dim
+            column: 4
+          - entity: script.remote_livingroom_movie
+            label: Movie
+            column: 5
+            
+          - row: 2
+            entity: script.remote_label_tv
+            label: TV
+            column: 1
+            column_span: 2
+          - entity: script.remote_show_tv
+            icon: mdi:television-classic
+            column: 3
+          - entity: script.remote_show_cctv
+            icon: mdi:cctv
+            column: 4
+          - entity: script.remote_tv_off
+            icon: mdi:television-off
+            column: 5
+            
+          - row: 3
+            entity: script.remote_label_radio
+            label: Free radio
+            column: 1
+            column_span: 2
+          - entity: input_boolean.radio_downstairs
+            icon: mdi:sofa
+            column: 3
+          - entity: input_boolean.radio_everywhere
+            icon: mdi:home
+            column: 4
+          - entity: script.remote_radio_off
+            icon: mdi:volume-off
+            column: 5
+
+
+script:
+  remote_livingroom_bright:
+    sequence:
+      - service: scene.turn_on
+        entity_id: scene.livingroom_bright
+
+  remote_livingroom_dim:
+    sequence:
+      - service: scene.turn_on
+        entity_id: scene.livingroom_dim
+
+  remote_livingroom_movie:
+    sequence:
+      - service: scene.turn_on
+        entity_id: scene.livingroom_movie
+
+  remote_show_tv:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.lgtv_hdmi_1
+      - service: switch.turn_on
+        entity_id: switch.lgtv_power_on
+      - delay: 00:00:08
+      - service: switch.turn_on
+        entity_id: switch.lgtv_hdmi_1
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.show_tv
+
+  remote_show_cctv:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.lgtv_hdmi_2
+      - service: switch.turn_on
+        entity_id: switch.lgtv_power_on
+      - delay: 00:00:08
+      - service: switch.turn_on
+        entity_id: switch.lgtv_hdmi_2
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.show_cctv
+
+  remote_tv_off:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.lgtv_power_off
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.tv_off
+
+  remote_radio_off:
+    sequence:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.play_radio
+      - service: switch.turn_off
+        entity_id: switch.google_music
+
+
+input_text:
+  downstairs:
+    name: downstairs
+
+
+group:
+  tiles_living_room:
+    name: Downstairs
+    entities:
+      - input_text.downstairs

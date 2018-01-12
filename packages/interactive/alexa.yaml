@@ -33,8 +33,43 @@ input_boolean:
     name: Radio everywhere
     initial: off
 
+  show_tv:
+    name: Show TV
+    initial: off
+
+  show_cctv:
+    name: Show CCTV
+    initial: off
+
+  tv_off:
+     name: TV off
+
 
 automation:
+  - alias: 'Alexa Show TV'
+    trigger:
+      platform: state
+      entity_id: input_boolean.show_tv
+      to: 'on'
+    action:
+      service: script.remote_show_tv
+
+  - alias: 'Alexa Show CCTV'
+    trigger:
+      platform: state
+      entity_id: input_boolean.show_cctv
+      to: 'on'
+    action:
+      service: script.remote_show_cctv
+
+  - alias: 'Alexa TV off'
+    trigger:
+      platform: state
+      entity_id: input_boolean.tv_off
+      to: 'on'
+    action:
+      service: script.remote_tv_off
+
   - alias: 'Alexa play radio'
     trigger:
       - platform: state
@@ -52,8 +87,8 @@ automation:
         data_template:
           entity_id: input_select.media_player
           option: >-
-            {% if is_state ('input_boolean.radio_downstairs' , 'on') %} downstairs_group
-            {% elif is_state ('input_boolean.radio_everywhere' , 'on') %} everywhere_group
+            {% if is_state ('input_boolean.radio_downstairs' , 'on') %} downstairs
+            {% elif is_state ('input_boolean.radio_everywhere' , 'on') %} everywhere
             {% endif %}
       - service: input_boolean.turn_on
         entity_id: input_boolean.play_radio
