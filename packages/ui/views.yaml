@@ -42,6 +42,9 @@ homeassistant:
     group.settings:
       order: 9
 
+    group.remote:
+      order: 10
+
 
 group:
   downstairs:
@@ -146,3 +149,11 @@ group:
     entities:
       - group.all_automations
       - group.all_scripts
+
+  remote:
+    view: yes
+    name: Remote
+    entities:
+      - group.tiles_living_room
+      - group.tiles_bedroom
+      - group.tiles_tv_remote

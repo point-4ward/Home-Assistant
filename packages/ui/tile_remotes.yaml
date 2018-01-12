@@ -80,6 +80,144 @@ homeassistant:
             column: 1
             column_span: 2
 
+    input_text.tv_remote:
+      custom_ui_state_card: state-card-tiles
+      config:
+        columns: 7
+        column_width: 35px
+        row_height: 35px
+        entities:
+          - entity: script.remote_show_tv
+            icon: mdi:television-classic
+            column: 1
+          - entity: switch.virgin_key_home
+            label: HOME
+            column: 4
+          - entity: script.remote_show_cctv
+            icon: mdi:cctv
+            column: 7
+            
+          - row: 2
+            entity: switch.virgin_key_up
+            icon: mdi:arrow-up
+            column: 4
+
+          - row: 3
+            entity: switch.lgtv_volume_
+            label: V +
+            column: 1
+          - entity: switch.virgin_key_left
+            icon: mdi:arrow-left
+            column: 3
+          - entity: switch.virgin_key_ok
+            label: OK
+            column: 4
+          - entity: switch.virgin_key_right
+            icon: mdi:arrow-right
+            column: 5
+          - entity: switch.virgin_key_channelup
+            label: CH +
+            column: 7
+            
+          - row: 4
+            entity: switch.lgtv_volume__2
+            label: V -
+            column: 1
+          - entity: switch.virgin_key_down
+            icon: mdi:arrow-down
+            column: 4
+          - entity: switch.virgin_key_channeldown
+            label: CH -
+            column: 7
+            
+          - row: 6
+            entity: switch.virgin_key_rewind
+            icon: mdi:rewind
+            column: 1
+          - entity: switch.virgin_key_play
+            icon: mdi:play
+            column: 2
+            column_span: 2
+          - entity: switch.virgin_key_pause
+            icon: mdi:pause
+            column: 4
+          - entity: switch.virgin_key_stop
+            icon: mdi:stop
+            column: 5
+            column_span: 2
+          - entity: switch.virgin_key_fastforward
+            icon: mdi:fast-forward
+            column: 7
+            
+          - row: 7
+            entity: switch.virgin_key_1
+            label: 1
+            column: 1
+            column_span: 2
+          - entity: switch.virgin_key_2
+            label: 2
+            column: 3
+            column_span: 2
+          - entity: switch.virgin_key_3
+            label: 3
+            column: 5
+            column_span: 2
+          - entity: switch.virgin_key_back
+            label: Back
+            column: 7
+            
+          - row: 8
+            entity: switch.virgin_key_4
+            label: 4
+            column: 1
+            column_span: 2
+          - entity: switch.virgin_key_5
+            label: 5
+            column: 3
+            column_span: 2
+          - entity: switch.virgin_key_6
+            label: 6
+            column: 5
+            column_span: 2
+          - entity: switch.virgin_key_info
+            label: Info
+            column: 7  
+            
+          - row: 9
+            entity: switch.virgin_key_7
+            label: 7
+            column: 1
+            column_span: 2
+          - entity: switch.virgin_key_8
+            label: 8
+            column: 3
+            column_span: 2
+          - entity: switch.virgin_key_9
+            label: 9
+            column: 5
+            column_span: 2
+          - entity: switch.virgin_key_clear
+            label: Clear
+            column: 7
+            
+          - row: 10
+            entity: switch.virgin_key_red
+            label: R
+            column: 1
+          - entity: switch.virgin_key_green
+            label: G
+            column: 2
+          - entity: switch.virgin_key_0
+            label: 0
+            column: 3
+            column_span: 3
+          - entity: switch.virgin_key_yellow
+            label: Y
+            column: 6
+          - entity: switch.virgin_key_blue
+            label: B
+            column: 7
+
 
 script:
   remote_livingroom_bright:
@@ -171,6 +309,9 @@ input_text:
   bedroom:
     name: bedroom
 
+  tv_remote:
+    name: tv_remote
+
 
 group:
   tiles_living_room:
@@ -182,3 +323,8 @@ group:
     name: Bedroom
     entities:
       - input_text.bedroom
+
+  tiles_tv_remote:
+    name: TV remote
+    entities:
+      - input_text.tv_remote
