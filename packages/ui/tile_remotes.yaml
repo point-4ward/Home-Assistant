@@ -58,6 +58,7 @@ group:
     entities:
       - input_select.master_bedroom_scenes
       - input_text.bedroom
+      - input_number.volume_bedroom
 
   tiles_tv_remote:
     name: TV remote
@@ -68,11 +69,13 @@ group:
     name: Boys
     entities:
       - input_text.boys
+      - input_number.volume_boys
 
   tiles_girls:
     name: Girls
     entities:
      - input_text.girls
+     - input_number.volume_girls
 
 automation:
   - alias: 'remote radio masterbed on'
