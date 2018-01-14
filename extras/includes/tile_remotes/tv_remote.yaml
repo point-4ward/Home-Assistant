@@ -1,6 +1,6 @@
 columns: 5
-column_width: 45px
-row_height: 45px
+column_width: 60px
+row_height: 60px
 entities:
   - entity: script.remote_show_tv
     icon: mdi:television-classic

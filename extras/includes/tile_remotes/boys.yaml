@@ -18,3 +18,21 @@ entities:
     label: Nightlight
     column: 4
     row: 1
+
+  - entity: input_boolean.remote_boys_radio
+    label: Radio
+    column: 1
+    row: 2
+  - entity: script.remote_boys_alarm
+    label: '7.30'
+    icon: mdi:alarm
+    column: 2
+    row: 2
+  - entity: script.lullaby_boys
+    label: Lullaby
+    column: 3
+    row: 2
+  - entity: script.empty_boys
+    label: Empty
+    column: 4
+    row: 2
