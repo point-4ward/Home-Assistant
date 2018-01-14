@@ -18,8 +18,41 @@ entities:
     label: Nightlight
     column: 5
           
-  - row: 2
-    entity: switch.heater
+  - entity: switch.heater
     label: Heater
     column: 1
+    row: 2
+    column_span: 2
+  - entity: script.lullaby
+    label: Lullaby
+    column: 3
+    row: 2
+  - entity: script.romance
+    label: Romance
+    column: 4
+    row: 2
+  - entity: script.masterbed_empty
+    label: Empty
+    column: 5
+    row: 2
+
+  - entity: script.remote_masterbed_alarm_earlies
+    label: 5.30
+    icon: mdi:alarm
+    column: 1
+    row: 3
+  - entity: script.remote_masterbed_alarm_school
+    label: 7.30
+    icon: mdi:alarm
+    column: 2
+    row: 3
+  - entity: script.remote_masterbed_alarm_day
+    label: 8.30
+    icon: mdi:alarm
+    column: 3
+    row: 3
+  - entity: input_boolean.remote_masterbed_radio
+    label: Radio
+    column: 4
+    row: 3
     column_span: 2

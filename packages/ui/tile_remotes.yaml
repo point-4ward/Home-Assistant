@@ -12,9 +12,18 @@ homeassistant:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tile_remotes/tv_remote.yaml
 
+    input_text.boys:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../extras/includes/tile_remotes/boys.yaml
+
+    input_text.girls:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../extras/includes/tile_remotes/girls.yaml
 
 script: !include ../../extras/includes/tile_remotes/script.yaml
 
+input_boolean:
+  remote_masterbed_radio:
 
 input_text:
   lights:
@@ -25,6 +34,12 @@ input_text:
 
   tv_remote:
     name: tv_remote
+
+  boys:
+    name: boys
+
+  girls:
+    name: girls
 
 
 group:
@@ -42,3 +57,13 @@ group:
     name: TV remote
     entities:
       - input_text.tv_remote
+
+  tiles_boys:
+    name: Boys
+    entities:
+      - input_text.boys
+
+  tiles_girls:
+    name: Girls
+    entities:
+     - input_text.girls

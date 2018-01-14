@@ -96,3 +96,16 @@ remote_masterbed_nightlight:
       data:
         group: "Master Bedroom"
         scene: "Nightlight"
+
+remote_masterbed_radio:
+  sequence:
+#    - service
+
+remote_masterbed_alarm_earlies:
+  sequence:
+
+remote_masterbed_alarm_school:
+  sequence:
+
+remote_masterbed_alarm_day:
+  sequence:

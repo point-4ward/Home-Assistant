@@ -1,0 +1,20 @@
+columns: 4
+column_width: 75px
+row_height: 75px
+entities:
+#  - entity: light.girls
+#    icon: mdi:lightbulb
+#    column: 1
+#	 row: 1
+  - entity: script.remote_girls_bright
+    label: Bright
+    column: 2
+    row: 1
+  - entity: script.remote_girls_dim
+    label: Dim
+    column: 3
+    row: 1
+  - entity: script.remote_girls_nightlight
+    label: Nightlight
+    column: 4
+    row: 1
