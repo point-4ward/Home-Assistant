@@ -43,16 +43,9 @@ group:
     name: Media
     icon: mdi:speaker-wireless
     entities:
-      - media_player.living_room_kodi
-      - media_player.kitchen
-      - media_player.bedroom
-      - media_player.livingroom
-      - media_player.boys
-      - media_player.girls      
-      - media_player.everywhere
-      - media_player.downstairs
-      - media_player.kids
       - group.music
+      - group.chromecast_group
+      - group.chromecast_rooms
 
   master_bedroom:
     view: yes

@@ -43,6 +43,78 @@ switch:
     friendly_name: 'IR remote'
     switches: !include_dir_merge_named ../extras/includes/ir_codes/
 
+  - platform: template
+    switches:
+      downstairs_media:
+        friendly_name: Downstairs
+        value_template: "{{ (is_state ('media_player.downstairs' , 'playing')) or (is_state ('media_player.girls' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.downstairs
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.downstairs
+
+      everywhere_media:
+        friendly_name: Everywhere
+        value_template: "{{ (is_state ('media_player.everywhere' , 'playing')) or (is_state ('media_player.girls' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.everywhere
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.everywhere
+
+      livingroom_media:
+        friendly_name: Living Room
+        value_template: "{{ (is_state ('media_player.livingroom' , 'playing')) or (is_state ('media_player.livingroom' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.livingroom
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.livingroom
+
+      kitchen_media:
+        friendly_name: Kitchen
+        value_template: "{{ (is_state ('media_player.kitchen' , 'playing')) or (is_state ('media_player.kitchen' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.kitchen
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.kitchen
+
+      bedroom_media:
+        friendly_name: Bedroom
+        value_template: "{{ (is_state ('media_player.bedroom' , 'playing')) or (is_state ('media_player.bedroom' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.bedroom
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.bedroom
+
+      boys_media:
+        friendly_name: Boys
+        value_template: "{{ (is_state ('media_player.boys' , 'playing')) or (is_state ('media_player.boys' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.boys
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.boys
+
+      girls_media:
+        friendly_name: Girls
+        value_template: "{{ (is_state ('media_player.girls' , 'playing')) or (is_state ('media_player.girls' , 'idle')) }}"
+        turn_on:
+          service: media_player.turn_on
+          entity_id: media_player.girls
+        turn_off:
+          service: media_player.turn_off
+          entity_id: media_player.girls
+
 
 sensor:
   - platform: hue_sensor
@@ -64,3 +136,84 @@ binary_sensor:
   - platform: ping
     host: !secret cctv_host
     name: CCTV
+
+input_number:
+  volume_everywhere:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+  volume_downstairs:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+  volume_bedroom:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+  volume_livingroom:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+  volume_kitchen:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+  volume_boys:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+  volume_girls:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: '0.2'
+
+
+group:
+  Chromecast groups:
+    control: hidden
+    entities:
+      - switch.everywhere_media
+      - input_number.volume_everywhere
+      - switch.downstairs_media
+      - input_number.volume_downstairs
+
+  Chromecast rooms:
+    control: hidden
+    entities:
+      - switch.bedroom_media
+      - input_number.volume_bedroom
+      - switch.livingroom_media
+      - input_number.volume_livingroom
+      - switch.kitchen_media
+      - input_number.volume_kitchen
+      - switch.boys_media
+      - input_number.volume_boys
+      - switch.girls_media
+      - input_number.volume_girls
