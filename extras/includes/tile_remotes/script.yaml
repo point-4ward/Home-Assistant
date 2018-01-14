@@ -13,6 +13,24 @@ remote_livingroom_movie:
     - service: scene.turn_on
       entity_id: scene.livingroom_movie
 
+remote_boys_bright:
+  sequence:
+
+remote_boys_dim:
+  sequence:
+
+remote_boys_nightlight:
+  sequence:
+
+remote_girls_bright:
+  sequence:
+
+remote_girls_dim:
+  sequence:
+
+remote_girls_nightlight:
+  sequence:
+
 remote_show_tv:
   sequence:
     - service: switch.turn_on

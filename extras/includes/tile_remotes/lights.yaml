@@ -2,10 +2,10 @@ columns: 4
 column_width: 75px
 row_height: 75px
 entities:
-  - entity: light.kitchen
-    icon: mdi:silverware-variant
-    column: 1
-    row: 1
+#  - entity: light.kitchen
+#    icon: mdi:silverware-variant
+#    column: 1
+#    row: 1
   - entity: light.landing
     icon: mdi:stairs
     column: 2
@@ -23,14 +23,14 @@ entities:
     icon: mdi:sofa
     column: 1
     row: 2
-  - entity: light.boys
-    icon: mdi:human-handsdown
-    column: 2
-    row: 2
-  - entity: light.girls
-    icon: mdi:human-female
-    column: 3
-    row: 2
+#  - entity: light.boys
+#    icon: mdi:human-handsdown
+#    column: 2
+#    row: 2
+#  - entity: light.girls
+#    icon: mdi:human-female
+#    column: 3
+#    row: 2
   - entity: script.remote_masterbed_bright
     label: Bright
     column: 4
