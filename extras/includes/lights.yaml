@@ -1,0 +1,88 @@
+columns: 4
+column_width: 75px
+row_height: 75px
+entities:
+  - entity: light.kitchen
+    icon: mdi:silverware-variant
+    column: 1
+    row: 1
+  - entity: light.landing
+    icon: mdi:stairs
+    column: 2
+    row: 1
+  - entity: light.bathroom
+    icon: mdi:basket-fill
+    column: 3
+    row: 1
+  - entity: light.master_bedroom
+    icon: mdi:hotel
+    column: 4
+    row: 1
+
+  - entity: light.living_room
+    icon: mdi:sofa
+    column: 1
+    row: 2
+  - entity: light.boys
+    icon: mdi:human-handsdown
+    column: 2
+    row: 2
+  - entity: light.girls
+    icon: mdi:human-female
+    column: 3
+    row: 2
+  - entity: script.remote_masterbed_bright
+    label: Bright
+    column: 4
+    row: 2
+
+  - entity: script.remote_livingroom_bright
+    label: Bright
+    column: 1
+    row: 3
+  - entity: script.remote_boys_bright
+    label: Bright
+    column: 2
+    row: 3
+  - entity: script.remote_girls_bright
+    label: Bright
+    column: 3
+    row: 3
+  - entity: script.remote_masterbed_relax
+    label: Relax
+    column: 4
+    row: 3
+
+  - entity: script.remote_livingroom_dim
+    label: Dim
+    column: 1
+    row: 4
+  - entity: script.remote_boys_dim
+    label: Dim
+    column: 2
+    row: 4
+  - entity: script.remote_girls_dim
+    label: Dim
+    column: 3
+    row: 4
+  - entity: script.remote_masterbed_dim
+    label: Dim
+    column: 4
+    row: 4
+
+  - entity: script.remote_livingroom_movie
+    label: Movie
+    column: 1
+    row: 5
+  - entity: script.remote_boys_night
+    label: Night
+    column: 2
+    row: 5
+  - entity: script.remote_girls_night
+    label: Night
+    column: 3
+    row: 5
+  - entity: script.remote_masterbed_nightlight
+    label: Night
+    column: 4
+    row: 5
