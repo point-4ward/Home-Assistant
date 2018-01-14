@@ -11,16 +11,6 @@ homeassistant:
     sensor.calendar:
       icon: mdi:calendar-text
 
-  customize_glob:
-    "sensor.*clock_hour*":
-      hidden: true
-
-    "sensor.*clock_minute*":
-      hidden: true
-
-    "sensor.*clock_time_long*":
-      hidden: true
-
 
 google:
   client_id: !secret google_calendar_client_id
@@ -40,10 +30,3 @@ sensor:
         value_template: >-
           {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
           {{ states.calendar.marcforthrungmailcom.attributes.message }}
-
-
-group:
-  Time:
-    - sensor.time
-    - sensor.date
-    - sensor.calendar

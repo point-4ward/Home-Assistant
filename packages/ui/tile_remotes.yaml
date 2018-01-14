@@ -56,6 +56,7 @@ group:
   tiles_bedroom:
     name: Bedroom
     entities:
+      - input_select.master_bedroom_scenes
       - input_text.bedroom
 
   tiles_tv_remote:

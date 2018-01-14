@@ -4,11 +4,6 @@
 # UI elements for my security monitoring #
 #                                        #
 ##########################################
-
-homeassistant:
-  customize_glob:
-    "sensor.breaches*":
-      icon: mdi:email-secure
       
       
 alarm_control_panel:
@@ -17,7 +12,7 @@ alarm_control_panel:
     code: !secret alarm_code
     state_topic: homeassistant/alarm
     command_topic: homeassistant/alarm/set
-    
+
 
 sensor:
   - platform: haveibeenpwned
@@ -31,15 +26,6 @@ binary_sensor:
     payload_off: 0
     device_class: motion
 
-
-group:
-  Email Security: !secret email_security
-  
-  Alarm:
-    - alarm_control_panel.alarm
-
-  Motion Sensors:
-    - binary_sensor.testmotion
 
 automation:
   - alias: 'Doorbell test'

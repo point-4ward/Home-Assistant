@@ -21,9 +21,8 @@ automation:
           entity_id: input_boolean.holiday_mode
           state: 'off'
     action:
-      - wait_template: "{{(states.sensor.tracker_status.state == 'MF_LS_CG') or (states.sensor.tracker_status.state == 'MF_LS') or (states.sensor.tracker_status.state == 'MF_CG') or (states.sensor.tracker_status.state == 'LS_CG') or (states.sensor.tracker_status.state == 'MF') or
-      (states.sensor.tracker_status.state == 'LS')}}"
-      - delay: 00:15:00
+#      - wait_template: "{{(states.sensor.tracker_status.state == 'MF_LS_CG') or (states.sensor.tracker_status.state == 'MF_LS') or (states.sensor.tracker_status.state == 'MF_CG') or (states.sensor.tracker_status.state == 'LS_CG') or (states.sensor.tracker_status.state == 'MF') or (states.sensor.tracker_status.state == 'LS')}}"
+#      - delay: 00:15:00
       - service: tts.google_say
         entity_id: media_player.everywhere
         data:

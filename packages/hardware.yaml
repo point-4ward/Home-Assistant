@@ -7,34 +7,6 @@
 ############################################
 
 
-homeassistant:
-  customize:
-    light.master_bedroom:
-      hidden: true
-
-    light.living_room:
-      hidden: true
-
-    light.landing_g:
-      hidden: true
-
-    light.bathroom_g:
-      hidden: true
-    
-    sensor.master_bedroom_switch:
-      icon: mdi:remote
-
-  customize_glob:
-    "sensor.*zwave*":
-      hidden: true
-
-    "light.*zwave*_2*":
-      hidden: true
-
-    "zwave.*":
-      icon: mdi:signal-variant
-
-
 #zwave:
 #  usb_path: /dev/ttyAMA0
 
@@ -92,51 +64,3 @@ binary_sensor:
   - platform: ping
     host: !secret cctv_host
     name: CCTV
-
-
-group:
-#  Zwave:
-#    - zwave.boys_room_zwave_dimmer
-#    - zwave.living_room_zwave_dimmer
-#    - zwave.zwaveme_razberry_controller_2016_zwave
-
-  master_bedroom_lights:
-    name: Lights
-    entities:
-      - light.mb_ceiling
-      - light.mb_stairs
-      - input_select.master_bedroom_scenes
-
-  livingroom_lights:
-    name: Lights
-    entities:
-      - light.lr_left
-      - light.lr_right
-      - scene.livingroom_bright
-      - scene.livingroom_dim
-      - scene.livingroom_movie
-
-  other_lights:
-    name: Lights
-    control: hidden
-    entities:
-      - light.landing
-      - light.bathroom
-
-
-  smart_switch:
-    name: Smart switch
-    control: hidden
-    entities:
-      - switch.heater
-
-  Hue:
-    - sensor.master_bedroom_switch
-    - sensor.living_room_switch
-    - sensor.bathroom_motion_motion
-
-  Devices:
-    - binary_sensor.broadlink
-    - binary_sensor.hue_hub
-    - binary_sensor.tp_link
-    - binary_sensor.cctv
