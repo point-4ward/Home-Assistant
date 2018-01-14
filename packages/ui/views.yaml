@@ -44,8 +44,8 @@ group:
     icon: mdi:speaker-wireless
     entities:
       - group.music
-      - group.chromecasts_group
-      - group.chromecasts_rooms
+      - group.chromecast_group
+      - group.chromecast_rooms
 
   master_bedroom:
     view: yes
