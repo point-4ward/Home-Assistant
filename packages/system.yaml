@@ -7,16 +7,6 @@
 ###########################################################
 
 
-homeassistant:
-  customize:
-    sensor.ha_upstream:
-      friendly_name: "Upstream HA version"
-      icon: mdi:cloud-sync
-
-    sensor.installed_ha_version:
-      icon: mdi:home-outline
-
-
 updater:
   include_used_components: true
 
@@ -41,19 +31,6 @@ sensor:
     name: HA upstream
     value_template: '{{ value_json.info.version }}'
     scan_interval: 3600
-
-
-group:
-  System:
-    - updater.updater
-    - sensor.installed_ha_version
-    - sensor.ha_upstream
-    - sensor.cpu_speed
-    - sensor.cpu_used
-    - sensor.disk_used_
-    - sensor.last_boot
-    - sensor.ram_used
-    - sensor.since_last_boot
 
 
 automation:

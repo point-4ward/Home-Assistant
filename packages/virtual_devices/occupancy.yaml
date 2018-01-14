@@ -12,14 +12,11 @@
 
 homeassistant:
   customize:
+    group.all_automations:
+      hidden: false
+
     sensor.home_status:
       icon: mdi:home-map-marker
-
-    sensor.tracker_status:
-      icon: mdi:home-account
-
-    group.adults:
-      hidden: true
 
 
 device_tracker:
@@ -72,21 +69,6 @@ sensor:
           {% else %} Unoccupied
           {% endif %}
 
-      tracker_status:
-        friendly_name: 'Occupied by'
-        value_template: >-
-          {% if ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'home')) %} MF_LS_CG
-          {% elif ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'not_home')) %} MF_LS
-          {% elif ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'home')) %} MF_CG
-          {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'home')) %} LS_CG
-          {% elif ((states.device_tracker.forthygpixel.state == 'home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'not_home')) %} MF
-          {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'home') and (states.device_tracker.iphone.state == 'not_home')) %} LS
-          {% elif ((states.device_tracker.forthygpixel.state == 'not_home') and (states.device_tracker.lauras_iphone.state == 'not_home') and (states.device_tracker.iphone.state == 'home')) %} CG
-          {% elif (states.input_boolean.guest_mode.state == 'on') %} Guest
-          {% elif (states.sensor.home_status.state == 'Unoccupied') %} NA
-          {% else %} Unknown
-          {% endif %}
-
 
 group:
   Phone trackers:
@@ -103,10 +85,10 @@ group:
     control: hidden
     entities:
       - sensor.home_status
-      - sensor.tracker_status
       - input_boolean.guest_mode
       - input_boolean.away_mode
       - input_boolean.holiday_mode
+      - alarm_control_panel.alarm
 
   home_modes:
     name: Home Modes

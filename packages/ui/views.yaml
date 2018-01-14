@@ -8,13 +8,6 @@
 
 homeassistant:
   customize:
-    group.all_automations:
-      hidden: false
-
-    group.all_scripts:
-      hidden: false
-      control: hidden
-
     group.downstairs:
       order: 1
 
@@ -33,9 +26,6 @@ homeassistant:
     group.tools:
       order: 6
 
-    group.information:
-      order: 7
-
 
 group:
   default_view:
@@ -44,6 +34,7 @@ group:
     icon: mdi:sofa
     entities:
       - group.tiles_lights
+      - group.quick_timer
       - group.downstairs_alarm_clock
       - group.tiles_tv_remote
 
@@ -93,9 +84,7 @@ group:
     icon: mdi:wrench
     entities:
       - group.maintenance
-      - group.travis_ci
       - group.occupancy_modes
       - group.home_modes
-      - group.quick_timer
       - group.all_alarm_clock
       - group.configure_external

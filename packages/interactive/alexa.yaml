@@ -7,22 +7,6 @@
 #                                                      #
 ########################################################
 
-homeassistant:
-  customize:
-    input_boolean.radio_downstairs:
-      hidden: true
-    
-    input_boolean.radio_everywhere:
-      hidden: true
-
-
-  customize_glob:
-    "input_boolean.*repeat*":
-      emulated_hue_hidden: true
-
-    "input_boolean.*alarm*":
-      emulated_hue_hidden: true
-
 
 input_boolean:
   radio_downstairs:

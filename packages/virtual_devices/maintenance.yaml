@@ -35,24 +35,6 @@ homeassistant:
 
     script.quick_restart:
       icon: mdi:home-assistant
-    
-    sensor.mfsocialhomeassistant_last_build_id:
-      friendly_name: "Last build ID"
-
-    sensor.mfsocialhomeassistant_last_build_finished_at:
-      friendly_name: "Last build time"
-
-    sensor.mfsocialhomeassistant_last_build_state:
-      friendly_name: "Status"
-
-    sensor.mfsocialhomeassistant_state:
-      hidden: true
-
-    sensor.mfsocialhomeassistant_last_build_started_at:
-      hidden: true
-
-    sensor.mfsocialhomeassistant_last_build_duration:
-      hidden: true
 
       
 input_boolean:
@@ -127,11 +109,6 @@ shell_command:
   quick_reboot: sudo reboot
 
 
-sensor:
-  - platform: travisci
-    api_key: !secret sensor_travisci
-    
-    
 group:
   Maintenance:
     control: hidden
@@ -150,12 +127,6 @@ group:
   Configure external:
       - weblink.configure_alexa
       - weblink.router
-
-  Travis CI:
-    - weblink.travis_ci
-    - sensor.mfsocialhomeassistant_last_build_state
-    - sensor.mfsocialhomeassistant_last_build_id
-    - sensor.mfsocialhomeassistant_last_build_finished_at
 
 
 alert:
