@@ -42,22 +42,16 @@ homeassistant:
     group.settings:
       order: 9
 
-    group.remote:
-      order: 10
-
 
 group:
-  downstairs:
+  default_view:
     view: yes
     name: Downstairs
     icon: mdi:sofa
     entities:
-      - group.livingroom_lights
+      - group.tiles_lights
       - group.downstairs_alarm_clock
-      - media_player.living_room_kodi
-      - media_player.livingroom
-      - media_player.kitchen
-      - media_player.downstairs
+      - group.tiles_tv_remote
 
   media:
     view: yes
@@ -80,27 +74,24 @@ group:
     name: Master Bedroom
     icon: mdi:hotel
     entities:
-      - group.master_bedroom_lights
-      - group.smart_switch
+      - group.tiles_bedroom
       - group.masterbed_alarm_clock
-      - group.masterbed_moods
-      - media_player.bedroom
 
   boys_room:
     view: yes
     name: Boys Room
     icon: mdi:human-handsdown
     entities:
+      - group.tiles_boys
       - group.boys_alarm_clock
-      - media_player.boys
 
   girls_room:
     view: yes
     name: Girls Room
     icon: mdi:human-female
     entities:
+      - group.tiles_girls
       - group.girls_alarm_clock
-      - media_player.girls
 
   tools:
     view: yes
@@ -111,8 +102,6 @@ group:
       - group.travis_ci
       - group.occupancy_modes
       - group.home_modes
-      - group.other_lights
-      - group.all_lights
       - group.quick_timer
       - group.all_alarm_clock
       - group.configure_external
@@ -149,13 +138,3 @@ group:
     entities:
       - group.all_automations
       - group.all_scripts
-
-  remote:
-    view: yes
-    name: Remote
-    entities:
-      - group.tiles_lights
-      - group.tiles_bedroom
-      - group.tiles_tv_remote
-      - group.tiles_boys
-      - group.tiles_girls

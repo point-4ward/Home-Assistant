@@ -15,7 +15,7 @@ entities:
     column: 3
     row: 1
   - entity: script.remote_boys_nightlight
-    label: Nightlight
+    label: Night
     column: 4
     row: 1
 

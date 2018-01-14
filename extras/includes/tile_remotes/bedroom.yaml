@@ -15,7 +15,7 @@ entities:
     label: Dim
     column: 4
   - entity: script.remote_masterbed_nightlight
-    label: Nightlight
+    label: Night
     column: 5
           
   - entity: switch.heater
@@ -37,17 +37,17 @@ entities:
     row: 2
 
   - entity: script.remote_masterbed_alarm_earlies
-    label: 5.30
+    label: '5.30'
     icon: mdi:alarm
     column: 1
     row: 3
   - entity: script.remote_masterbed_alarm_school
-    label: 7.30
+    label: '7.30'
     icon: mdi:alarm
     column: 2
     row: 3
   - entity: script.remote_masterbed_alarm_day
-    label: 8.30
+    label: '8.30'
     icon: mdi:alarm
     column: 3
     row: 3
