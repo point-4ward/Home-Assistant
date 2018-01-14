@@ -1,62 +1,52 @@
 ############################################################
 #                                                          #
-#  This package creates the 'moods' for the Master Bedroom #
+#  This package creates the 'moods' for the girls room     #
 #                                                          #
 ############################################################
 
 
 script:
-  lullaby:
-    alias: Lullaby Mode Masterbed
+  lullaby_girls:
+    alias: Lullaby Mode Girls
     sequence:
       - service: media_player.volume_set
         data:
-          entity_id: media_player.bedroom
+          entity_id: media_player.girls
           volume_level: '0.20'
       - service: media_player.play_media
         data:
-          entity_id: media_player.bedroom
+          entity_id: media_player.girls
           media_content_id: http://37.59.28.208:8543/stream
           media_content_type: 'audio/mp4'
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Master Bedroom"
-          scene_name: "Nightlight"
-      - service: light.turn_off
-        entity_id: light.bedroom_stairs
+      - service: scene.turn_on
+        entity_id: scene.girls_nightlight
       - delay: '00:15:00'
       - service: media_player.volume_set
         data:
-          entity_id: media_player.bedroom
+          entity_id: media_player.girls
           volume_level: '0.15'
       - delay: '00:15:00'
       - service: media_player.volume_set
         data:
-          entity_id: media_player.bedroom
+          entity_id: media_player.girls
           volume_level: '0.10'
       - delay: '00:15:00'
       - service: media_player.volume_set
         data:
-          entity_id: media_player.bedroom
+          entity_id: media_player.girls
           volume_level: '0.05'
       - delay: '00:15:00'
       - service: media_player.turn_off
-        entity_id: media_player.bedroom
+        entity_id: media_player.girls
       - service: homeassistant.turn_off
-        entity_id: light.master_bedroom
+        entity_id: light.girls
 
-
-  empty:
-    alias: Masterbed Empty
+  empty_girls:
+    alias: Girls Empty
     sequence:
       - service: homeassistant.turn_off
-        entity_id: light.master_bedroom
+        entity_id: light.girls
       - service: homeassistant.turn_off
-        entity_id: switch.heater
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.remote_masterbed_radio
+        entity_id: input_boolean.remote_girls_radio
       - service: media_player.turn_off
-        entity_id: media_player.bedroom
-
-  romance:
-    sequence:
+        entity_id: media_player.girls

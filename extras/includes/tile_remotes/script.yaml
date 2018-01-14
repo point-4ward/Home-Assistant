@@ -13,24 +13,6 @@ remote_livingroom_movie:
     - service: scene.turn_on
       entity_id: scene.livingroom_movie
 
-remote_boys_bright:
-  sequence:
-
-remote_boys_dim:
-  sequence:
-
-remote_boys_nightlight:
-  sequence:
-
-remote_girls_bright:
-  sequence:
-
-remote_girls_dim:
-  sequence:
-
-remote_girls_nightlight:
-  sequence:
-
 remote_show_tv:
   sequence:
     - service: switch.turn_on
@@ -99,7 +81,27 @@ remote_masterbed_nightlight:
 
 remote_masterbed_radio:
   sequence:
-#    - service
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.bedroom
+        media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+        media_content_type: 'audio/mp4'
+
+remote_boys_radio:
+  sequence:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.boys
+        media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+        media_content_type: 'audio/mp4'
+
+remote_girls_radio:
+  sequence:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.girls
+        media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
+        media_content_type: 'audio/mp4'
 
 remote_masterbed_alarm_earlies:
   sequence:
@@ -108,4 +110,28 @@ remote_masterbed_alarm_school:
   sequence:
 
 remote_masterbed_alarm_day:
+  sequence:
+
+remote_boys_alarm:
+  sequence:
+
+remote_girls_alarm:
+  sequence:
+
+remote_boys_bright:
+  sequence:
+
+remote_boys_dim:
+  sequence:
+
+remote_boys_nightlight:
+  sequence:
+
+remote_girls_bright:
+  sequence:
+
+remote_girls_dim:
+  sequence:
+
+remote_girls_nightlight:
   sequence:
