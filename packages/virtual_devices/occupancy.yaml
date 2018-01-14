@@ -112,6 +112,7 @@ group:
     name: Home Modes
     control: hidden
     entities:
+      - group.all_automations
       - input_boolean.bathtime_mode
       - input_boolean.kids_night_mode
       - input_boolean.bedtime_mode

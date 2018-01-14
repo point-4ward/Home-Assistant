@@ -20,6 +20,7 @@ homeassistant:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tile_remotes/girls.yaml
 
+
 script: !include ../../extras/includes/tile_remotes/script.yaml
 
 input_boolean:
