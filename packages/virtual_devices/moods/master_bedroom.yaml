@@ -65,9 +65,22 @@ script:
       - service: homeassistant.turn_off
         entity_id: light.master_bedroom
 
-  # romance:
+
+  empty:
+    alias: Masterbed Empty
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id: light.master_bedroom
+      - service: homeassistant.turn_off
+        entity_id: switch.heater
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.remote_masterbed_radio
+      - service: media_player.turn_off
+        entity_id: media_player.bedroom
+
+  romance:
     # alias: Romance Mode
-    # sequence:
+    sequence:
       # - service: hue.hue_activate_scene
         # data:
           # group_name: "Master Bedroom"

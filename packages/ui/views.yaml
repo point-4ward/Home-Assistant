@@ -157,3 +157,5 @@ group:
       - group.tiles_lights
       - group.tiles_bedroom
       - group.tiles_tv_remote
+      - group.tiles_boys
+      - group.tiles_girls
