@@ -36,12 +36,6 @@ homeassistant:
     group.information:
       order: 7
 
-    group.security:
-      order: 8
-
-    group.settings:
-      order: 9
-
 
 group:
   default_view:
@@ -105,36 +99,3 @@ group:
       - group.quick_timer
       - group.all_alarm_clock
       - group.configure_external
-
-  information:
-    view: yes
-    name: Information
-    icon: mdi:information-variant
-    entities:
-      - group.phone_trackers
-      - group.environment
-      - group.weather_alerts
-      - group.calendar
-      - group.system
-      - group.hue
-      - group.devices
-      - group.mqtt
-      - group.time
-      - group.zwave
-
-  security:
-    view: yes
-    name: Security
-    icon: mdi:security
-    entities:
-      - group.alarm
-      - group.motion_sensors
-      - group.email_security
-
-  settings:
-    view: yes
-    name: Settings
-    icon: mdi:settings
-    entities:
-      - group.all_automations
-      - group.all_scripts
