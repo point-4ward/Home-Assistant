@@ -154,6 +154,6 @@ group:
     view: yes
     name: Remote
     entities:
-      - group.tiles_living_room
+      - group.tiles_lights
       - group.tiles_bedroom
       - group.tiles_tv_remote
