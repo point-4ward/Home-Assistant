@@ -1,8 +1,8 @@
 homeassistant:
   customize:
-    input_text.downstairs:
+    input_text.lights:
       custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tile_remotes/downstairs.yaml
+      config: !include ../../extras/includes/tile_remotes/lights.yaml
 
     input_text.bedroom:
       custom_ui_state_card: state-card-tiles
@@ -17,8 +17,8 @@ script: !include ../../extras/includes/tile_remotes/script.yaml
 
 
 input_text:
-  downstairs:
-    name: downstairs
+  lights:
+    name: lights
 
   bedroom:
     name: bedroom
@@ -28,10 +28,10 @@ input_text:
 
 
 group:
-  tiles_living_room:
-    name: Downstairs
+  tiles_lights:
+    name: Lights
     entities:
-      - input_text.downstairs
+      - input_text.lights
 
   tiles_bedroom:
     name: Bedroom
