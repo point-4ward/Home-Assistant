@@ -1,3 +1,11 @@
+####################################################
+#                                                  #
+# This !include contains the scripts that are used #
+# by the tiles to perform functions within HA      #
+#                                                  #
+####################################################
+
+
 remote_livingroom_bright:
   sequence:
     - service: scene.turn_on

@@ -36,6 +36,9 @@ homeassistant:
     script.quick_restart:
       icon: mdi:home-assistant
 
+    script.learn_ir:
+      icon: mdi:remote
+
       
 input_boolean:
   maintenance_mode:
@@ -94,6 +97,11 @@ script:
     sequence:
       - service: shell_command.quick_reboot
 
+  learn_ir:
+    alias: Learn IR code
+    sequence:
+      - service: !secret learn_ir
+
 
 shell_command:
   upgrade_hass: /home/hass/.homeassistant/extras/bash_scripts/upgrade-hass.sh
@@ -127,6 +135,7 @@ group:
   Configure external:
       - weblink.configure_alexa
       - weblink.router
+      - script.learn_ir
 
 
 alert:

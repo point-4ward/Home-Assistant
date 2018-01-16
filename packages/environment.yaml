@@ -2,16 +2,24 @@
 #                                                   #
 # This package contains the components and sensors  #
 # I use to monitor the environmental factors        #
-# where I live, the UI elements to display them     #
-# and automations I use to fine tune the sensor     #
+# where I live, and automations I use to fine tune  #
 #                                                   #
 #####################################################
+
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_secret
 
 
 sun:
 
 
 sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      
   - platform: darksky
     api_key: !secret darksky_api_key
     units: auto
@@ -43,6 +51,12 @@ sensor:
 
   - platform: template
     sensors:
+      calendar:
+        friendly_name: 'Next Event'
+        value_template: >-
+          {{ strptime(states.calendar.marcforthrungmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
+          {{ states.calendar.marcforthrungmailcom.attributes.message }}
+
       dark_outside:
         friendly_name: 'Dark outside'
         value_template: >-

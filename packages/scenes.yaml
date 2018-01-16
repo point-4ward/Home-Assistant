@@ -1,0 +1,109 @@
+############################################
+#                                          #
+# This package manages the lighting scenes #
+#                                          #
+############################################
+
+
+input_select:
+  master_bedroom_scenes:
+    name: Scenes
+    options:
+      - Select
+      - Arctic aurora
+      - Bright
+      - Concentrate
+      - Dimmed
+      - Energize
+      - Nightlight
+      - Read
+      - Relax
+      - Savanna sunset
+      - Spring blossom
+      - Tropical twilight
+    initial: Select
+    icon: mdi:creation
+
+
+scene:
+  - name: Landing_evening
+    entities:
+      light.landing:
+        state: on
+        transition: 4
+        brightness: 180
+        rgb_color: [255,206,119]
+
+  - name: Landing_night
+    entities:
+      light.landing:
+        state: on
+        transition: 4
+        brightness: 85
+        rgb_color: [254,63,189]
+
+  - name: Livingroom dim
+    entities:
+      light.living_room:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Livingroom movie
+    entities:
+      light.living_room:
+        state: on
+        transition: 4
+        brightness: 35
+
+  - name: Livingroom bright
+    entities:
+      light.living_room:
+        state: on
+        transition: 3
+        brightness: 255
+
+  - name: Livingroom sunset
+    entities:
+      light.living_room:
+        state: on
+        transition: 600
+        brightness: 255
+
+
+script:
+  set_hue_scene:
+    sequence:
+      - service: hue.hue_activate_scene
+        data_template:
+          group_name: '{{ group }}'
+          scene_name: '{{ scene }}'
+
+
+automation:
+  - alias: reset_scene_selector master_bedroom
+    trigger:
+      platform: state
+      entity_id: light.master_bedroom
+      to: 'off'
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
+    action:
+      service: input_select.select_option
+      data:
+        entity_id: input_select.master_bedroom_scenes
+        option: Select
+
+  - alias: trigger_scene_master_bedroom
+    trigger:
+      platform: state
+      entity_id: input_select.master_bedroom_scenes
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
+    action:
+      service: script.set_hue_scene
+      data_template:
+        group: "Master Bedroom"
+        scene: '{{ states.input_select.master_bedroom_scenes.state }}'

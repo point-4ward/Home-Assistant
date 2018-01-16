@@ -18,6 +18,10 @@ sensor:
   - platform: haveibeenpwned
     email: !secret haveibeenpwned_email
 
+  - platform: mqtt
+    name: "Doorbell"
+    state_topic: "home-assistant/doorbell"
+
 binary_sensor:
   - platform: mqtt
     state_topic: "/sensor-zero/motion/motion"

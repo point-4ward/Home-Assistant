@@ -1,3 +1,11 @@
+#######################################
+#                                     #
+# This !include contains the IR codes #
+# for the LG TV set                   #
+#                                     #
+#######################################
+
+
 'lgtv_channel__plus':
   friendly_name: "LGTV_CHANNEL +"
   command_on: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxISEhISEhISEhISEhISEhISNxI3EjcSNxI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='

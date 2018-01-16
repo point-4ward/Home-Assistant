@@ -3,7 +3,7 @@
 # This package contains the automations that intelligently #
 # control lighting based on weather/occupancy/time etc     #
 #                                                          #
-# DEPENDS ON: Occupancy and Environmental_sensors          #
+# DEPENDS ON: Occupancy and Environment                    #
 #                                                          #
 ############################################################
 
@@ -52,15 +52,16 @@ automation:
 
   - alias: 'Landing light night mode'
     trigger:
-      platform: time
-      at: '21:30:00'
+      - platform: time
+        at: '21:31:00'
+      - platform: time
+        at: '07:31:00'
     condition:
       condition: state
       entity_id: light.landing
       state: 'on'
     action:
-      service: scene.turn_on
-      entity_id: scene.landing_night
+      service: script.landing_light_scene
 
   - alias: bedtime lights
     trigger:
