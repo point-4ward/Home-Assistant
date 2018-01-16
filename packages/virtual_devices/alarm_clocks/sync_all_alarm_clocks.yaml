@@ -56,7 +56,7 @@ sensor:
 group:
   all_alarm_clock:
     control: hidden
-    name: 'MASTER Alarm Clock'
+    name: 'Sync All Alarm Clocks'
     entities:
       - sensor.all_alarm_clock_time
       - input_number.all_alarm_clock_hour

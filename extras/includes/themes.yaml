@@ -1,3 +1,11 @@
+############################################
+#                                          #
+# This !include contains the configuration #
+# for the themes I use in the UI           #
+#                                          #
+############################################
+
+
 midnight:
   primary-color: '#5294E2'
   accent-color: '#E45E65'

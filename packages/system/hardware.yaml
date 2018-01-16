@@ -31,6 +31,19 @@ media_player:
       data_template:
         entity_id: '{{ entity_id }}'
         method: System.Shutdown
+
+
+mqtt:
+  broker: !secret mqtt_broker
+  
+  
+emulated_hue:
+  host_ip: !secret hue_host_ip
+  listen_port: !secret hue_listen_port
+  exposed_domains:
+    - light
+    - input_boolean
+    - switch
         
     
 switch: 
@@ -41,12 +54,13 @@ switch:
     host: !secret switch_broadlink_host
     mac: !secret switch_broadlink_mac
     friendly_name: 'IR remote'
-    switches: !include_dir_merge_named ../extras/includes/ir_codes/
+    switches: !include_dir_merge_named ../../extras/includes/ir_codes/
 
   - platform: template
     switches:
       downstairs_media:
         friendly_name: Downstairs
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.downstairs' , 'playing')) or (is_state ('media_player.girls' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -57,6 +71,7 @@ switch:
 
       everywhere_media:
         friendly_name: Everywhere
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.everywhere' , 'playing')) or (is_state ('media_player.girls' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -67,6 +82,7 @@ switch:
 
       livingroom_media:
         friendly_name: Living Room
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.livingroom' , 'playing')) or (is_state ('media_player.livingroom' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -77,6 +93,7 @@ switch:
 
       kitchen_media:
         friendly_name: Kitchen
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.kitchen' , 'playing')) or (is_state ('media_player.kitchen' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -87,6 +104,7 @@ switch:
 
       bedroom_media:
         friendly_name: Bedroom
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.bedroom' , 'playing')) or (is_state ('media_player.bedroom' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -97,6 +115,7 @@ switch:
 
       boys_media:
         friendly_name: Boys
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.boys' , 'playing')) or (is_state ('media_player.boys' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -107,6 +126,7 @@ switch:
 
       girls_media:
         friendly_name: Girls
+        icon_template: mdi:play
         value_template: "{{ (is_state ('media_player.girls' , 'playing')) or (is_state ('media_player.girls' , 'idle')) }}"
         turn_on:
           service: media_player.turn_on
@@ -217,3 +237,76 @@ group:
       - input_number.volume_boys
       - switch.girls_media
       - input_number.volume_girls
+
+automation:
+  - alias: "set volume media player downstairs"
+    trigger:
+      platform: state
+      entity_id: input_number.downstairs_media
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.downstairs
+        volume_level: '{{  states.input_number.downstairs_media.state | float  }}'
+
+  - alias: "set volume media player everywhere"
+    trigger:
+      - platform: state
+        entity_id: input_number.everywhere_media
+      - platform: homeassistant
+        event: start
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.everywhere
+        volume_level: '{{  states.input_number.everywhere_media.state | float }}'
+
+  - alias: "set volume media player livingroom"
+    trigger:
+      platform: state
+      entity_id: input_number.livingroom_media
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.livingroom
+        volume_level: '{{  states.input_number.livingroom_media.state | float }}'
+
+  - alias: "set volume media player kitchen"
+    trigger:
+      platform: state
+      entity_id: input_number.kitchen_media
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.kitchen
+        volume_level: '{{  states.input_number.kitchen_media.state | float }}'
+
+  - alias: "set volume media player bedroom"
+    trigger:
+      platform: state
+      entity_id: input_number.bedroom_media
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.bedroom
+        volume_level: '{{  states.input_number.bedroom_media.state | float }}'
+
+  - alias: "set volume media player boys"
+    trigger:
+      platform: state
+      entity_id: input_number.boys_media
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.boys
+        volume_level: '{{  states.input_number.boys_media.state | float }}'
+
+  - alias: "set volume media player girls"
+    trigger:
+      platform: state
+      entity_id: input_number.girls_media
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.girls
+        volume_level: '{{  states.input_number.girls_media.state | float }}'

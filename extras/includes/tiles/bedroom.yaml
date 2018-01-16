@@ -1,3 +1,11 @@
+###################################################
+#                                                 #
+# This !include contains the configuration for    #
+# the tiles making up the bedroom card in the UI  #
+#                                                 #
+###################################################
+
+
 columns: 5
 column_width: 75px
 row_height: 75px

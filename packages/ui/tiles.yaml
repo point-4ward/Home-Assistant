@@ -2,26 +2,26 @@ homeassistant:
   customize:
     input_text.lights:
       custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tile_remotes/lights.yaml
+      config: !include ../../extras/includes/tiles/lights.yaml
 
     input_text.bedroom:
       custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tile_remotes/bedroom.yaml
+      config: !include ../../extras/includes/tiles/bedroom.yaml
 
     input_text.tv_remote:
       custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tile_remotes/tv_remote.yaml
+      config: !include ../../extras/includes/tiles/tv_remote.yaml
 
     input_text.boys:
       custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tile_remotes/boys.yaml
+      config: !include ../../extras/includes/tiles/boys.yaml
 
     input_text.girls:
       custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tile_remotes/girls.yaml
+      config: !include ../../extras/includes/tiles/girls.yaml
 
 
-script: !include ../../extras/includes/tile_remotes/script.yaml
+script: !include ../../extras/includes/tiles/script.yaml
 
 input_boolean:
   remote_masterbed_radio:

@@ -84,11 +84,11 @@ group:
     name: Occupancy
     control: hidden
     entities:
+      - alarm_control_panel.alarm
       - sensor.home_status
       - input_boolean.guest_mode
       - input_boolean.away_mode
       - input_boolean.holiday_mode
-      - alarm_control_panel.alarm
 
   home_modes:
     name: Home Modes

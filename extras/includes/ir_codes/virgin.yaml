@@ -1,3 +1,11 @@
+#######################################
+#                                     #
+# This !include contains the IR codes #
+# for the Virgin TV tivo box          #
+#                                     #
+#######################################
+
+
 'virgin_key_0':
   friendly_name: "Virgin_KEY_0"
   command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR0dHQALpA0FAAAAAAAAAAAAAAAAAAA='
