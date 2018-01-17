@@ -11,16 +11,13 @@
 
 
 homeassistant:
-  customize_glob:
-    "*.*":
-      custom_ui_state_card: state-card-custom-ui
-    group.phone_trackers:
-      state_card_mode: badges
-
   customize:
     group.all_automations:
       hidden: false
       confirm_controls_show_lock: true
+
+    group.phone_trackers:
+      state_card_mode: badges
 
     sensor.home_status:
       icon: mdi:home-map-marker
@@ -57,7 +54,7 @@ input_boolean:
 
   bathtime_mode:
     name: Bathtime mode
-    icon: mdi:basket-fill
+    icon: mdi:hot-tub
 
   cycling_mode:
     name: Cycling to work mode
