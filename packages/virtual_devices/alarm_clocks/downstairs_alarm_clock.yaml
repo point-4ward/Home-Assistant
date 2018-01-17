@@ -127,6 +127,6 @@ script:
           volume_level: '0.20'
       - service: media_player.play_media
         data_template:
-          entity_id: media_player.downstairs_group
+          entity_id: media_player.downstairs
           media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
           media_content_type: 'audio/mp4'

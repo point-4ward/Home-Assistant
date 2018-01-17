@@ -42,7 +42,7 @@ automation:
       
         Landing lights are {{states.light.landing.state}}.
       
-        Master bedroom lights are {{states.group.master_bedroom_lights.state}}."
+        Master bedroom lights are {{states.group.bedroom_lights.state}}."
         keyboard: ["/lights, /occupancy", "/menu"]
 
   - alias: 'Telegram reply with Occupancy'
@@ -95,5 +95,5 @@ automation:
           
         Landing lights are {{states.light.landing.state}}.
           
-        Master bedroom lights are {{states.group.master_bedroom_lights.state}}.'
+        Master bedroom lights are {{states.group.bedroom_lights.state}}.'
         keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom", "/menu"]

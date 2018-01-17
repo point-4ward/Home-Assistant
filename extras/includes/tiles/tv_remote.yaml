@@ -9,6 +9,8 @@
 columns: 5
 column_width: 80px
 row_height: 80px
+color_on: red
+color_off: red
 entities:
   - entity: script.remote_show_tv
     icon: mdi:television-classic
@@ -99,7 +101,10 @@ entities:
     label: Back
     column: 4
     row: 6
-    column_span: 2
+  - entity: switch.virgin_key_tv
+    label: TV
+    column: 5
+    row: 6
 
   - entity: switch.virgin_key_4
     label: 4

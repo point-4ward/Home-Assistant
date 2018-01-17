@@ -1,3 +1,14 @@
+#######################################################
+#                                                     #
+# This package configures the custom-ui-tiles I use   #
+# in the frontend, the configuration is long so it is #
+# split in to includes, and the scripts in this       #
+# configuration are purely for one-touch purposes in  #
+# the UI, such as remotes or 'quick' settings         #
+#                                                     #
+#######################################################
+
+
 homeassistant:
   customize:
     input_text.lights:
@@ -8,10 +19,6 @@ homeassistant:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tiles/bedroom.yaml
 
-    input_text.tv_remote:
-      custom_ui_state_card: state-card-tiles
-      config: !include ../../extras/includes/tiles/tv_remote.yaml
-
     input_text.boys:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tiles/boys.yaml
@@ -20,11 +27,44 @@ homeassistant:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tiles/girls.yaml
 
+    input_text.tv_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../extras/includes/tiles/tv_remote.yaml
+
+# AV
+
+            # All off
+
+            # TV on
+            # Blu-ray on
+            # Kodi on
+
+            # CCTV
+            # Wii
+            # Xbox
+
+            # 3D
+            # up / down / left / right / OK / back
+            # Vol + / Vol -
+
+# Blu-ray
+
+
+            # Play / Pause / FF / Rew
+            # up / down / left / right / OK / back
+            # Info / Menu
+            # Vol + / Vol -
+
+
+# CCTV
+
+            # up / down / left / right / OK / back
+
 
 script: !include ../../extras/includes/tiles/script.yaml
 
 input_boolean:
-  remote_masterbed_radio:
+  remote_bedroom_radio:
   
   remote_boys_radio:
 
@@ -56,7 +96,7 @@ group:
   tiles_bedroom:
     name: Bedroom
     entities:
-      - input_select.master_bedroom_scenes
+      - input_select.bedroom_scenes
       - input_text.bedroom
       - input_number.volume_bedroom
 
@@ -78,13 +118,13 @@ group:
      - input_number.volume_girls
 
 automation:
-  - alias: 'remote radio masterbed on'
+  - alias: 'remote radio bedroom on'
     trigger:
       platform: state
-      entity_id: input_boolean.remote_masterbed_radio
+      entity_id: input_boolean.remote_bedroom_radio
       to: 'on'
     action:
-      service: script.remote_masterbed_radio
+      service: script.remote_bedroom_radio
 
   - alias: 'remote radio boys on'
     trigger:
@@ -102,10 +142,10 @@ automation:
     action:
       service: script.remote_girls_radio
 
-  - alias: 'remote radio masterbed off'
+  - alias: 'remote radio bedroom off'
     trigger:
       platform: state
-      entity_id: input_boolean.remote_masterbed_radio
+      entity_id: input_boolean.remote_bedroom_radio
       to: 'off'
     action:
       service: media_player.turn_off

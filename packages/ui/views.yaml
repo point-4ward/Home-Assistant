@@ -14,7 +14,7 @@ homeassistant:
     group.media:
       order: 2
 
-    group.master_bedroom:
+    group.bedroom:
       order: 3
 
     group.boys_room:
@@ -47,13 +47,13 @@ group:
       - group.chromecast_groups
       - group.chromecast_rooms
 
-  master_bedroom:
+  bedroom:
     view: yes
-    name: Master Bedroom
+    name: Bedroom
     icon: mdi:hotel
     entities:
       - group.tiles_bedroom
-      - group.masterbed_alarm_clock
+      - group.bedroom_alarm_clock
 
   boys_room:
     view: yes

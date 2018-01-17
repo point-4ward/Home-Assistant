@@ -22,7 +22,7 @@ entities:
     icon: mdi:hot-tub
     column: 3
     row: 1
-  - entity: light.master_bedroom
+  - entity: light.bedroom
     icon: mdi:hotel
     column: 4
     row: 1
@@ -39,7 +39,7 @@ entities:
 #    icon: mdi:human-female
 #    column: 3
 #    row: 2
-  - entity: script.remote_masterbed_bright
+  - entity: script.remote_bedroom_bright
     icon: mdi:hotel
     label: Bright
     column: 4
@@ -60,7 +60,7 @@ entities:
     icon: mdi:human-female
     column: 3
     row: 3
-  - entity: script.remote_masterbed_relax
+  - entity: script.remote_bedroom_relax
     icon: mdi:hotel
     label: Relax
     column: 4
@@ -81,7 +81,7 @@ entities:
     icon: mdi:human-female
     column: 3
     row: 4
-  - entity: script.remote_masterbed_dim
+  - entity: script.remote_bedroom_dim
     label: Dim
     icon: mdi:hotel
     column: 4
@@ -102,7 +102,7 @@ entities:
     icon: mdi:human-female
     column: 3
     row: 5
-  - entity: script.remote_masterbed_nightlight
+  - entity: script.remote_bedroom_nightlight
     label: Night
     icon: mdi:hotel
     column: 4

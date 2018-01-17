@@ -95,7 +95,7 @@ automation:
         entity_id: light.living_room
       - service: script.set_hue_scene
         data:
-          group: "Master Bedroom"
+          group: "Bedroom"
           scene: "Relax"
       - delay: 00:03:00
       # - Do a nighttime briefing

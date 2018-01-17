@@ -31,11 +31,11 @@ automation:
         command: '/Bedroom'
     action:
       - service: homeassistant.toggle
-        entity_id: light.master_bedroom
+        entity_id: light.bedroom
       - service: telegram_bot.send_message
         data_template:
           target: '{{ trigger.event.data.user_id }}'
-          message: 'Bedroom lights have been turned {{states.light.master_bedroom.state}}.'
+          message: 'Bedroom lights have been turned {{states.light.bedroom.state}}.'
 
   - alias: 'Telegram set all lights on'
     trigger:

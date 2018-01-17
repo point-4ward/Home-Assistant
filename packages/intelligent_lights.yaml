@@ -71,7 +71,7 @@ automation:
     action:
       service: script.set_hue_scene
       data_template:
-        group: "Master Bedroom"
+        group: "Bedroom"
         scene: "Relax"
 
   - alias: 'Media player playing (lights)'
