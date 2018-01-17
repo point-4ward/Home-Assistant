@@ -20,9 +20,20 @@ homeassistant:
   customize:
     group.all_automations:
       hidden: false
+      confirm_controls_show_lock: true
 
     sensor.home_status:
       icon: mdi:home-map-marker
+
+    input_boolean.away_mode:
+      hide_control: true
+      extra_badge:
+        entity_id: input_boolean.away_mode
+
+    input_boolean.holiday_mode:
+      hide_control: true
+      extra_badge:
+        entity_id: input_boolean.holiday_mode
 
 
 device_tracker:

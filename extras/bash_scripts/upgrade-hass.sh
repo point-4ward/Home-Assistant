@@ -8,6 +8,7 @@
 ###########################################
 
 cd /home/hass/.homeassistant/
+./update.sh
 git checkout master
 git branch -D upload
 git fetch origin master
