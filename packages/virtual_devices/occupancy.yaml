@@ -129,18 +129,6 @@ alert:
     notifiers:
       - mf
 
-  unknown_occupier_alert:
-    name: The occupier is unknown
-    done_message: Fixed unknown occupier
-    entity_id: sensor.tracker_status
-    state: 'Unknown'
-    repeat:
-      - 1
-      - 60
-    skip_first: true
-    notifiers:
-      - mf
-
 
 automation:
   - alias: 'Reset occupancy booleans'
