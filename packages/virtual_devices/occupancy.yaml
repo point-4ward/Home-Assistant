@@ -11,6 +11,12 @@
 
 
 homeassistant:
+  customize_glob:
+    "*.*":
+      custom_ui_state_card: state-card-custom-ui
+    group.phone_trackers:
+      state_card_mode: badges
+
   customize:
     group.all_automations:
       hidden: false
@@ -84,6 +90,7 @@ group:
     name: Occupancy
     control: hidden
     entities:
+      - group.phone_trackers
       - alarm_control_panel.alarm
       - sensor.home_status
       - input_boolean.guest_mode

@@ -44,6 +44,10 @@ frontend:
     - /local/custom_ui/state-card-tiles.html
 
 
+customizer:
+  custom_ui: hosted
+
+
 automation:
   - alias: Set UI theme
     trigger:
