@@ -19,7 +19,7 @@ entities:
     column: 2
     row: 1
   - entity: light.bathroom
-    icon: mdi:basket-fill
+    icon: mdi:hot-tub
     column: 3
     row: 1
   - entity: light.master_bedroom
