@@ -10,19 +10,19 @@ columns: 5
 column_width: 75px
 row_height: 75px
 entities:
-  - entity: light.master_bedroom
+  - entity: light.bedroom
     icon: mdi:lightbulb
     column: 1
-  - entity: script.remote_masterbed_bright
+  - entity: script.remote_bedroom_bright
     label: Bright
     column: 2
-  - entity: script.remote_masterbed_relax
+  - entity: script.remote_bedroom_relax
     label: Relax
     column: 3
-  - entity: script.remote_masterbed_dim
+  - entity: script.remote_bedroom_dim
     label: Dim
     column: 4
-  - entity: script.remote_masterbed_nightlight
+  - entity: script.remote_bedroom_nightlight
     label: Night
     column: 5
           
@@ -39,27 +39,27 @@ entities:
     label: Romance
     column: 4
     row: 2
-  - entity: script.masterbed_empty
+  - entity: script.bedroom_empty
     label: Empty
     column: 5
     row: 2
 
-  - entity: script.remote_masterbed_alarm_earlies
+  - entity: script.remote_bedroom_alarm_earlies
     label: '5.30'
     icon: mdi:alarm
     column: 1
     row: 3
-  - entity: script.remote_masterbed_alarm_school
+  - entity: script.remote_bedroom_alarm_school
     label: '7.30'
     icon: mdi:alarm
     column: 2
     row: 3
-  - entity: script.remote_masterbed_alarm_day
+  - entity: script.remote_bedroom_alarm_day
     label: '8.30'
     icon: mdi:alarm
     column: 3
     row: 3
-  - entity: input_boolean.remote_masterbed_radio
+  - entity: input_boolean.remote_bedroom_radio
     label: Radio
     column: 4
     row: 3

@@ -59,35 +59,35 @@ remote_radio_off:
     - service: switch.turn_off
       entity_id: switch.google_music
 
-remote_masterbed_bright:
+remote_bedroom_bright:
   sequence:
     - service: script.set_hue_scene
       data:
-        group: "Master Bedroom"
+        group: "Bedroom"
         scene: "Bright"
 
-remote_masterbed_relax:
+remote_bedroom_relax:
   sequence:
     - service: script.set_hue_scene
       data:
-        group: "Master Bedroom"
+        group: "Bedroom"
         scene: "Relax"
 
-remote_masterbed_dim:
+remote_bedroom_dim:
   sequence:
     - service: script.set_hue_scene
       data:
-        group: "Master Bedroom"
+        group: "Bedroom"
         scene: "Dimmed"
 
-remote_masterbed_nightlight:
+remote_bedroom_nightlight:
   sequence:
     - service: script.set_hue_scene
       data:
-        group: "Master Bedroom"
+        group: "Bedroom"
         scene: "Nightlight"
 
-remote_masterbed_radio:
+remote_bedroom_radio:
   sequence:
     - service: media_player.play_media
       data:
@@ -111,13 +111,13 @@ remote_girls_radio:
         media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
         media_content_type: 'audio/mp4'
 
-remote_masterbed_alarm_earlies:
+remote_bedroom_alarm_earlies:
   sequence:
 
-remote_masterbed_alarm_school:
+remote_bedroom_alarm_school:
   sequence:
 
-remote_masterbed_alarm_day:
+remote_bedroom_alarm_day:
   sequence:
 
 remote_boys_alarm:

@@ -6,7 +6,7 @@
 
 
 input_select:
-  master_bedroom_scenes:
+  bedroom_scenes:
     name: Scenes
     options:
       - Select
@@ -81,29 +81,29 @@ script:
 
 
 automation:
-  - alias: reset_scene_selector master_bedroom
+  - alias: reset_scene_selector bedroom
     trigger:
       platform: state
-      entity_id: light.master_bedroom
+      entity_id: light.bedroom
       to: 'off'
     condition:
       condition: template
-      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
+      value_template: "{{ not is_state('input_select.bedroom_scenes' ,'Select') }}"
     action:
       service: input_select.select_option
       data:
-        entity_id: input_select.master_bedroom_scenes
+        entity_id: input_select.bedroom_scenes
         option: Select
 
-  - alias: trigger_scene_master_bedroom
+  - alias: trigger_scene_bedroom
     trigger:
       platform: state
-      entity_id: input_select.master_bedroom_scenes
+      entity_id: input_select.bedroom_scenes
     condition:
       condition: template
-      value_template: "{{ not is_state('input_select.master_bedroom_scenes' ,'Select') }}"
+      value_template: "{{ not is_state('input_select.bedroom_scenes' ,'Select') }}"
     action:
       service: script.set_hue_scene
       data_template:
-        group: "Master Bedroom"
-        scene: '{{ states.input_select.master_bedroom_scenes.state }}'
+        group: "Bedroom"
+        scene: '{{ states.input_select.bedroom_scenes.state }}'

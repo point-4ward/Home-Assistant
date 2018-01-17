@@ -7,7 +7,7 @@
 
 script:
   lullaby:
-    alias: Lullaby Mode Masterbed
+    alias: Lullaby Mode bedroom
     sequence:
       - service: media_player.volume_set
         data:
@@ -20,7 +20,7 @@ script:
           media_content_type: 'audio/mp4'
       - service: hue.hue_activate_scene
         data:
-          group_name: "Master Bedroom"
+          group_name: "Bedroom"
           scene_name: "Nightlight"
       - service: light.turn_off
         entity_id: light.bedroom_stairs
@@ -43,18 +43,18 @@ script:
       - service: media_player.turn_off
         entity_id: media_player.bedroom
       - service: homeassistant.turn_off
-        entity_id: light.master_bedroom
+        entity_id: light.bedroom
 
 
   empty:
-    alias: Masterbed Empty
+    alias: bedroom Empty
     sequence:
       - service: homeassistant.turn_off
-        entity_id: light.master_bedroom
+        entity_id: light.bedroom
       - service: homeassistant.turn_off
         entity_id: switch.heater
       - service: homeassistant.turn_off
-        entity_id: input_boolean.remote_masterbed_radio
+        entity_id: input_boolean.remote_bedroom_radio
       - service: media_player.turn_off
         entity_id: media_player.bedroom
 

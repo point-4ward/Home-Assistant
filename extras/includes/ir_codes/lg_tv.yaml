@@ -61,6 +61,7 @@
 'lgtv_volume__plus':
   friendly_name: "LGTV_VOLUME +"
   command_on: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxISEjcSEhISEhISEhISEhISNxISEjcSNxI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
+  command_off: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxISEjcSEhISEhISEhISEhISNxISEjcSNxI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
   
 'lgtv_cursor_right___vol_plus':
   friendly_name: "LGTV_CURSOR RIGHT / VOL+"
@@ -81,6 +82,7 @@
 'lgtv_volume__':
   friendly_name: "LGTV_VOLUME -"
   command_on: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxI3EjcSEhISEhISEhISEhISEhISEjcSNxI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
+  command_off: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxI3EjcSEhISEhISEhISEhISEhISEjcSNxI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
   
 'lgtv_cursor_left___vol_':
   friendly_name: "LGTV_CURSOR LEFT / VOL-"
@@ -1037,4 +1039,3 @@
 'lgtv_adj':
   friendly_name: "LGTV_ADJ"
   command_on: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxI3EjcSNxI3EjcSNxI3EjcSEhISEhISEhISEhISEhISEgAFGgABKEoSAAxWDQUAAAAAAAA='
-  

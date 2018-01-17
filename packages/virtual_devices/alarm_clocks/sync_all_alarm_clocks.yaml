@@ -86,7 +86,7 @@ script:
       - service: input_number.set_value
         data_template: 
           entity_id:
-            - input_number.masterbed_alarm_clock_hour
+            - input_number.bedroom_alarm_clock_hour
           value: '{{states.input_number.all_alarm_clock_hour.state | float}}'
       - service: input_number.set_value
         data_template: 
@@ -106,7 +106,7 @@ script:
       - service: input_number.set_value
         data_template: 
           entity_id:
-            - input_number.masterbed_alarm_clock_minute
+            - input_number.bedroom_alarm_clock_minute
           value: '{{states.input_number.all_alarm_clock_minute.state | float}}'
       - service: input_boolean.turn_on
         data: 
@@ -114,11 +114,11 @@ script:
             - input_boolean.downstairs_alarm_clock_status
             - input_boolean.boys_alarm_clock_status
             - input_boolean.girls_alarm_clock_status
-            - input_boolean.masterbed_alarm_clock_status
+            - input_boolean.bedroom_alarm_clock_status
       - service: input_boolean.turn_off
         data:
           entity_id:
             - input_boolean.downstairs_alarm_clock_repeat
             - input_boolean.boys_alarm_clock_repeat
             - input_boolean.girls_alarm_clock_repeat
-            - input_boolean.masterbed_alarm_clock_repeat
+            - input_boolean.bedroom_alarm_clock_repeat
