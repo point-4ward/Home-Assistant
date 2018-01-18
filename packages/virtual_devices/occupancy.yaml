@@ -11,10 +11,16 @@
 
 
 homeassistant:
+  customize_glob:
+    "automation.*":
+      confirm_controls_show_lock: true
+
   customize:
     group.all_automations:
       hidden: false
-      confirm_controls_show_lock: true
+      hide_control: true
+      extra_badge:
+        entity_id: group.all_automations
 
     group.phone_trackers:
       state_card_mode: badges
