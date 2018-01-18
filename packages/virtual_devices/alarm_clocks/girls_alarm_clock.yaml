@@ -13,63 +13,12 @@
 ########################################################################
 
 
-homeassistant:
-  customize:
-    sensor.girls_alarm_clock_time:
-      friendly_name: 'Alarm Time'
-      icon: mdi:alarm
-
-
-input_number:
-  girls_alarm_clock_hour:
-    name: Hour
-    icon: mdi:timer
-    min: 0
-    max: 23
-    step: 1
-
-  girls_alarm_clock_minute:
-    name: Minute
-    icon: mdi:timer
-    min: 0
-    max: 55
-    step: 5
-
-
-sensor:
-  - platform: template
-    sensors:
-      girls_alarm_clock_hour:
-        value_template: '{{ states.input_number.girls_alarm_clock_hour.state | int }}'
-
-      girls_alarm_clock_minute:
-        value_template: '{{ states.input_number.girls_alarm_clock_minute.state | int }}'
-
-      girls_alarm_clock_time:
-        value_template: >-
-          {{ states.sensor.girls_alarm_clock_hour.state }}:
-          {%- if states.sensor.girls_alarm_clock_minute.state|length == 1 -%}
-            0
-          {%- endif -%}
-            {{ states.sensor.girls_alarm_clock_minute.state }}
-
-      girls_alarm_clock_time_long:
-        value_template: >-
-          {% if states.sensor.girls_alarm_clock_hour.state|length == 1 -%}
-            0
-          {%- endif -%}
-            {{ states.sensor.girls_alarm_clock_hour.state }}:
-          {%- if states.sensor.girls_alarm_clock_minute.state|length == 1 -%}
-            0
-          {%- endif -%}
-            {{ states.sensor.girls_alarm_clock_minute.state }}
-
-
-#input_datetime:
-#  girls_alarm_clock_time:
-#    name: Alarm Time
-#    has_date: false
-#    has_time: true
+input_datetime:
+  girls_alarm_clock_time:
+    name: Alarm Time
+    has_date: false
+    has_time: true
+    initial: '07:30'
 
 
 input_boolean:
@@ -96,12 +45,8 @@ group:
     control: hidden
     name: 'Alarm Clock'
     entities:
-      - input_select.girls_alarm_sound
       - input_boolean.girls_alarm_clock_status
-      - sensor.girls_alarm_clock_time
-#      - input_datetime.girls_alarm_clock_time
-      - input_number.girls_alarm_clock_hour
-      - input_number.girls_alarm_clock_minute
+      - input_datetime.girls_alarm_clock_time
       - input_boolean.girls_alarm_clock_repeat
 
 
@@ -110,8 +55,7 @@ automation:
   initial_state: 'on'
   trigger:
     platform: template
-    value_template: '{{ states.sensor.time.state == states.sensor.girls_alarm_clock_time_long.state }}'
-    #'{{ states.sensor.time.state == states.input_datetime.girls_alarm_clock_time.state }}'
+    value_template: '{{ states.sensor.time.state == (states.input_datetime.girls_alarm_clock_time.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
   condition:
     condition: and
     conditions:

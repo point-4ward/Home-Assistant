@@ -90,21 +90,21 @@ automation:
             keyboard:
               - '/status'
               - '/maintenance'
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: sensor.home_status
-            state: 'Occupied'
-          - condition: or
-            conditions:
-              - condition: time
-                after: '07:30:00'
-              - condition: time
-                before: '22:00:00'
-      - service: tts.google_say
-        entity_id: media_player.downstairs
-        data:
-          message: 'The system is online.'
+      # - condition: and
+        # conditions:
+          # - condition: state
+            # entity_id: sensor.home_status
+            # state: 'Occupied'
+          # - condition: or
+            # conditions:
+              # - condition: time
+                # after: '07:30:00'
+              # - condition: time
+                # before: '22:00:00'
+      # - service: tts.google_say
+        # entity_id: media_player.downstairs
+        # data:
+          # message: 'The system is online.'
 
   - alias: Alert when a critical device goes offline
     initial_state: 'on'
