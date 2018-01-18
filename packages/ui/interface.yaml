@@ -50,6 +50,7 @@ customizer:
 
 automation:
   - alias: Set UI theme
+    initial_state: 'on'
     trigger:
       - platform: homeassistant
         event: start

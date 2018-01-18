@@ -31,6 +31,7 @@ input_boolean:
 
 automation:
   - alias: 'Alexa Show TV'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.show_tv
@@ -39,6 +40,7 @@ automation:
       service: script.remote_show_tv
 
   - alias: 'Alexa Show CCTV'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.show_cctv
@@ -47,6 +49,7 @@ automation:
       service: script.remote_show_cctv
 
   - alias: 'Alexa TV off'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.tv_off
@@ -55,6 +58,7 @@ automation:
       service: script.remote_tv_off
 
   - alias: 'Alexa play radio'
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: input_boolean.radio_downstairs
@@ -82,6 +86,7 @@ automation:
         entity_id: input_boolean.radio_everywhere
 
   - alias: 'Alexa bedtime mode'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.bedtime_mode

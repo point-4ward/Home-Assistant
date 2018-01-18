@@ -10,6 +10,7 @@
 
 automation:
   - alias: 'Lights off when daylight'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.dark_outside
@@ -23,6 +24,7 @@ automation:
       entity_id: group.all_lights
 
   - alias: 'Lights on when dark - already home'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.dark_outside
@@ -37,6 +39,7 @@ automation:
       - service: script.landing_light_scene
 
   - alias: 'Lights on when dark - arriving home'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.home_status
@@ -51,6 +54,7 @@ automation:
       - service: script.landing_light_scene
 
   - alias: 'Landing light night mode'
+    initial_state: 'on'
     trigger:
       - platform: time
         at: '21:31:00'
@@ -64,6 +68,7 @@ automation:
       service: script.landing_light_scene
 
   - alias: bedtime lights
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.living_room_switch
@@ -75,6 +80,7 @@ automation:
         scene: "Relax"
 
   - alias: 'Media player playing'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: media_player.living_room_kodi
@@ -96,6 +102,7 @@ automation:
       entity_id: scene.livingroom_movie
 
   - alias: 'Media player stopped'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: media_player.living_room_kodi
@@ -109,6 +116,7 @@ automation:
       entity_id: scene.livingroom_bright
 
   - alias: 'Media player paused'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: media_player.living_room_kodi

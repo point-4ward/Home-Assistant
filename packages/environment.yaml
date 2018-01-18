@@ -84,6 +84,7 @@ input_boolean:
 
 automation:
   - alias: 'sun going up'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunrise
@@ -93,6 +94,7 @@ automation:
       entity_id: input_boolean.sunset_offset
 
   - alias: 'sun going down'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunset

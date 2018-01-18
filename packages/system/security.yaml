@@ -33,6 +33,7 @@ binary_sensor:
 
 automation:
   - alias: 'Doorbell test'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: home-assistant/doorbell
@@ -43,6 +44,7 @@ automation:
         message: 'Doorbell test'
 
   - alias: 'Send notification upon failed login attempt'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: persistent_notification.httplogin
@@ -55,6 +57,7 @@ automation:
         message: "{{ trigger.to_state.state }}"
 
   - alias: 'Breach email haveibeenpwned cf'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_cf
@@ -65,6 +68,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on CF email address'
 
   - alias: 'Breach email haveibeenpwned hass'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_hass
@@ -75,6 +79,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on your HA email address'
 
   - alias: 'Breach email haveibeenpwned df'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_df
@@ -85,6 +90,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on DF email address'
 
   - alias: 'Breach email haveibeenpwned ls'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_ls
@@ -95,6 +101,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on LS email address'
 
   - alias: 'Breach email haveibeenpwned vf'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_vf
@@ -105,6 +112,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on VF email address'
     
   - alias: 'Breach email haveibeenpwned social'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_social
@@ -115,6 +123,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on your social email address'
 
   - alias: 'Breach email haveibeenpwned run'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_run
@@ -125,6 +134,7 @@ automation:
         message: 'Warning - HaveIbeenPwned detected a breach on your admin/run email address'
         
   - alias: 'Breach email haveibeenpwned personal'
+    initial_state: 'on'
     trigger:
       platform: numeric_state
       entity_id: !secret sensor_email_personal

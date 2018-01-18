@@ -13,7 +13,6 @@ homeassistant:
     "weblink.*":
       icon: mdi:web
 
-
   customize:
     input_text.github_message:
       icon: mdi:pencil
