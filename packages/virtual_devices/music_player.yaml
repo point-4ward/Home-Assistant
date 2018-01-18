@@ -136,7 +136,7 @@ automation:
         entity_id: 'media_player.{{states.input_select.media_player.state}}'
         volume_level: '{{  states.input_number.volume_radio.state  }}'
 
-  - alias: "Stop music"
+  - alias: 'Stop music'
     trigger:
       - platform: state
         entity_id: input_boolean.play_radio
@@ -170,7 +170,7 @@ automation:
           entity_id: input_number.volume_radio
           value: 0.20
 
-  - alias 'Stop if media player stops'
+  - alias: 'Stop if media player stops'
     trigger:
       - platform: state
         entity_id: group.chromecast_groups
