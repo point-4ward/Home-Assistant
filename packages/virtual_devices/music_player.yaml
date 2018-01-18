@@ -215,3 +215,4 @@ automation:
       service: input_number.set_value
       data_template:
         entity_id: 'input_number.volume_{{states.input_select.media_player.state}}'
+        value: '{{states.input_number.volume_radio.state}}'
