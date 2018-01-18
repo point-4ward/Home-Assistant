@@ -31,19 +31,19 @@ script:
       - service: input_datetime.set_datetime
         data_template: 
           entity_id: input_datetime.downstairs_alarm_clock_time
-          value: '{{states.input_datetime.sync_datetime.state}}'
+          time: '{{states.input_datetime.sync_datetime.state}}'
       - service: input_datetime.set_datetime
         data_template: 
           entity_id: input_datetime.boys_alarm_clock_time
-          value: '{{states.input_datetime.sync_datetime.state}}'
+          time: '{{states.input_datetime.sync_datetime.state}}'
       - service: input_datetime.set_datetime
         data_template: 
           entity_id: input_datetime.girls_alarm_clock_time
-          value: '{{states.input_datetime.sync_datetime.state}}'
+          time: '{{states.input_datetime.sync_datetime.state}}'
       - service: input_datetime.set_datetime
         data_template: 
           entity_id: input_datetime.bedroom_alarm_clock_time
-          value: '{{states.input_datetime.sync_datetime.state}}'
+          time: '{{states.input_datetime.sync_datetime.state}}'
       - service: input_boolean.turn_on
         data: 
           entity_id:
