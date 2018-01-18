@@ -107,28 +107,28 @@ group:
 
 
 automation:
-  - alias: 'bedroom light on and play music'
-    trigger:
-      platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.bedroom_alarm_clock_time_long.state }}'
-      #'{{ states.sensor.time.state == states.input_datetime.bedroom_alarm_clock_time.state }}'
-    condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: group.phone_trackers
-          state: 'home'
-        - condition: state
-          entity_id: input_boolean.bedroom_alarm_clock_status
-          state: 'on'
-    action:
-      - service: script.bedroom_wake_up
+  alias: 'bedroom light on and play music'
+  initial_state: 'on'  
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.bedroom_alarm_clock_time_long.state }}'
+    #'{{ states.sensor.time.state == states.input_datetime.bedroom_alarm_clock_time.state }}'
+  condition:
+    condition: and
+    conditions:
       - condition: state
-        entity_id: input_boolean.bedroom_alarm_clock_repeat
-        state: 'off'
-      - service: input_boolean.turn_off
-        data:
-          entity_id: input_boolean.bedroom_alarm_clock_status
+        entity_id: group.phone_trackers
+        state: 'home'
+      - condition: state
+        entity_id: input_boolean.bedroom_alarm_clock_status
+        state: 'on'
+  action:
+    - service: script.bedroom_wake_up
+    - condition: state
+      entity_id: input_boolean.bedroom_alarm_clock_repeat
+      state: 'off'
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.bedroom_alarm_clock_status
 
 
 script:

@@ -240,6 +240,7 @@ group:
 
 automation:
   - alias: "set volume media player downstairs"
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_downstairs
@@ -250,6 +251,7 @@ automation:
         volume_level: '{{  states.input_number.downstairs_media.state | float  }}'
 
   - alias: "set volume media player everywhere"
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: input_number.volume_everywhere
@@ -262,6 +264,7 @@ automation:
         volume_level: '{{  states.input_number.everywhere_media.state | float }}'
 
   - alias: "set volume media player livingroom"
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_livingroom
@@ -272,6 +275,7 @@ automation:
         volume_level: '{{  states.input_number.livingroom_media.state | float }}'
 
   - alias: "set volume media player kitchen"
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_kitchen
@@ -282,6 +286,7 @@ automation:
         volume_level: '{{  states.input_number.kitchen_media.state | float }}'
 
   - alias: "set volume media player bedroom"
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_bedroom
@@ -292,6 +297,7 @@ automation:
         volume_level: '{{  states.input_number.bedroom_media.state | float }}'
 
   - alias: "set volume media player boys"
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_boys
@@ -302,6 +308,7 @@ automation:
         volume_level: '{{  states.input_number.boys_media.state | float }}'
 
   - alias: "set volume media player girls"
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_girls

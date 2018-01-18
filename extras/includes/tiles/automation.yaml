@@ -1,4 +1,13 @@
+#########################################
+#                                       #
+# This include contains the automations #
+# used by the tile cards                #
+#                                       #
+#########################################
+
+
 - alias: 'remote radio bedroom on'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.remote_bedroom_radio
@@ -7,6 +16,7 @@
     service: script.remote_bedroom_radio
 
 - alias: 'remote radio boys on'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.remote_boys_radio
@@ -15,6 +25,7 @@
     service: script.remote_boys_radio
 
 - alias: 'remote radio girls on'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.remote_girls_radio
@@ -23,6 +34,7 @@
     service: script.remote_girls_radio
 
 - alias: 'remote radio bedroom off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.remote_bedroom_radio
@@ -32,6 +44,7 @@
     entity_id: media_player.bedroom
 
 - alias: 'remote radio boys off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.remote_boys_radio
@@ -41,6 +54,7 @@
     entity_id: media_player.boys
 
 - alias: 'remote radio girls off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.remote_girls_radio

@@ -19,6 +19,5 @@ homeassistant:
   customize_glob:
     "*.*":
       custom_ui_state_card: state-card-custom-ui
-  customize_domain:
-    automation:
-      initial_state: 'on'
+
+python_script:

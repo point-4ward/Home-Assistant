@@ -10,6 +10,7 @@
 
 automation:
   - alias: 'Telegram reply with Status'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: telegram_command
@@ -46,6 +47,7 @@ automation:
         keyboard: ["/lights, /occupancy", "/menu"]
 
   - alias: 'Telegram reply with Occupancy'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: telegram_command
@@ -67,6 +69,7 @@ automation:
         keyboard: ["/away, /holiday" , "/guest, /lights", "/menu"]
     
   - alias: 'Telegram reply with Menu'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: telegram_command
@@ -80,6 +83,7 @@ automation:
         keyboard: ["/lights, /occupancy", "/status"]
 
   - alias: 'Telegram reply with Lights'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: telegram_command

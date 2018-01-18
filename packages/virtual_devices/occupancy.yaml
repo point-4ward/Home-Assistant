@@ -17,11 +17,14 @@ homeassistant:
 
   customize:
     group.all_automations:
+      friendly_name: Automations
+      icon: mdi:home-automation
       hidden: false
       hide_control: true
       confirm_controls_show_lock: true
       extra_badge:
-        entity_id: group.all_automations
+        - entity_id: sensor.automation_on
+        - entity_id: sensor.automation_all
 
     group.phone_trackers:
       state_card_mode: badges
@@ -139,6 +142,7 @@ alert:
 
 automation:
   - alias: 'Reset occupancy booleans'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: group.phone_trackers
@@ -152,6 +156,7 @@ automation:
         entity_id: input_boolean.holiday_mode
 
   - alias: 'Reset occupancy booleans - guest'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.guest_mode
@@ -165,6 +170,7 @@ automation:
         entity_id: input_boolean.away_mode
     
   - alias: 'Nobody home'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: sensor.home_status
@@ -182,6 +188,7 @@ automation:
         entity_id: input_boolean.away_mode
     
   - alias: 'Set Holiday Mode'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.away_mode
@@ -195,6 +202,7 @@ automation:
         entity_id: input_boolean.away_mode
 
   - alias: 'New trackable device detected'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: device_tracker_new_device

@@ -33,6 +33,7 @@ group:
 
 automation:
   - alias: 'timer set'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.timer_minutes
@@ -47,6 +48,7 @@ automation:
         entity_id: timer.quick_timer
       
   - alias: 'timer expired'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: timer.finished
