@@ -11,10 +11,16 @@
 
 
 homeassistant:
+  customize_glob:
+    "automation.*":
+      confirm_controls_show_lock: true
+
   customize:
     group.all_automations:
       hidden: false
-      confirm_controls_show_lock: true
+      hide_control: true
+      extra_badge:
+        entity_id: group.all_automations
 
     group.phone_trackers:
       state_card_mode: badges
@@ -125,18 +131,6 @@ alert:
     repeat:
       - 240
       - 120
-    skip_first: true
-    notifiers:
-      - mf
-
-  unknown_occupier_alert:
-    name: The occupier is unknown
-    done_message: Fixed unknown occupier
-    entity_id: sensor.tracker_status
-    state: 'Unknown'
-    repeat:
-      - 1
-      - 60
     skip_first: true
     notifiers:
       - mf

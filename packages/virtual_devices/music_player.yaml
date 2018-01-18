@@ -169,3 +169,34 @@ automation:
         data_template:
           entity_id: input_number.volume_radio
           value: 0.20
+
+  - alias 'Stop if media player stops'
+    trigger:
+      - platform: state
+        entity_id: group.chromecast_groups
+        to: 'off'
+      - platform: state
+        entity_id: group.chromecast_rooms
+        to: 'off'
+    condition:
+      condition: and
+      conditions:
+        - platform: state
+          entity_id: group.chromecast_groups
+          state: 'off'
+        - platform: state
+          entity_id: group.chromecast_rooms
+          state: 'off'
+        - condition: or
+          conditions:
+            - platform: state
+              entity_id: input_boolean.play_radio
+              state: 'on'
+            - platform: state
+              entity_id: switch.google_music
+              state: 'on'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.play_radio
+      - service: homeassistant.turn_off
+        entity_id: switch.google_music

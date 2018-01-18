@@ -1,0 +1,50 @@
+- alias: 'remote radio bedroom on'
+  trigger:
+    platform: state
+    entity_id: input_boolean.remote_bedroom_radio
+    to: 'on'
+  action:
+    service: script.remote_bedroom_radio
+
+- alias: 'remote radio boys on'
+  trigger:
+    platform: state
+    entity_id: input_boolean.remote_boys_radio
+    to: 'on'
+  action:
+    service: script.remote_boys_radio
+
+- alias: 'remote radio girls on'
+  trigger:
+    platform: state
+    entity_id: input_boolean.remote_girls_radio
+    to: 'on'
+  action:
+    service: script.remote_girls_radio
+
+- alias: 'remote radio bedroom off'
+  trigger:
+    platform: state
+    entity_id: input_boolean.remote_bedroom_radio
+    to: 'off'
+  action:
+    service: media_player.turn_off
+    entity_id: media_player.bedroom
+
+- alias: 'remote radio boys off'
+  trigger:
+    platform: state
+    entity_id: input_boolean.remote_boys_radio
+    to: 'off'
+  action:
+    service: media_player.turn_off
+    entity_id: media_player.boys
+
+- alias: 'remote radio girls off'
+  trigger:
+    platform: state
+    entity_id: input_boolean.remote_girls_radio
+    to: 'off'
+  action:
+    service: media_player.turn_off
+    entity_id: media_player.girls

@@ -6,7 +6,7 @@
 
 
 script:
-  lullaby:
+  lullaby_bedroom:
     alias: Lullaby Mode bedroom
     sequence:
       - service: media_player.volume_set
@@ -46,7 +46,7 @@ script:
         entity_id: light.bedroom
 
 
-  empty:
+  empty_bedroom:
     alias: bedroom Empty
     sequence:
       - service: homeassistant.turn_off
@@ -58,5 +58,5 @@ script:
       - service: media_player.turn_off
         entity_id: media_player.bedroom
 
-  romance:
+  romance_bedroom:
     sequence:

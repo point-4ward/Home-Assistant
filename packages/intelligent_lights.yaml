@@ -74,7 +74,7 @@ automation:
         group: "Bedroom"
         scene: "Relax"
 
-  - alias: 'Media player playing (lights)'
+  - alias: 'Media player playing'
     trigger:
       platform: state
       entity_id: media_player.living_room_kodi
@@ -95,7 +95,7 @@ automation:
       service: scene.turn_on
       entity_id: scene.livingroom_movie
 
-  - alias: 'Media player stopped (lights)'
+  - alias: 'Media player stopped'
     trigger:
       platform: state
       entity_id: media_player.living_room_kodi
@@ -108,7 +108,7 @@ automation:
       service: scene.turn_on
       entity_id: scene.livingroom_bright
 
-  - alias: 'Media player paused (lights)'
+  - alias: 'Media player paused'
     trigger:
       platform: state
       entity_id: media_player.living_room_kodi

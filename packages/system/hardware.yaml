@@ -242,7 +242,7 @@ automation:
   - alias: "set volume media player downstairs"
     trigger:
       platform: state
-      entity_id: input_number.downstairs_media
+      entity_id: input_number.volume_downstairs
     action:
       service: media_player.volume_set
       data_template:
@@ -252,7 +252,7 @@ automation:
   - alias: "set volume media player everywhere"
     trigger:
       - platform: state
-        entity_id: input_number.everywhere_media
+        entity_id: input_number.volume_everywhere
       - platform: homeassistant
         event: start
     action:
@@ -264,7 +264,7 @@ automation:
   - alias: "set volume media player livingroom"
     trigger:
       platform: state
-      entity_id: input_number.livingroom_media
+      entity_id: input_number.volume_livingroom
     action:
       service: media_player.volume_set
       data_template:
@@ -274,7 +274,7 @@ automation:
   - alias: "set volume media player kitchen"
     trigger:
       platform: state
-      entity_id: input_number.kitchen_media
+      entity_id: input_number.volume_kitchen
     action:
       service: media_player.volume_set
       data_template:
@@ -284,7 +284,7 @@ automation:
   - alias: "set volume media player bedroom"
     trigger:
       platform: state
-      entity_id: input_number.bedroom_media
+      entity_id: input_number.volume_bedroom
     action:
       service: media_player.volume_set
       data_template:
@@ -294,7 +294,7 @@ automation:
   - alias: "set volume media player boys"
     trigger:
       platform: state
-      entity_id: input_number.boys_media
+      entity_id: input_number.volume_boys
     action:
       service: media_player.volume_set
       data_template:
@@ -304,7 +304,7 @@ automation:
   - alias: "set volume media player girls"
     trigger:
       platform: state
-      entity_id: input_number.girls_media
+      entity_id: input_number.volume_girls
     action:
       service: media_player.volume_set
       data_template:
