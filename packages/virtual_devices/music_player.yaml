@@ -205,3 +205,13 @@ automation:
         entity_id: input_boolean.play_radio
       - service: homeassistant.turn_off
         entity_id: switch.google_music
+
+  - alias: 'Synchronise volume sliders'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: input_number.volume_radio
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: 'input_number.volume_{{states.input_select.media_player.state}}'

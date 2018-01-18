@@ -248,7 +248,7 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.downstairs
-        volume_level: '{{  states.input_number.downstairs_media.state | float  }}'
+        volume_level: '{{  states.input_number.volume_downstairs.state | float  }}'
 
   - alias: "set volume media player everywhere"
     initial_state: 'on'
@@ -261,7 +261,7 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.everywhere
-        volume_level: '{{  states.input_number.everywhere_media.state | float }}'
+        volume_level: '{{  states.input_number.volume_everywhere.state | float }}'
 
   - alias: "set volume media player livingroom"
     initial_state: 'on'
@@ -272,7 +272,7 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.livingroom
-        volume_level: '{{  states.input_number.livingroom_media.state | float }}'
+        volume_level: '{{  states.input_number.volume_livingroom.state | float }}'
 
   - alias: "set volume media player kitchen"
     initial_state: 'on'
@@ -283,7 +283,7 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.kitchen
-        volume_level: '{{  states.input_number.kitchen_media.state | float }}'
+        volume_level: '{{  states.input_number.volume_kitchen.state | float }}'
 
   - alias: "set volume media player bedroom"
     initial_state: 'on'
@@ -294,7 +294,7 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.bedroom
-        volume_level: '{{  states.input_number.bedroom_media.state | float }}'
+        volume_level: '{{  states.input_number.volume_bedroom.state | float }}'
 
   - alias: "set volume media player boys"
     initial_state: 'on'
@@ -305,7 +305,7 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.boys
-        volume_level: '{{  states.input_number.boys_media.state | float }}'
+        volume_level: '{{  states.input_number.volume_boys.state | float }}'
 
   - alias: "set volume media player girls"
     initial_state: 'on'
@@ -316,4 +316,4 @@ automation:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.girls
-        volume_level: '{{  states.input_number.girls_media.state | float }}'
+        volume_level: '{{  states.input_number.volume_girls.state | float }}'
