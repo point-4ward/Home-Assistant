@@ -19,6 +19,7 @@ homeassistant:
     group.all_automations:
       hidden: false
       hide_control: true
+      confirm_controls_show_lock: true
       extra_badge:
         entity_id: group.all_automations
 
