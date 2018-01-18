@@ -11,63 +11,12 @@
 ########################################################################
 
 
-homeassistant:
-  customize:
-    sensor.downstairs_alarm_clock_time:
-      friendly_name: 'Alarm Time'
-      icon: mdi:alarm
-
-
-input_number:
-  downstairs_alarm_clock_hour:
-    name: Hour
-    icon: mdi:timer
-    min: 0
-    max: 23
-    step: 1
-
-  downstairs_alarm_clock_minute:
-    name: Minute
-    icon: mdi:timer
-    min: 0
-    max: 55
-    step: 5
-
-    
-sensor:
-  - platform: template
-    sensors:
-      downstairs_alarm_clock_hour:
-        value_template: '{{ states.input_number.downstairs_alarm_clock_hour.state | int }}'
-
-      downstairs_alarm_clock_minute:
-        value_template: '{{ states.input_number.downstairs_alarm_clock_minute.state | int }}'
-
-      downstairs_alarm_clock_time:
-        value_template: >-
-          {{ states.sensor.downstairs_alarm_clock_hour.state }}:
-          {%- if states.sensor.downstairs_alarm_clock_minute.state|length == 1 -%}
-            0
-          {%- endif -%}
-            {{ states.sensor.downstairs_alarm_clock_minute.state }}
-
-      downstairs_alarm_clock_time_long:
-        value_template: >-
-          {% if states.sensor.downstairs_alarm_clock_hour.state|length == 1 -%}
-            0
-          {%- endif -%}
-            {{ states.sensor.downstairs_alarm_clock_hour.state }}:
-          {%- if states.sensor.downstairs_alarm_clock_minute.state|length == 1 -%}
-            0
-          {%- endif -%}
-            {{ states.sensor.downstairs_alarm_clock_minute.state }}
-
-            
-#input_datetime:
-#  downstairs_alarm_clock_time:
-#    name: Alarm Time
-#    has_date: false
-#    has_time: true
+input_datetime:
+  downstairs_alarm_clock_time:
+    name: Alarm Time
+    has_date: false
+    has_time: true
+    initial: '07:30'
 
 
 input_boolean:
@@ -86,10 +35,7 @@ group:
     name: 'Alarm Clock'
     entities:
       - input_boolean.downstairs_alarm_clock_status
-      - sensor.downstairs_alarm_clock_time
-#      - input_datetime.downstairs_alarm_clock_time
-      - input_number.downstairs_alarm_clock_hour
-      - input_number.downstairs_alarm_clock_minute
+      - input_datetime.downstairs_alarm_clock_time
       - input_boolean.downstairs_alarm_clock_repeat
 
 
@@ -98,8 +44,7 @@ automation:
   initial_state: 'on'
   trigger:
     platform: template
-    value_template: '{{ states.sensor.time.state == states.sensor.downstairs_alarm_clock_time_long.state }}'
-    #'{{ states.sensor.time.state == states.input_datetime.downstairs_alarm_clock_time.state }}'
+    value_template: '{{ states.sensor.time.state == (states.input_datetime.downstairs_alarm_clock_time.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
   condition:
     condition: and
     conditions:
