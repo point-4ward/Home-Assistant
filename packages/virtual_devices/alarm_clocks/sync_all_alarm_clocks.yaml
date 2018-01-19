@@ -7,6 +7,11 @@
 ###########################################################
 
 
+homeassistant:
+  customize:
+    script.all_sync:
+      icon: mdi:clock-out
+
 input_datetime:
   sync_datetime:
     name: Alarm Time

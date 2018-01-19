@@ -7,6 +7,12 @@
 ###################################################
 
 
+timer:
+  quick_timer:
+    name: Quick Timer
+    icon: mdi:clock-end
+
+
 input_number:
   timer_minutes:
     name: Minutes
@@ -15,12 +21,6 @@ input_number:
     min: 0
     max: 60
     step: 1
-
-
-timer:
-  quick_timer:
-    name: Quick Timer
-    icon: mdi:clock-end
 
 
 group:

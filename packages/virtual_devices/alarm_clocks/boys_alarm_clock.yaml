@@ -6,9 +6,9 @@
 # - allows to select if one time alarm, or repeating                   #
 #                                                                      #
 #                                                                      #
-#         ******This one is for the Boys Bedroom******               #
+#         ******This one is for the Boys Bedroom******                 #
 #                                                                      #
-# DEPENDS ON: Environmental_sensors                                    #
+# DEPENDS ON: Environment and Occupancy                                #
 #                                                                      #
 ########################################################################
 

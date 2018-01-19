@@ -83,7 +83,7 @@ automation:
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: media_player.living_room_kodi
+      entity_id: media_player.kodi
       to: 'playing'
     condition:
       condition: and
@@ -94,9 +94,9 @@ automation:
         - condition: or
           conditions:
           - condition: template
-            value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "tvshow" }}'
+            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
           - condition: template
-            value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "movie" }}'
+            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
     action:
       service: scene.turn_on
       entity_id: scene.livingroom_movie
@@ -105,7 +105,7 @@ automation:
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: media_player.living_room_kodi
+      entity_id: media_player.kodi
       to: 'idle'
     condition:    
       condition: state
@@ -119,7 +119,7 @@ automation:
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: media_player.living_room_kodi
+      entity_id: media_player.kodi
       to: 'paused'
     condition:
       condition: and
@@ -130,9 +130,9 @@ automation:
         - condition: or
           conditions:
           - condition: template
-            value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "tvshow" }}'
+            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
           - condition: template
-            value_template: '{{ states.media_player.living_room_kodi.attributes.media_content_type == "movie" }}'
+            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
     action:
       service: scene.turn_on
       entity_id: scene.livingroom_bright

@@ -8,6 +8,8 @@
 #         ******This one is for the Living Room so******               #
 #         ******  doesn't worry about the lights  ******               #
 #                                                                      #
+#  DEPENDS ON: Occupancy                                               #
+#                                                                      #       
 ########################################################################
 
 
