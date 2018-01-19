@@ -6,10 +6,6 @@
 ###########################################################
 
 
-updater:
-  include_used_components: true
-
-
 sensor:
   - platform: cpuspeed
 
@@ -45,6 +41,13 @@ automation:
     action:
       - service: python_script.all_automations_counter
       - service: python_script.on_automations_counter
+      - delay: 00:00:30
+      - condition: template
+        value_template: '{{ ((states.sensor.automation_on.state) != (states.sensor.automation_all.state)) }}'
+      - service: persistent_notification.create
+        data:
+          title: "Automations alert"
+          message: "Some automations are disabled."
 
   - alias: 'Update Available Notifications'
     initial_state: 'on'
@@ -90,21 +93,21 @@ automation:
             keyboard:
               - '/status'
               - '/maintenance'
-      # - condition: and
-        # conditions:
-          # - condition: state
-            # entity_id: sensor.home_status
-            # state: 'Occupied'
-          # - condition: or
-            # conditions:
-              # - condition: time
-                # after: '07:30:00'
-              # - condition: time
-                # before: '22:00:00'
-      # - service: tts.google_say
-        # entity_id: media_player.downstairs
-        # data:
-          # message: 'The system is online.'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: sensor.home_status
+            state: 'Occupied'
+          - condition: or
+            conditions:
+              - condition: time
+                after: '07:30:00'
+              - condition: time
+                before: '22:00:00'
+      - service: tts.google_say
+        entity_id: media_player.downstairs
+        data:
+          message: 'The system is online.'
 
   - alias: Alert when a critical device goes offline
     initial_state: 'on'

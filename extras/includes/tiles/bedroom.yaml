@@ -31,15 +31,15 @@ entities:
     column: 1
     row: 2
     column_span: 2
-  - entity: script.lullaby_bedroom
+  - entity: switch.lullaby_bedroom
     label: Lullaby
     column: 3
     row: 2
-  - entity: script.romance_bedroom
+  - entity: switch.romance_bedroom
     label: Romance
     column: 4
     row: 2
-  - entity: script.empty_bedroom
+  - entity: switch.empty_bedroom
     label: Empty
     column: 5
     row: 2

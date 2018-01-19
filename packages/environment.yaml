@@ -14,6 +14,10 @@ google:
 sun:
 
 
+input_boolean:
+  sunset_offset:
+
+
 sensor:
   - platform: time_date
     display_options:
@@ -77,9 +81,6 @@ sensor:
           {% else %} clear
           {% endif %}
 
-
-input_boolean:
-  sunset_offset:
 
 
 automation:

@@ -71,15 +71,6 @@ scene:
         brightness: 255
 
 
-script:
-  set_hue_scene:
-    sequence:
-      - service: hue.hue_activate_scene
-        data_template:
-          group_name: '{{ group }}'
-          scene_name: '{{ scene }}'
-
-
 automation:
   - alias: reset_scene_selector bedroom
     initial_state: 'on'
@@ -109,3 +100,12 @@ automation:
       data_template:
         group: "Bedroom"
         scene: '{{ states.input_select.bedroom_scenes.state }}'
+
+
+script:
+  set_hue_scene:
+    sequence:
+      - service: hue.hue_activate_scene
+        data_template:
+          group_name: '{{ group }}'
+          scene_name: '{{ scene }}'

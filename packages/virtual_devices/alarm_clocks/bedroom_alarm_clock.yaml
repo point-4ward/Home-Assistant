@@ -8,7 +8,7 @@
 #                                                                      #
 #         ******This one is for the Master Bedroom******               #
 #                                                                      #
-# DEPENDS ON: Environmental_sensors                                    #
+# DEPENDS ON: Environment and Occupancy                                #
 #                                                                      #
 ########################################################################
 

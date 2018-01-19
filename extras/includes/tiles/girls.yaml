@@ -36,11 +36,11 @@ entities:
     icon: mdi:alarm
     column: 2
     row: 2
-  - entity: script.lullaby_girls
+  - entity: switch.lullaby_girls
     label: Lullaby
     column: 3
     row: 2
-  - entity: script.empty_girls
+  - entity: switch.empty_girls
     label: Empty
     column: 4
     row: 2

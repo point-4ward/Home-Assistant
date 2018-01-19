@@ -20,7 +20,7 @@ media_player:
   - platform: cast
 
   - platform: kodi
-    name: Living Room Kodi
+    name: Kodi
     host: !secret media_host
     port: !secret media_port
     enable_websocket: false
@@ -136,27 +136,6 @@ switch:
           entity_id: media_player.girls
 
 
-sensor:
-  - platform: hue_sensor
-
-
-binary_sensor:
-  - platform: ping
-    host: !secret hue_light_host
-    name: Hue Hub
-
-  - platform: ping
-    host: !secret switch_tplink_host
-    name: TP Link
-
-  - platform: ping
-    host: !secret switch_broadlink_host
-    name: Broadlink
-
-  - platform: ping
-    host: !secret cctv_host
-    name: CCTV
-
 input_number:
   volume_everywhere:
     name: Volume
@@ -215,6 +194,28 @@ input_number:
     initial: '0.2'
 
 
+sensor:
+  - platform: hue_sensor
+
+
+binary_sensor:
+  - platform: ping
+    host: !secret hue_light_host
+    name: Hue Hub
+
+  - platform: ping
+    host: !secret switch_tplink_host
+    name: TP Link
+
+  - platform: ping
+    host: !secret switch_broadlink_host
+    name: Broadlink
+
+  - platform: ping
+    host: !secret cctv_host
+    name: CCTV
+
+
 group:
   Chromecast groups:
     control: hidden
@@ -238,7 +239,19 @@ group:
       - switch.girls_media
       - input_number.volume_girls
 
+
 automation:
+  - alias: "Turn off heater after fifteen minutes"
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: switch.tplink_switch
+      to: 'on'
+    action:
+      - delay: 00:15:00
+      - service: homeassistant.turn_off
+        entity_id: switch.tplink_switch
+
   - alias: "set volume media player downstairs"
     initial_state: 'on'
     trigger:

@@ -59,14 +59,7 @@ homeassistant:
 # CCTV
 
             # up / down / left / right / OK / back
-
-
-script: !include ../../extras/includes/tiles/script.yaml
-
-
-automation: !include ../../extras/includes/tiles/automation.yaml
-
-
+            
 input_boolean:
   remote_bedroom_radio:
   
@@ -120,3 +113,8 @@ group:
     name: TV remote
     entities:
       - input_text.tv_remote
+
+
+automation: !include ../../extras/includes/tiles/automation.yaml
+
+script: !include ../../extras/includes/tiles/script.yaml

@@ -3,7 +3,7 @@
 # This package contains automations that respond to    #
 # interactive commands with system/general information #
 #                                                      #
-# DEPENDS ON: Notifications package                    #
+# DEPENDS ON: Notifications                            #
 #                                                      #
 ########################################################
 
