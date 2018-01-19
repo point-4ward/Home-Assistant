@@ -113,33 +113,60 @@ remote_girls_radio:
 
 remote_bedroom_alarm_earlies:
   sequence:
+    - service: input_datetime.set_datetime
+      entity_id: input_datetime.bedroom_alarm_clock_time
+      time: '05:30:00'
 
 remote_bedroom_alarm_school:
   sequence:
+    - service: input_datetime.set_datetime
+      entity_id: input_datetime.bedroom_alarm_clock_time
+      time: '07:30:00'
 
 remote_bedroom_alarm_day:
   sequence:
+    - service: input_datetime.set_datetime
+      entity_id: input_datetime.bedroom_alarm_clock_time
+      time: '08:30:00'
 
 remote_boys_alarm:
   sequence:
+    - service: input_datetime.set_datetime
+      entity_id: input_datetime.boys_alarm_clock_time
+      time: '07:30:00'
 
 remote_girls_alarm:
   sequence:
+    - service: input_datetime.set_datetime
+      entity_id: input_datetime.girls_alarm_clock_time
+      time: '07:30:00'
 
 remote_boys_bright:
   sequence:
+    - service: scene.turn_on
+      entity_id: scene.boys_bright
 
 remote_boys_dim:
   sequence:
+    - service: scene.turn_on
+      entity_id: scene.boys_dim
 
 remote_boys_nightlight:
   sequence:
+    - service: scene.turn_on
+      entity_id: scene.boys_night
 
 remote_girls_bright:
   sequence:
+    - service: scene.turn_on
+      entity_id: scene.girls_bright
 
 remote_girls_dim:
   sequence:
+    - service: scene.turn_on
+      entity_id: scene.girls_dim
 
 remote_girls_nightlight:
   sequence:
+    - service: scene.turn_on
+      entity_id: scene.girls_night

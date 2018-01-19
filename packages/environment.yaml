@@ -18,11 +18,25 @@ input_boolean:
   sunset_offset:
 
 
+zone:
+  - name: Whitnash
+    latitude: !secret whitnash_lat
+    longitude: !secret whitnash_long
+
+
 sensor:
   - platform: time_date
     display_options:
       - 'time'
       - 'date'
+
+ - platform: google_travel_time
+   name: Travel to Whitnash
+   api_key: !secret google_map_api_key
+   origin: zone.home
+   destination: zone.whitnash
+   options:
+     units: imperial
       
   - platform: darksky
     api_key: !secret darksky_api_key
