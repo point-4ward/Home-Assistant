@@ -26,7 +26,7 @@ input_select:
 
 
 scene:
-  - name: Landing_evening
+  - name: Landing evening
     entities:
       light.landing:
         state: on
@@ -34,7 +34,7 @@ scene:
         brightness: 180
         rgb_color: [255,206,119]
 
-  - name: Landing_night
+  - name: Landing night
     entities:
       light.landing:
         state: on
@@ -69,6 +69,48 @@ scene:
         state: on
         transition: 600
         brightness: 255
+
+  - name: Boys bright
+    entities:
+      light.boys:
+        state: on
+        transition: 4
+        brightness: 200
+
+  - name: Boys dim
+    entities:
+      light.boys:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Boys night
+    entities:
+      light.boys:
+        state: on
+        transition: 4
+        brightness: 5
+
+  - name: Girls bright
+    entities:
+      light.girls:
+        state: on
+        transition: 4
+        brightness: 200
+
+  - name: Girls dim
+    entities:
+      light.girls:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Girls night
+    entities:
+      light.girls:
+        state: on
+        transition: 4
+        brightness: 5
 
 
 automation:
