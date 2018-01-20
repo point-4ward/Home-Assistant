@@ -109,6 +109,21 @@ automation:
         data:
           message: 'The system is online.'
 
+  - alias: Alert for invalid configuration
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: '{{ states.persistent_notification.invalid_config.state != null }}'
+    action:
+      service: notify.mf
+      data_template:
+        message: "Home assistant is registering an invalid configuration."
+        data:
+          keyboard:
+           - '/status'
+           - '/maintenance'
+           - '/restart'
+
   - alias: Alert when a critical device goes offline
     initial_state: 'on'
     trigger:

@@ -84,6 +84,21 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'Maintenance mode has been turned {{states.input_boolean.maintenance_mode.state}}.'
 
+  - alias: 'Telegram Reboot'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/reboot'
+    action:
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'
+          message: 'Rebooting...'
+      - delay: 00:00:05
+      - service: shell_command.quick_restart
+          
   - alias: 'Telegram set holiday mode'
     initial_state: 'on'
     trigger:
