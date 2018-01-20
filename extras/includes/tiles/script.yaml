@@ -115,31 +115,36 @@ remote_bedroom_alarm_earlies:
   sequence:
     - service: input_datetime.set_datetime
       entity_id: input_datetime.bedroom_alarm_clock_time
-      time: '05:30:00'
+      data:
+        time: '05:30:00'
 
 remote_bedroom_alarm_school:
   sequence:
     - service: input_datetime.set_datetime
       entity_id: input_datetime.bedroom_alarm_clock_time
-      time: '07:30:00'
+      data:
+        time: '07:30:00'
 
 remote_bedroom_alarm_day:
   sequence:
     - service: input_datetime.set_datetime
       entity_id: input_datetime.bedroom_alarm_clock_time
-      time: '08:30:00'
+      data:
+        time: '08:30:00'
 
 remote_boys_alarm:
   sequence:
     - service: input_datetime.set_datetime
       entity_id: input_datetime.boys_alarm_clock_time
-      time: '07:30:00'
+      data:
+        time: '07:30:00'
 
 remote_girls_alarm:
   sequence:
     - service: input_datetime.set_datetime
       entity_id: input_datetime.girls_alarm_clock_time
-      time: '07:30:00'
+      data:
+        time: '07:30:00'
 
 remote_boys_bright:
   sequence:
