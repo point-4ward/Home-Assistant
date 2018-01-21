@@ -43,9 +43,8 @@ emulated_hue:
   exposed_domains:
     - light
     - input_boolean
-    - switch
-        
-    
+
+
 switch: 
   - platform: tplink
     host: !secret switch_tplink_host
