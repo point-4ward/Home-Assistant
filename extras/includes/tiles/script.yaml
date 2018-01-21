@@ -117,6 +117,8 @@ remote_bedroom_alarm_earlies:
       entity_id: input_datetime.bedroom_alarm_clock_time
       data:
         time: '05:30:00'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.bedroom_alarm_clock_status
 
 remote_bedroom_alarm_school:
   sequence:
@@ -124,6 +126,8 @@ remote_bedroom_alarm_school:
       entity_id: input_datetime.bedroom_alarm_clock_time
       data:
         time: '07:30:00'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.bedroom_alarm_clock_status
 
 remote_bedroom_alarm_day:
   sequence:
@@ -131,6 +135,8 @@ remote_bedroom_alarm_day:
       entity_id: input_datetime.bedroom_alarm_clock_time
       data:
         time: '08:30:00'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.bedroom_alarm_clock_status
 
 remote_boys_alarm:
   sequence:
@@ -138,6 +144,8 @@ remote_boys_alarm:
       entity_id: input_datetime.boys_alarm_clock_time
       data:
         time: '07:30:00'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.boys_alarm_clock_status
 
 remote_girls_alarm:
   sequence:
@@ -145,6 +153,8 @@ remote_girls_alarm:
       entity_id: input_datetime.girls_alarm_clock_time
       data:
         time: '07:30:00'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.girls_alarm_clock_status
 
 remote_boys_bright:
   sequence:
