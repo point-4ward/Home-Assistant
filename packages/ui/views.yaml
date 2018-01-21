@@ -46,6 +46,7 @@ group:
       - group.music
       - group.chromecast_groups
       - group.chromecast_rooms
+      - group.tiles_media
 
   bedroom:
     view: yes

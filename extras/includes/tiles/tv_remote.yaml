@@ -40,7 +40,8 @@ entities:
     row: 3
   - entity: switch.virgin_key_ok
     label: OK
-    color: purple
+    color_on: purple
+    color_off: purple
     column: 3
     row: 3
   - entity: switch.virgin_key_right
