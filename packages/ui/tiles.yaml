@@ -59,7 +59,50 @@ homeassistant:
 # CCTV
 
             # up / down / left / right / OK / back
-            
+    
+    input_text.media_downstairs:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.downstairs
+
+    input_text.media_everywhere:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.everywhere
+
+    input_text.media_livingroom:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.livingroom
+
+    input_text.media_kitchen:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.kitchen
+
+    input_text.media_boys:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.boys
+
+    input_text.media_girls:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.girls
+
+    input_text.media_bedroom:
+      icon: mdi:play
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.bedroom
+
+
 input_boolean:
   remote_bedroom_radio:
   
@@ -83,6 +126,29 @@ input_text:
   tv_remote:
     name: tv_remote
 
+# av remotes
+
+  media_everywhere:
+    name: Everywhere
+
+  media_downstairs:
+   name: Downstairs
+
+  media_livingroom:
+   name: Livingroom
+
+  media_kitchen:
+   name: Kitchen
+
+  media_boys:
+    name: Boys
+
+  media_girls:
+    name: Girls
+
+  media_bedroom:
+    name: Bedroom
+
 
 group:
   tiles_lights:
@@ -95,24 +161,35 @@ group:
     entities:
       - input_select.bedroom_scenes
       - input_text.bedroom
-      - input_number.volume_bedroom
+      - input_text.media_bedroom
 
   tiles_boys:
     name: Boys
     entities:
       - input_text.boys
-      - input_number.volume_boys
+      - input_text.media_boys
 
   tiles_girls:
     name: Girls
     entities:
      - input_text.girls
-     - input_number.volume_girls
+     - input_text.media_girls
 
   tiles_tv_remote:
     name: TV remote
     entities:
       - input_text.tv_remote
+
+  tiles_media:
+    name: Chromecasts
+    entities:
+      - input_text.media_downstairs
+      - input_text.media_everywhere
+      - input_text.media_livingroom
+      - input_text.media_kitchen
+      - input_text.media_boys
+      - input_text.media_girls
+      - input_text.media_bedroom
 
 
 automation: !include ../../extras/includes/tiles/automation.yaml
