@@ -30,7 +30,7 @@ input_boolean:
 
 
 automation:
-  - alias: 'Alexa Show TV'
+  - alias: Alexa Show TV
     initial_state: 'on'
     trigger:
       platform: state
@@ -39,7 +39,7 @@ automation:
     action:
       service: script.remote_show_tv
 
-  - alias: 'Alexa Show CCTV'
+  - alias: Alexa Show CCTV
     initial_state: 'on'
     trigger:
       platform: state
@@ -48,7 +48,7 @@ automation:
     action:
       service: script.remote_show_cctv
 
-  - alias: 'Alexa TV off'
+  - alias: Alexa TV off
     initial_state: 'on'
     trigger:
       platform: state
@@ -57,7 +57,7 @@ automation:
     action:
       service: script.remote_tv_off
 
-  - alias: 'Alexa play radio'
+  - alias: Alexa play radio
     initial_state: 'on'
     trigger:
       - platform: state
@@ -78,14 +78,14 @@ automation:
             {% if is_state ('input_boolean.radio_downstairs' , 'on') %} downstairs
             {% elif is_state ('input_boolean.radio_everywhere' , 'on') %} everywhere
             {% endif %}
-      - service: input_boolean.turn_on
+      - service: homeassistant.turn_on
         entity_id: input_boolean.play_radio
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.radio_downstairs
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.radio_everywhere
+      - service: homeassistant.turn_off
+        entity_id:
+          - input_boolean.radio_downstairs
+          - input_boolean.radio_everywhere
 
-  - alias: 'Alexa bedtime mode'
+  - alias: Alexa bedtime mode
     initial_state: 'on'
     trigger:
       platform: state
@@ -105,5 +105,5 @@ automation:
       - delay: 00:03:00
       # - Do a nighttime briefing
       # - switch alarm to armed nighttime
-      - service: input_boolean.turn_off
+      - service: homeassistant.turn_off
         entity_id: input_boolean.bedtime_mode

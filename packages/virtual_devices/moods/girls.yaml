@@ -11,19 +11,19 @@ switch:
       lullaby_girls:
         value_template: "{{ is_state ('script.lullaby_girls' , 'on') }}"
         turn_on:
-          service: script.turn_on
+          service: homeassistant.turn_on
           entity_id: script.lullaby_girls
         turn_off:
-          service: script.turn_off
+          service: homeassistant.turn_off
           entity_id: script.lullaby_girls
 
       empty_girls:
         value_template: "{{ is_state ('script.empty_girls' , 'on') }}"
         turn_on:
-          service: script.turn_on
+          service: homeassistant.turn_on
           entity_id: script.empty_girls
         turn_off:
-          service: script.turn_off
+          service: homeassistant.turn_off
           entity_id: script.empty_girls
 
 
@@ -58,17 +58,16 @@ script:
           entity_id: media_player.girls
           volume_level: '0.05'
       - delay: '00:15:00'
-      - service: media_player.turn_off
-        entity_id: media_player.girls
       - service: homeassistant.turn_off
-        entity_id: light.girls
+        entity_id:
+          - media_player.girls
+          - light.girls
 
   empty_girls:
     alias: Girls Empty
     sequence:
       - service: homeassistant.turn_off
-        entity_id: light.girls
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.remote_girls_radio
-      - service: media_player.turn_off
-        entity_id: media_player.girls
+        entity_id:
+          - light.girls
+          - input_boolean.remote_girls_radio
+          - media_player.girls

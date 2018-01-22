@@ -30,7 +30,7 @@ input_boolean:
 
 input_select:
   radio_station:
-    name: 'Select Radio Station:'
+    name: Select Radio Station
     options:
       - Free Radio CW
       - Free Radio 80s
@@ -51,14 +51,14 @@ input_select:
   media_player:
     name: Speakers
     options:
-      - "downstairs" 
-      - "everywhere"
-      - "kitchen"
-      - "livingroom" 
-      - "bedroom" 
-      - "boys"
-      - "girls"
-      - "kids"
+      - downstairs
+      - everywhere
+      - kitchen
+      - livingroom
+      - bedroom"
+      - boys
+      - girls
+      - kids
     icon: mdi:speaker-wireless
 
 
@@ -86,14 +86,14 @@ group:
 
 
 automation:
-  - alias: 'Play Radio'
+  - alias: Play Radio
     initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.play_radio
       to: 'on'
     action:
-      - service: switch.turn_off
+      - service: homeassistant.turn_off
         entity_id: switch.google_music
       - service: media_player.volume_set
         data_template:
@@ -110,11 +110,10 @@ automation:
             {% elif is_state("input_select.radio_station", "Absolute 90s") %} http://player.absoluteradio.co.uk/tunein.php?i=a924.aac
             {% elif is_state("input_select.radio_station", "Heart") %} http://media-ice.musicradio.com/HeartWestMids
             {% elif is_state("input_select.radio_station", "Heart 80s") %} http://media-ice.musicradio.com/Heart80s
-            {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8453/stream
-            {% endif %}
+            {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8453/stream {% endif %}
            media_content_type: 'audio/mp4'
 
-  - alias: 'Stop Radio if Google Music selected'
+  - alias: Stop Radio if Google Music selected
     initial_state: 'on'
     trigger:
       platform: state
@@ -128,22 +127,18 @@ automation:
       service: homeassistant.turn_off
       entity_id: input_boolean.play_radio
 
-  - alias: 'Set and Sync Music Volume'
+  - alias: Set and Sync Music Volume
     initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_number.volume_radio
     action:
-      - service: media_player.volume_set
-        data_template:
-          entity_id: 'media_player.{{states.input_select.media_player.state}}'
-          volume_level: '{{  states.input_number.volume_radio.state  }}'
-      - service: input_number.set_value
-        data_template:
-          entity_id: 'input_number.volume_{{states.input_select.media_player.state}}'
-          value: '{{states.input_number.volume_radio.state}}'
+      service: media_player.volume_set
+      data_template:
+        entity_id: 'media_player.{{states.input_select.media_player.state}}'
+        volume_level: '{{  states.input_number.volume_radio.state  }}'
 
-  - alias: 'Stop music'
+  - alias: Stop music
     initial_state: 'on'
     trigger:
       - platform: state
@@ -162,7 +157,7 @@ automation:
           entity_id: switch.google_music
           state: 'off'
     action:
-      - service: media_player.turn_off
+      - service: homeassistant.turn_off
         data:
           entity_id:
             - media_player.kitchen
@@ -178,34 +173,23 @@ automation:
           entity_id: input_number.volume_radio
           value: 0.20
 
-  - alias: 'Stop if media player stops'
+  - alias: Stop if media player stops
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: group.chromecast_groups
-        to: 'off'
-      - platform: state
-        entity_id: group.chromecast_rooms
+        entity_id: group.tiles_media
         to: 'off'
     condition:
-      condition: and
+      condition: or
       conditions:
         - condition: state
-          entity_id: group.chromecast_groups
-          state: 'off'
+          entity_id: input_boolean.play_radio
+          state: 'on'
         - condition: state
-          entity_id: group.chromecast_rooms
-          state: 'off'
-        - condition: or
-          conditions:
-            - condition: state
-              entity_id: input_boolean.play_radio
-              state: 'on'
-            - condition: state
-              entity_id: switch.google_music
-              state: 'on'
+          entity_id: switch.google_music
+          state: 'on'
     action:
       - service: homeassistant.turn_off
-        entity_id: input_boolean.play_radio
-      - service: homeassistant.turn_off
-        entity_id: switch.google_music
+        entity_id:
+          - input_boolean.play_radio
+          - switch.google_music

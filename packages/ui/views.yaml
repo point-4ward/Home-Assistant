@@ -44,8 +44,6 @@ group:
     icon: mdi:speaker-wireless
     entities:
       - group.music
-      - group.chromecast_groups
-      - group.chromecast_rooms
       - group.tiles_media
 
   bedroom:

@@ -42,7 +42,7 @@ group:
 
 
 automation:
-  alias: 'Downstairs play music'
+  alias: Downstairs play music
   initial_state: 'on'
   trigger:
     platform: template
@@ -61,7 +61,7 @@ automation:
     - condition: state
       entity_id: input_boolean.downstairs_alarm_clock_repeat
       state: 'off'
-    - service: input_boolean.turn_off
+    - service: homeassistant.turn_off
       entity_id: input_boolean.downstairs_alarm_clock_status
 
 
