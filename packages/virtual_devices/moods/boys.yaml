@@ -11,19 +11,19 @@ switch:
       lullaby_boys:
         value_template: "{{ is_state ('script.lullaby_boys' , 'on') }}"
         turn_on:
-          service: script.turn_on
+          service: homeassistant.turn_on
           entity_id: script.lullaby_boys
         turn_off:
-          service: script.turn_off
+          service: homeassistant.turn_off
           entity_id: script.lullaby_boys
 
       empty_boys:
         value_template: "{{ is_state ('script.empty_boys' , 'on') }}"
         turn_on:
-          service: script.turn_on
+          service: homeassistant.turn_on
           entity_id: script.empty_boys
         turn_off:
-          service: script.turn_off
+          service: homeassistant.turn_off
           entity_id: script.empty_boys
 
 
@@ -58,17 +58,16 @@ script:
           entity_id: media_player.boys
           volume_level: '0.05'
       - delay: '00:15:00'
-      - service: media_player.turn_off
-        entity_id: media_player.boys
       - service: homeassistant.turn_off
-        entity_id: light.boys
+        entity_id:
+          - light.boys
+          - media_player.boys
 
   empty_boys:
     alias: Boys Empty
     sequence:
       - service: homeassistant.turn_off
-        entity_id: light.boys
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.remote_boys_radio
-      - service: media_player.turn_off
-        entity_id: media_player.boys
+        entity_id:
+          - light.boys
+          - input_boolean.remote_boys_radio
+          - media_player.boys

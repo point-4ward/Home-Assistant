@@ -9,7 +9,7 @@
 
 
 automation:
-  - alias: 'Lights off when daylight'
+  - alias: Lights off when daylight
     initial_state: 'on'
     trigger:
       platform: state
@@ -23,7 +23,7 @@ automation:
       service: homeassistant.turn_off
       entity_id: group.all_lights
 
-  - alias: 'Lights on when dark - already home'
+  - alias: Lights on when dark - already home
     initial_state: 'on'
     trigger:
       platform: state
@@ -38,7 +38,7 @@ automation:
         entity_id: scene.livingroom_sunset
       - service: script.landing_light_scene
 
-  - alias: 'Lights on when dark - arriving home'
+  - alias: Lights on when dark - arriving home
     initial_state: 'on'
     trigger:
       platform: state
@@ -53,7 +53,7 @@ automation:
         entity_id: scene.livingroom_bright
       - service: script.landing_light_scene
 
-  - alias: 'Landing light night mode'
+  - alias: Landing light night mode
     initial_state: 'on'
     trigger:
       - platform: time
@@ -67,7 +67,7 @@ automation:
     action:
       service: script.landing_light_scene
 
-  - alias: bedtime lights
+  - alias: Bedtime lights
     initial_state: 'on'
     trigger:
       platform: state
@@ -79,7 +79,7 @@ automation:
         group: "Bedroom"
         scene: "Relax"
 
-  - alias: 'Media player playing'
+  - alias: Media player playing
     initial_state: 'on'
     trigger:
       platform: state
@@ -101,7 +101,7 @@ automation:
       service: scene.turn_on
       entity_id: scene.livingroom_movie
 
-  - alias: 'Media player stopped'
+  - alias: Media player stopped
     initial_state: 'on'
     trigger:
       platform: state
@@ -115,7 +115,7 @@ automation:
       service: scene.turn_on
       entity_id: scene.livingroom_bright
 
-  - alias: 'Media player paused'
+  - alias: Media player paused
     initial_state: 'on'
     trigger:
       platform: state

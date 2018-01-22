@@ -90,8 +90,7 @@ sensor:
         friendly_name: 'Home status'
         value_template: >-
           {% if (states.group.phone_trackers.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
-          {% else %} Unoccupied
-          {% endif %}
+          {% else %} Unoccupied {% endif %}
 
 
 group:
@@ -141,21 +140,20 @@ alert:
 
 
 automation:
-  - alias: 'Reset occupancy booleans'
+  - alias: Reset occupancy booleans
     initial_state: 'on'
     trigger:
       platform: state
       entity_id: group.phone_trackers
       to: 'home'
     action:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.guest_mode
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.away_mode
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.holiday_mode
+      - service: homeassistant.turn_off
+        entity_id:
+          - input_boolean.guest_mode
+          - input_boolean.away_mode
+          - input_boolean.holiday_mode
 
-  - alias: 'Reset occupancy booleans - guest'
+  - alias: Reset occupancy booleans - guest
     initial_state: 'on'
     trigger:
       platform: state
@@ -166,10 +164,10 @@ automation:
       entity_id: sensor.home_status
       state: 'Unoccupied' 
     action:
-      - service: input_boolean.turn_off
+      - service: homeassistant.turn_off
         entity_id: input_boolean.away_mode
     
-  - alias: 'Nobody home'
+  - alias: Nobody home
     initial_state: 'on'
     trigger:
       platform: state
@@ -177,17 +175,15 @@ automation:
       to: 'Unoccupied'
     action:
       - service: homeassistant.turn_off
-        entity_id: input_boolean.play_radio
-      - service: switch.turn_off
-        entity_id: switch.google_music
-      - service: homeassistant.turn_off
-        entity_id: group.all_lights
-      - service: media_player.turn_off
-        entity_id: media_player.kodi
+        entity_id:
+          - input_boolean.play_radio
+          - switch.google_music
+          - group.all_lights
+          - media_player.kodi
       - service: homeassistant.turn_on
         entity_id: input_boolean.away_mode
     
-  - alias: 'Set Holiday Mode'
+  - alias: Set Holiday Mode
     initial_state: 'on'
     trigger:
       platform: state
@@ -196,12 +192,12 @@ automation:
       for:
         hours: 24
     action:
-      - service: input_boolean.turn_on
+      - service: homeassistant.turn_on
         entity_id: input_boolean.holiday_mode
-      - service: input_boolean.turn_off
+      - service: homeassistant.turn_off
         entity_id: input_boolean.away_mode
 
-  - alias: 'New trackable device detected'
+  - alias: New trackable device detected
     initial_state: 'on'
     trigger:
       platform: event

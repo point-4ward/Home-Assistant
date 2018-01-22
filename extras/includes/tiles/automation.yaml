@@ -6,7 +6,7 @@
 #########################################
 
 
-- alias: 'remote radio bedroom on'
+- alias: Remote radio bedroom on
   initial_state: 'on'
   trigger:
     platform: state
@@ -15,7 +15,7 @@
   action:
     service: script.remote_bedroom_radio
 
-- alias: 'remote radio boys on'
+- alias: Remote radio boys on
   initial_state: 'on'
   trigger:
     platform: state
@@ -24,7 +24,7 @@
   action:
     service: script.remote_boys_radio
 
-- alias: 'remote radio girls on'
+- alias: Remote radio girls on
   initial_state: 'on'
   trigger:
     platform: state
@@ -33,7 +33,7 @@
   action:
     service: script.remote_girls_radio
 
-- alias: 'remote radio bedroom off'
+- alias: Remote radio bedroom off
   initial_state: 'on'
   trigger:
     platform: state
@@ -43,7 +43,7 @@
     service: media_player.turn_off
     entity_id: media_player.bedroom
 
-- alias: 'remote radio boys off'
+- alias: Remote radio boys off
   initial_state: 'on'
   trigger:
     platform: state
@@ -53,7 +53,7 @@
     service: media_player.turn_off
     entity_id: media_player.boys
 
-- alias: 'remote radio girls off'
+- alias: Remote radio girls off
   initial_state: 'on'
   trigger:
     platform: state

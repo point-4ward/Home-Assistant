@@ -52,7 +52,7 @@ group:
 
 
 automation:
-  alias: 'bedroom light on and play music'
+  alias: Bedroom light on and play music
   initial_state: 'on'  
   trigger:
     platform: template

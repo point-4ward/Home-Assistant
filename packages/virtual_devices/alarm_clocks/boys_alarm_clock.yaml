@@ -51,7 +51,7 @@ group:
 
 
 automation:
-  alias: 'boys light on and play music'
+  alias: Boys light on and play music
   initial_state: 'on'  
   trigger:
     platform: template
@@ -70,7 +70,7 @@ automation:
     - condition: state
       entity_id: input_boolean.boys_alarm_clock_repeat
       state: 'off'
-    - service: input_boolean.turn_off
+    - service: homeassistant.turn_off
       entity_id: input_boolean.boys_alarm_clock_status
 
 

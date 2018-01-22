@@ -43,7 +43,7 @@ frontend:
     - /local/custom_ui/state-card-mini-media-player.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-tiles_es5.html
-    - /local/custom_ui/state-card-mini-media-player.html
+    - /local/custom_ui/state-card-mini-media-player_es5.html
 
 
 customizer:
@@ -66,5 +66,4 @@ automation:
           name: >-
             {% if (now().hour == 23) %} darkcyan
             {% elif (states.sensor.dark_outside.state == "true") %} midnight
-            {% else %} default
-            {% endif %}
+            {% else %} default {% endif %}

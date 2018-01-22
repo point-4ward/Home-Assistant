@@ -49,17 +49,15 @@ script:
         data_template: 
           entity_id: input_datetime.bedroom_alarm_clock_time
           time: '{{states.input_datetime.sync_datetime.state}}'
-      - service: input_boolean.turn_on
-        data: 
-          entity_id:
-            - input_boolean.downstairs_alarm_clock_status
-            - input_boolean.boys_alarm_clock_status
-            - input_boolean.girls_alarm_clock_status
-            - input_boolean.bedroom_alarm_clock_status
-      - service: input_boolean.turn_off
-        data:
-          entity_id:
-            - input_boolean.downstairs_alarm_clock_repeat
-            - input_boolean.boys_alarm_clock_repeat
-            - input_boolean.girls_alarm_clock_repeat
-            - input_boolean.bedroom_alarm_clock_repeat
+      - service: homeassistant.turn_on
+        entity_id:
+          - input_boolean.downstairs_alarm_clock_status
+          - input_boolean.boys_alarm_clock_status
+          - input_boolean.girls_alarm_clock_status
+          - input_boolean.bedroom_alarm_clock_status
+      - service: homeassistant.turn_off
+        entity_id:
+          - input_boolean.downstairs_alarm_clock_repeat
+          - input_boolean.boys_alarm_clock_repeat
+          - input_boolean.girls_alarm_clock_repeat
+          - input_boolean.bedroom_alarm_clock_repeat

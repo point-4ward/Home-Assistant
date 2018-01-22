@@ -9,7 +9,7 @@
 
 
 automation:
-  - alias: 'Telegram reply with Status'
+  - alias: Telegram reply with Status
     initial_state: 'on'
     trigger:
       platform: event
@@ -46,7 +46,7 @@ automation:
         Master bedroom lights are {{states.light.bedroom.state}}."
         keyboard: ["/lights, /occupancy", "/menu"]
 
-  - alias: 'Telegram reply with Occupancy'
+  - alias: Telegram reply with Occupancy
     initial_state: 'on'
     trigger:
       platform: event
@@ -68,7 +68,7 @@ automation:
         Guest mode is {{states.input_boolean.guest_mode.state}}.'
         keyboard: ["/away, /holiday" , "/guest, /lights", "/menu"]
     
-  - alias: 'Telegram reply with Menu'
+  - alias: Telegram reply with Menu
     initial_state: 'on'
     trigger:
       platform: event
@@ -82,7 +82,7 @@ automation:
         message: 'Commands...'
         keyboard: ["/lights, /occupancy", "/status"]
 
-  - alias: 'Telegram reply with Lights'
+  - alias: Telegram reply with Lights
     initial_state: 'on'
     trigger:
       platform: event
