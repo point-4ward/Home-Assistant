@@ -15,9 +15,9 @@ sun:
 
 
 zone:
-  - name: Whitnash
-    latitude: !secret whitnash_lat
-    longitude: !secret whitnash_long
+  name: Whitnash
+  latitude: !secret whitnash_lat
+  longitude: !secret whitnash_long
 
 
 input_boolean:

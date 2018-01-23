@@ -7,11 +7,11 @@
       
       
 alarm_control_panel:
-  - platform: manual_mqtt
-    name: "Alarm"
-    code: !secret alarm_code
-    state_topic: homeassistant/alarm
-    command_topic: homeassistant/alarm/set
+  platform: manual_mqtt
+  name: "Alarm"
+  code: !secret alarm_code
+  state_topic: homeassistant/alarm
+  command_topic: homeassistant/alarm/set
 
 
 sensor:
@@ -23,12 +23,12 @@ sensor:
     state_topic: "home-assistant/doorbell"
 
 binary_sensor:
-  - platform: mqtt
-    state_topic: "/sensor-zero/motion/motion"
-    name: "TEST-Motion"
-    payload_on: 1
-    payload_off: 0
-    device_class: motion
+  platform: mqtt
+  state_topic: "/sensor-zero/motion/motion"
+  name: "TEST-Motion"
+  payload_on: 1
+  payload_off: 0
+  device_class: motion
 
 
 automation:
@@ -56,90 +56,34 @@ automation:
       data_template:
         message: "{{ trigger.to_state.state }}"
 
-  - alias: Breach email haveibeenpwned cf
+  - alias: Breach email haveibeenpwned
     initial_state: 'on'
     trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_cf
-      above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_cf
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_hass
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_df
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_ls
+        above: 1
+      - platform: numeric_state
+        entity_id: !secret sensor_email_vf
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_social
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_run
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_personal
+        above: 0
     action:
       service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on CF email address'
-
-  - alias: Breach email haveibeenpwned hass
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_hass
-      above: 0
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on your HA email address'
-
-  - alias: Breach email haveibeenpwned df
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_df
-      above: 0
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on DF email address'
-
-  - alias: Breach email haveibeenpwned ls
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_ls
-      above: 1
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on LS email address'
-
-  - alias: Breach email haveibeenpwned vf
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_vf
-      above: 0
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on VF email address'
-    
-  - alias: Breach email haveibeenpwned social
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_social
-      above: 0
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on your social email address'
-
-  - alias: Breach email haveibeenpwned run
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_run
-      above: 0
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on your admin/run email address'
-        
-  - alias: Breach email haveibeenpwned personal
-    initial_state: 'on'
-    trigger:
-      platform: numeric_state
-      entity_id: !secret sensor_email_personal
-      above: 0
-    action:
-      service: notify.mf
-      data:
-        message: 'Warning - HaveIbeenPwned detected a breach on your personal email address'
+      data_template:
+        message: 'Warning - HaveIbeenPwned detected {{trigger.to_state.attributes.friendly_name}}'
