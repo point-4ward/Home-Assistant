@@ -32,13 +32,13 @@ input_boolean:
 
 
 scene:
-  - name: Bedroom wake up
-    entities:
-      light.bedroom:
-        state: on
-        transition: 120
-        brightness: 180
-        rgb_color: [255,160,39]
+  name: Bedroom wake up
+  entities:
+    light.bedroom:
+      state: on
+      transition: 120
+      brightness: 180
+      rgb_color: [255,160,39]
 
 
 group:
@@ -82,11 +82,8 @@ script:
         data:
           entity_id: media_player.bedroom
           volume_level: '0.20'
-      - service: media_player.play_media
-        data_template:
-          entity_id: media_player.bedroom
-          media_content_id: http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
-          media_content_type: 'audio/mp4'
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.remote_bedroom_radio
       - condition: state
         entity_id: sensor.dark_outside
         state: 'true'

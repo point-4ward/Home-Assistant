@@ -80,3 +80,4 @@ group:
       - group.home_modes
       - group.all_alarm_clock
       - group.configure_external
+      - group.battery_alert

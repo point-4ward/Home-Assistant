@@ -6,25 +6,25 @@
 
 
 switch:
-  - platform: template
-    switches:
-      lullaby_girls:
-        value_template: "{{ is_state ('script.lullaby_girls' , 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          entity_id: script.lullaby_girls
-        turn_off:
-          service: homeassistant.turn_off
-          entity_id: script.lullaby_girls
+  platform: template
+  switches:
+    lullaby_girls:
+      value_template: "{{ is_state ('script.lullaby_girls' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.lullaby_girls
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.lullaby_girls
 
-      empty_girls:
-        value_template: "{{ is_state ('script.empty_girls' , 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          entity_id: script.empty_girls
-        turn_off:
-          service: homeassistant.turn_off
-          entity_id: script.empty_girls
+    empty_girls:
+      value_template: "{{ is_state ('script.empty_girls' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.empty_girls
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.empty_girls
 
 
 script:

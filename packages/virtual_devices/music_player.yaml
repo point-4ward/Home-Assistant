@@ -13,12 +13,12 @@
 
 
 switch:
- - platform: gmusic
-   user: !secret google_music_user
-   password: !secret google_music_pass
-   device_id: !secret google_music_device_id
-   media_player: media_player
-   playlist: google_music
+ platform: gmusic
+ user: !secret google_music_user
+ password: !secret google_music_pass
+ device_id: !secret google_music_device_id
+ media_player: media_player
+ playlist: google_music
 
 
 input_boolean:
@@ -158,16 +158,15 @@ automation:
           state: 'off'
     action:
       - service: homeassistant.turn_off
-        data:
-          entity_id:
-            - media_player.kitchen
-            - media_player.livingroom
-            - media_player.bedroom
-            - media_player.downstairs
-            - media_player.everywhere
-            - media_player.boys
-            - media_player.girls
-            - media_player.kids
+        entity_id:
+          - media_player.kitchen
+          - media_player.livingroom
+          - media_player.bedroom
+          - media_player.downstairs
+          - media_player.everywhere
+          - media_player.boys
+          - media_player.girls
+          - media_player.kids
       - service: input_number.set_value
         data_template:
           entity_id: input_number.volume_radio

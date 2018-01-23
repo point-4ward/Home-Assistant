@@ -12,13 +12,13 @@ tts:
 
   
 telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_bot_api_key
-    parse_mode: html
-    allowed_chat_ids:
-      - !secret telegram_bot_chat_id_mf
-      - !secret telegram_bot_chat_id_ls
-#      - !secret telegram_bot_chat_id_cg
+  platform: polling
+  api_key: !secret telegram_bot_api_key
+  parse_mode: html
+  allowed_chat_ids:
+    - !secret telegram_bot_chat_id_mf
+    - !secret telegram_bot_chat_id_ls
+#    - !secret telegram_bot_chat_id_cg
 
 
 notify:

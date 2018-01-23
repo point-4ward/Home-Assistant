@@ -6,34 +6,34 @@
 
 
 switch:
-  - platform: template
-    switches:
-      lullaby_bedroom:
-        value_template: "{{ is_state ('script.lullaby_bedroom' , 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          entity_id: script.lullaby_bedroom
-        turn_off:
-          service: homeassistant.turn_off
-          entity_id: script.lullaby_bedroom
+  platform: template
+  switches:
+    lullaby_bedroom:
+      value_template: "{{ is_state ('script.lullaby_bedroom' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.lullaby_bedroom
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.lullaby_bedroom
 
-      empty_bedroom:
-        value_template: "{{ is_state ('script.empty_bedroom' , 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          entity_id: script.empty_bedroom
-        turn_off:
-          service: homeassistant.turn_off
-          entity_id: script.empty_bedroom
+    empty_bedroom:
+      value_template: "{{ is_state ('script.empty_bedroom' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.empty_bedroom
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.empty_bedroom
 
-      romance_bedroom:
-        value_template: "{{is_state ('script.romance_bedroom' , 'on') }}"
-        turn_on:
-          service: homeassistant.turn_on
-          entity_id: script.romance_bedroom
-        turn_off:
-          service: homeassistant.turn_off
-          entity_id: script.romance_bedroom
+    romance_bedroom:
+      value_template: "{{is_state ('script.romance_bedroom' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.romance_bedroom
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.romance_bedroom
 
 
 script:

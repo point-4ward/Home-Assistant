@@ -35,6 +35,8 @@ media_player:
 
 mqtt:
   broker: !secret mqtt_broker
+  discovery: true
+  discovery_prefix: homeassistant
   
   
 emulated_hue:
@@ -57,7 +59,7 @@ switch:
 
 
 sensor:
-  - platform: hue_sensor
+  platform: hue_sensor
 
 
 binary_sensor:
