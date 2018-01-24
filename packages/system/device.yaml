@@ -7,8 +7,6 @@
 
 
 sensor:
-  - platform: cpuspeed
-
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -16,10 +14,6 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
-      - type: since_last_boot
-      
-  - platform: version
-    name: Installed HA version
 
   - platform: rest
     resource: https://pypi.python.org/pypi/homeassistant/json
@@ -66,15 +60,34 @@ automation:
     trigger:
       platform: numeric_state
       entity_id: sensor.disk_used_
-      above: 80
+      above: 85
     action:
       - service: notify.mf
-        data:
-          message: 'Your harddrive is running out of Space!'
+        data_template:
+          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_.state }}%!"
       - service: persistent_notification.create
-        data:
+        data_template:
           title: "Hard Drive Monitor:"
           message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_.state }}%!"
+          notification_id: "Critical Alert"
+
+  - alias: System load alarm
+    initial_state: on
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.cpu_used
+        above: 85
+      - platform: numeric_state
+        entity_id: sensor.ram_used
+        above: 85
+    action:
+      - service: notify.mf
+        data_template:
+          message: "Your system is running under heavy load! CPU:{{states.sensor.cpu_used.state}}% Memory:{{ states.sensor.ram_used.state }}%!"
+      - service: persistent_notification.create
+        data_template:
+          title: "System Load mMnitor:"
+          message: "Your system is running under heavy load! CPU:{{states.sensor.cpu_used.state}}% Memory:{{ states.sensor.ram_used.state }}%!"
           notification_id: "Critical Alert"
 
   - alias: Power cut notification
