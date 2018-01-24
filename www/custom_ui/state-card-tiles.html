@@ -1,0 +1,129 @@
+<!--
+https://github.com/c727/home-assistant-tiles
+version: 20180120
+-->
+<dom-module id='state-card-tiles'>
+  <template>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(var(--tiles-columns), var(--tiles-column-width));
+        grid-auto-rows: var(--tiles-row-height);
+        grid-gap: var(--tiles-gap);
+        width: 100%;
+      }
+      paper-button {          
+        box-shadow: none !important;
+        margin: 0 !important;
+        background-color: var(--tiles-color);
+        color: var(--tiles-text-color);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+      paper-button.on {
+        background-color: var(--tiles-color-on);
+        color: var(--tiles-text-color-on);
+      }
+      paper-button.off {
+        background-color: var(--tiles-color-off);
+        color: var(--tiles-text-color-off);
+      }
+    </style>
+    <paper-button-group class='grid' on-tap='stopPropagation'>
+      <template is='dom-repeat' items='[[config.entities]]' as='entity'>
+        <paper-button raised class$='[[computeClass(hass, entity)]]' style$='[[computeStyle(entity)]]' on-tap='callService'>
+          <template is='dom-if' if='[[entity.icon]]'>
+            <iron-icon icon='[[entity.icon]]'></iron-icon>
+          </template>
+          <template is='dom-if' if='[[!entity.label_state]]'>
+            [[entity.label]]
+          </template>
+          <template is='dom-if' if='[[entity.label_state]]'>
+            [[computeLabelState(hass, entity.label_state)]]
+          </template>          
+        </paper-button>
+      </template>
+    </paper-button-group>
+  </template>
+</dom-module>
+
+<script>
+class StateCardTiles extends Polymer.Element {
+  static get is() { return 'state-card-tiles'; }
+
+  static get properties() {
+    return {
+      hass: Object,
+      stateObj: Object,
+      config: {
+        type: Object,
+        computed: 'computeConfig(stateObj)',
+      },
+    };
+  }
+
+  computeConfig(stateObj) {     
+    return stateObj.attributes.config;
+  }
+
+  ready() {
+    super.ready();
+    var config = this.config;
+    this.updateStyles({
+      '--tiles-columns': config.columns ? config.columns : '3',
+      '--tiles-column-width': config.column_width ? config.column_width : '1fr',
+      '--tiles-row-height': config.row_height ? config.row_height : '100px',
+      '--tiles-gap': config.gap ? config.gap : '4px',
+      '--tiles-color': config.color ? config.color : 'var(--primary-color)',
+      '--tiles-color-on': config.color_on ? config.color_on : 'var(--google-green-500)',
+      '--tiles-color-off': config.color_off ? config.color_off : 'var(--google-red-500)',
+      '--tiles-text-color': config.text_color ? config.text_color : '#FFF',
+      '--tiles-text-color-on': config.text_color_on ? config.text_color_on : '#FFF',
+      '--tiles-text-color-off': config.text_color_off ? config.text_color_off : '#FFF',
+    });
+  }
+
+  computeLabelState(hass, entity) {
+    return hass.states[entity].state;
+  }
+
+  computeClass(hass, entity) {
+    var domain = entity.entity.split('.')[0];
+    if (domain === 'script') return '';
+    return (hass.states[entity.entity].state === 'on') ? 'on' : 'off';
+  }
+
+  computeStyle (entity) {
+    var c = entity.column ? entity.column : 'auto';
+    var cs = entity.column_span ? entity.column_span : 1;
+    var r = entity.row ? entity.row : 'auto';
+    var rs = entity.row_span ? entity.row_span : 1;
+    var style = entity.color ? ' --tiles-color: ' + entity.color + ';' : '';
+    style += entity.color_on ? ' --tiles-color-on: ' + entity.color_on + ';' : '';
+    style += entity.color_off ? ' --tiles-color-off: ' + entity.color_off + ';' : '';
+    style += entity.text_color ? ' --tiles-text-color: ' + entity.text_color + ';' : '';
+    style += entity.text_color_on ? ' --tiles-text-color-on: ' + entity.text_color_on + ';' : '';
+    style += entity.text_color_off ? ' --tiles-text-color-off: ' + entity.text_color_off + ';' : '';
+    style += entity.image ? ' background-image: url("' + entity.image + '");' : '';
+    return 'grid-column: ' + c + ' / span ' + cs + '; grid-row: ' + r + ' / span ' + rs + ';' +  style;
+  }
+
+  callService(ev) {
+    var entity = ev.model.entity.entity;
+    var domain = entity.split('.')[0];
+    if (domain === 'script') {
+      var service = entity.split('.')[1];
+      var data = ev.model.entity.data ? (ev.model.entity.data) : {};
+    } else {
+      var service = 'toggle';
+      var data = { entity_id: entity };
+    }       
+    this.hass.callService(domain, service, data);
+  }
+
+  stopPropagation(ev) {
+    ev.stopPropagation();
+  }
+}
+customElements.define(StateCardTiles.is, StateCardTiles);
+</script>
