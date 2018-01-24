@@ -64,7 +64,7 @@ sensor:
 
       dark_outside:
         friendly_name: 'Dark outside'
-        value_template: >-
+        value_template: >
           {% if (states.input_boolean.sunset_offset.state == 'on') %}true
           {% elif (states.sun.sun.attributes.elevation | int < 3) %}true
           {% elif ( (states.sun.sun.attributes.elevation | int < 4.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
@@ -74,7 +74,7 @@ sensor:
 
       bad_weather:
         friendly_name: 'Bad weather'
-        value_template: >-
+        value_template: >
           {% if (states.sensor.dark_sky_precip.state == "snow") %}snow
           {% elif ((states.sensor.dark_sky_daily_low_temperature.state | int < 4) and (states.sensor.dark_sky_dew_point.state | int < 6) and (states.sensor.dark_sky_wind_speed.state | int < 12) and (states.sensor.dark_sky_cloud_coverage.state | int < 20) and (states.sensor.dark_sky_humidity.state | int > 50)) %} frost
           {% elif (states.sensor.dark_sky_precip_intensity | int > 7) %} heavy_rain
@@ -93,6 +93,6 @@ automation:
       offset: '-00:35:00'
   action:
     entity_id: input_boolean.sunset_offset
-    service_template: >-
+    service_template: >
       {% if (now().hour < 12) %} input_boolean.turn_off
       {% else %} input_boolean.turn_on {% endif %}

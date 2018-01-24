@@ -2,7 +2,7 @@
 
 #####################################
 ## This script pulls my selected   ##
-## files to my github repo, and    ##
+## files from my github repo, and  ##
 ## treats them as the 'master copy ##
 #####################################
 

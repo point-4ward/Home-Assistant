@@ -5,7 +5,7 @@
 
 ### My controllers
 I have created some controllers with Raspberry Pi's that I am using in the project, they follow a naming schematic 'node' followed by a number starting at zero so they can be identified and connected to easily on the network:
- - Node-zero - a Raspberry Pi 3 with a Z-wave.me Razberry module and a VSL bluetooth adapter, running Homeassistant and Mosquitto.  This is the main hub of my Home Automation system.
+ - Node-zero - a Raspberry Pi 3 with a Z-wave.me Razberry module and a CSL bluetooth adapter, running Homeassistant and Mosquitto.  This is the main hub of my Home Automation system.
  - Node-one - (Coming soon - a Raspberry pi MQTT alarm controller).
  - Node-two - (Coming soon - a Raspberry pi RF transmitter/receiver).
 
@@ -42,6 +42,5 @@ I have created some sensors with NodeMCU boards:
  
 ### Interfaces
  - Amazon Echo Dot - for voice control.
- - Samsung 7" tablet - for interactive touchscreen access.
- - Comag 10" tablet - for interactive touchscreen access.
+ - 2 x wall mounted tablets - for interactive touchscreen access.
  - Telegram App (on mobiles) - for two-way conversations with homeassistant.

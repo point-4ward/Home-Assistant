@@ -16,8 +16,8 @@ config:
 
 
 recorder:
-  purge_interval: 7
-  purge_keep_days: 14
+  purge_interval: 1
+  purge_keep_days: 3
 
 
 logbook:      
@@ -51,19 +51,19 @@ customizer:
 
 
 automation:
-  - alias: Set UI theme
-    initial_state: 'on'
-    trigger:
-      - platform: homeassistant
-        event: start
-      - platform: state
-        entity_id: sensor.dark_outside
-      - platform: time
-        at: '23:00:00'
-    action:
-      - service_template: frontend.set_theme
-        data_template:
-          name: >-
-            {% if (now().hour == 23) %} darkcyan
-            {% elif (states.sensor.dark_outside.state == "true") %} midnight
-            {% else %} default {% endif %}
+  alias: Set UI theme
+  initial_state: 'on'
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.dark_outside
+    - platform: time
+      at: '23:00:00'
+  action:
+    - service_template: frontend.set_theme
+      data_template:
+        name: >-
+          {% if (now().hour == 23) %} darkcyan
+          {% elif (states.sensor.dark_outside.state == "true") %} midnight
+          {% else %} default {% endif %}

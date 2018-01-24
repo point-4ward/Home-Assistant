@@ -413,9 +413,7 @@ script:
       - service: notify.mf
         data_template:
           #TODO
-          title: "LINK:
-          
-          "
+          title: "LINK:"
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") |
                replace("eight hundred and sixty one thousand","861.000") }}
