@@ -7,8 +7,8 @@
 ############################################
 
 
-#zwave:
-#  usb_path: /dev/ttyAMA0
+zwave:
+  usb_path: /dev/ttyAMA0
 
 
 hue:
