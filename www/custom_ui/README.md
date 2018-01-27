@@ -1,3 +1,5 @@
+# Custom UI
+
 Custom html for the interface, using the following libraries:
 
 Custom_ui by Andrey - https://github.com/andrey-git/home-assistant-custom-ui
