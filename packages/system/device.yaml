@@ -12,6 +12,9 @@ recorder:
 
 
 logbook:
+  exclude:
+    domains:
+      - automation
 
 
 sensor:
