@@ -7,23 +7,44 @@
 
 
 recorder:
-  purge_interval: 1
-  purge_keep_days: 3
+  purge_interval: 3
+  purge_keep_days: 10
 
 
 logbook:
   include:
+    entities:
+      - switch.heater
+      - input_boolean.guest_mode
+      - input_boolean.away_mode
+      - input_boolean.holiday_mode
+
     domains:
-      - automation
+      - alarm_control_panel
+      - alert
       - light
       - sensor
-      - switch
+      - binary_sensor
+      - device_tracker
+      - zwave
 
 
 history:
-  exclude:
+  include:
+    entities:
+      - switch.heater
+      - input_boolean.guest_mode
+      - input_boolean.away_mode
+      - input_boolean.holiday_mode
+
     domains:
-      - automation
+      - alarm_control_panel
+      - alert
+      - light
+      - sensor
+      - binary_sensor
+      - device_tracker
+      - zwave
 
 
 sensor:
