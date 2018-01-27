@@ -11,10 +11,10 @@ recorder:
   purge_keep_days: 3
 
 
-logbook:
+#logbook:
 
 
-history:
+#history:
 
 
 sensor:
