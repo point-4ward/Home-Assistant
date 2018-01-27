@@ -6,7 +6,7 @@
 ## new branch called 'upload'     ##
 ####################################
 
-cd /home/hass/.homeassistant
+cd /home/homeassistant/.homeassistant
 git add .
 git status
 git checkout -b upload

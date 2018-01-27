@@ -6,9 +6,9 @@
 ## treats them as the 'master copy ##
 #####################################
 
-cd /home/hass/.homeassistant/
+cd /home/homeassistant/.homeassistant/
 git checkout master
 git branch -D upload
 git fetch origin master
 git reset --hard origin/master
-sudo systemctl restart home-assistant.service
+sudo systemctl restart home-assistant@homeassistant.service

@@ -7,7 +7,7 @@
 ## Github if needed.                     ##
 ###########################################
 
-cd /home/hass/.homeassistant/
+cd /home/homeassistant/.homeassistant/
 ./update.sh
 git checkout master
 git branch -D upload
