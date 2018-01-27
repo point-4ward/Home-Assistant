@@ -15,19 +15,6 @@ http:
 config:
 
 
-recorder:
-  purge_interval: 1
-  purge_keep_days: 3
-
-
-logbook:      
-  exclude:
-    domains:
-      - weblink
-      - sensor
-      - group
-
-
 panel_iframe:
   kodi:
     title: 'Kodi'

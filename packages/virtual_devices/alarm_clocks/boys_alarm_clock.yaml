@@ -57,14 +57,12 @@ automation:
     platform: template
     value_template: '{{ states.sensor.time.state == (states.input_datetime.boys_alarm_clock_time.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
   condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.phone_trackers
-        state: 'home'
-      - condition: state
-        entity_id: input_boolean.boys_alarm_clock_status
-        state: 'on'
+    - condition: state
+      entity_id: group.phone_trackers
+      state: 'home'
+    - condition: state
+      entity_id: input_boolean.boys_alarm_clock_status
+      state: 'on'
   action:
     - service: script.boys_wake_up
     - condition: state

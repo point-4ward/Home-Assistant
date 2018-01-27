@@ -86,17 +86,15 @@ automation:
       entity_id: media_player.kodi
       to: 'playing'
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: sensor.dark_outside
-          state: 'true'
-        - condition: or
-          conditions:
-          - condition: template
-            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
-          - condition: template
-            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
+      - condition: state
+        entity_id: sensor.dark_outside
+        state: 'true'
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
+        - condition: template
+          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
     action:
       service: scene.turn_on
       entity_id: scene.livingroom_movie
@@ -122,17 +120,15 @@ automation:
       entity_id: media_player.kodi
       to: 'paused'
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: sensor.dark_outside
-          state: 'true'
-        - condition: or
-          conditions:
-          - condition: template
-            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
-          - condition: template
-            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
+      - condition: state
+        entity_id: sensor.dark_outside
+        state: 'true'
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
+        - condition: template
+          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
     action:
       service: scene.turn_on
       entity_id: scene.livingroom_bright
