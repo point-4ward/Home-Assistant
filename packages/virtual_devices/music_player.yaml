@@ -148,14 +148,12 @@ automation:
         entity_id: switch.google_music
         to: 'off'
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.play_radio
-          state: 'off'
-        - condition: state
-          entity_id: switch.google_music
-          state: 'off'
+      - condition: state
+        entity_id: input_boolean.play_radio
+        state: 'off'
+      - condition: state
+        entity_id: switch.google_music
+        state: 'off'
     action:
       - service: homeassistant.turn_off
         entity_id:
