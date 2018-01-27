@@ -17,6 +17,12 @@ logbook:
       - automation
 
 
+history:
+  exclude:
+    domains:
+      - automation
+
+
 sensor:
   - platform: systemmonitor
     resources:
