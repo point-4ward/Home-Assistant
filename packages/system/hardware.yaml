@@ -9,6 +9,7 @@
 
 zwave:
   usb_path: /dev/ttyAMA0
+  network_key: !secret zwave_network_key
 
 
 hue:
