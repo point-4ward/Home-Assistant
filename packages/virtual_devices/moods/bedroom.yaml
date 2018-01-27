@@ -82,7 +82,7 @@ script:
       - service: homeassistant.turn_off
         entity_id:
           - light.bedroom
-          - switch.tplink_switch
+          - switch.heater
           - input_boolean.remote_bedroom_radio
           - media_player.bedroom
 
