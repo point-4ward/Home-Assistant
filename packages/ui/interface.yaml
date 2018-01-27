@@ -15,6 +15,12 @@ http:
 config:
 
 
+logbook:
+
+
+history:
+
+
 panel_iframe:
   kodi:
     title: 'Kodi'
