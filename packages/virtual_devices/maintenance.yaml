@@ -95,7 +95,7 @@ shell_command:
 
   sync_dropbox: /home/homeassistant/.homeassistant/extras/bash_scripts/sync-dropbox.sh
 
-  quick_restart: sudo systemctl restart home-assistant.service
+  quick_restart: sudo systemctl restart home-assistant@homeassistant.service
 
   quick_reboot: sudo reboot
 
