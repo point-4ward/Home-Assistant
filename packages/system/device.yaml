@@ -11,10 +11,19 @@ recorder:
   purge_keep_days: 3
 
 
-#logbook:
+logbook:
+  include:
+    domains:
+      - automation
+      - light
+      - sensor
+      - switch
 
 
-#history:
+history:
+  exclude:
+    domains:
+      - automation
 
 
 sensor:
