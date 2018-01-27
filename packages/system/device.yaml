@@ -12,9 +12,12 @@ recorder:
 
 
 logbook:
-  exclude:
+  include:
     domains:
       - automation
+      - light
+      - sensor
+      - switch
 
 
 history:
