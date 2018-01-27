@@ -26,7 +26,7 @@ entities:
     label: Night
     column: 5
           
-  - entity: switch.tplink_switch
+  - entity: switch.heater
     label: Heater
     column: 1
     row: 2
