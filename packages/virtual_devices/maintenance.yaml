@@ -126,6 +126,8 @@ script:
   github_push:
     alias: Push to Github
     sequence:
+      - condition: template
+        value_template: "{{not is_state ('input_text.github_message' , '' )}}" 
       - service: shell_command.github_push
       - service: persistent_notification.create
         data:
