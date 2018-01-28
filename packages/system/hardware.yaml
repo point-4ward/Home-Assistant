@@ -59,10 +59,6 @@ switch:
     switches: !include_dir_merge_named ../../extras/includes/ir_codes/
 
 
-sensor:
-  platform: hue
-
-
 binary_sensor:
   - platform: ping
     host: !secret hue_light_host
