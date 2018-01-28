@@ -60,7 +60,7 @@ switch:
 
 
 sensor:
-  platform: hue_sensor
+  platform: hue
 
 
 binary_sensor:
