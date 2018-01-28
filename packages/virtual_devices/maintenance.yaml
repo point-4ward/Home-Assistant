@@ -127,6 +127,11 @@ script:
     alias: Push to Github
     sequence:
       - service: shell_command.github_push
+      - service: persistent_notification.create
+        data:
+          notification_id: "Github_push_alert"
+          title: "Github"
+          message: "You have pushed your local files to github, you must merge the branches on github then sync the master branch here."
 
   sync_dropbox:
     alias: Sync Dropbox
