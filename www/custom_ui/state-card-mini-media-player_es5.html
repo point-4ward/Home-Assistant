@@ -1,6 +1,6 @@
 <!--
 https://github.com/c727/home-assistant-mini-media-player
-version: 20180129
+version: 20180129.2
 -->
 <dom-module id='state-card-mini-media-player'>
   <template>
@@ -129,7 +129,7 @@ version: 20180129
       },
       playerObj: {
         type: Object,
-        computed: 'computePlayerObj(hass)',
+        computed: 'computePlayerObj(hass, config)',
       },
       dialog: {
         type: Boolean,
@@ -141,8 +141,8 @@ version: 20180129
       return stateObj.attributes.config;
     },
 
-    computePlayerObj: function (hass) {     
-      if (hass.states[this.config.player]) {
+    computePlayerObj: function (hass, config) {     
+      if (config && config.player && hass.states[this.config.player]) {
         var playerObj = hass.states[this.config.player];
         playerObj.isOff = playerObj.state === 'off';
         playerObj.isPlaying = playerObj.state === 'playing';

@@ -1,6 +1,6 @@
 <!--
 https://github.com/c727/home-assistant-mini-media-player
-version: 20180129
+version: 20180129.2
 -->
 <dom-module id='state-card-mini-media-player'>
   <template>
@@ -127,7 +127,7 @@ class StateCardMiniMediaPlayer extends Polymer.Element {
       },
       playerObj: {
         type: Object,
-        computed: 'computePlayerObj(hass)',
+        computed: 'computePlayerObj(hass, config)',
       },
       dialog: {
         type: Boolean,
@@ -140,8 +140,8 @@ class StateCardMiniMediaPlayer extends Polymer.Element {
     return stateObj.attributes.config;
   }
 
-  computePlayerObj(hass) {
-    if (hass.states[this.config.player]) {
+  computePlayerObj(hass, config) {
+    if (config && config.player && hass.states[this.config.player]) {
       var playerObj = hass.states[this.config.player];
       playerObj.isOff = playerObj.state === 'off';
       playerObj.isPlaying = playerObj.state === 'playing';
