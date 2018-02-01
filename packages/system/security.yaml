@@ -43,6 +43,38 @@ automation:
       data:
         message: 'Doorbell test'
 
+  - alias: Set the alarm when unoccupied
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.home_status
+      to: 'Unoccupied'
+    action:
+      - service: tts.google_say
+        entity_id: media_player.everywhere
+        data:
+          message: 'The house is unoccupied, the alarm will set in 20 seconds if not overriden'
+      - delay: 00:00:20
+      - condition: state
+        entity_id: sensor.home_status
+        state: 'Unoccupied'
+      - service: alarm_control_panel.alarm_arm_away
+        data:
+          entity_id: alarm_control_panel.alarm
+          code: !secret alarm_code
+
+  - alias: Disarm alarm when occupied
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.home_status
+      to: 'Occupied'
+    action:
+      service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.alarm
+        code: !secret alarm_code
+
   - alias: Send notification upon failed login attempt
     initial_state: 'on'
     trigger:
