@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.6.0"
+  - "3.5.3"
 before_install:
   - mv extras/github_resources/secrets_redacted.yaml secrets.yaml
 install:

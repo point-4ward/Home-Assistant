@@ -181,7 +181,11 @@ automation:
           - group.all_lights
           - media_player.kodi
       - service: homeassistant.turn_on
-        entity_id: input_boolean.away_mode
+        entity_id:
+          - input_boolean.away_mode
+          - script.empty_bedroom
+          - script.empty_girls
+          - script.empty_boys
     
   - alias: Set Holiday Mode
     initial_state: 'on'
