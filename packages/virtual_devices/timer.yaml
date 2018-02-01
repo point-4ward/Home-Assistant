@@ -38,14 +38,15 @@ automation:
       platform: state
       entity_id: input_number.timer_minutes
     action:
+      - service: timer.cancel
+        entity_id: timer.quick_timer
+      - condition: template
+        value_template: '{{ states.input_number.timer_minutes.state|float != 0}}'
       - service: timer.start
         entity_id: timer.quick_timer
         data_template:
           duration: '00:{{states.input_number.timer_minutes.state|int}}:00'
-      - condition: template
-        value_template: '{{ states.input_number.timer_minutes.state|float == 0}}'
-      - service: timer.cancel
-        entity_id: timer.quick_timer
+      
       
   - alias: Timer expired
     initial_state: 'on'

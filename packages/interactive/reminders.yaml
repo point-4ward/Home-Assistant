@@ -20,7 +20,7 @@ automation:
         entity_id: input_boolean.holiday_mode
         state: 'off'
     action:
-      - wait_template: "{{(states.device_tracker.forthygpixel.state == 'home') or (states.device_tracker.lauras_iphone.state == 'home')}}"
+      - wait_template: "{{(states.group.adults.state == 'home')}}"
       - delay: 00:15:00
       - service: tts.google_say
         entity_id: media_player.everywhere
