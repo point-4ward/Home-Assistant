@@ -8,7 +8,6 @@
 
 cd /home/homeassistant/.homeassistant
 git add .
-git status
 git checkout -b upload
 git commit -m "$1"
 git push origin upload
