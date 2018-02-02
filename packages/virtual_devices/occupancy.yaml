@@ -173,6 +173,8 @@ automation:
       platform: state
       entity_id: sensor.home_status
       to: 'Unoccupied'
+      for:
+        minutes: 2
     action:
       - service: homeassistant.turn_off
         entity_id:

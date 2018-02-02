@@ -3,6 +3,8 @@
 # This package contains the sensors I    #
 # use for my security monitoring         #
 #                                        #
+# DEPENDS ON: Occupancy                  #
+#                                        #
 ##########################################
       
       
@@ -12,6 +14,7 @@ alarm_control_panel:
   code: !secret alarm_code
   state_topic: homeassistant/alarm
   command_topic: homeassistant/alarm/set
+  pending_time: 10
 
 
 sensor:
@@ -53,8 +56,8 @@ automation:
       - service: tts.google_say
         entity_id: media_player.everywhere
         data:
-          message: 'The house is unoccupied, the alarm will set in 20 seconds if not overriden'
-      - delay: 00:00:20
+          message: 'The house is unoccupied, the alarm will set in 30 seconds if not overridden'
+      - delay: 00:00:30
       - condition: state
         entity_id: sensor.home_status
         state: 'Unoccupied'
