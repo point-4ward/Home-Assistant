@@ -8,16 +8,3 @@
 # off automations, or anything else seasonal       #
 #                                                  #
 ####################################################
-
-#Alarm testing
-
-automation:
-  alias: TEST alarm
-  initial_state: 'on'
-  trigger:
-    platform: state
-    entity_id: alarm_control_panel.alarm
-  action:
-    service: notify.mf
-    data_template:
-      message: "ALARM TEST - '{{states.alarm_control_panel.alarm.state}}'"
