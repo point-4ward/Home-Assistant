@@ -1,21 +1,6 @@
 automation:
-  - alias: Link New device connected
-    trigger:
-      - platform: event
-        event_type: device_tracker_new_device
-    action:
-      - service: input_boolean.turn_on
-        data:
-          entity_id: input_boolean.link_alert_mode
-      - service: script.link_speech_engine
-        data:
-          call_greeting: 1
-          call_new_device: 1
-        data_template:
-          person: >-
-            {{ trigger.event.data.name }}
-
   - alias: Link Shut Down
+    initial_state: 'on'
     trigger:
       - event: shutdown
         platform: homeassistant
@@ -28,6 +13,7 @@ automation:
           call_shut_down: 1
 
   - alias: Link Start Up
+    initial_state: 'on'
     trigger:
       - event: start
         platform: homeassistant
@@ -39,18 +25,3 @@ automation:
         data:
           call_greeting: 1
           call_introduction: 1
-
-  - alias: Link Update Available
-    trigger:
-      - platform: state
-        entity_id: sensor.up_to_date
-        from: 'true'
-        to: 'false'
-    action:
-      - service: input_boolean.turn_on
-        data:
-          entity_id: input_boolean.link_alert_mode
-      - service: script.link_speech_engine
-        data:
-          call_greeting: 1
-          call_update: 1

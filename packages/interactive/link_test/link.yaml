@@ -1,3 +1,26 @@
+#Things for random facts...
+
+sensor:
+  - platform: moon
+  
+  - platform: airvisual
+    api_key: !secret airvisual_api_key
+    monitored_conditions: us
+    show_on_map: false
+
+binary_sensor:
+  - platform: iss
+
+
+
+
+
+#####################################
+#sort the below!
+#####################################
+
+
+
 group:
   link_settings:
     name: Settings
