@@ -6,6 +6,10 @@ automation:
         platform: homeassistant
       - event_type: homeassistant.restart
         platform: event
+    condition:
+      condition: state
+      entity_id: input_boolean.maintenance_mode
+      state: 'off'
     action:
       - service: script.link_speech_engine
         data:
@@ -17,6 +21,10 @@ automation:
     trigger:
       - event: start
         platform: homeassistant
+    condition:
+      condition: state
+      entity_id: input_boolean.maintenance_mode
+      state: 'off'
     action:
       - service: input_boolean.turn_on
         data:
