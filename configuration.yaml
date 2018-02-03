@@ -9,7 +9,7 @@
 
 
 homeassistant:
-  name: Home
+  name: The Citadel
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: !secret elevation
