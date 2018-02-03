@@ -146,7 +146,7 @@ automation:
           message: "Your system is running under heavy load! CPU:{{states.sensor.cpu_used.state}}% Memory:{{ states.sensor.ram_used.state }}%!"
       - service: persistent_notification.create
         data_template:
-          title: "System Load mMnitor:"
+          title: "System Load Monitor:"
           message: "Your system is running under heavy load! CPU:{{states.sensor.cpu_used.state}}% Memory:{{ states.sensor.ram_used.state }}%!"
           notification_id: "Critical Alert"
 
@@ -189,6 +189,26 @@ automation:
       - platform: state
         entity_id: binary_sensor.cctv
         to: 'off'
+        for:
+          minutes: 2
+      - platform: state
+        entity_id: device_tracker.chromecast_livingroom
+        to: 'not_home'
+        for:
+          minutes: 2
+      - platform: state
+        entity_id: device_tracker.chromecast_kitchen
+        to: 'not_home'
+        for:
+          minutes: 2
+      - platform: state
+        entity_id: device_tracker.chromecast_bedroom
+        to: 'not_home'
+        for:
+          minutes: 2
+      - platform: state
+        entity_id: device_tracker.chromecast_boys
+        to: 'not_home'
         for:
           minutes: 2
     action:

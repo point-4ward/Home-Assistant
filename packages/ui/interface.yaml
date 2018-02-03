@@ -23,7 +23,7 @@ panel_iframe:
 
 
 frontend:
-  javascript_version: latest
+  javascript_version: es5
   themes: !include_dir_merge_named ../../extras/includes/themes/
   extra_html_url:
     - /local/custom_ui/state-card-tiles.html
@@ -44,11 +44,12 @@ automation:
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: sensor.dark_outside
+      entity_id:
+        - alarm_control_panel.alarm
+        - input_boolean.maintenance_mode
+        - sensor.dark_outside
     - platform: time
       at: '23:00:00'
-    - platform: state
-      entity_id: alarm_control_panel.alarm
   action:
     - service_template: frontend.set_theme
       data_template:

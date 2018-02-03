@@ -7,6 +7,41 @@
 ############################################
 
 
+homeassistant:
+  customize:
+    media_player.everywhere:
+      friendly_name: Everywhere
+      icon: mdi:play
+
+    media_player.downstairs:
+      friendly_name: Downstairs
+      icon: mdi:play
+
+    media_player.livingroom:
+      friendly_name: Livingroom
+      icon: mdi:play
+
+    media_player.kitchen:
+      friendly_name: Kitchen
+      icon: mdi:play
+
+    media_player.bedroom:
+      friendly_name: Bedroom
+      icon: mdi:play
+
+    media_player.boys:
+      friendly_name: Boys
+      icon: mdi:play
+
+    media_player.girls:
+      friendly_name: Girls
+      icon: mdi:play
+
+    media_player.kids:
+      friendly_name: Kids
+      icon: mdi:play
+
+
 #zwave:
 #  usb_path: /dev/ttyAMA0
 #  network_key: !secret zwave_network_key
@@ -47,6 +82,10 @@ emulated_hue:
   exposed_domains:
     - light
     - input_boolean
+
+device_tracker:
+  - platform: nmap_tracker
+    hosts: !secret nmap_hosts
 
 
 switch: 
