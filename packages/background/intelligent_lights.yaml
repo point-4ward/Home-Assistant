@@ -79,56 +79,35 @@ automation:
         group: "Bedroom"
         scene: "Relax"
 
-  - alias: Media player playing
+  - alias: Kodi based lighting
     initial_state: 'on'
     trigger:
-      platform: state
-      entity_id: media_player.kodi
-      to: 'playing'
+      - platform: state
+        entity_id: media_player.kodi
+        to: 'playing'
+      - platform: state
+        entity_id: media_player.kodi
+        to: 'paused'
+      - platform: state
+        entity_id: media_player.kodi
+        to: 'idle'
+        from: 'playing'
     condition:
       - condition: state
         entity_id: sensor.dark_outside
         state: 'true'
       - condition: or
         conditions:
-        - condition: template
-          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
-        - condition: template
-          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
+          - condition: template
+            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
+          - condition: template
+            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
+          - condition: state
+            entity_id: media_player.kodi
+            state: 'idle'
     action:
       service: scene.turn_on
-      entity_id: scene.livingroom_movie
-
-  - alias: Media player stopped
-    initial_state: 'on'
-    trigger:
-      platform: state
-      entity_id: media_player.kodi
-      to: 'idle'
-    condition:    
-      condition: state
-      entity_id: sensor.dark_outside
-      state: 'true'
-    action:
-      service: scene.turn_on
-      entity_id: scene.livingroom_bright
-
-  - alias: Media player paused
-    initial_state: 'on'
-    trigger:
-      platform: state
-      entity_id: media_player.kodi
-      to: 'paused'
-    condition:
-      - condition: state
-        entity_id: sensor.dark_outside
-        state: 'true'
-      - condition: or
-        conditions:
-        - condition: template
-          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
-        - condition: template
-          value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
-    action:
-      service: scene.turn_on
-      entity_id: scene.livingroom_bright
+      data_template:
+        entity_id: >
+          {% if is_state ('media_player.kodi' , 'playing') %} scene.livingroom_movie
+          {% else %} scene.livingroom_dim {% endif %}
