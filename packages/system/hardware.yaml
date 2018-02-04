@@ -83,10 +83,6 @@ emulated_hue:
     - light
     - input_boolean
 
-device_tracker:
-  - platform: nmap_tracker
-    hosts: !secret nmap_hosts
-
 
 switch: 
   - platform: tplink
@@ -97,24 +93,6 @@ switch:
     mac: !secret switch_broadlink_mac
     friendly_name: 'IR remote'
     switches: !include_dir_merge_named ../../extras/includes/ir_codes/
-
-
-binary_sensor:
-  - platform: ping
-    host: !secret hue_light_host
-    name: Hue Hub
-
-  - platform: ping
-    host: !secret switch_tplink_host
-    name: TP Link
-
-  - platform: ping
-    host: !secret switch_broadlink_host
-    name: Broadlink
-
-  - platform: ping
-    host: !secret cctv_host
-    name: CCTV
 
 
 automation:
