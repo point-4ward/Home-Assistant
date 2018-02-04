@@ -93,6 +93,7 @@ automation:
         minutes: 00
         seconds: 00
     action:
+      - delay: 00:02:00
       - service: python_script.all_automations_counter
       - service: python_script.on_automations_counter
       - delay: 00:00:30
