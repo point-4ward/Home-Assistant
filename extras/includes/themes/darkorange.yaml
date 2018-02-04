@@ -1,3 +1,11 @@
+############################################
+#                                          #
+# This !include contains the configuration #
+# for the DarkOrange frontend theme        #
+#                                          #
+############################################
+
+
 darkorange:
   primary-color: "#ff9800"
   light-primary-color: "#ffc947"
