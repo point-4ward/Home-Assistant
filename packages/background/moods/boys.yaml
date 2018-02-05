@@ -71,3 +71,4 @@ script:
           - light.boys
           - input_boolean.remote_boys_radio
           - media_player.boys
+          - script.lullaby_boys

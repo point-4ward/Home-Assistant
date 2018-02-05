@@ -21,3 +21,6 @@ homeassistant:
       custom_ui_state_card: state-card-custom-ui
 
 python_script:
+
+mqtt_eventstream:
+  publish_topic: '/citadel'
