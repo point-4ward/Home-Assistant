@@ -8,6 +8,3 @@
 # off automations, or anything else seasonal       #
 #                                                  #
 ####################################################
-
-mqtt_eventstream:
-  publish_topic: Citadel

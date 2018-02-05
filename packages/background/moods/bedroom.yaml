@@ -76,6 +76,9 @@ script:
           - media_player.bedroom
           - light.bedroom
 
+  romance_bedroom:
+    sequence:
+
   empty_bedroom:
     alias: bedroom Empty
     sequence:
@@ -85,6 +88,5 @@ script:
           - switch.heater
           - input_boolean.remote_bedroom_radio
           - media_player.bedroom
-
-  romance_bedroom:
-    sequence:
+          - script.lullaby_bedroom
+          - script.romance_bedroom

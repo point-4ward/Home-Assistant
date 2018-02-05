@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Simple display for Home Assistant">
+      <meta name="author" content="Fabian Affolter">
+    <!-- Bootstrap core CSS -->
+    <link href="private/css/home-assistant-display.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script type="text/javascript" src="private/js/jquery-1.11.2.min.js"></script>
+    <!-- MQTT Websocket -->
+    <script type="text/javascript" src="private/js/mqttws31.js"></script>
+    <title>Home Assistant</title>
+    <script type="text/javascript">
+        var host = '192.168.1.3';
+        var port = 1884;
+        var topic = '/citadel';
+        var username = null; //Default: 'home-assistant';
+        var password = null; //Default: 'mypass';
+        var useTLS = false;
+        var cleansession = true;
+        var reconnectTimeout = 2000;
+
+    var client = new Paho.MQTT.Client(
+        host,
+        port,
+        "ha-display" + parseInt(Math.random() * 100, 10));
+
+    client.onConnectionLost = function (responseObject) {
+        $('#status').html("Connection lost: " + responseObject.errorMessage + ". Reconnecting...");
+    };
+
+    client.onMessageArrived = function (message) {
+        if (message.destinationName == topic) {
+            parsed = JSON.parse(message.payloadString);
+        }
+        //$('#message').html(message.destinationName  + ', ' + message.payloadString);
+        var entity_id = parsed.event_data.entity_id;
+        var friendly_name = parsed.event_data.new_state.attributes.friendly_name;
+        var state = parsed.event_data.new_state.state;
+        var unit_of_measurement = parsed.event_data.new_state.attributes.unit_of_measurement;
+
+        switch (entity_id) {
+             case 'sensor.bad_weather':
+                $('#badWeather').text(state);
+                break;
+            case 'sun.sun':
+                if (state == 'above_horizon') {
+                    $('#sunLabel').text('Above horizon');
+                    $('#sunLabel').removeClass('label-danger').addClass('label-success');
+                } else {
+                    $('#sunLabel').text('Below horizon');
+                    $('#sunLabel').removeClass('label-success').addClass('label-danger');
+                }
+                break;
+            case 'sensor.date':
+                $('#date').text(state);
+                 break;
+            case 'sensor.time':
+                $('#time').text(state);
+                break;
+            case 'light.living_room':
+                 $('#lightLivingroom').text(state);
+                 break;
+             case 'sensor.kitchen_temperature':
+                  $('#insideTemperature').text(state + ' ' + unit_of_measurement);
+                  break;
+            default:
+                //console.log('Error: Data do not match the given entities.');
+            break;
+        }
+
+    };
+
+    var options = {
+        timeout: 3,
+        useSSL: useTLS,
+        cleanSession: cleansession,
+        onSuccess: function () {
+            $('#status').html('Connected to ' + host + ':' + port);
+            // Connection succeeded; subscribe to our topic
+            client.subscribe(topic, {qos: 0});
+        },
+        onFailure: function (message) {
+            $('#status').html("Connection failed: " + message.errorMessage + "Retrying...");
+            setTimeout(MQTTconnect, reconnectTimeout);
+        }
+    };
+    if (username != null) {
+        options.userName = username;
+        options.password = password;
+    }
+
+    function init() {
+        // Connect to MQTT broker
+        client.connect(options);
+    }
+    </script>
+  </head>
+  <body onload="init();">
+          <div class="container">
+<div class="container-fluid">
+<div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-md-4">
+            <h1><b id="time"></b>&nbsp;</h1>
+            <h3 id="date"></h3>
+        </div>
+        <div class="col-md-4">
+            <h1><b><span id="sunLabel" class="label">&nbsp;</b></h1></span>
+            <h3>Sun</h3>
+        </div>
+        <div class="col-md-4">
+            <h1><b id="lightLivingroom">&nbsp;</b></h1>
+            <h3>Living Room Light</h3>
+        </div>
+    </div>
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="row">
+          <div class="col-md-4">
+              <h1><b id="insideTemperature">&nbsp;</b></h1>
+              <h3>Temperatur Küche</h3>
+          </div>
+          <div class="col-md-4">
+              <h1><b><span id="badWeather" class="label">&nbsp;</b></h1></span>
+              <h3>Bad Weather Warning</h3>
+          </div>
+          <div class="col-md-4">
+              <h1><b id="somethingelse">&nbsp;</b></h1>
+              <h3>&nbsp;</h3>
+          </div>
+      </div>
+    </div>
+</div>
+          </div>
+            <!-- DEBUG
+            <div class="panel panel-default">
+              <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-6"><b>Latest MQTT message:  </b> <small id="message">no message recieved</small></div>
+                    <div class="col-md-6"><b>Status: </b>  <small id='status'></small></div>
+                  </div>
+              </div>
+            </div>
+            -->
+      </body>
+    </html>
