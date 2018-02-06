@@ -58,6 +58,8 @@ automation:
     action:
       - service: input_number.set_value
         entity_id: input_number.timer_minutes
+        data:
+          value: 0
       - service: notify.mf
         data:
           message: "The timer has expired"
