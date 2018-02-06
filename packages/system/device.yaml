@@ -66,6 +66,13 @@ history:
       - light.bathroom_g
 
 
+python_script:
+
+
+mqtt_eventstream:
+  publish_topic: '/citadel'
+
+
 sensor:
   - platform: systemmonitor
     resources:
