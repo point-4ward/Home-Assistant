@@ -19,8 +19,3 @@ homeassistant:
   customize_glob:
     "*.*":
       custom_ui_state_card: state-card-custom-ui
-
-python_script:
-
-mqtt_eventstream:
-  publish_topic: '/citadel'
