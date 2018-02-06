@@ -11,7 +11,7 @@ This is my current Home Automation setup.
 ## House:
 
 3 storey townhouse, consisting of:
- - A living area on the groung floor (Living room and kitchen/diner)
+ - A living area on the ground floor (Living room and kitchen/diner)
  - Hall stairs and landing leading to first floor.
  - Boys' bedroom, Girls' bedroom and bathroom on the first floor.
  - Stairs leading to Master bedroom on the second floor.
@@ -28,11 +28,11 @@ Click [here](extras/github_resources/readme_files/configuration.md) to see how I
 
 Click [here](extras/github_resources/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
 
-Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks! **(NOT WORKING - SORRY!)**
+Click here to see how it looks! **(NOT WORKING - SORRY!)**
 
 ## Useful links/resources etc:
 
-[Home Assistant](http://home-assistant.io) | [Yatse](http://yatse.tv/redmine/projects/yatse)
+[Home Assistant](http://home-assistant.io)
 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
