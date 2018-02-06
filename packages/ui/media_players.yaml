@@ -1,43 +1,36 @@
 homeassistant:
   customize:
     input_text.media_downstairs:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.downstairs
 
     input_text.media_everywhere:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.everywhere
 
     input_text.media_livingroom:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.livingroom
 
     input_text.media_kitchen:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.kitchen
 
     input_text.media_boys:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.boys
 
     input_text.media_girls:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.girls
 
     input_text.media_bedroom:
-      icon: mdi:play
       custom_ui_state_card: state-card-mini-media-player
       config:
         player: media_player.bedroom

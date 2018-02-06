@@ -30,7 +30,6 @@ homeassistant:
 group:
   default_view:
     view: yes
-    name: Downstairs
     icon: mdi:sofa
     entities:
       - group.tiles_lights
@@ -40,7 +39,6 @@ group:
 
   media:
     view: yes
-    name: Media
     icon: mdi:speaker-wireless
     entities:
       - group.music
@@ -48,7 +46,6 @@ group:
 
   bedroom:
     view: yes
-    name: Bedroom
     icon: mdi:hotel
     entities:
       - group.tiles_bedroom
@@ -56,7 +53,6 @@ group:
 
   boys_room:
     view: yes
-    name: Boys Room
     icon: mdi:human-handsdown
     entities:
       - group.tiles_boys
@@ -64,7 +60,6 @@ group:
 
   girls_room:
     view: yes
-    name: Girls Room
     icon: mdi:human-female
     entities:
       - group.tiles_girls
@@ -72,7 +67,6 @@ group:
 
   tools:
     view: yes
-    name: Tools
     icon: mdi:wrench
     entities:
       - group.maintenance
