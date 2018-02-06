@@ -84,6 +84,16 @@ group:
       - switch.google_music
       - input_select.google_music
 
+  cca:
+    - media_player.kitchen
+    - media_player.livingroom
+    - media_player.bedroom
+    - media_player.downstairs
+    - media_player.everywhere
+    - media_player.boys
+    - media_player.girls
+    - media_player.kids
+
 
 automation:
   - alias: Play Radio
@@ -156,15 +166,7 @@ automation:
         state: 'off'
     action:
       - service: homeassistant.turn_off
-        entity_id:
-          - media_player.kitchen
-          - media_player.livingroom
-          - media_player.bedroom
-          - media_player.downstairs
-          - media_player.everywhere
-          - media_player.boys
-          - media_player.girls
-          - media_player.kids
+        entity_id: group.cca
       - service: input_number.set_value
         data_template:
           entity_id: input_number.volume_radio
@@ -174,7 +176,7 @@ automation:
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: group.tiles_media
+        entity_id: group.cca
         to: 'off'
     condition:
       condition: or
