@@ -54,26 +54,26 @@ automation:
           title: "Low Battery levels"
           notification_id: low-battery-alert
           message: >
-          {% macro battery_level() %}
-            {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
-              and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
-              and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
-              or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
-              and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
-            {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
-            {{ battery_level() }}
+            {% macro battery_level() %}
+              {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
+                and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
+                and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
+                or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
+                and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
+              {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
+              {{ battery_level() }}
       - service: notify.mf
         data_template:
           title: "Battery alert:"
           message: >
-          {% macro battery_level() %}
-            {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
-              and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
-              and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
-              or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
-              and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
-            {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
-            {{ battery_level() }}
+            {% macro battery_level() %}
+              {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
+                and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
+                and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
+                or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
+                and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
+              {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
+              {{ battery_level() }}
 
 
   - alias: Battery sensor - level
