@@ -42,10 +42,10 @@ homeassistant:
       icon: mdi:play
 
 
-#zwave:
-#  usb_path: /dev/ttyAMA0
-#  network_key: !secret zwave_network_key
-#  autoheal: false
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+  autoheal: false
 
 
 hue:
