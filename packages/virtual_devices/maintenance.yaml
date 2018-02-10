@@ -43,8 +43,6 @@ weblink:
   entities:
     - name: Github
       url: https://github.com/mf-social/Home-Assistant
-    - name: Travis CI
-      url: https://travis-ci.org/
     - name: Configure Alexa
       url: https://alexa.amazon.co.uk/spa/index.html#smart-home
     - name: Dropbox
