@@ -33,7 +33,7 @@ group:
       - input_select.link_notification_media_player
       - input_number.link_notification_volume
       - input_number.link_notification_witty
-      
+
   link_notification_skills:
     name: Skills
     entities:
@@ -181,7 +181,7 @@ script:
               ] %}
               {{ update | random }}
             {%- endmacro -%}
-            
+
             {%- macro location_not_home() -%}
               {% set not_home = [
                 " is going somewhere. ",
@@ -190,7 +190,7 @@ script:
               ] %}
               {{ not_home | random }}
             {%- endmacro -%}
-            
+
             {%- macro location_inquiry( person, not_home ) -%}
             {%- for device in states.device_tracker -%}
               {%- if device.name == person -%}
@@ -203,7 +203,7 @@ script:
               {%- endif -%}
             {%- endfor -%}
             {%- endmacro -%}
-            
+
             {%- macro bad_weather() -%}
               {% set rain = [
                 " You might want to change your schedule. ",
@@ -222,7 +222,7 @@ script:
               ] %}
               {{ rain | random }}{{ bad_weather }}
             {%- endmacro -%}
-            
+
             {%- macro okay()-%}
               {% set okay = [
                 "Done! I love you guys. ",
@@ -314,7 +314,7 @@ script:
             {% if call_inform == 1 %}
               {{ inform() }}
             {% endif %}
-            
+
             {% if call_location_inquiry == 1 %}
               {% set location = location_inquiry( person, location_not_home() ) %}
               {% set count = location | length %}
@@ -324,7 +324,7 @@ script:
                 {{ location }}
               {% endif %}
             {% endif %}
-            
+
             {% if call_rain_warning == 1 %}
               {{ rain_warning( witty ( bad_weather(), chance ) ) }}
             {% endif %}
@@ -360,7 +360,7 @@ script:
             {{ media_player }}
           speech_message: >-
             {{ speech_message }}
-      - service: script.link_text_processing 
+      - service: script.link_text_processing
         data_template:
           speech_message: >-
             {{ speech_message }}

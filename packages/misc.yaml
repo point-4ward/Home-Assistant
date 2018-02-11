@@ -8,3 +8,19 @@
 # off automations, or anything else seasonal       #
 #                                                  #
 ####################################################
+
+#minecraft server testing
+
+sensor:
+  platform: minecraft
+  name: Minecraft
+  server: 192.168.1.3
+
+group:
+  minecraft:
+    view: yes
+    name: Minecraft
+    entities:
+      - group.minecraft_sensor
+  minecraft_sensor:
+    - sensor.minecraft
