@@ -1,20 +1,22 @@
 <!--
 https://github.com/c727/home-assistant-tiles
-version: 20180120
+version: 20180209.1
 -->
 <dom-module id='state-card-tiles'>
   <template>
     <style>
-      .grid {
+      paper-button-group {
         display: grid;
         grid-template-columns: repeat(var(--tiles-columns), var(--tiles-column-width));
         grid-auto-rows: var(--tiles-row-height);
         grid-gap: var(--tiles-gap);
         width: 100%;
       }
-      paper-button {          
+      paper-button {
         box-shadow: none !important;
         margin: 0 !important;
+        min-width: 50px;
+        min-height: 50px;
         background-color: var(--tiles-color);
         color: var(--tiles-text-color);
         background-repeat: no-repeat;
@@ -29,7 +31,7 @@ version: 20180120
         color: var(--tiles-text-color-off);
       }
     </style>
-    <paper-button-group class='grid' on-tap='stopPropagation'>
+    <paper-button-group on-tap='stopPropagation'>
       <template is='dom-repeat' items='[[config.entities]]' as='entity'>
         <paper-button raised class$='[[computeClass(hass, entity)]]' style$='[[computeStyle(entity)]]' on-tap='callService'>
           <template is='dom-if' if='[[entity.icon]]'>
@@ -40,7 +42,7 @@ version: 20180120
           </template>
           <template is='dom-if' if='[[entity.label_state]]'>
             [[computeLabelState(hass, entity.label_state)]]
-          </template>          
+          </template>
         </paper-button>
       </template>
     </paper-button-group>
@@ -62,13 +64,13 @@ class StateCardTiles extends Polymer.Element {
     };
   }
 
-  computeConfig(stateObj) {     
+  computeConfig(stateObj) {
     return stateObj.attributes.config;
   }
 
   ready() {
     super.ready();
-    var config = this.config;
+    const config = this.config;
     this.updateStyles({
       '--tiles-columns': config.columns ? config.columns : '3',
       '--tiles-column-width': config.column_width ? config.column_width : '1fr',
@@ -88,17 +90,17 @@ class StateCardTiles extends Polymer.Element {
   }
 
   computeClass(hass, entity) {
-    var domain = entity.entity.split('.')[0];
-    if (domain === 'script') return '';
-    return (hass.states[entity.entity].state === 'on') ? 'on' : 'off';
+    const domain = entity.entity.split('.')[0];
+    if (domain === 'script' || domain === 'python_script') return '';
+    return !window.hassUtil.OFF_STATES.includes(hass.states[entity.entity].state) ? 'on' : 'off';
   }
 
   computeStyle (entity) {
-    var c = entity.column ? entity.column : 'auto';
-    var cs = entity.column_span ? entity.column_span : 1;
-    var r = entity.row ? entity.row : 'auto';
-    var rs = entity.row_span ? entity.row_span : 1;
-    var style = entity.color ? ' --tiles-color: ' + entity.color + ';' : '';
+    const c = entity.column ? entity.column : 'auto';
+    const cs = entity.column_span ? entity.column_span : 1;
+    const r = entity.row ? entity.row : 'auto';
+    const rs = entity.row_span ? entity.row_span : 1;
+    let style = entity.color ? ' --tiles-color: ' + entity.color + ';' : '';
     style += entity.color_on ? ' --tiles-color-on: ' + entity.color_on + ';' : '';
     style += entity.color_off ? ' --tiles-color-off: ' + entity.color_off + ';' : '';
     style += entity.text_color ? ' --tiles-text-color: ' + entity.text_color + ';' : '';
@@ -109,16 +111,30 @@ class StateCardTiles extends Polymer.Element {
   }
 
   callService(ev) {
-    var entity = ev.model.entity.entity;
-    var domain = entity.split('.')[0];
-    if (domain === 'script') {
-      var service = entity.split('.')[1];
-      var data = ev.model.entity.data ? (ev.model.entity.data) : {};
+    const entity = ev.model.entity.entity;
+    const stateDomain = entity.split('.')[0];
+    const isOff = window.hassUtil.OFF_STATES.includes(this.hass.states[entity].state);
+    let serviceDomain;
+    let service;
+    let data;
+    if (stateDomain === 'script' || stateDomain === 'python_script') {
+      serviceDomain = stateDomain;
+      service = entity.split('.')[1];
+      data = ev.model.entity.data ? ev.model.entity.data : {};
     } else {
-      var service = 'toggle';
-      var data = { entity_id: entity };
-    }       
-    this.hass.callService(domain, service, data);
+      if (stateDomain === 'lock') {
+        serviceDomain = 'lock';
+        service = isOff ? 'lock' : 'unlock';
+      } else if (stateDomain === 'cover') {
+        serviceDomain = 'cover';
+        service = isOff ? 'open' : 'close';
+      } else {
+        serviceDomain = 'homeassistant';
+        service = isOff ? 'turn_on' : 'turn_off';
+      }
+      data = { entity_id: entity };
+    }
+    this.hass.callService(serviceDomain, service, data);
   }
 
   stopPropagation(ev) {

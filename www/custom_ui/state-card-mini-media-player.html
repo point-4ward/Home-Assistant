@@ -89,16 +89,16 @@ version: 20180129.2
             <paper-icon-button icon='mdi:skip-forward' on-tap='handleNextTap'></paper-icon-button>
           </div>
         </div>
-      </template>      
+      </template>
       <paper-dialog id='infoCard'>
         <template is='dom-if' if='[[config.buttons]]'>
-          Choose a playlist for [[computeStateName(playerObj)]]:        
+          Choose a playlist for [[computeStateName(playerObj)]]:
           <paper-button-group>
             <template is='dom-repeat' items='[[config.buttons]]'>
               <paper-button raised on-tap='fireScript'>
                 <template is='dom-if' if='[[config.buttons]]'>
                   <iron-icon icon='[[item.icon]]'></iron-icon>
-                </template>                
+                </template>
                 [[item.name]]
               </paper-button>
             </template>
@@ -116,7 +116,7 @@ version: 20180129.2
 <script>
 class StateCardMiniMediaPlayer extends Polymer.Element {
   static get is() { return 'state-card-mini-media-player'; }
-  
+
   static get properties() {
     return {
       hass: Object,
@@ -136,7 +136,7 @@ class StateCardMiniMediaPlayer extends Polymer.Element {
     };
   }
 
-  computeConfig(stateObj) {     
+  computeConfig(stateObj) {
     return stateObj.attributes.config;
   }
 
@@ -188,14 +188,14 @@ class StateCardMiniMediaPlayer extends Polymer.Element {
     this.hass.callService('media_player', service, { 'entity_id': this.playerObj.entity_id });
   }
 
-  fireScript(ev) {      
+  fireScript(ev) {
     this.hass.callService('script', ev.model.item.script.split('.')[1], { 'entity_id': this.playerObj.entity_id });
   }
 
   handleVolumeTap() {
     this.hass.callService('media_player', 'volume_mute', { 'entity_id': this.playerObj.entity_id, 'is_volume_muted': !this.playerObj.isMuted });
   }
- 
+
   volumeSliderChanged(ev) {
     var volPercentage = parseFloat(ev.target.value);
     var vol = volPercentage > 0 ? volPercentage / 100 : 0;

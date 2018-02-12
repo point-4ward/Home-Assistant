@@ -9,38 +9,38 @@
 
 
 
-group:
-  link_settings:
-    name: Settings
-    view: yes
-    icon: mdi:tune
-    entities:
-      - group.link_notifications
-      - group.link_notification_settings
-      - group.link_notification_skills
-
-  link_notifications:
-    name: Notifications
-    control: hidden
-    entities:
-      - input_boolean.link_alert_mode
-      - input_boolean.link_speech_notifications
-      - input_boolean.link_text_notifications
-
-  link_notification_settings:
-    name: Settings
-    entities:
-      - input_select.link_notification_media_player
-      - input_number.link_notification_volume
-      - input_number.link_notification_witty
-
-  link_notification_skills:
-    name: Skills
-    entities:
-      - automation.link_new_device_connected
-      - automation.link_update_available
-      - automation.link_start_up
-      - automation.link_shut_down
+# group:
+#   link_settings:
+#     name: Settings
+#     view: yes
+#     icon: mdi:tune
+#     entities:
+#       - group.link_notifications
+#       - group.link_notification_settings
+#       - group.link_notification_skills
+#
+#   link_notifications:
+#     name: Notifications
+#     control: hidden
+#     entities:
+#       - input_boolean.link_alert_mode
+#       - input_boolean.link_speech_notifications
+#       - input_boolean.link_text_notifications
+#
+#   link_notification_settings:
+#     name: Settings
+#     entities:
+#       - input_select.link_notification_media_player
+#       - input_number.link_notification_volume
+#       - input_number.link_notification_witty
+#
+#   link_notification_skills:
+#     name: Skills
+#     entities:
+#       - automation.link_new_device_connected
+#       - automation.link_update_available
+#       - automation.link_start_up
+#       - automation.link_shut_down
 
 input_boolean:
   link_alert_mode:
