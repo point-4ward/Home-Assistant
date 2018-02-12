@@ -1,4 +1,5 @@
-#TODO - set the media player correctly here with a script
+#TODO - set the media player correctly here with a template
+#TODO - add a note to this file
 media_player: media_player.livingroom
 message: >
   {%- macro greeting() -%}
