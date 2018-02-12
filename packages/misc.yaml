@@ -11,16 +11,16 @@
 
 #minecraft server testing
 
-sensor:
-  platform: minecraft
-  name: Minecraft
-  server: 192.168.1.3
-
-group:
-  minecraft:
-    view: yes
-    name: Minecraft
-    entities:
-      - group.minecraft_sensor
-  minecraft_sensor:
-    - sensor.minecraft
+# sensor:
+#   platform: minecraft
+#   name: Minecraft
+#   server: 192.168.1.3
+#
+# group:
+#   minecraft:
+#     view: yes
+#     name: Minecraft
+#     entities:
+#       - group.minecraft_sensor
+#   minecraft_sensor:
+#     - sensor.minecraft
