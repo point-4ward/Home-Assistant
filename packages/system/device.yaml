@@ -127,7 +127,7 @@ automation:
     initial_state: 'on'
     trigger:
       platform: numeric_state
-      entity_id: sensor.disk_used_
+      entity_id: sensor.disk_use_percent_
       above: 85
     action:
       - service: notify.mf
@@ -143,10 +143,10 @@ automation:
     initial_state: on
     trigger:
       - platform: numeric_state
-        entity_id: sensor.cpu_used
+        entity_id: sensor.processor_use
         above: 85
       - platform: numeric_state
-        entity_id: sensor.ram_used
+        entity_id: sensor.memory_use_percent
         above: 85
     action:
       - service: notify.mf
