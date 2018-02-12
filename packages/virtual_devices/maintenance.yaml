@@ -16,7 +16,7 @@ homeassistant:
   customize:
     input_text.github_message:
       icon: mdi:pencil
-    
+
     script.sync_dropbox:
       icon: mdi:dropbox
 
@@ -30,7 +30,7 @@ homeassistant:
       icon: mdi:github-box
 
     script.quick_reboot:
-      icon: mdi:raspberrypi
+      icon: mdi:server-network
 
     script.quick_restart:
       icon: mdi:home-assistant
@@ -125,7 +125,7 @@ script:
     alias: Push to Github
     sequence:
       - condition: template
-        value_template: "{{not is_state ('input_text.github_message' , '' )}}" 
+        value_template: "{{not is_state ('input_text.github_message' , '' )}}"
       - service: shell_command.github_push
       - service: persistent_notification.create
         data:
@@ -144,7 +144,7 @@ script:
       - service: shell_command.quick_restart
 
   quick_reboot:
-    alias: Reboot Node-zero
+    alias: Reboot Node-Zero
     sequence:
       - service: shell_command.quick_reboot
 
