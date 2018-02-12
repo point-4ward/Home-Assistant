@@ -15,7 +15,9 @@ homeassistant:
   elevation: !secret elevation
   time_zone: !secret time_zone
   unit_system: metric
+
   packages: !include_dir_named packages/
+
   customize_glob:
     "*.*":
       custom_ui_state_card: state-card-custom-ui
