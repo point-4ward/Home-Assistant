@@ -6,14 +6,14 @@
 # DEPENDS ON: Occupancy                  #
 #                                        #
 ##########################################
-      
-      
+
+
 alarm_control_panel:
   platform: manual_mqtt
   name: "Alarm"
   code: !secret alarm_code
-  state_topic: homeassistant/alarm
-  command_topic: homeassistant/alarm/set
+  state_topic: home-assistant/alarm
+  command_topic: home-assistant/alarm/set
   pending_time: 10
 
 
