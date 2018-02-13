@@ -45,6 +45,7 @@ sensor:
       minutes: 60
     monitored_conditions:
       - summary
+      - minutely_summary
       - precip_type
       - precip_intensity
       - precip_probability
@@ -54,6 +55,7 @@ sensor:
       - wind_speed
       - cloud_cover
       - humidity
+      - uv_index
 
   - platform: moon
 

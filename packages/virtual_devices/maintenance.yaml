@@ -20,20 +20,25 @@ homeassistant:
     script.sync_dropbox:
       icon: mdi:dropbox
 
+
     script.upgrade_hass:
       icon: mdi:cloud-check
+      can_cancel: false
 
     script.github_push:
       icon: mdi:github-circle
 
     script.github_pull:
       icon: mdi:github-box
+      can_cancel: false
 
     script.quick_reboot:
       icon: mdi:server-network
+      can_cancel: false
 
     script.quick_restart:
       icon: mdi:home-assistant
+      can_cancel: false
 
     script.learn_ir:
       icon: mdi:remote

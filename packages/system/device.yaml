@@ -168,7 +168,7 @@ automation:
       data:
         call_greeting: 1
         call_inform: 1
-        call_poweron: 1
+        call_power_on: 1
 
   - alias: Device - Shutting Down
     initial_state: 'on'

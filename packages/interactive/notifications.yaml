@@ -35,23 +35,22 @@ notify:
   #- platform: telegram
   #  name: cg
   #  chat_id: !secret telegram_bot_chat_id_ccg
+  #
+  # - platform: group
+  #   name: all
+  #   services:
+  #     - service: mf
+  #     - service: ls
+  #     - service: cg
 
+  - platform: group
+    name: adults
+    services:
+      - service: mf
+      - service: ls
 
-# TODO.....
-# {%- macro outside_weather() -%}
-#  Outside, it is going to be {{ states('sensor.dark_sky_minutely_summary') }}
-# {%- endmacro -%}
-# TRAVEL TIME
-# Airvisual
-
-input_number:
-  link_notification_volume:
-    name: Volume
-    icon: mdi:volume-high
-    min: 0
-    max: 1
-    step: 0.05
-    initial: '0.1'
+binary_sensor:
+  platform: random
 
 
 script:
