@@ -35,18 +35,19 @@ binary_sensor:
 
 
 automation:
-  - alias: Doorbell test
+  - alias: Security - Doorbell
     initial_state: 'on'
     trigger:
       platform: mqtt
       topic: home-assistant/doorbell
       payload: 'Ring'
     action:
+#TODO - this action
       service: notify.mf
       data:
         message: 'Doorbell test'
 
-  - alias: Set the alarm when unoccupied
+  - alias: Security - Set alarm
     initial_state: 'on'
     trigger:
       platform: state
@@ -66,7 +67,7 @@ automation:
           entity_id: alarm_control_panel.alarm
           code: !secret alarm_code
 
-  - alias: Disarm alarm when occupied
+  - alias: Security - Disarm alarm
     initial_state: 'on'
     trigger:
       platform: state
@@ -78,7 +79,7 @@ automation:
         entity_id: alarm_control_panel.alarm
         code: !secret alarm_code
 
-  - alias: Send notification upon failed login attempt
+  - alias: Security - Failed login attempt
     initial_state: 'on'
     trigger:
       platform: state
@@ -91,7 +92,7 @@ automation:
       data_template:
         message: "{{ trigger.to_state.state }}"
 
-  - alias: Breach email haveibeenpwned
+  - alias: Security - Email breach
     initial_state: 'on'
     trigger:
       - platform: numeric_state

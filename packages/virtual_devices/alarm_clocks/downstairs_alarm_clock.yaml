@@ -9,7 +9,7 @@
 #         ******  doesn't worry about the lights  ******               #
 #                                                                      #
 #  DEPENDS ON: Occupancy                                               #
-#                                                                      #       
+#                                                                      #
 ########################################################################
 
 
@@ -42,7 +42,7 @@ group:
 
 
 automation:
-  alias: Downstairs play music
+  alias: Alarm clock - Downstairs
   initial_state: 'on'
   trigger:
     platform: template

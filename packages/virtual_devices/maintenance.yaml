@@ -114,11 +114,17 @@ script:
   upgrade_hass:
     alias: Upgrade HA and Restart
     sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.maintenance_mode
+      - delay: 00:00:02
       - service: shell_command.upgrade_hass
 
   github_pull:
     alias: Pull from Github and Restart
     sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.maintenance_mode
+      - delay: 00:00:02
       - service: shell_command.github_pull
 
   github_push:
@@ -141,11 +147,17 @@ script:
   quick_restart:
     alias: Restart Homeassistant
     sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.maintenance_mode
+      - delay: 00:00:02
       - service: shell_command.quick_restart
 
   quick_reboot:
     alias: Reboot Node-Zero
     sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.maintenance_mode
+      - delay: 00:00:02
       - service: shell_command.quick_reboot
 
   learn_ir:

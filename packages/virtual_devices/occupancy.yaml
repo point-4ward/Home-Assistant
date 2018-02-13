@@ -102,7 +102,7 @@ group:
   Adults:
     - device_tracker.forthygpixel
     - device_tracker.lauras_iphone
-  
+
   occupancy_modes:
     name: Occupancy
     control: hidden
@@ -124,8 +124,8 @@ group:
       - input_boolean.bedtime_mode
       - input_boolean.school_day_mode
       - input_boolean.cycling_mode
-    
-    
+
+
 alert:
   guest_mode_alert:
     name: Guest Mode has been on for a long time
@@ -140,7 +140,7 @@ alert:
 
 
 automation:
-  - alias: Reset occupancy booleans
+  - alias: Occupancy - reset booleans (home)
     initial_state: 'on'
     trigger:
       platform: state
@@ -153,7 +153,7 @@ automation:
           - input_boolean.away_mode
           - input_boolean.holiday_mode
 
-  - alias: Reset occupancy booleans - guest
+  - alias: Occupancy - reset booleans (guest)
     initial_state: 'on'
     trigger:
       platform: state
@@ -162,12 +162,12 @@ automation:
     condition:
       condition: state
       entity_id: sensor.home_status
-      state: 'Unoccupied' 
+      state: 'Unoccupied'
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.away_mode
-    
-  - alias: Nobody home
+
+  - alias: Occupancy - Nobody home
     initial_state: 'on'
     trigger:
       platform: state
@@ -188,8 +188,8 @@ automation:
           - script.empty_bedroom
           - script.empty_girls
           - script.empty_boys
-    
-  - alias: Set Holiday Mode
+
+  - alias: Occupancy - Holiday Mode
     initial_state: 'on'
     trigger:
       platform: state
@@ -203,7 +203,7 @@ automation:
       - service: homeassistant.turn_off
         entity_id: input_boolean.away_mode
 
-  - alias: New trackable device detected
+  - alias: Occupancy - Trackable device detected
     initial_state: 'on'
     trigger:
       platform: event

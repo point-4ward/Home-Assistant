@@ -38,7 +38,7 @@ customizer:
 
 
 automation:
-  alias: Set UI theme
+  alias: Interface - Set UI theme
   initial_state: 'on'
   trigger:
     - platform: homeassistant

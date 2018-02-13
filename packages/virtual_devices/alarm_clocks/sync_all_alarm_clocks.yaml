@@ -31,7 +31,7 @@ group:
 
 script:
   all_sync:
-    alias: Sync All Alarms
+    alias: Alarm clock - Sync All Alarms
     sequence:
       - service: input_datetime.set_datetime
         data_template:

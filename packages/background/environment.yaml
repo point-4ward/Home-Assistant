@@ -37,7 +37,7 @@ sensor:
     destination: zone.whitnash
     options:
       units: imperial
-      
+
   - platform: darksky
     api_key: !secret darksky_api_key
     units: auto
@@ -56,7 +56,7 @@ sensor:
       - humidity
 
   - platform: moon
-  
+
   - platform: airvisual
     api_key: !secret airvisual_api_key
     monitored_conditions: us
@@ -91,7 +91,7 @@ binary_sensor:
 
 
 automation:
-  alias: Dusk monitor
+  alias: Environment - Dusk monitor
   initial_state: 'on'
   trigger:
     - platform: sun

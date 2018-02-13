@@ -7,7 +7,7 @@
 #########################################################
 
 automation:
-  - alias: Bin day reminder
+  - alias: Reminder - Bin day
     initial_state: 'on'
     trigger:
       platform: time

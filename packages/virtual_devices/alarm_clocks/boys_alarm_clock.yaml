@@ -51,8 +51,8 @@ group:
 
 
 automation:
-  alias: Boys light on and play music
-  initial_state: 'on'  
+  alias: Alarm clock - Boys
+  initial_state: 'on'
   trigger:
     platform: template
     value_template: '{{ states.sensor.time.state == (states.input_datetime.boys_alarm_clock_time.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
