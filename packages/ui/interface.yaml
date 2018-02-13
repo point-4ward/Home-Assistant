@@ -21,6 +21,11 @@ panel_iframe:
     url: !secret iframe_kodi_url
     icon: mdi:kodi
 
+  nodered:
+    title: 'Node-Red'
+    url: !secret iframe_nodered_url
+    icon: mdi:shuffle-variant
+
 
 frontend:
   javascript_version: auto
