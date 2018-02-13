@@ -122,7 +122,7 @@ message: >
 
   {% if call_random_fact == 1 %}
     {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
-  {% elif is_state ('binary_sensor.random' , 'on') %}
+  {% elif is_state ('binary_sensor.random_binary_sensor	' , 'on') %}
     {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
   {% endif %}
 
