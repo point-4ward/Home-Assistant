@@ -32,7 +32,7 @@ group:
 
 
 automation:
-  - alias: Timer set
+  - alias: Timer - Set
     initial_state: 'on'
     trigger:
       platform: state
@@ -46,9 +46,9 @@ automation:
         entity_id: timer.quick_timer
         data_template:
           duration: '00:{{states.input_number.timer_minutes.state|int}}:00'
-      
-      
-  - alias: Timer expired
+
+
+  - alias: Timer - Expired
     initial_state: 'on'
     trigger:
       platform: event

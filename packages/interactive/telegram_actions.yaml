@@ -9,7 +9,7 @@
 
 
 automation:
-  - alias: Telegram set livingroom lights on
+  - alias: Telegram - Livingroom lights toggle
     initial_state: 'on'
     trigger:
       platform: event
@@ -24,7 +24,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'Livingroom lights have been turned {{states.light.living_room.state}}.'
 
-  - alias: Telegram set bedroom lights on
+  - alias: Telegram - Bedroom lights toggle
     initial_state: 'on'
     trigger:
       platform: event
@@ -39,7 +39,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'Bedroom lights have been turned {{states.light.bedroom.state}}.'
 
-  - alias: Telegram set all lights on
+  - alias: Telegram - All lights on
     initial_state: 'on'
     trigger:
       platform: event
@@ -54,7 +54,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'All lights have been turned on.'
 
-  - alias: Telegram set all lights off
+  - alias: Telegram - All lights off
     initial_state: 'on'
     trigger:
       platform: event
@@ -69,7 +69,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'All lights have been turned off.'
 
-  - alias: Telegram set maintenance mode
+  - alias: Telegram - Maintenance mode toggle
     initial_state: 'on'
     trigger:
       platform: event
@@ -84,7 +84,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'Maintenance mode has been turned {{states.input_boolean.maintenance_mode.state}}.'
 
-  - alias: Telegram Reboot
+  - alias: Telegram - Reboot
     initial_state: 'on'
     trigger:
       platform: event
@@ -98,8 +98,8 @@ automation:
           message: 'Rebooting...'
       - delay: 00:00:05
       - service: shell_command.quick_restart
-          
-  - alias: Telegram set holiday mode
+
+  - alias: Telegram - Holiday mode toggle
     initial_state: 'on'
     trigger:
       platform: event
@@ -114,7 +114,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'Holiday mode has been turned {{states.input_boolean.holiday_mode.state}}'
 
-  - alias: Telegram set guest mode
+  - alias: Telegram - Guest mode toggle
     initial_state: 'on'
     trigger:
       platform: event
@@ -129,7 +129,7 @@ automation:
           target: '{{ trigger.event.data.user_id }}'
           message: 'Guest mode has been turned {{states.input_boolean.guest_mode.state}}.'
 
-  - alias: Telegram set away mode
+  - alias: Telegram - Away mode
     initial_state: 'on'
     trigger:
       platform: event

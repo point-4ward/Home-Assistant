@@ -96,7 +96,7 @@ group:
 
 
 automation:
-  - alias: Play Radio
+  - alias: Music Player - Play Radio
     initial_state: 'on'
     trigger:
       platform: state
@@ -107,7 +107,7 @@ automation:
         entity_id: switch.google_music
       - service: media_player.volume_set
         data_template:
-            entity_id: 'media_player.{{states.input_select.media_player.state}}' 
+            entity_id: 'media_player.{{states.input_select.media_player.state}}'
             volume_level: '{{  states.input_number.volume_radio.state  }}'
       -  service: media_player.play_media
          data_template:
@@ -123,7 +123,7 @@ automation:
             {% elif is_state("input_select.radio_station", "Sleep Radio") %} http://37.59.28.208:8453/stream {% endif %}
            media_content_type: 'audio/mp4'
 
-  - alias: Stop Radio if Google Music selected
+  - alias: Music Player - Stop Radio for GMusic
     initial_state: 'on'
     trigger:
       platform: state
@@ -137,7 +137,7 @@ automation:
       service: homeassistant.turn_off
       entity_id: input_boolean.play_radio
 
-  - alias: Set and Sync Music Volume
+  - alias: Music Player - Sync volume
     initial_state: 'on'
     trigger:
       platform: state
@@ -148,7 +148,7 @@ automation:
         entity_id: 'media_player.{{states.input_select.media_player.state}}'
         volume_level: '{{  states.input_number.volume_radio.state  }}'
 
-  - alias: Stop music
+  - alias: Music Player - Stop all from Music Player
     initial_state: 'on'
     trigger:
       - platform: state
@@ -172,7 +172,7 @@ automation:
           entity_id: input_number.volume_radio
           value: 0.20
 
-  - alias: Stop if media player stops
+  - alias: Music Player - Stop all from Media Player
     initial_state: 'on'
     trigger:
       - platform: state

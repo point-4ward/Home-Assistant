@@ -114,7 +114,7 @@ scene:
 
 
 automation:
-  - alias: Reset scene selector - bedroom
+  - alias: Lighting - Reset scene selector (Bedroom)
     initial_state: 'on'
     trigger:
       platform: state
@@ -129,7 +129,7 @@ automation:
         entity_id: input_select.bedroom_scenes
         option: Select
 
-  - alias: Trigger scene - bedroom
+  - alias: Lighting - Trigger scene (Bedroom)
     initial_state: 'on'
     trigger:
       platform: state

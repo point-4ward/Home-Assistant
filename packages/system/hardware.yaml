@@ -51,8 +51,8 @@ zwave:
 hue:
   bridges:
     - host: !secret hue_light_host
-    
-    
+
+
 media_player:
   - platform: cast
 
@@ -74,8 +74,8 @@ mqtt:
   broker: !secret mqtt_broker
   discovery: true
   discovery_prefix: homeassistant
-  
-  
+
+
 emulated_hue:
   host_ip: !secret hue_host_ip
   listen_port: !secret hue_listen_port
@@ -84,7 +84,7 @@ emulated_hue:
     - input_boolean
 
 
-switch: 
+switch:
   - platform: tplink
     host: !secret switch_tplink_host
 
@@ -96,7 +96,7 @@ switch:
 
 
 automation:
-  alias: "Turn off heater after fifteen minutes"
+  alias: Hardware - Heater off after 15min
   initial_state: 'on'
   trigger:
     platform: state

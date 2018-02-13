@@ -51,7 +51,7 @@ group:
 
 
 automation:
-  alias: Girls light on and play music
+  alias: Alarm clock - Girls
   initial_state: 'on'
   trigger:
     platform: template

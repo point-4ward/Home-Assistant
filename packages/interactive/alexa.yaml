@@ -12,7 +12,7 @@ input_boolean:
   radio_downstairs:
     name: Radio downstairs
     initial: off
-  
+
   radio_everywhere:
     name: Radio everywhere
     initial: off
@@ -30,7 +30,7 @@ input_boolean:
 
 
 automation:
-  - alias: Alexa Show TV
+  - alias: Alexa - Show TV
     initial_state: 'on'
     trigger:
       platform: state
@@ -39,7 +39,7 @@ automation:
     action:
       service: script.remote_show_tv
 
-  - alias: Alexa Show CCTV
+  - alias: Alexa - Show CCTV
     initial_state: 'on'
     trigger:
       platform: state
@@ -48,7 +48,7 @@ automation:
     action:
       service: script.remote_show_cctv
 
-  - alias: Alexa TV off
+  - alias: Alexa - TV off
     initial_state: 'on'
     trigger:
       platform: state
@@ -57,7 +57,7 @@ automation:
     action:
       service: script.remote_tv_off
 
-  - alias: Alexa play radio
+  - alias: Alexa - Play radio
     initial_state: 'on'
     trigger:
       - platform: state
@@ -85,7 +85,7 @@ automation:
           - input_boolean.radio_downstairs
           - input_boolean.radio_everywhere
 
-  - alias: Alexa bedtime mode
+  - alias: Alexa - Bedtime mode
     initial_state: 'on'
     trigger:
       platform: state
@@ -103,6 +103,7 @@ automation:
           group: "Bedroom"
           scene: "Relax"
       - delay: 00:03:00
+# TODO ...
       # - Do a nighttime briefing
       # - switch alarm to armed nighttime
       - service: homeassistant.turn_off

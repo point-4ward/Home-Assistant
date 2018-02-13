@@ -9,7 +9,7 @@
 
 
 automation:
-  - alias: Lights off when daylight
+  - alias: Lighting - off when daylight
     initial_state: 'on'
     trigger:
       platform: state
@@ -23,7 +23,7 @@ automation:
       service: homeassistant.turn_off
       entity_id: group.all_lights
 
-  - alias: Lights on when dark - already home
+  - alias: Lighting - on when dark (already home)
     initial_state: 'on'
     trigger:
       platform: state
@@ -34,11 +34,14 @@ automation:
       entity_id: sensor.home_status
       state: 'Occupied'
     action:
+      - service: script.link_engine
+        data:
+          call_dark_outside: 1
       - service: scene.turn_on
         entity_id: scene.livingroom_sunset
       - service: script.landing_light_scene
 
-  - alias: Lights on when dark - arriving home
+  - alias: Lighting - on when dark (arriving home)
     initial_state: 'on'
     trigger:
       platform: state
@@ -53,7 +56,7 @@ automation:
         entity_id: scene.livingroom_bright
       - service: script.landing_light_scene
 
-  - alias: Landing light night mode
+  - alias: Lighting - Landing light
     initial_state: 'on'
     trigger:
       - platform: time
@@ -67,7 +70,7 @@ automation:
     action:
       service: script.landing_light_scene
 
-  - alias: Bedtime lights
+  - alias: Lighting - Bedtime lights
     initial_state: 'on'
     trigger:
       platform: state
@@ -79,7 +82,7 @@ automation:
         group: "Bedroom"
         scene: "Relax"
 
-  - alias: Kodi based lighting
+  - alias: Lighting - Kodi
     initial_state: 'on'
     trigger:
       - platform: state

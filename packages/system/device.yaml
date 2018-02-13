@@ -90,7 +90,7 @@ sensor:
 
 
 automation:
-  - alias: Check status of automations
+  - alias: Device - Check automations status
     initial_state: 'on'
     trigger:
       - platform: homeassistant
@@ -112,7 +112,7 @@ automation:
           title: "Automations alert"
           message: "Some automations are disabled."
 
-  - alias: Update Available Notifications
+  - alias: Device - Update Available Notifications
     initial_state: 'on'
     trigger:
       platform: state
@@ -123,7 +123,7 @@ automation:
         data:
           message: 'Update for Home Assistant is available.  https://home-assistant.io/blog/'
 
-  - alias: Disk Use Alarm
+  - alias: Device - Disk use alarm
     initial_state: 'on'
     trigger:
       platform: numeric_state
@@ -132,14 +132,14 @@ automation:
     action:
       - service: notify.mf
         data_template:
-          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_.state }}%!"
+          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
       - service: persistent_notification.create
         data_template:
           title: "Hard Drive Monitor:"
-          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_.state }}%!"
+          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
           notification_id: "Critical Alert"
 
-  - alias: System load alarm
+  - alias: Device - System load alarm
     initial_state: on
     trigger:
       - platform: numeric_state
@@ -151,14 +151,14 @@ automation:
     action:
       - service: notify.mf
         data_template:
-          message: "Your system is running under heavy load! CPU:{{states.sensor.cpu_used.state}}% Memory:{{ states.sensor.ram_used.state }}%!"
+          message: "Your system is running under heavy load! CPU:  {{states.sensor.processor_use.state}}% Memory:  {{ states.sensor.memory_use_percent.state }}%!"
       - service: persistent_notification.create
         data_template:
           title: "System Load Monitor:"
-          message: "Your system is running under heavy load! CPU:{{states.sensor.cpu_used.state}}% Memory:{{ states.sensor.ram_used.state }}%!"
+          message: "Your system is running under heavy load! CPU:  {{states.sensor.processor_use.state}}% Memory:  {{ states.sensor.memory_use_percent.state }}%!"
           notification_id: "Critical Alert"
 
-  - alias: Power on
+  - alias: Device - Power on
     initial_state: 'on'
     trigger:
       platform: homeassistant
@@ -170,7 +170,7 @@ automation:
         call_inform: 1
         call_poweron: 1
 
-  - alias: Shut Down
+  - alias: Device - Shutting Down
     initial_state: 'on'
     trigger:
       - event: shutdown
