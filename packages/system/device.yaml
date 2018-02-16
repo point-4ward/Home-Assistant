@@ -36,6 +36,7 @@ logbook:
       - light.mb_ceiling
       - light.mb_stairs
       - light.bathroom_g
+      - binary_sensor.random_binary_sensor
 
 
 history:
@@ -64,6 +65,7 @@ history:
       - light.mb_ceiling
       - light.mb_stairs
       - light.bathroom_g
+      - binary_sensor.random_binary_sensor
 
 
 python_script:
