@@ -175,9 +175,9 @@ automation:
   - alias: Music Player - Stop all from Media Player
     initial_state: 'on'
     trigger:
-      - platform: state
-        entity_id: group.cca
-        to: 'off'
+      platform: state
+      entity_id: group.cca
+      to: 'off'
     condition:
       condition: or
       conditions:
@@ -188,7 +188,7 @@ automation:
           entity_id: switch.google_music
           state: 'on'
     action:
-      - service: homeassistant.turn_off
-        entity_id:
-          - input_boolean.play_radio
-          - switch.google_music
+      service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.play_radio
+        - switch.google_music
