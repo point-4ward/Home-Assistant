@@ -19,7 +19,6 @@ input_number:
     step: 0.05
     initial: '0.2'
 
-
 #minecraft server testing
 
 # sensor:
