@@ -92,7 +92,7 @@ automation:
       entity_id: input_boolean.bedtime_mode
       to: 'on'
     action:
-      - service: tts.google_say
+      - service: tts.picotts_say
         entity_id: media_player.livingroom
         data:
           message: 'Bedtime mode activated'

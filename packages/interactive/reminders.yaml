@@ -22,7 +22,7 @@ automation:
     action:
       - wait_template: "{{(states.group.adults.state == 'home')}}"
       - delay: 00:15:00
-      - service: tts.google_say
+      - service: tts.picotts_say
         entity_id: media_player.everywhere
         data:
           message: 'The bins need to go out tonight.'

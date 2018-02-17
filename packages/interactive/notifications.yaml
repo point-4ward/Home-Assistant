@@ -9,8 +9,8 @@
 
 
 tts:
-  platform: google
-  cache: false
+  platform: picotts
+  language: 'en-GB'
 
 
 telegram_bot:
@@ -98,9 +98,11 @@ script:
       - service: media_player.volume_set
         data_template:
           entity_id: '{{ media_player }}'
-          #TODO - set volume level wih a template
-          volume_level: '{{ states.input_number.link_notification_volume.state }}'
-      - service: tts.google_say
+          volume_level: >
+            {% if now().hour < 7 or now().hour > 22 %} 0.2
+            {% elif now().hour > 7 or now().hour < 9 %} 0.3
+            {% else %} 0.4 {% endif %}
+      - service: tts.picotts_say
         data_template:
           entity_id: '{{ media_player }}'
           message: '{{ message | replace("\n","") | replace("   ","") | replace("  "," ") }}'

@@ -63,7 +63,7 @@ automation:
       - service: notify.mf
         data:
           message: "The timer has expired"
-      - service: tts.google_say
+      - service: tts.picotts_say
         entity_id: media_player.everywhere
         data:
           message: 'The timer has expired, The timer has expired'

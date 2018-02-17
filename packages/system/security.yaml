@@ -54,7 +54,7 @@ automation:
       entity_id: sensor.home_status
       to: 'Unoccupied'
     action:
-      - service: tts.google_say
+      - service: tts.picotts_say
         entity_id: media_player.everywhere
         data:
           message: 'The house is unoccupied, the alarm will set in 30 seconds if not overridden'
