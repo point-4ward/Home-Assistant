@@ -18,11 +18,15 @@ homeassistant:
     sensor.living_room_switch_battery:
       friendly_name: Livingroom switch
 
+    sensor.kitchen_multisensor_battery:
+      friendly_name: Kitchen Multisensor
+
 
 group:
   battery alert:
     - sensor.bathroom_motion_motion_battery
     - sensor.living_room_switch_battery
+    - sensor.kitchen_multisensor_battery
 
   Batteries:
     control: hidden
@@ -32,6 +36,7 @@ group:
 
 automation:
   - alias: Battery alert - notification
+    initial_state: 'on'
     trigger:
       platform: time
       hours: '/2'
@@ -77,6 +82,7 @@ automation:
 
 
   - alias: Battery alert - Sensor (level)
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: state_changed
@@ -103,6 +109,7 @@ automation:
           payload: "{{ trigger.event.data.new_state.attributes.battery_level | int }}"
 
   - alias: Battery alert - Sensor (attribute)
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: state_changed
@@ -129,6 +136,7 @@ automation:
           payload: "{{ trigger.event.data.new_state.attributes.battery | int }}"
 
   - alias: Battery alert - Sensor (numeric)
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: state_changed
