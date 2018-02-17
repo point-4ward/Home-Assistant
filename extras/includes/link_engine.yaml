@@ -21,7 +21,7 @@ message: >
     {% elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 %}
       {% set greeting = ["Hey there! " , "Good afternoon, " , "Hi there, "] %}
     {% else %}
-      {% set greeting = ["Hi, " , "Good evening, " , "Hello, "] -%}
+      {% set greeting = ["Hi, " , "Good evening, " , "Hello, "] %}
     {% endif %}
     {{ greeting|random }}
   {%- endmacro -%}
@@ -66,20 +66,20 @@ message: >
   {%- endmacro -%}
 
   {%- macro iss() -%}
-    {% if is_state('binary_sensor.iss', 'on') -%}
+    {% if is_state('binary_sensor.iss', 'on') %}
       Here is something interesting. The international space station is above us now. There are
       {{ states.binary_sensor.iss.attributes['number_of_people_in_space'] }} people in space right now.
-    {%- else -%}
+    {% else %}
       {{ outside_weather() }}
-    {% endif -%}
+    {% endif %}
   {%- endmacro -%}
 
   {%- macro moon() -%}
-    {%- if states.sensor.moon.state == 'Full moon' -%}
+    {% if states.sensor.moon.state == 'Full moon' %}
       Check out the full moon tonight!
-    {%- else -%}
+    {% else %}
       {{ outside_weather() }}
-    {%- endif -%}
+    {% endif %}
   {%- endmacro -%}
 
   {%- macro uv_index() -%}
