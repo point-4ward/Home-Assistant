@@ -171,20 +171,3 @@ automation:
         call_greeting: 1
         call_inform: 1
         call_power_on: 1
-
-  - alias: Device - Shutting Down
-    initial_state: 'on'
-    trigger:
-      - event: shutdown
-        platform: homeassistant
-      - event_type: homeassistant.restart
-        platform: event
-    condition:
-      condition: state
-      entity_id: input_boolean.maintenance_mode
-      state: 'off'
-    action:
-      service: script.link_engine
-      data:
-        call_bye: 1
-        message: the system is being shutdown!
