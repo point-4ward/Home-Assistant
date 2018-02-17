@@ -1,7 +1,19 @@
-#TODO - set the media player correctly here with a template
-#TODO - add a note to this file
-#TODO - check service calls
-media_player: media_player.kitchen
+#################################################
+#                                               #
+# This include is the notification engine, it   #
+# takes input from the script that calls it and #
+# builds the message accordingly with macros    #
+# sending it to the correct media_player for    #
+# the time of day                               #
+#                                               #
+#################################################
+
+
+media_player: >
+  {% if is_state ('input_boolean.bedtime_mode' , 'on') %} media_player.bedroom
+  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.kitchen
+  {% elif now().hour < 7 or now().hour > 20 %} media_player.adults
+  {% else %} media_player.everywhere {% endif %}
 message: >
   {%- macro greeting() -%}
     {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
@@ -43,11 +55,6 @@ message: >
       "I couldn't do this 800 reboots ago, but apparently now I can. "] |random }}
   {%- endmacro -%}
 
-  {%- macro bye() -%}
-    {{["Adios! " , "Bye Guys! " , "See ya! " , "See you later. ",
-      "Untill next time!"] | random }}
-  {%- endmacro -%}
-
   {%- macro dark_outside() -%}
     {{ ['It is pretty dark outside. I will turn on the lights now.',
       'I will switch on the lights. It is getting dark outside.',
@@ -56,18 +63,6 @@ message: >
 
   {%- macro travel_time() -%}
     The journey to Whitnash is currently estimated at {{ states('sensor.travel_to_whitnash') }} minutes
-  {%- endmacro -%}
-
-  {%- macro outside_weather() -%}
-    Outside, it is going to be {{ states('sensor.dark_sky_minutely_summary') }}
-  {%- endmacro -%}
-
-  {%- macro uv_index() -%}
-    Outside, the UV index is {{ states('sensor.dark_sky_uv_index') }}
-  {%- endmacro -%}
-
-  {%- macro air_quality() -%}
-    Outside, the current air quality is rated {{ states('sensor.us_air_pollution_level') }}
   {%- endmacro -%}
 
   {%- macro iss() -%}
@@ -87,35 +82,55 @@ message: >
     {%- endif -%}
   {%- endmacro -%}
 
+  {%- macro uv_index() -%}
+    Outside, the UV index is {{ states('sensor.dark_sky_uv_index') }}
+  {%- endmacro -%}
 
-  {# ********************************************* #}
-  {#  ******** Start the Speech routines ********  #}
-  {# ********************************************* #}
+  {%- macro air_quality() -%}
+    Outside, the current air quality is rated {{ states('sensor.us_air_pollution_level') }}
+  {%- endmacro -%}
+
+  {%- macro outside_weather() -%}
+    Outside, it is going to be {{ states('sensor.dark_sky_minutely_summary') }}
+  {%- endmacro -%}
+
+  {%- macro bye() -%}
+    {{["Adios! " , "Bye Guys! " , "See ya! " , "See you later. ",
+      "Untill next time!"] | random }}
+  {%- endmacro -%}
+
+
+  {# ************************************* #}
+  {#  ******** Build the message ********  #}
+  {# ************************************* #}
 
 
   {% if call_greeting == 1 %}
     {{ greeting() }}
   {% endif %}
 
-  {% if call_okay == 1 %}
-    {{ okay () }}
-  {% endif %}
-
   {% if call_inform == 1 %}
     {{ inform() }}
   {% endif %}
 
-  {% if call_power_on == 1 %}
-    {% if is_state ('input_boolean.maintenance_mode' , 'on') %} the system is back online
-    {% else %} Home Assistant has restarted and is not in Maintenance Mode.  Is it a power cut? {% endif %}
+  {% if call_unknown == 1 %}
+    {{ unknown() }}
   {% endif %}
 
-  {% if call_travel_time == 1 %}
-    {{ travel_time() }}
+  {% if call_error == 1 %}
+    {{ error() }}
+  {% endif %}
+
+  {% if call_okay == 1 %}
+    {{ okay () }}
   {% endif %}
 
   {% if call_dark_outside == 1 %}
     {{ dark_outside() }}
+  {% endif %}
+
+  {% if call_travel_time == 1 %}
+    {{ travel_time() }}
   {% endif %}
 
   {{ message }}
@@ -124,6 +139,11 @@ message: >
     {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
   {% elif is_state ('binary_sensor.random_binary_sensor	' , 'on') %}
     {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
+  {% endif %}
+
+  {% if call_power_on == 1 %}
+    {% if is_state ('input_boolean.maintenance_mode' , 'on') %} the system is back online
+    {% else %} Home Assistant has restarted and is not in Maintenance Mode.  Is it a power cut? {% endif %}
   {% endif %}
 
   {% if call_bye == 1 %}

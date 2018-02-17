@@ -9,16 +9,7 @@
 #                                                  #
 ####################################################
 
-#TODO - remove this and automate it...
-input_number:
-  link_notification_volume:
-    name: Volume
-    icon: mdi:volume-high
-    min: 0
-    max: 1
-    step: 0.05
-    initial: '0.2'
-
+#TODO - to integrate, or not to integrate?
 #minecraft server testing
 
 # sensor:
