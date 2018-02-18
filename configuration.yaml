@@ -9,7 +9,7 @@
 
 
 homeassistant:
-  name: The Citadel
+  name: Home Assistant - Node Zero
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: !secret elevation
