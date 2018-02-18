@@ -8,25 +8,50 @@
 ########################################################
 
 
+emulated_hue:
+  host_ip: !secret hue_host_ip
+  expose_by_default: false
+  entities:
+    input_boolean.radio_downstairs:
+      name: "Radio Downstairs"
+      hidden: false
+
+    input_boolean.radio_everywhere:
+      name: "Radio Everywhere"
+      hidden: false
+
+    input_boolean.show_tv:
+      name: "Show TV"
+      hidden: false
+
+    input_boolean.show_cctv:
+      name: "Show CCTV"
+      hidden: false
+
+    input_boolean.av_off:
+      name: "AV off"
+      hidden: false
+
+    switch.heater:
+      name: "Bedroom heater"
+      hidden: false
+
+
 input_boolean:
   radio_downstairs:
-    name: Radio downstairs
-    initial: off
+    initial: 'off'
 
   radio_everywhere:
-    name: Radio everywhere
-    initial: off
+    initial: 'off'
 
   show_tv:
-    name: Show TV
-    initial: off
+    initial: 'off'
 
   show_cctv:
-    name: Show CCTV
-    initial: off
+    initial: 'off'
 
-  tv_off:
-     name: TV off
+  av_off:
+     initial: 'off'
 
 
 automation:
@@ -52,7 +77,7 @@ automation:
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: input_boolean.tv_off
+      entity_id: input_boolean.av_off
       to: 'on'
     action:
       service: script.remote_tv_off
