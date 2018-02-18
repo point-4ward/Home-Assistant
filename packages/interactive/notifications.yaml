@@ -20,6 +20,7 @@ telegram_bot:
   allowed_chat_ids:
     - !secret telegram_bot_chat_id_mf
     - !secret telegram_bot_chat_id_ls
+#TODO - ...
 #    - !secret telegram_bot_chat_id_cg
 
 
@@ -31,7 +32,7 @@ notify:
   - platform: telegram
     name: ls
     chat_id: !secret telegram_bot_chat_id_ls
-
+#TODO - ...
   #- platform: telegram
   #  name: cg
   #  chat_id: !secret telegram_bot_chat_id_ccg
@@ -54,47 +55,30 @@ binary_sensor:
 
 
 script:
-  link_engine:
+  notify:
     sequence:
-      - service: script.link_notify
-        data_template: !include ../../extras/includes/link_engine.yaml
+      - service: script.message
+        data_template: !include ../../extras/includes/notify_engine.yaml
 
-  link_notify:
+  message:
     sequence:
-      - service: script.link_speak
+      - service: script.announce
         data_template:
           media_player: '{{ media_player }}'
           message: '{{ message }}'
-      - service: script.link_send_text
+      - service: script.text
         data_template:
+          who: '{{ who }}'
           message: '{{ message }}'
+#TODO - ...
+      # - service: on_screen
+      #   data_template:
+      #     message: '{{ message }}'
 
-  link_send_text:
-    sequence:
-#TODO - template for who?
-      - service: notify.mf
-        data_template:
-          message: '{{ message | replace("\n","") | replace("   ","") | replace("  "," ") }}'
-          data:
-            keyboard:
-              - '/status'
-              - '/maintenance'
-
-  link_speak:
+  announce:
     sequence:
 #TODO - ....
-      # - condition: and
-      #   conditions:
-      #     - condition: or
-      #       conditions:
-      #         - condition: state
-      #           entity_id: group.adults
-      #           state: 'home'
-      #         - condition: state
-      #           entity_id: input_boolean.guest_mode
-      #           state: 'on'
-      # - wait_template: "{{ not is_state( media_player, 'playing') }}"
-      #   timeout: 00:01:00
+      # - condition: [when to not announce]
       - service: media_player.volume_set
         data_template:
           entity_id: '{{ media_player }}'
@@ -105,4 +89,19 @@ script:
       - service: tts.picotts_say
         data_template:
           entity_id: '{{ media_player }}'
-          message: '{{ message | replace("\n","") | replace("   ","") | replace("  "," ") }}'
+          message: '{{ message | replace("\n"," ") | replace("   "," ") | replace("  "," ") }}'
+
+  text:
+    sequence:
+#TODO - ....
+      # - condition: [when to not send a text]
+      - service_template: '{{ who }}'
+        data_template:
+          message: '{{ message | replace("\n"," ") | replace("   "," ") | replace("  "," ") }}'
+          data:
+            keyboard:
+              - '/status'
+              - '/maintenance'
+
+#TODO ...
+  # on_screen: [when to add a persistent notification]

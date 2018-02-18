@@ -166,7 +166,7 @@ automation:
       platform: homeassistant
       event: start
     action:
-      service: script.link_engine
+      service: script.notify
       data:
         call_greeting: 1
         call_inform: 1
