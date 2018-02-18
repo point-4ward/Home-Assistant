@@ -41,6 +41,10 @@ homeassistant:
       friendly_name: Kids
       icon: mdi:play
 
+    media_player.adults:
+      friendly_name: Adults
+      icon: mdi:play
+
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -74,14 +78,6 @@ mqtt:
   broker: !secret mqtt_broker
   discovery: true
   discovery_prefix: homeassistant
-
-
-emulated_hue:
-  host_ip: !secret hue_host_ip
-  listen_port: !secret hue_listen_port
-  exposed_domains:
-    - light
-    - input_boolean
 
 
 switch:
