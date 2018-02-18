@@ -34,7 +34,7 @@ automation:
       entity_id: sensor.home_status
       state: 'Occupied'
     action:
-      - service: script.link_engine
+      - service: script.notify
         data:
           call_dark_outside: 1
       - service: scene.turn_on

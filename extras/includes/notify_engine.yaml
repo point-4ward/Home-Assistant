@@ -8,13 +8,29 @@
 #                                               #
 #################################################
 
+#TODO - else needs to be nobody
+who: >
+  {% if tell == 'mf' %} notify.mf
+  {% elif tell == 'ls' %} notify.ls
+  {% elif tell == 'cg' %} notify.cg
+  {% elif tell == 'all' %} notify.all
+  {% elif tell == 'adults' %} notify.adults
+  {% elif tell == 'nobody' %} nobody
+  {% else %} notify.mf {% endif %}
+
 
 media_player: >
   {% if is_state ('input_boolean.bedtime_mode' , 'on') %} media_player.bedroom
   {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.kitchen
   {% elif now().hour < 7 or now().hour > 20 %} media_player.adults
   {% else %} media_player.everywhere {% endif %}
+
 message: >
+
+  {# ************************************* #}
+  {#  ************* Macros  *************  #}
+  {# ************************************* #}
+
   {%- macro greeting() -%}
     {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
       {% set greeting = ["Hello, " , "Good Morning, " , "Hey Guys! "] %}
