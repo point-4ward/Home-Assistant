@@ -44,6 +44,10 @@ script:
         data:
           entity_id: media_player.bedroom
           volume_level: '0.20'
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.bedroom
+          is_volume_muted: false
       - service: media_player.play_media
         data:
           entity_id: media_player.bedroom

@@ -55,6 +55,7 @@ zwave:
 hue:
   bridges:
     - host: !secret hue_light_host
+      allow_unreachable: true
 
 
 media_player:
