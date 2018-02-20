@@ -79,6 +79,10 @@ script:
         data:
           entity_id: media_player.girls
           volume_level: '0.20'
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.girls
+          is_volume_muted: false
       - service: homeassistant.turn_on
         entity_id: input_boolean.remote_girls_radio
       - condition: state

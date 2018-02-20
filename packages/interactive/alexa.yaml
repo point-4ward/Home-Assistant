@@ -36,6 +36,10 @@ emulated_hue:
       name: "Bedroom heater"
       hidden: false
 
+    input_boolean.bedtime_mode:
+      name: "Bedtime Mode"
+      hidden: false
+
 
 input_boolean:
   radio_downstairs:

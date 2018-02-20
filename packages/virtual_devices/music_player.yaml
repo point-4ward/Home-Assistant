@@ -109,6 +109,10 @@ automation:
         data_template:
             entity_id: 'media_player.{{states.input_select.media_player.state}}'
             volume_level: '{{  states.input_number.volume_radio.state  }}'
+      - service: media_player.volume_mute
+        data_template:
+          entity_id: 'media_player.{{states.input_select.media_player.state}}'
+          is_volume_muted: false
       -  service: media_player.play_media
          data_template:
            entity_id: 'media_player.{{states.input_select.media_player.state}}'
@@ -143,10 +147,14 @@ automation:
       platform: state
       entity_id: input_number.volume_radio
     action:
-      service: media_player.volume_set
-      data_template:
-        entity_id: 'media_player.{{states.input_select.media_player.state}}'
-        volume_level: '{{  states.input_number.volume_radio.state  }}'
+      - service: media_player.volume_set
+        data_template:
+          entity_id: 'media_player.{{states.input_select.media_player.state}}'
+          volume_level: '{{  states.input_number.volume_radio.state  }}'
+      - service: media_player.volume_mute
+        data_template:
+          entity_id: 'media_player.{{states.input_select.media_player.state}}'
+          is_volume_muted: false
 
   - alias: Music Player - Stop all from Music Player
     initial_state: 'on'
