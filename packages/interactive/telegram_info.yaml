@@ -10,7 +10,7 @@
 
 automation:
   - alias: Telegram - Reply with Status
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -23,34 +23,34 @@ automation:
         message: "System is online!
 
 
-          Last system reboot was on {{states.sensor.last_boot.state}}.
+          Last system reboot was on {{states('sensor.last_boot')}}.
 
 
-          Currently home is {{states.sensor.home_status.state}}.
+          Currently home is {{states('sensor.home_status')}}.
 
-          Marc is {{states.device_tracker.forthygpixel.state}}.
+          Marc is {{states('device_tracker.forthygpixel')}}.
 
-          Laura is {{states.device_tracker.lauras_iphone.state}}.
+          Laura is {{states('device_tracker.lauras_iphone')}}.
 
-          Courtney is {{states.device_tracker.iphone.state}}.
+          Courtney is {{states('device_tracker.iphone')}}.
 
-          Guest mode is {{states.input_boolean.guest_mode.state}}.
-
-
-          The alarm is {{states.alarm_control_panel.alarm.state}}.
+          Guest mode is {{states('input_boolean.guest_mode')}}.
 
 
-          The lights group is {{states.group.all_lights.state}}
+          The alarm is {{states('alarm_control_panel.alarm')}}.
 
-          Living room lights are {{states.light.living_room.state}}.
 
-          Landing lights are {{states.light.landing.state}}.
+          The lights group is {{states('group.all_lights')}}
 
-          Master bedroom lights are {{states.light.bedroom.state}}."
+          Living room lights are {{states('light.living_room')}}.
+
+          Landing lights are {{states('light.landing')}}.
+
+          Master bedroom lights are {{states('light.bedroom')}}."
         keyboard: ["/lights, /occupancy", "/menu"]
 
   - alias: Telegram - Reply with Occupancy
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -60,19 +60,22 @@ automation:
       service: telegram_bot.send_message
       data_template:
         target: '{{ trigger.event.data.user_id }}'
-        message: 'Currently home is {{states.sensor.home_status.state}}.
+        message: "Currently home is {{states('sensor.home_status')}}.
 
-          Marc is {{states.device_tracker.forthygpixel.state}}.
+          Marc is {{states('device_tracker.forthygpixel')}}.
 
-          Laura is {{states.device_tracker.lauras_iphone.state}}.
+          Laura is {{states('device_tracker.lauras_iphone')}}.
 
-          Courtney is {{states.device_tracker.iphone.state}}.
+          Courtney is {{states('device_tracker.iphone')}}.
 
-          Guest mode is {{states.input_boolean.guest_mode.state}}.'
+          Guest mode is {{states('input_boolean.guest_mode')}}.
+
+
+          The alarm is {{states('alarm_control_panel.alarm')}}."
         keyboard: ["/away, /holiday" , "/guest, /lights", "/menu"]
 
   - alias: Telegram - Reply with Menu
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -82,11 +85,11 @@ automation:
       service: telegram_bot.send_message
       data_template:
         target: '{{ trigger.event.data.user_id }}'
-        message: 'Commands...'
+        message: "Commands..."
         keyboard: ["/lights, /occupancy", "/status"]
 
   - alias: Telegram - Reply with Lights
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -96,11 +99,11 @@ automation:
       service: telegram_bot.send_message
       data_template:
         target: '{{ trigger.event.data.user_id }}'
-        message: 'The lights group is {{states.group.all_lights.state}}
+        message: "The lights group is {{states('group.all_lights')}}
 
-          Living room lights are {{states.light.living_room.state}}.
+          Living room lights are {{states('light.living_room')}}.
 
-          Landing lights are {{states.light.landing.state}}.
+          Landing lights are {{states('light.landing')}}.
 
-          Master bedroom lights are {{states.light.bedroom.state}}.'
+          Master bedroom lights are {{states('light.bedroom')}}."
         keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom", "/menu"]

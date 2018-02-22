@@ -7,7 +7,7 @@
 
 
 - alias: Remote - Radio bedroom on
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: state
     entity_id: input_boolean.remote_bedroom_radio
@@ -16,7 +16,7 @@
     service: script.remote_bedroom_radio
 
 - alias: Remote - Radio boys on
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: state
     entity_id: input_boolean.remote_boys_radio
@@ -25,7 +25,7 @@
     service: script.remote_boys_radio
 
 - alias: Remote - Radio girls on
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: state
     entity_id: input_boolean.remote_girls_radio
@@ -34,7 +34,7 @@
     service: script.remote_girls_radio
 
 - alias: Remote - Radio bedroom off
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: state
     entity_id: input_boolean.remote_bedroom_radio
@@ -44,7 +44,7 @@
     entity_id: media_player.bedroom
 
 - alias: Remote - Radio boys off
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: state
     entity_id: input_boolean.remote_boys_radio
@@ -54,7 +54,7 @@
     entity_id: media_player.boys
 
 - alias: Remote - Radio girls off
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: state
     entity_id: input_boolean.remote_girls_radio

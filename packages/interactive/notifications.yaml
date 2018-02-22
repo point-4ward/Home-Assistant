@@ -20,8 +20,7 @@ telegram_bot:
   allowed_chat_ids:
     - !secret telegram_bot_chat_id_mf
     - !secret telegram_bot_chat_id_ls
-#TODO - ...
-#    - !secret telegram_bot_chat_id_cg
+#TODO - ...- !secret telegram_bot_chat_id_cg
 
 
 notify:
@@ -70,15 +69,13 @@ script:
         data_template:
           who: '{{ who }}'
           message: '{{ message }}'
-#TODO - ...
-      # - service: on_screen
-      #   data_template:
-      #     message: '{{ message }}'
+      - service: script.on_screen
+        data_template:
+          message: '{{ message }}'
 
   announce:
     sequence:
-#TODO - ....
-      # - condition: [when to not announce]
+#TODO - .... # - condition: [when to not announce]
       - service: media_player.volume_set
         data_template:
           entity_id: '{{ media_player }}'
@@ -93,19 +90,23 @@ script:
       - service: tts.picotts_say
         data_template:
           entity_id: '{{ media_player }}'
-          message: '{{ message | replace("\n"," ") | replace("   "," ") | replace("  "," ") }}'
+          message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"
 
   text:
     sequence:
-#TODO - ....
-      # - condition: [when to not send a text]
+#TODO - ....# - condition: [when to not send a text]
       - service_template: '{{ who }}'
         data_template:
-          message: '{{ message | replace("\n"," ") | replace("   "," ") | replace("  "," ") }}'
+          message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"
           data:
             keyboard:
               - '/status'
               - '/maintenance'
 
-#TODO ...
-  # on_screen: [when to add a persistent notification]
+  on_screen:
+    sequence:
+      #TODO ... - condition: [when not to add a persistent notification]
+      - service: persistent_notification.create
+        data_template:
+          title: "System Information:"
+          message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"

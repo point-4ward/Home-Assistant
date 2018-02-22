@@ -21,7 +21,7 @@ who: >
 
 media_player: >
   {% if is_state ('input_boolean.bedtime_mode' , 'on') %} media_player.bedroom
-  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.kitchen
+  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.bedroom
   {% elif now().hour < 7 or now().hour > 20 %} media_player.adults
   {% else %} media_player.everywhere {% endif %}
 
@@ -52,7 +52,7 @@ message: >
       "My programming prohibits me from telling you "] | random }}
   {%- endmacro -%}
 
-  {%- macro error() %}
+  {%- macro error() -%}
     {{["I don't understand. Given the situation it's far safer to initiate the self-destruct. ",
       "If I stand next to a powerful array of magnets, I do get pretty loopy. ",
       "I don't know what just happened, but I'm happy you're happy. ",
@@ -61,7 +61,7 @@ message: >
       "Hi guys! I'm broken! "] | random }}
   {%- endmacro -%}
 
-  {%- macro okay()-%}
+  {%- macro okay() -%}
     {{["Done!", "Extraordinarily bad idea. Oh well.. ",
       "Funny, I was just about to do that. " , "Here you go. ",
       "I'll do that. ", "Of course! ", "Of course! Glad to help. ",
@@ -71,19 +71,33 @@ message: >
       "I couldn't do this 800 reboots ago, but apparently now I can. "] |random }}
   {%- endmacro -%}
 
+  {%- macro system_load() -%}
+    Your system is running under heavy load! CPU:  {{states('sensor.processor_use')}}%  Memory:  {{ states('sensor.memory_use_percent') }}%!
+  {%- endmacro -%}
+
+  {%- macro hdd_space() -%}
+    Your harddrive is running out of Space! /dev/root:{{ states('sensor.disk_use_percent_') }}%!
+  {%- endmacro -%}
+
   {%- macro dark_outside() -%}
-    {{ ['It is pretty dark outside. I will turn on the lights now.',
-      'I will switch on the lights. It is getting dark outside.',
-      'Time to turn on the lights. I will take care of it.']|random }}
+    {{ ["It is pretty dark outside. I will turn on the lights now.",
+      "I will switch on the lights. It is getting dark outside.",
+      "Time to turn on the lights. I will take care of it."]|random }}
+  {%- endmacro -%}
+
+  {%- macro light_outside() -%}
+    {{ ["It is pretty light outside now. I will turn off the lights.",
+      "I will switch off the lights. It is getting light outside.",
+      "Time to turn off the lights. I will take care of it."]|random }}
   {%- endmacro -%}
 
   {%- macro travel_time() -%}
-    The journey to Whitnash is currently estimated at {{ states('sensor.travel_to_whitnash') }} minutes
+    "The journey to Whitnash is currently estimated at {{ states('sensor.travel_to_whitnash') }} minutes"
   {%- endmacro -%}
 
   {%- macro iss() -%}
     {% if is_state('binary_sensor.iss', 'on') %}
-      Here is something interesting. The international space station is above us now. There are
+      The international space station is above us now. There are
       {{ states.binary_sensor.iss.attributes['number_of_people_in_space'] }} people in space right now.
     {% else %}
       {{ outside_weather() }}
@@ -91,7 +105,7 @@ message: >
   {%- endmacro -%}
 
   {%- macro moon() -%}
-    {% if states.sensor.moon.state == 'Full moon' %}
+    {% if states('sensor.moon') == 'Full moon' %}
       Check out the full moon tonight!
     {% else %}
       {{ outside_weather() }}
@@ -141,8 +155,20 @@ message: >
     {{ okay () }}
   {% endif %}
 
+  {% if call_system_load == 1 %}
+    {{ system_load() }}
+  {% endif %}
+
+  {% if call_hdd_space == 1 %}
+    {{ hdd_space() }}
+  {% endif %}
+
   {% if call_dark_outside == 1 %}
     {{ dark_outside() }}
+  {% endif %}
+
+  {% if call_light_outside == 1 %}
+    {{ light_outside() }}
   {% endif %}
 
   {% if call_travel_time == 1 %}
@@ -151,15 +177,13 @@ message: >
 
   {{ message }}
 
-  {% if call_random_fact == 1 %}
-    {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
-  {% elif is_state ('binary_sensor.random_binary_sensor	' , 'on') %}
-    {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
-  {% endif %}
-
   {% if call_power_on == 1 %}
     {% if is_state ('input_boolean.maintenance_mode' , 'on') %} the system is back online
     {% else %} Home Assistant has restarted and is not in Maintenance Mode.  Is it a power cut? {% endif %}
+  {% endif %}
+
+  {% if call_random_fact == 1 or is_state ('binary_sensor.random_binary_sensor' , 'on') %}
+    Here is something interesting... {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
   {% endif %}
 
   {% if call_bye == 1 %}

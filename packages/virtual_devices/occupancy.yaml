@@ -141,7 +141,7 @@ alert:
 
 automation:
   - alias: Occupancy - reset booleans (home)
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: group.phone_trackers
@@ -154,7 +154,7 @@ automation:
           - input_boolean.holiday_mode
 
   - alias: Occupancy - reset booleans (guest)
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.guest_mode
@@ -168,7 +168,7 @@ automation:
         entity_id: input_boolean.away_mode
 
   - alias: Occupancy - Nobody home
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.home_status
@@ -190,7 +190,7 @@ automation:
           - script.empty_boys
 
   - alias: Occupancy - Holiday Mode
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.away_mode
@@ -204,7 +204,7 @@ automation:
         entity_id: input_boolean.away_mode
 
   - alias: Occupancy - Trackable device detected
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: device_tracker_new_device

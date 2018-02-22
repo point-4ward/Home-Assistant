@@ -10,7 +10,7 @@
 
 automation:
   - alias: Lighting - off when daylight
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.dark_outside
@@ -20,11 +20,14 @@ automation:
       entity_id: sensor.home_status
       state: 'Occupied'
     action:
-      service: homeassistant.turn_off
-      entity_id: group.all_lights
+      - service: script.notify
+        data:
+          call_light_outside: 1
+      - service: homeassistant.turn_off
+        entity_id: group.all_lights
 
   - alias: Lighting - on when dark (already home)
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.dark_outside
@@ -41,8 +44,9 @@ automation:
         entity_id: scene.livingroom_sunset
       - service: script.landing_light_scene
 
+#TODO - get this back on ASAP
   - alias: Lighting - on when dark (arriving home)
-    initial_state: 'on'
+    initial_state: off
     trigger:
       platform: state
       entity_id: sensor.home_status
@@ -57,7 +61,7 @@ automation:
       - service: script.landing_light_scene
 
   - alias: Lighting - Landing light
-    initial_state: 'on'
+    initial_state: on
     trigger:
       - platform: time
         at: '21:31:00'
@@ -71,7 +75,7 @@ automation:
       service: script.landing_light_scene
 
   - alias: Lighting - Bedtime lights
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.living_room_switch
@@ -83,7 +87,7 @@ automation:
         scene: "Relax"
 
   - alias: Lighting - Kodi
-    initial_state: 'on'
+    initial_state: on
     trigger:
       - platform: state
         entity_id: media_player.kodi
@@ -102,9 +106,9 @@ automation:
       - condition: or
         conditions:
           - condition: template
-            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "tvshow" }}'
+            value_template: "{{ states.media_player.kodi.attributes.media_content_type == 'tvshow' }}"
           - condition: template
-            value_template: '{{ states.media_player.kodi.attributes.media_content_type == "movie" }}'
+            value_template: "{{ states.media_player.kodi.attributes.media_content_type == 'movie' }}"
           - condition: state
             entity_id: media_player.kodi
             state: 'idle'

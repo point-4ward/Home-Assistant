@@ -87,13 +87,13 @@ sensor:
   - platform: rest
     resource: https://pypi.python.org/pypi/homeassistant/json
     name: HA upstream
-    value_template: '{{ value_json.info.version }}'
+    value_template: "{{ value_json.info.version }}"
     scan_interval: 3600
 
 
 automation:
   - alias: Device - Check automations status
-    initial_state: 'on'
+    initial_state: on
     trigger:
       - platform: homeassistant
         event: start
@@ -107,7 +107,7 @@ automation:
       - service: python_script.on_automations_counter
       - delay: 00:00:30
       - condition: template
-        value_template: '{{ ((states.sensor.automation_on.state) != (states.sensor.automation_all.state)) }}'
+        value_template: "{{ states('sensor.automation_on') != states('sensor.automation_all') }}"
       - service: persistent_notification.create
         data:
           notification_id: "Automations_counter"
@@ -115,7 +115,7 @@ automation:
           message: "Some automations are disabled."
 
   - alias: Device - Update Available Notifications
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.ha_upstream
@@ -123,23 +123,19 @@ automation:
       - delay: '00:30:00'
       - service: notify.mf
         data:
-          message: 'Update for Home Assistant is available.  https://home-assistant.io/blog/'
+          message: "Update for Home Assistant is available.  https://home-assistant.io/blog/"
 
   - alias: Device - Disk use alarm
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: numeric_state
       entity_id: sensor.disk_use_percent_
       above: 85
     action:
-      - service: notify.mf
-        data_template:
-          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
-      - service: persistent_notification.create
-        data_template:
-          title: "Hard Drive Monitor:"
-          message: "Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_percent_.state }}%!"
-          notification_id: "Critical Alert"
+      - service: script.notify
+        data:
+          call_inform: 1
+          call_hdd_space: 1
 
   - alias: Device - System load alarm
     initial_state: on
@@ -151,17 +147,13 @@ automation:
         entity_id: sensor.memory_use_percent
         above: 85
     action:
-      - service: notify.mf
-        data_template:
-          message: "Your system is running under heavy load! CPU:  {{states.sensor.processor_use.state}}% Memory:  {{ states.sensor.memory_use_percent.state }}%!"
-      - service: persistent_notification.create
-        data_template:
-          title: "System Load Monitor:"
-          message: "Your system is running under heavy load! CPU:  {{states.sensor.processor_use.state}}% Memory:  {{ states.sensor.memory_use_percent.state }}%!"
-          notification_id: "Critical Alert"
+      service: script.notify
+      data:
+        call_inform: 1
+        call_system_load: 1
 
   - alias: Device - Power on
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: homeassistant
       event: start

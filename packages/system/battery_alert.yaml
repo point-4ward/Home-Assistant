@@ -36,7 +36,7 @@ group:
 
 automation:
   - alias: Battery alert - notification
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: time
       hours: '/2'
@@ -82,7 +82,7 @@ automation:
 
 
   - alias: Battery alert - Sensor (level)
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: state_changed
@@ -109,7 +109,7 @@ automation:
           payload: "{{ trigger.event.data.new_state.attributes.battery_level | int }}"
 
   - alias: Battery alert - Sensor (attribute)
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: state_changed
@@ -136,7 +136,7 @@ automation:
           payload: "{{ trigger.event.data.new_state.attributes.battery | int }}"
 
   - alias: Battery alert - Sensor (numeric)
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: event
       event_type: state_changed
