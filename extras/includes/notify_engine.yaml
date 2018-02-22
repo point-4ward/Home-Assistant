@@ -92,7 +92,7 @@ message: >
   {%- endmacro -%}
 
   {%- macro travel_time() -%}
-    "The journey to Whitnash is currently estimated at {{ states('sensor.travel_to_whitnash') }} minutes"
+    The journey to Whitnash is currently estimated at {{ states('sensor.travel_to_whitnash') }} minutes
   {%- endmacro -%}
 
   {%- macro iss() -%}
