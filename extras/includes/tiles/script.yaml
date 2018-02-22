@@ -89,6 +89,14 @@ remote_bedroom_nightlight:
 
 remote_bedroom_radio:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bedroom
+        volume_level: '0.20'
+    - service: media_player.volume_mute
+      data:
+        entity_id: media_player.bedroom
+        is_volume_muted: false
     - service: media_player.play_media
       data:
         entity_id: media_player.bedroom
@@ -97,6 +105,14 @@ remote_bedroom_radio:
 
 remote_boys_radio:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.boys
+        volume_level: '0.20'
+    - service: media_player.volume_mute
+      data:
+        entity_id: media_player.boys
+        is_volume_muted: false
     - service: media_player.play_media
       data:
         entity_id: media_player.boys
@@ -105,6 +121,14 @@ remote_boys_radio:
 
 remote_girls_radio:
   sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.girls
+        volume_level: '0.20'
+    - service: media_player.volume_mute
+      data:
+        entity_id: media_player.girls
+        is_volume_muted: false
     - service: media_player.play_media
       data:
         entity_id: media_player.girls

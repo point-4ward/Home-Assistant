@@ -97,7 +97,7 @@ group:
 
 automation:
   - alias: Music Player - Play Radio
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.play_radio
@@ -128,7 +128,7 @@ automation:
            media_content_type: 'audio/mp4'
 
   - alias: Music Player - Stop Radio for GMusic
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: switch.google_music
@@ -142,7 +142,7 @@ automation:
       entity_id: input_boolean.play_radio
 
   - alias: Music Player - Sync volume
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: input_number.volume_radio
@@ -157,7 +157,7 @@ automation:
           is_volume_muted: false
 
   - alias: Music Player - Stop all from Music Player
-    initial_state: 'on'
+    initial_state: on
     trigger:
       - platform: state
         entity_id: input_boolean.play_radio
@@ -181,7 +181,7 @@ automation:
           value: 0.20
 
   - alias: Music Player - Stop all from Media Player
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: state
       entity_id: group.cca

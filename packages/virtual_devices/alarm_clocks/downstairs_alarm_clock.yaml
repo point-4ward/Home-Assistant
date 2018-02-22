@@ -43,7 +43,7 @@ group:
 
 automation:
   alias: Alarm clock - Downstairs
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: template
     value_template: '{{ states.sensor.time.state == (states.input_datetime.downstairs_alarm_clock_time.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'

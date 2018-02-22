@@ -52,7 +52,7 @@ group:
 
 automation:
   alias: Alarm clock - Boys
-  initial_state: 'on'
+  initial_state: on
   trigger:
     platform: template
     value_template: '{{ states.sensor.time.state == (states.input_datetime.boys_alarm_clock_time.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
@@ -75,14 +75,6 @@ automation:
 script:
   boys_wake_up:
     sequence:
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.boys
-          volume_level: '0.20'
-      - service: media_player.volume_mute
-        data:
-          entity_id: media_player.boys
-          is_volume_muted: false
       - service: homeassistant.turn_on
         entity_id: input_boolean.remote_boys_radio
       - condition: state

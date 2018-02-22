@@ -8,7 +8,7 @@
 
 automation:
   - alias: Reminder - Bin day
-    initial_state: 'on'
+    initial_state: on
     trigger:
       platform: time
       at: '18:15:00'
@@ -22,7 +22,8 @@ automation:
     action:
       - wait_template: "{{(states.group.adults.state == 'home')}}"
       - delay: 00:15:00
-      - service: tts.picotts_say
-        entity_id: media_player.everywhere
+      - service: script.notify
         data:
-          message: 'The bins need to go out tonight.'
+          call_greeting: 1
+          call_inform: 1
+          message: "The bins need to go out tonight."

@@ -94,7 +94,7 @@ binary_sensor:
 
 automation:
   alias: Environment - Dusk monitor
-  initial_state: 'on'
+  initial_state: on
   trigger:
     - platform: sun
       event: sunrise
