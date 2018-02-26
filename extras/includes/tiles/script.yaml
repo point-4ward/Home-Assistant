@@ -21,6 +21,8 @@ remote_livingroom_movie:
     - service: homeassistant.turn_on
       entity_id: scene.livingroom_movie
 
+#TODO - set orrect remote visible - hide others
+
 remote_show_tv:
   sequence:
     - service: homeassistant.turn_on

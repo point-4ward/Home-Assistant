@@ -7,3 +7,47 @@
 
 #TODO....
             # up / down / left / right / OK / back
+columns: 3
+column_width: 80px
+row_height: 80px
+color_on: red
+color_off: red
+entities:
+  - entity: switch.cctv_up
+    icon: mdi:arrow-up
+    column: 2
+    row: 1
+    color_on: blue
+    color_off: blue
+
+  - entity: switch.cctv_left
+    icon: mdi:arrow-left
+    column: 1
+    row: 2
+    color_on: blue
+    color_off: blue
+  - entity: switch.cctv_ok
+    label: ok
+    column: 2
+    row: 2
+    color_on: purple
+    color_off: purple
+  - entity: switch.cctv_right
+    icon: mdi:arrow-right
+    column: 3
+    row: 2
+    color_on: blue
+    color_off: blue
+
+  - entity: switch.cctv_down
+    icon: mdi:arrow-down
+    column: 2
+    row: 3
+    color_on: blue
+    color_off: blue
+  - entity: switch.cctv_back
+    label: Back
+    column: 3
+    row: 3
+    color_on: purple
+    color_off: purple
