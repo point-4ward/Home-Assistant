@@ -38,14 +38,16 @@ entities:
     icon: mdi:gamepad-variant
     column: 1
     row: 2
-  - entity: script.remote_all_off
-    icon: mdi:power-plug-off
-    column: 2
-    row: 2
   - entity: script.remote_show_cctv
     icon: mdi:cctv
+    column: 2
+    row: 2
+  - entity: script.remote_all_off
+    icon: mdi:power-plug-off
     column: 3
     row: 2
+    color_on: purple
+    color_off: purple
   - entity: switch.av_vol_down
     label: V -
     color_on: green

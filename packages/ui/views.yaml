@@ -46,6 +46,7 @@ group:
       - group.tiles_av_remote
       - group.tiles_tv_remote
       - group.tiles_bluray_remote
+      - group.tiles_cctv_remote
 
   media:
     view: yes

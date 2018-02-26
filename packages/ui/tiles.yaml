@@ -39,9 +39,9 @@ homeassistant:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tiles/bluray_remote.yaml
 
-#    input_text.cctv_remote:
-#      custom_ui_state_card: state-card-tiles
-#      config: !include ../../extras/includes/tiles/cctv_remote.yaml
+    input_text.cctv_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../extras/includes/tiles/cctv_remote.yaml
 
 
 input_boolean:
@@ -73,8 +73,8 @@ input_text:
   bluray_remote:
     name: bluray_remote
 
-#  cctv remote:
-#    name: cctv_remote
+  cctv_remote:
+    name: cctv_remote
 
 
 group:
@@ -117,10 +117,10 @@ group:
     entities:
       - input_text.bluray_remote
 
-#  tiles.cctv_remote:
-#    name: CCTV remote
-#    entities:
-#      - input_text.cctv_remote
+  tiles_cctv_remote:
+    name: CCTV remote
+    entities:
+      - input_text.cctv_remote
 
 
 automation: !include ../../extras/includes/tiles/automation.yaml
