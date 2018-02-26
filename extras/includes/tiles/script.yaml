@@ -8,55 +8,73 @@
 
 remote_livingroom_bright:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.livingroom_bright
 
 remote_livingroom_dim:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.livingroom_dim
 
 remote_livingroom_movie:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.livingroom_movie
 
 remote_show_tv:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.lgtv_hdmi_1
-    - service: switch.turn_on
-      entity_id: switch.lgtv_power_on
-    - delay: 00:00:08
-    - service: switch.turn_on
-      entity_id: switch.lgtv_hdmi_1
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.show_tv
+    - service: homeassistant.turn_on
+      entity_id:
+        - switch.lgtv_power_on
+        - switch.av_hdmi_1
+    - service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.show_tv
+        #TODO - turn off kodi / blu-ray
+
+remote_show_movie:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id:
+        - switch.lgtv_power_on
+        - switch.av_hdmi_2
+        #TODO - blu-ray power on, kodi power off
+
+remote_show_kodi:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id:
+        - switch.lgtv_power_on
+        - switch.av_hdmi_3
+        #TODO - kodi power on, blu-ray power off
+
+remote_show_consoles:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: switch.av_hdmi_4
+      #TODO - kodi power off, blu-ray power off
 
 remote_show_cctv:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.lgtv_hdmi_2
-    - service: switch.turn_on
-      entity_id: switch.lgtv_power_on
-    - delay: 00:00:08
-    - service: switch.turn_on
-      entity_id: switch.lgtv_hdmi_2
-    - service: input_boolean.turn_off
+    - service: homeassistant.turn_on
+      entity_id: switch.av_hdmi_4
+      #TODO - select CCTV on switcher
+    - service: homeassistant.turn_off
       entity_id: input_boolean.show_cctv
 
-remote_tv_off:
+remote_all_off:
   sequence:
-    - service: switch.turn_on
+    - service: homeassistant.turn_on
       entity_id: switch.lgtv_power_off
-    - service: input_boolean.turn_off
+  #TODO - turn off AV, kodi and blu-ray
+    - service: homeassistant.turn_off
       entity_id: input_boolean.tv_off
 
 remote_radio_off:
   sequence:
-    - service: input_boolean.turn_off
+    - service: homeassistant.turn_off
       entity_id: input_boolean.play_radio
-    - service: switch.turn_off
+    - service: homeassistant.turn_off
       entity_id: switch.google_music
 
 remote_bedroom_bright:
@@ -182,30 +200,30 @@ remote_girls_alarm:
 
 remote_boys_bright:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.boys_bright
 
 remote_boys_dim:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.boys_dim
 
 remote_boys_nightlight:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.boys_night
 
 remote_girls_bright:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.girls_bright
 
 remote_girls_dim:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.girls_dim
 
 remote_girls_nightlight:
   sequence:
-    - service: scene.turn_on
+    - service: homeassistant.turn_on
       entity_id: scene.girls_night

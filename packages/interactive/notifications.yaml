@@ -108,5 +108,5 @@ script:
       #TODO ... - condition: [when not to add a persistent notification]
       - service: persistent_notification.create
         data_template:
-          title: "System Information:"
+          title: "System Information"
           message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"

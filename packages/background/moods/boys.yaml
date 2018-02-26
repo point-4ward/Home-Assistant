@@ -44,7 +44,7 @@ script:
           entity_id: media_player.boys
           media_content_id: http://37.59.28.208:8543/stream
           media_content_type: 'audio/mp4'
-      - service: scene.turn_on
+      - service: homeassistant.turn_on
         entity_id: scene.boys_nightlight
       - delay: '00:15:00'
       - service: media_player.volume_set

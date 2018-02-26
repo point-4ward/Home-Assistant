@@ -105,5 +105,5 @@ automation:
   action:
     entity_id: input_boolean.sunset_offset
     service_template: >
-      {% if (now().hour < 12) %} input_boolean.turn_off
-      {% else %} input_boolean.turn_on {% endif %}
+      {% if (now().hour < 12) %} homeassistant.turn_off
+      {% else %} homeassistant.turn_on {% endif %}

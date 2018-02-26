@@ -40,7 +40,7 @@ automation:
       - service: script.notify
         data:
           call_dark_outside: 1
-      - service: scene.turn_on
+      - service: homeassistant.turn_on
         entity_id: scene.livingroom_sunset
       - service: script.landing_light_scene
 
@@ -56,7 +56,7 @@ automation:
       entity_id: sensor.dark_outside
       state: 'true'
     action:
-      - service: scene.turn_on
+      - service: homeassistant.turn_on
         entity_id: scene.livingroom_bright
       - service: script.landing_light_scene
 
@@ -113,7 +113,7 @@ automation:
             entity_id: media_player.kodi
             state: 'idle'
     action:
-      service: scene.turn_on
+      service: homeassistant.turn_on
       data_template:
         entity_id: >
           {% if is_state ('media_player.kodi' , 'playing') %} scene.livingroom_movie

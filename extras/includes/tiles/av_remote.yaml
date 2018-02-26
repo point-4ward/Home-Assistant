@@ -1,0 +1,54 @@
+###################################################
+#                                                 #
+# This !include contains the configuration for    #
+# the tiles making up the AV remote in the UI     #
+#                                                 #
+###################################################
+
+#TODO....
+# 3D
+            # up / down / left / right / OK / back
+
+columns: 4
+column_width: 80px
+row_height: 80px
+color_on: red
+color_off: red
+entities:
+  - entity: script.remote_show_tv
+    icon: mdi:television-classic
+    column: 1
+    row: 1
+  - entity: script.remote_show_movie
+    icon: mdi:movie
+    column: 2
+    row: 1
+  - entity: script.remote_show_kodi
+    icon: mdi:kodi
+    column: 3
+    row: 1
+  - entity: switch.av_vol_up
+    label: V +
+    color_on: green
+    color_off: green
+    column: 4
+    row: 1
+
+  - entity: script.remote_show_consoles
+    icon: mdi:gamepad-variant
+    column: 1
+    row: 2
+  - entity: script.remote_all_off
+    icon: mdi:power-plug-off
+    column: 2
+    row: 2
+  - entity: script.remote_show_cctv
+    icon: mdi:cctv
+    column: 3
+    row: 2
+  - entity: switch.av_vol_down
+    label: V -
+    color_on: green
+    color_off: green
+    column: 4
+    row: 2

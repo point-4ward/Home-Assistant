@@ -27,45 +27,26 @@ homeassistant:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tiles/girls.yaml
 
+    input_text.av_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../extras/includes/tiles/av_remote.yaml
+
     input_text.tv_remote:
       custom_ui_state_card: state-card-tiles
       config: !include ../../extras/includes/tiles/tv_remote.yaml
 
-# AV
+    input_text.bluray_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../extras/includes/tiles/bluray_remote.yaml
 
-            # All off
-
-            # TV on
-            # Blu-ray on
-            # Kodi on
-
-            # CCTV
-            # Wii
-            # Xbox
-
-            # 3D
-            # up / down / left / right / OK / back
-            # Vol + / Vol -
-
-# Blu-ray
-
-
-            # Play / Pause / FF / Rew
-            # up / down / left / right / OK / back
-            # Info / Menu
-            # Vol + / Vol -
-
-
-# CCTV
-
-            # up / down / left / right / OK / back
-    
-
+#    input_text.cctv_remote:
+#      custom_ui_state_card: state-card-tiles
+#      config: !include ../../extras/includes/tiles/cctv_remote.yaml
 
 
 input_boolean:
   remote_bedroom_radio:
-  
+
   remote_boys_radio:
 
   remote_girls_radio:
@@ -83,10 +64,17 @@ input_text:
   girls:
     name: girls
 
+  av_remote:
+    name: av_remote
+
   tv_remote:
     name: tv_remote
 
-# av remotes
+  bluray_remote:
+    name: bluray_remote
+
+#  cctv remote:
+#    name: cctv_remote
 
 
 group:
@@ -114,10 +102,25 @@ group:
      - input_text.girls
      - input_text.media_girls
 
+  tiles_av_remote:
+    name: AV remote
+    entities:
+      - input_text.av_remote
+
   tiles_tv_remote:
     name: TV remote
     entities:
       - input_text.tv_remote
+
+  tiles_bluray_remote:
+    name: Blu-Ray remote
+    entities:
+      - input_text.bluray_remote
+
+#  tiles.cctv_remote:
+#    name: CCTV remote
+#    entities:
+#      - input_text.cctv_remote
 
 
 automation: !include ../../extras/includes/tiles/automation.yaml
