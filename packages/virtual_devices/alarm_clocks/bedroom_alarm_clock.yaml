@@ -69,7 +69,7 @@ automation:
     - condition: state
       entity_id: input_boolean.bedroom_alarm_clock_repeat
       state: 'off'
-    - service: input_boolean.turn_off
+    - service: homeassistant.turn_off
       entity_id: input_boolean.bedroom_alarm_clock_status
 
 
@@ -81,5 +81,5 @@ script:
       - condition: state
         entity_id: sensor.dark_outside
         state: 'true'
-      - service: scene.turn_on
+      - service: homeassistant.turn_on
         entity_id: scene.bedroom_wake_up

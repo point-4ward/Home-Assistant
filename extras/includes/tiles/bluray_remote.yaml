@@ -1,0 +1,61 @@
+####################################################
+#                                                  #
+# This !include contains the configuration for     #
+# the tiles making up the Blu-Ray remote in the UI #
+#                                                  #
+####################################################
+
+columns: 4
+column_width: 80px
+row_height: 80px
+color_on: red
+color_off: red
+entities:
+  - entity: switch.bluray_play
+    icon: mdi:play
+    column: 1
+    row: 1
+    column_span: 2
+  - entity: switch.bluray_pause
+    icon: mdi:pause
+    column: 3
+    row: 1
+    column_span: 2
+
+  - entity: switch.bluray_skip_back
+    icon: mdi:skip-backward
+    column: 1
+    row: 2
+  - entity: switch.bluray_rewind
+    icon: mdi:rewind
+    column: 2
+    row: 2
+  - entity: switch.bluray_fastforward
+    icon: mdi:fast-forward
+    column: 3
+    row: 2
+  - entity: switch.bluray_skip_forward
+    icon: mdi:skip-forward
+    column: 4
+    row: 2
+
+  - entity: switch.bluray_stop
+    icon: mdi:stop
+    column: 1
+    row: 3
+  - entity: switch.bluray_eject
+    icon: mdi:eject
+    column: 2
+    row: 3
+  - entity: switch.av_vol_up
+    label: V +
+    column: 3
+    row: 3
+    color_on: green
+    color_off: green
+  - entity: switch.av_vol_down
+    label: V -
+    column: 4
+    row: 3
+    color_on: green
+    color_off: green

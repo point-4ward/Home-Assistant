@@ -80,5 +80,5 @@ script:
       - condition: state
         entity_id: sensor.dark_outside
         state: 'true'
-      - service: scene.turn_on
+      - service: homeassistant.turn_on
         entity_id: scene.boys_wake_up

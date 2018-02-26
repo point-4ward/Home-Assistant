@@ -11,20 +11,23 @@ homeassistant:
     group.downstairs:
       order: 1
 
-    group.media:
+    group.av:
       order: 2
 
-    group.bedroom:
+    group.media:
       order: 3
 
-    group.boys_room:
+    group.bedroom:
       order: 4
 
-    group.girls_room:
+    group.boys_room:
       order: 5
 
-    group.tools:
+    group.girls_room:
       order: 6
+
+    group.tools:
+      order: 7
 
 
 group:
@@ -35,7 +38,14 @@ group:
       - group.tiles_lights
       - group.quick_timer
       - group.downstairs_alarm_clock
+
+  av:
+    view: yes
+    icon: mdi:television-classic
+    entities:
+      - group.tiles_av_remote
       - group.tiles_tv_remote
+      - group.tiles_bluray_remote
 
   media:
     view: yes

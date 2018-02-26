@@ -6,157 +6,157 @@
 #######################################
 
 
-'virgin_key_0':
+virgin_key_0:
   friendly_name: "Virgin_KEY_0"
   command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR0dHQALpA0FAAAAAAAAAAAAAAAAAAA='
   command_off: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR0dHQALpA0FAAAAAAAAAAAAAAAAAAA='
-  
-'virgin_key_1':
+
+virgin_key_1:
   friendly_name: "Virgin_KEY_1"
   command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR06HQALhw0FAAAAAAAAAAAAAAAAAAA='
   command_off: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR06HQALhw0FAAAAAAAAAAAAAAAAAAA='
-  
-'virgin_key_2':
+
+virgin_key_2:
   friendly_name: "Virgin_KEY_2"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHR0dOjoAC6QNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dHR0dHR0dOjoAC6QNBQ=='
-  
-'virgin_key_3':
+
+virgin_key_3:
   friendly_name: "Virgin_KEY_3"
   command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dOh0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
   command_off: 'JgAYAB0dOh0dOjo6Oh0dHR0dHR0dOh0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
-  
-'virgin_key_4':
+
+virgin_key_4:
   friendly_name: "Virgin_KEY_4"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTo6HR0AC6QNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTo6HR0AC6QNBQ=='
-  
-'virgin_key_5':
+
+virgin_key_5:
   friendly_name: "Virgin_KEY_5"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTo6Oh0AC4cNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTo6Oh0AC4cNBQ=='
-  
-'virgin_key_6':
+
+virgin_key_6:
   friendly_name: "Virgin_KEY_6"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTodHToAC6QNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dHR0dHTodHToAC6QNBQ=='
-  
-'virgin_key_7':
+
+virgin_key_7:
   friendly_name: "Virgin_KEY_7"
   command_on: 'JgAYAB0dOh0dOjo6Oh0dHR0dHTodHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
   command_off: 'JgAYAB0dOh0dOjo6Oh0dHR0dHTodHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
-  
-'virgin_key_8':
+
+virgin_key_8:
   friendly_name: "Virgin_KEY_8"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dHR06Oh0dHR0AC6QNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dHR06Oh0dHR0AC6QNBQ=='
-  
-'virgin_key_9':
+
+virgin_key_9:
   friendly_name: "Virgin_KEY_9"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dHR06Oh0dOh0AC4cNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dHR06Oh0dOh0AC4cNBQ=='
-  
-'virgin_key_pause':
+
+virgin_key_pause:
   friendly_name: "Virgin_KEY_PAUSE"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dOjodHTodHR0AC4cNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dOjodHTodHR0AC4cNBQ=='
-  
-'virgin_key_clear':
+
+virgin_key_clear:
   friendly_name: "Virgin_KEY_CLEAR"
   command_on: 'JgAWAB0dOh0dOjo6Oh0dOh0dOh0dOh0AC4cNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Oh0dOh0dOh0dOh0AC4cNBQ=='
-  
-'virgin_key_channelup':
+
+virgin_key_channelup:
   friendly_name: "Virgin_KEY_CHANNELUP"
   command_on: 'JgAWAB0dOh0dOjo6Ojo6HR0dHR0dHR0AC6QNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Ojo6HR0dHR0dHR0AC6QNBQ=='
-  
-'virgin_key_channeldown':
+
+virgin_key_channeldown:
   friendly_name: "Virgin_KEY_CHANNELDOWN"
   command_on: 'JgAWAB0dOh0dOjo6Ojo6HR0dHR0dOh0AC4cNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Ojo6HR0dHR0dOh0AC4cNBQ=='
-  
-'virgin_key_back':
+
+virgin_key_back:
   friendly_name: "Virgin_KEY_BACK"
   command_on: 'JgASAB0dOh0dOjo6Ojo6Ojo6OgALpA0FAAAAAA=='
   command_off: 'JgASAB0dOh0dOjo6Ojo6Ojo6OgALpA0FAAAAAA=='
 
-'virgin_key_info':
+virgin_key_info:
   friendly_name: "Virgin_KEY_INFO"
   command_on: 'JgAWAB0dOh0dOjo6Ojo6Oh0dHR0dHR0AC4cNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6Ojo6Oh0dHR0dHR0AC4cNBQ=='
-  
-'virgin_key_play':
+
+virgin_key_play:
   friendly_name: "Virgin_KEY_PLAY"
   command_on: 'JgAWAB0dOh0dOjo6OjodHTodHR0dHR0AC6QNBQ=='
   command_off: 'JgAWAB0dOh0dOjo6OjodHTodHR0dHR0AC6QNBQ=='
-  
-'virgin_key_rewind':
+
+virgin_key_rewind:
   friendly_name: "Virgin_KEY_REWIND"
   command_on: 'JgAUAB0dOh0dOjo6OjodHTodHTo6AAukDQUAAA=='
   command_off: 'JgAUAB0dOh0dOjo6OjodHTodHTo6AAukDQUAAA=='
-  
-'virgin_key_fastforward':
+
+virgin_key_fastforward:
   friendly_name: "Virgin_KEY_FASTFORWARD"
   command_on: 'JgAUAB0dOh0dOjo6OjodHTo6Oh0dAAukDQUAAA=='
   command_off: 'JgAUAB0dOh0dOjo6OjodHTo6Oh0dAAukDQUAAA=='
-  
-'virgin_key_stop':
+
+virgin_key_stop:
   friendly_name: "Virgin_KEY_STOP"
   command_on: 'JgAUAB0dOh0dOjo6OjodHTo6HR06AAukDQUAAA=='
   command_off: 'JgAUAB0dOh0dOjo6OjodHTo6HR06AAukDQUAAA=='
-  
-'virgin_key_home':
+
+virgin_key_home:
   friendly_name: "Virgin_KEY_HOME"
   command_on: 'JgAYADodHR0dOjo6Oh0dHR06HR0dHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
   command_off: 'JgAYADodHR0dOjo6Oh0dHR06HR0dHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA='
-  
-'virgin_key_up':
+
+virgin_key_up:
   friendly_name: "Virgin_KEY_UP"
   command_on: 'JgAWADodHR0dOjo6Oh0dOjodHR0dHR0AC6QNBQ=='
   command_off: 'JgAWADodHR0dOjo6Oh0dOjodHR0dHR0AC6QNBQ=='
-  
-'virgin_key_down':
+
+virgin_key_down:
   friendly_name: "Virgin_KEY_DOWN"
   command_on: 'JgAWADodHR0dOjo6Oh0dOjodHR0dOh0AC4cNBQ=='
   command_off: 'JgAWADodHR0dOjo6Oh0dOjodHR0dOh0AC4cNBQ=='
 
-'virgin_key_tv':
+virgin_key_tv:
   friendly_name: "Virgin_KEY_TV"
   command_on: 'JgAWADodHR0dOjo6Oh0dOjodHTodHR0AC4cNBQ=='
   command_off: 'JgAWADodHR0dOjo6Oh0dOjodHTodHR0AC4cNBQ=='
-  
-'virgin_key_left':
+
+virgin_key_left:
   friendly_name: "Virgin_KEY_LEFT"
   command_on: 'JgAUADodHR0dOjo6Oh0dOjo6OjodAAuHDQUAAA=='
   command_off: 'JgAUADodHR0dOjo6Oh0dOjo6OjodAAuHDQUAAA=='
-  
-'virgin_key_right':
+
+virgin_key_right:
   friendly_name: "Virgin_KEY_RIGHT"
   command_on: 'JgAUADodHR0dOjo6Oh0dOjo6HR06AAukDQUAAA=='
   command_off: 'JgAUADodHR0dOjo6Oh0dOjo6HR06AAukDQUAAA=='
-  
-'virgin_key_ok':
+
+virgin_key_ok:
   friendly_name: "Virgin_KEY_OK"
   command_on: 'JgAWADodHR0dOjo6Oh0dOjo6HR0dHR0AC4cNBQ=='
   command_off: 'JgAWADodHR0dOjo6Oh0dOjo6HR0dHR0AC4cNBQ=='
-  
-'virgin_key_red':
+
+virgin_key_red:
   friendly_name: "Virgin_KEY_RED"
   command_on: 'JgAUADodHR0dOjo6Ojo6Ojo6HR0dAAuHDQUAAA=='
   command_off: 'JgAUADodHR0dOjo6Ojo6Ojo6HR0dAAuHDQUAAA=='
-  
-'virgin_key_green':
+
+virgin_key_green:
   friendly_name: "Virgin_KEY_GREEN"
   command_on: 'JgAUADodHR0dOjo6Ojo6Oh0dOh0dAAukDQUAAA=='
   command_off: 'JgAUADodHR0dOjo6Ojo6Oh0dOh0dAAukDQUAAA=='
-  
-'virgin_key_yellow':
+
+virgin_key_yellow:
   friendly_name: "Virgin_KEY_YELLOW"
   command_on: 'JgAUADodHR0dOjo6Ojo6Oh0dOjodAAuHDQUAAA=='
   command_off: 'JgAUADodHR0dOjo6Ojo6Oh0dOjodAAuHDQUAAA=='
-  
-'virgin_key_blue':
+
+virgin_key_blue:
   friendly_name: "Virgin_KEY_BLUE"
   command_on: 'JgAUADodHR0dOjo6Ojo6Oh0dHR06AAukDQUAAA=='
   command_off: 'JgAUADodHR0dOjo6Ojo6Oh0dHR06AAukDQUAAA=='

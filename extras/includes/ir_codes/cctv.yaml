@@ -1,0 +1,37 @@
+#######################################
+#                                     #
+# This !include contains the IR codes #
+# for the CCTV system                 #
+#                                     #
+#######################################
+
+#TODO...
+cctv_up:
+  friendly_name: "CCTV Up"
+  command_on: ""
+  command_off: ""
+
+cctv_down:
+  friendly_name: "CCTV Down"
+  command_on: ""
+  command_off: ""
+
+cctv_left:
+  friendly_name: "CCTV Left"
+  command_on: ""
+  command_off: ""
+
+cctv_right:
+  friendly_name: "CCTV Right"
+  command_on: ""
+  command_off: ""
+
+cctv_ok:
+  friendly_name: "CCTV OK"
+  command_on: ""
+  command_off: ""
+
+cctv_back:
+  friendly_name: "CCTV Back"
+  command_on: ""
+  command_off: ""

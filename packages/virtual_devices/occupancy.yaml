@@ -32,11 +32,6 @@ homeassistant:
     sensor.home_status:
       icon: mdi:home-map-marker
 
-    input_boolean.away_mode:
-      hide_control: true
-      extra_badge:
-        entity_id: input_boolean.away_mode
-
     input_boolean.holiday_mode:
       hide_control: true
       extra_badge:
@@ -50,6 +45,8 @@ device_tracker:
 
 
 input_boolean:
+  away_mode:
+    
   guest_mode:
     name: Guest mode
     icon: mdi:human-handsup
@@ -69,10 +66,6 @@ input_boolean:
   cycling_mode:
     name: Cycling to work mode
     icon: mdi:bike
-
-  away_mode:
-    name: Away mode
-    icon: mdi:alert-circle-outline
 
   kids_night_mode:
     name: Kids night monitor
@@ -111,7 +104,6 @@ group:
       - alarm_control_panel.alarm
       - sensor.home_status
       - input_boolean.guest_mode
-      - input_boolean.away_mode
       - input_boolean.holiday_mode
 
   home_modes:
@@ -140,7 +132,7 @@ alert:
 
 
 automation:
-  - alias: Occupancy - reset booleans (home)
+  - alias: Occupancy - Return home
     initial_state: on
     trigger:
       platform: state
@@ -152,20 +144,6 @@ automation:
           - input_boolean.guest_mode
           - input_boolean.away_mode
           - input_boolean.holiday_mode
-
-  - alias: Occupancy - reset booleans (guest)
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: input_boolean.guest_mode
-      to: 'on'
-    condition:
-      condition: state
-      entity_id: sensor.home_status
-      state: 'Unoccupied'
-    action:
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.away_mode
 
   - alias: Occupancy - Nobody home
     initial_state: on
