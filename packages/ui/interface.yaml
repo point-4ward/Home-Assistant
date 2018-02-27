@@ -12,21 +12,6 @@ http:
   login_attempts_threshold: 3
 
 
-config:
-
-
-panel_iframe:
-  kodi:
-    title: 'Kodi'
-    url: !secret iframe_kodi_url
-    icon: mdi:kodi
-
-  nodered:
-    title: 'Node-Red'
-    url: !secret iframe_nodered_url
-    icon: mdi:shuffle-variant
-
-
 frontend:
   javascript_version: auto
   themes: !include_dir_merge_named ../../extras/includes/themes/
@@ -36,6 +21,9 @@ frontend:
   extra_html_url_es5:
     - /local/custom_ui/state-card-tiles_es5.html
     - /local/custom_ui/state-card-mini-media-player_es5.html
+
+
+config:
 
 
 customizer:

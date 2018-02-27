@@ -62,3 +62,13 @@
   action:
     service: media_player.turn_off
     entity_id: media_player.girls
+
+- alias: Remote - Bluray power tracker
+  initial_state: on
+  trigger:
+    platform: state
+    entity_id: input_boolean.bluray_power
+  action:
+    service: homeassistant.toggle
+    data_template:
+      entity_id: switch.bluray_power_toggle

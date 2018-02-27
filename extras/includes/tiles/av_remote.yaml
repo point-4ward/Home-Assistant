@@ -5,9 +5,6 @@
 #                                                 #
 ###################################################
 
-#TODO....
-# 3D
-            # up / down / left / right / OK / back
 
 columns: 4
 column_width: 80px
@@ -46,11 +43,55 @@ entities:
     icon: mdi:power-plug-off
     column: 3
     row: 2
-    color_on: purple
-    color_off: purple
+    color: purple
   - entity: switch.av_vol_down
     label: V -
     color_on: green
     color_off: green
     column: 4
     row: 2
+
+  - entity: switch.tv_3d
+    label: 3D
+    column: 1
+    row: 3
+    color_on: red
+    color_off: red
+    column_span: 2
+  - entity: switch.tv_up
+    icon: mdi:arrow-up
+    column: 3
+    row: 3
+    color_on: blue
+    color_off: blue
+  - entity: switch.tv_down
+    icon: mdi:arrow-down
+    column: 4
+    row: 3
+    color_on: blue
+    color_off: blue
+
+  - entity: switch.tv_ok
+    label: OK
+    column: 1
+    row: 4
+    color_on: red
+    color_off: red
+  - entity: switch.tv_back
+    label: back
+    column: 2
+    row: 4
+    color_on: red
+    color_off: red
+  - entity: switch.tv_left
+    icon: mdi:arrow-left
+    column: 3
+    row: 4
+    color_on: blue
+    color_off: blue
+  - entity: switch.tv_right
+    icon: mdi:arrow-right
+    column: 4
+    row: 4
+    color_on: blue
+    color_off: blue

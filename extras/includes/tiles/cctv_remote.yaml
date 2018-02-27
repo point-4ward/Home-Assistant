@@ -5,8 +5,7 @@
 #                                                 #
 ###################################################
 
-#TODO....
-            # up / down / left / right / OK / back
+
 columns: 3
 column_width: 80px
 row_height: 80px

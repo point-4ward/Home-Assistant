@@ -51,6 +51,9 @@ input_boolean:
 
   remote_girls_radio:
 
+  bluray_power:
+    initial: off
+
 input_text:
   lights:
     name: lights
