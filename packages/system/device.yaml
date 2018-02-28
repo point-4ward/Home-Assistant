@@ -16,11 +16,8 @@ logbook:
     entities:
       - switch.heater
       - input_boolean.guest_mode
-      - input_boolean.away_mode
-      - input_boolean.holiday_mode
     domains:
       - alarm_control_panel
-      - alert
       - light
       - sensor
       - binary_sensor
@@ -31,6 +28,12 @@ logbook:
     entities:
       - sensor.time
       - sensor.date
+      - sensor.ha_upstream
+      - sensor.us_air_pollution_level
+      - sensor.us_air_quality_index
+      - sensor.us_main_pollutant
+      - sensor.automation_all
+      - sensor.automation_on
       - light.lr_left
       - light.lr_right
       - light.mb_ceiling
@@ -45,11 +48,9 @@ history:
     entities:
       - switch.heater
       - input_boolean.guest_mode
-      - input_boolean.away_mode
-      - input_boolean.holiday_mode
+
     domains:
       - alarm_control_panel
-      - alert
       - light
       - sensor
       - binary_sensor
@@ -60,6 +61,12 @@ history:
     entities:
       - sensor.time
       - sensor.date
+      - sensor.ha_upstream
+      - sensor.us_air_pollution_level
+      - sensor.us_air_quality_index
+      - sensor.us_main_pollutant
+      - sensor.automation_all
+      - sensor.automation_on
       - light.lr_left
       - light.lr_right
       - light.mb_ceiling
