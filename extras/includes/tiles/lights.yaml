@@ -35,10 +35,10 @@ entities:
 #    icon: mdi:human-handsdown
 #    column: 2
 #    row: 2
-#  - entity: light.girls
-#    icon: mdi:human-female
-#    column: 3
-#    row: 2
+  - entity: light.girls
+    icon: mdi:human-female
+    column: 3
+    row: 2
   - entity: script.remote_bedroom_bright
     icon: mdi:hotel
     label: Bright
@@ -92,12 +92,12 @@ entities:
     icon: mdi:sofa
     column: 1
     row: 5
-  - entity: script.remote_boys_night
+  - entity: script.remote_boys_nightlight
     label: Night
     icon: mdi:human-handsdown
     column: 2
     row: 5
-  - entity: script.remote_girls_night
+  - entity: script.remote_girls_nightlight
     label: Night
     icon: mdi:human-female
     column: 3
