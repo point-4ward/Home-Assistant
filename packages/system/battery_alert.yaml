@@ -33,6 +33,8 @@ group:
     - sensor.bathroom_motion_motion_battery
     - sensor.living_room_switch_battery
     - sensor.kitchen_multisensor_battery
+    - sensor.attic2_motion_sensor_battery
+    - sensor.girls_switch_battery
 
   Batteries:
     control: hidden
