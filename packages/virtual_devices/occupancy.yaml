@@ -37,6 +37,7 @@ homeassistant:
       extra_badge:
         entity_id: input_boolean.holiday_mode
 
+#ios:
 
 device_tracker:
   platform: bluetooth_tracker
@@ -46,7 +47,7 @@ device_tracker:
 
 input_boolean:
   away_mode:
-    
+
   guest_mode:
     name: Guest mode
     icon: mdi:human-handsup
