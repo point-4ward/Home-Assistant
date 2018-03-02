@@ -76,3 +76,4 @@ script:
           - input_boolean.remote_girls_radio
           - media_player.girls
           - script.lullaby_girls
+          - switch.heater

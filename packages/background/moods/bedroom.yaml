@@ -26,15 +26,6 @@ switch:
         service: homeassistant.turn_off
         entity_id: script.empty_bedroom
 
-    romance_bedroom:
-      value_template: "{{is_state ('script.romance_bedroom' , 'on') }}"
-      turn_on:
-        service: homeassistant.turn_on
-        entity_id: script.romance_bedroom
-      turn_off:
-        service: homeassistant.turn_off
-        entity_id: script.romance_bedroom
-
 
 script:
   lullaby_bedroom:
@@ -80,17 +71,12 @@ script:
           - media_player.bedroom
           - light.bedroom
 
-  romance_bedroom:
-    sequence:
-
   empty_bedroom:
     alias: bedroom Empty
     sequence:
       - service: homeassistant.turn_off
         entity_id:
           - light.bedroom
-          - switch.heater
           - input_boolean.remote_bedroom_radio
           - media_player.bedroom
           - script.lullaby_bedroom
-          - script.romance_bedroom
