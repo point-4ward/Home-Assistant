@@ -21,6 +21,12 @@ homeassistant:
     sensor.kitchen_multisensor_battery:
       friendly_name: Kitchen Multisensor
 
+    sensor.attic2_motion_sensor_battery:
+      friendly_name: Girls motion
+
+    sensor.girls_switch_battery:
+      friendly_name: Girls switch
+
 
 group:
   battery alert:

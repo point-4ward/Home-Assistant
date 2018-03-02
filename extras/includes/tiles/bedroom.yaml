@@ -25,12 +25,12 @@ entities:
   - entity: script.remote_bedroom_nightlight
     label: Night
     column: 5
-          
-  - entity: switch.heater
-    label: Heater
-    column: 1
-    row: 2
-    column_span: 2
+
+  # - entity: switch.heater
+  #   label: Heater
+  #   column: 1
+  #   row: 2
+  #   column_span: 2
   - entity: switch.lullaby_bedroom
     label: Lullaby
     column: 3
