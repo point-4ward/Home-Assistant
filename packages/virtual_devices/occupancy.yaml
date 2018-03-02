@@ -37,8 +37,6 @@ homeassistant:
       extra_badge:
         entity_id: input_boolean.holiday_mode
 
-#ios:
-
 device_tracker:
   platform: bluetooth_tracker
   new_device_defaults:
@@ -91,7 +89,7 @@ group:
   Phone trackers:
     - device_tracker.forthygpixel
     - device_tracker.lauras_iphone
-    - device_tracker.iphone
+    - device_tracker.courtney_iphone
 
   Adults:
     - device_tracker.forthygpixel

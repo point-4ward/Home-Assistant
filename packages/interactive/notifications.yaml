@@ -20,7 +20,7 @@ telegram_bot:
   allowed_chat_ids:
     - !secret telegram_bot_chat_id_mf
     - !secret telegram_bot_chat_id_ls
-#TODO - ...- !secret telegram_bot_chat_id_cg
+    - !secret telegram_bot_chat_id_cg
 
 
 notify:
@@ -31,17 +31,17 @@ notify:
   - platform: telegram
     name: ls
     chat_id: !secret telegram_bot_chat_id_ls
-#TODO - ...
-  #- platform: telegram
-  #  name: cg
-  #  chat_id: !secret telegram_bot_chat_id_ccg
-  #
-  # - platform: group
-  #   name: all
-  #   services:
-  #     - service: mf
-  #     - service: ls
-  #     - service: cg
+
+  - platform: telegram
+    name: cg
+    chat_id: !secret telegram_bot_chat_id_cg
+
+  - platform: group
+    name: all
+    services:
+      - service: mf
+      - service: ls
+      - service: cg
 
   - platform: group
     name: adults
