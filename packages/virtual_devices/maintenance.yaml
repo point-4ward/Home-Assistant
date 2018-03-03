@@ -73,13 +73,16 @@ group:
     control: hidden
     entities:
       - input_boolean.maintenance_mode
+      - sensor.hline_1
       - script.quick_restart
       - script.quick_reboot
       - script.upgrade_hass
       - script.github_pull
+      - sensor.hline_2
       - input_text.github_message
       - script.github_push
       - weblink.github
+      - sensor.hline_3
       - script.sync_dropbox
       - weblink.dropbox
 

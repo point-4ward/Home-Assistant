@@ -6,6 +6,12 @@
 ##########################################################
 
 
+homeassistant:
+  customize_glob:
+    sensor.hline_*:
+     custom_ui_state_card: state-card-hline
+
+
 http:
   api_password: !secret api_password
   ip_ban_enabled: True
@@ -18,9 +24,11 @@ frontend:
   extra_html_url:
     - /local/custom_ui/state-card-tiles.html
     - /local/custom_ui/state-card-mini-media-player.html
+    - /local/custom_ui/state-card-hline.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-tiles_es5.html
     - /local/custom_ui/state-card-mini-media-player_es5.html
+    - /local/custom_ui/state-card-hline_es5.html
 
 
 config:
@@ -28,6 +36,16 @@ config:
 
 customizer:
   custom_ui: hosted
+
+sensor:
+  platform: template
+  sensors:
+    hline_1:
+      value_template: hline
+    hline_2:
+      value_template: hline
+    hline_3:
+      value_template: hline
 
 
 automation:

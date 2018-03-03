@@ -100,8 +100,10 @@ group:
     control: hidden
     entities:
       - group.phone_trackers
+      - sensor.hline_1
       - alarm_control_panel.alarm
       - sensor.home_status
+      - sensor.hline_2
       - input_boolean.guest_mode
       - input_boolean.holiday_mode
 

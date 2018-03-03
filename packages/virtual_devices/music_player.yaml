@@ -79,8 +79,10 @@ group:
     entities:
       - input_number.volume_radio
       - input_select.media_player
+      - sensor.hline_1
       - input_boolean.play_radio
       - input_select.radio_station
+      - sensor.hline_2
       - switch.google_music
       - input_select.google_music
 
