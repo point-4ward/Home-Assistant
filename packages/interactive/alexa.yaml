@@ -126,7 +126,7 @@ automation:
         data:
           message: 'Bedtime mode activated'
       - service: homeassistant.turn_off
-        entity_id: light.living_room
+        entity_id: light.livingroom
       - service: script.set_hue_scene
         data:
           group: "Bedroom"

@@ -18,11 +18,11 @@ automation:
         command: '/LivingRoom'
     action:
       - service: homeassistant.toggle
-        entity_id: light.living_room
+        entity_id: light.livingroom
       - service: telegram_bot.send_message
         data_template:
           target: '{{ trigger.event.data.user_id }}'
-          message: "Livingroom lights have been turned {{states('light.living_room')}}."
+          message: "Livingroom lights have been turned {{states('light.livingroom')}}."
 
   - alias: Telegram - Bedroom lights toggle
     initial_state: on
