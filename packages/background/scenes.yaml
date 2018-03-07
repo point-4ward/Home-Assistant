@@ -44,28 +44,28 @@ scene:
 
   - name: Livingroom dim
     entities:
-      light.living_room:
+      light.livingroom:
         state: on
         transition: 4
         brightness: 125
 
   - name: Livingroom movie
     entities:
-      light.living_room:
+      light.livingroom:
         state: on
         transition: 4
         brightness: 35
 
   - name: Livingroom bright
     entities:
-      light.living_room:
+      light.livingroom:
         state: on
         transition: 3
         brightness: 255
 
   - name: Livingroom sunset
     entities:
-      light.living_room:
+      light.livingroom:
         state: on
         transition: 600
         brightness: 255

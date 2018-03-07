@@ -42,7 +42,7 @@ automation:
 
           The lights group is {{states('group.all_lights')}}
 
-          Living room lights are {{states('light.living_room')}}.
+          Living room lights are {{states('light.livingroom')}}.
 
           Landing lights are {{states('light.landing')}}.
 
@@ -101,7 +101,7 @@ automation:
         target: '{{ trigger.event.data.user_id }}'
         message: "The lights group is {{states('group.all_lights')}}
 
-          Living room lights are {{states('light.living_room')}}.
+          Living room lights are {{states('light.livingroom')}}.
 
           Landing lights are {{states('light.landing')}}.
 
