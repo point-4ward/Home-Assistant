@@ -49,6 +49,10 @@ notify:
       - service: mf
       - service: ls
 
+input_boolean:
+  priority_message:
+    initial: off      
+
 binary_sensor:
   platform: random
 
@@ -75,7 +79,15 @@ script:
 
   announce:
     sequence:
-#TODO - .... # - condition: [when to not announce]
+      #TODO - .... # - condition: [when to not announce]
+      - condition: or
+        conditions:
+          - condition: time
+            after: '07:30:00'
+            before: '23:00:00'
+          - condition: state
+            entity_id: input_boolean.priority_message
+            state: 'on'
       - service: media_player.volume_set
         data_template:
           entity_id: '{{ media_player }}'

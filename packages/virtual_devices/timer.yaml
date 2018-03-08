@@ -47,7 +47,6 @@ automation:
         data_template:
           duration: '00:{{states.input_number.timer_minutes.state|int}}:00'
 
-#TODO - move this to the notify engine
   - alias: Timer - Expired
     initial_state: on
     trigger:
@@ -60,10 +59,7 @@ automation:
         entity_id: input_number.timer_minutes
         data:
           value: 0
-      - service: notify.mf
+      - service: script.notify
         data:
+          call_inform: 1
           message: "The timer has expired"
-      - service: tts.picotts_say
-        entity_id: media_player.everywhere
-        data:
-          message: 'The timer has expired, The timer has expired'

@@ -23,7 +23,14 @@ include:
     - sensor.memory_use_percent
     - sensor.processor_use
     - sensor.average_light_level
+    - sensor.kitchen_motion_sensor_luminance
+    - sensor.attic_light_level
+    - sensor.bathroom_light_level
     - sensor.average_temperature
+    - sensor.attic_temperature
+    - sensor.bathroom_temperature
+    - sensor.kitchen_motion_sensor_temperature
+
 
 exclude:
   entities:
