@@ -15,13 +15,13 @@ homeassistant:
     sensor.bathroom_motion_motion_battery:
       friendly_name: Bathroom sensor
 
-    sensor.living_room_switch_battery:
+    sensor.livingroom_switch_battery:
       friendly_name: Livingroom switch
 
     sensor.kitchen_multisensor_battery:
       friendly_name: Kitchen Multisensor
 
-    sensor.attic2_motion_sensor_battery:
+    sensor.stairs_motion_motion_battery:
       friendly_name: Girls motion
 
     sensor.girls_switch_battery:
@@ -31,9 +31,9 @@ homeassistant:
 group:
   battery alert:
     - sensor.bathroom_motion_motion_battery
-    - sensor.living_room_switch_battery
+    - sensor.livingroom_switch_battery
     - sensor.kitchen_multisensor_battery
-    - sensor.attic2_motion_sensor_battery
+    - sensor.stairs_motion_motion_battery
     - sensor.girls_switch_battery
 
   Batteries:
@@ -43,6 +43,7 @@ group:
 
 
 automation:
+  #TODO - redo this to specific entities
   - alias: Battery alert - notification
     initial_state: on
     trigger:
