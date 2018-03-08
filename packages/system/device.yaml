@@ -63,7 +63,7 @@ automation:
           title: "Automations alert"
           message: "Some automations are disabled."
 
-#TODO - move this notification
+#TODO - move this notification (only text)
   - alias: Device - Update Available Notifications
     initial_state: on
     trigger:
@@ -82,10 +82,10 @@ automation:
       entity_id: sensor.disk_use_percent_
       above: 85
     action:
-      - service: script.notify
-        data:
-          call_inform: 1
-          call_hdd_space: 1
+      service: script.notify
+      data:
+        call_inform: 1
+        call_hdd_space: 1
 
   - alias: Device - System load alarm
     initial_state: on

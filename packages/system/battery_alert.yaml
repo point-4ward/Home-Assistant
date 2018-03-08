@@ -43,52 +43,22 @@ group:
 
 
 automation:
-  #TODO - redo this to specific entities
   - alias: Battery alert - notification
     initial_state: on
     trigger:
-      platform: time
-      hours: '/2'
-      minutes: 00
-      seconds: 00
-    condition:
-      condition: template
-      value_template: >
-          {% macro battery_level() %}
-            {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
-              and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
-              and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
-              or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
-              and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
-            {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
-          {{ battery_level() | trim != "" and not is_state_attr('persistent_notification.lowbatteryalert', 'message', battery_level()) }}
+      - platform: numeric_state
+        entity_id:
+          - sensor.bathroom_motion_motion_battery
+          - sensor.livingroom_switch_battery
+          - sensor.kitchen_multisensor_battery
+          - sensor.stairs_motion_motion_battery
+          - sensor.girls_switch_battery
+        below: 21
     action:
-      - service: persistent_notification.create
-        data_template:
-          title: "Low Battery levels"
-          notification_id: low-battery-alert
-          message: >
-            {% macro battery_level() %}
-              {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
-                and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
-                and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
-                or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
-                and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
-              {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
-              {{ battery_level() }}
-      - service: notify.mf
-        data_template:
-          title: "Battery alert:"
-          message: >
-            {% macro battery_level() %}
-              {%- for item in states.sensor if ("battery" in item.name | lower and not "voltage" in item.name | lower
-                and not "runtime" in item.name | lower and not "setpoint" in item.name | lower and not "charge" in item.name | lower
-                and not is_state_attr(item.entity_id, 'battery_alert_disabled', true)) and (((item.state is number
-                or item.state | length == item.state | int | string | length or item.state | length == item.state | float | string | length)
-                and item.state | int < 20) or item.state | lower == "low" or item.state | lower == "unknown") -%}
-              {{ item.name }} ({{ item.state }}){% if not loop.last %}, {% endif %} {%- endfor -%} {% endmacro %}
-              {{ battery_level() }}
-
+      service: script.notify
+      data:
+        call_inform: 1
+        message: "You have a low battery on one of your devices."
 
   - alias: Battery alert - Sensor (level)
     initial_state: on
