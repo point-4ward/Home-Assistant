@@ -1,0 +1,37 @@
+############################################
+#                                          #
+#  This include defines what is logged in  #
+#  the systems logbook and history pages   #
+#                                          #
+############################################
+
+include:
+  domains:
+    - alarm_control_panel
+    - light
+    - binary_sensor
+    - device_tracker
+
+  entities:
+    - switch.heater
+    - input_boolean.guest_mode
+    - sensor.calendar
+    - sensor.bad_weather
+    - sensor.dark_outside
+    - sensor.home_status
+    - sensor.kitchen_motion_sensor_burglar
+    - sensor.memory_use_percent
+    - sensor.processor_use
+    - sensor.average_light_level
+    - sensor.average_temperature
+
+exclude:
+  entities:
+    - light.lr_left
+    - light.lr_right
+    - light.mb_ceiling
+    - light.mb_stairs
+    - light.girls_room
+    - light.bath
+    - light.attic
+    - binary_sensor.random_binary_sensor

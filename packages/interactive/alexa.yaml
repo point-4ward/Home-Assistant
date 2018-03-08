@@ -103,7 +103,7 @@ automation:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.media_player
-          option: >-
+          option: >
             {% if is_state ('input_boolean.radio_downstairs' , 'on') %} downstairs
             {% elif is_state ('input_boolean.radio_everywhere' , 'on') %} everywhere
             {% endif %}
