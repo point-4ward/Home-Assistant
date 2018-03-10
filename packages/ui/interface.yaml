@@ -31,7 +31,7 @@ frontend:
     - /local/custom_ui/state-card-hline_es5.html
 
 
-config:
+config: {}
 
 
 customizer:
