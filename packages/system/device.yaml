@@ -17,7 +17,7 @@ logbook: !include ../../extras/includes/logging.yaml
 history: !include ../../extras/includes/logging.yaml
 
 
-python_script: {}
+python_script:
 
 
 mqtt_eventstream:
