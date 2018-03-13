@@ -8,3 +8,16 @@
 # off automations, or anything else seasonal       #
 #                                                  #
 ####################################################
+
+
+# sensor:
+#   - platform: fitbit
+#
+#   - platform: fitbit
+#     filename: steve.conf
+#
+#   - platform: fitbit
+#     filename: bob.conf
+#
+#   - platform: fitbit
+#     filename: john.conf
