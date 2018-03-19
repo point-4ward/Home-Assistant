@@ -16,6 +16,14 @@ http:
   api_password: !secret api_password
   ip_ban_enabled: True
   login_attempts_threshold: 3
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
+
+
+duckdns:
+  domain:  !secret domain
+  access_token: !secret access_token
 
 
 frontend:
@@ -37,36 +45,66 @@ config:
 customizer:
   custom_ui: hosted
 
+
 sensor:
-  platform: template
-  sensors:
-    hline_1:
-      value_template: hline
-    hline_2:
-      value_template: hline
-    hline_3:
-      value_template: hline
+  - platform: command_line
+    name: SSL cert expiry
+    unit_of_measurement: days
+    scan_interval: 10800
+    command: !secret ssl_command
+
+  - platform: template
+    sensors:
+      hline_1:
+        value_template: hline
+      hline_2:
+        value_template: hline
+      hline_3:
+        value_template: hline
+
+
+shell_command:
+  renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 
 
 automation:
-  alias: Interface - Set UI theme
-  initial_state: on
-  trigger:
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id:
-        - alarm_control_panel.alarm
-        - input_boolean.maintenance_mode
-        - sensor.dark_outside
-    - platform: time
-      at: '23:00:00'
-  action:
-    service: frontend.set_theme
-    data_template:
-      name: >
-        {% if not is_state ('alarm_control_panel.alarm' , 'disarmed') %} darkred
-        {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} darkorange
-        {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
-        {% elif (states.sensor.dark_outside.state == "true") %} midnight
-        {% else %} default {% endif %}
+  - alias: Interface - Set UI theme
+    initial_state: on
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id:
+          - alarm_control_panel.alarm
+          - input_boolean.maintenance_mode
+          - sensor.dark_outside
+      - platform: time
+        at: '23:00:00'
+    action:
+      service: frontend.set_theme
+      data_template:
+        name: >
+          {% if not is_state ('alarm_control_panel.alarm' , 'disarmed') %} darkred
+          {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} darkorange
+          {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
+          {% elif (states.sensor.dark_outside.state == "true") %} midnight
+          {% else %} default {% endif %}
+
+  - alias: Interface - renew SSL ssl_certificate
+    initial_state: on
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.ssl_cert_expiry
+      below: 29
+    action:
+      service: shell_command.renew_ssl
+
+  - alias: Interface - ssl_certificate expiry notification
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.ssl_cert_expiry
+      below: 21
+    action:
+      service: notify.mf
+      data:
+        message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
