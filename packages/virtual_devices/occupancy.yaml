@@ -38,9 +38,11 @@ homeassistant:
         entity_id: input_boolean.holiday_mode
 
 device_tracker:
-  platform: bluetooth_tracker
-  new_device_defaults:
-    track_new_devices: false
+  - platform: bluetooth_tracker
+    new_device_defaults:
+      track_new_devices: false
+      
+  - platform: gpslogger
 
 
 input_boolean:
