@@ -15,9 +15,21 @@ sun:
 
 
 zone:
-  name: Whitnash
-  latitude: !secret whitnash_lat
-  longitude: !secret whitnash_long
+  - name: Whitnash
+    latitude: !secret whitnash_lat
+    longitude: !secret whitnash_long
+
+  - name: Chace
+    latitude: !secret chace_lat
+    longitude: !secret chace_long
+
+  - name: CV Central
+    latitude: !secret cv_central_lat
+    longitude: !secret cv_central_long
+
+  - name: Wiseman
+    latitude: !secret wiseman_lat
+    longitude: !secret wiseman_long
 
 
 input_boolean:
@@ -123,7 +135,7 @@ sensor:
 
 
 binary_sensor:
-  - platform: iss
+  platform: iss
 
 
 automation:
