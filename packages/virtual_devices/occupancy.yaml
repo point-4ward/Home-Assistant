@@ -195,3 +195,25 @@ automation:
       service: notify.mf
       data:
         message: 'New trackable device detected'
+
+  - alias: Occupancy - Verify ios locations
+    initial_state: on
+    trigger:
+      platform: time
+      minutes: '/30'
+      seconds: 00
+    condition:
+      - condition: time
+        after: '08:00:00'
+        before: '23:00:00'
+      - condition: or
+        conditions:
+        - condition: template
+          value_template:  "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.lauras_iphone.last_updated) > (60*60) }}"
+        - condition: template
+          value_template: "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.courtney_iphone.last_updated) > (60*60) }}"
+    action:
+      #TODO - make this call try and refresh the devices
+      service: notify.mf
+      data_template:
+        message: "I would've forced a refresh on the ios phones now - Lauras last update is {{states.device_tracker.lauras_iphone.last_updated.strftime('%H:%M')}} - Courtneys is {{states.device_tracker.courtney_iphone.last_updated.strftime('%H:%M')}}"
