@@ -44,9 +44,8 @@ automation:
         entity_id: scene.livingroom_sunset
       - service: script.landing_light_scene
 
-#TODO - get this back on ASAP
   - alias: Lighting - on when dark (arriving home)
-    initial_state: off
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.home_status
