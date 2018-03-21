@@ -47,9 +47,8 @@ automation:
       data:
         message: "Doorbell test"
 
-#TODO - get this back on ASAP
   - alias: Security - Set alarm
-    initial_state: off
+    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.home_status
