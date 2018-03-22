@@ -38,6 +38,10 @@ entities:
     color_on: blue
     color_off: blue
 
+  - entity: switch.cctv_to_wii
+    icon: mdi:wii
+    column: 1
+    row: 3
   - entity: switch.cctv_down
     icon: mdi:arrow-down
     column: 2
@@ -50,3 +54,16 @@ entities:
     row: 3
     color_on: purple
     color_off: purple
+
+  - entity: switch.cctv_to_ps
+    icon: mdi:playstation
+    column: 1
+    row: 4
+  - entity: switch.cctv_to_4
+    label: '4'
+    column: 2
+    row: 4
+  - entity: switch.cctv_to_5
+    label: '5'
+    column: 3
+    row: 4
