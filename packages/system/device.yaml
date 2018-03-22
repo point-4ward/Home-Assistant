@@ -72,8 +72,8 @@ automation:
     action:
       - delay: '00:30:00'
       - service: notify.mf
-        data:
-          message: "Update for Home Assistant is available.  https://home-assistant.io/blog/"
+        data_template:
+          message: "Update for Home Assistant is available.  Latest version is {{states('sensor.ha_upstream')}}  https://home-assistant.io/blog/"
 
   - alias: Device - Disk use alarm
     initial_state: on
