@@ -102,6 +102,7 @@ automation:
       service: shell_command.renew_ssl
 
   - alias: Interface - ssl_certificate expiry notification
+    initial_state: on
     trigger:
       platform: numeric_state
       entity_id: sensor.ssl_cert_expiry
