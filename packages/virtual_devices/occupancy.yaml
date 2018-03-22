@@ -210,9 +210,9 @@ automation:
         value_template:  "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.lauras_iphone.last_updated) > (61*60) }}"
     action:
       #TODO - make this call try and refresh the device
-      service: notify.mf
+      service: notify.ios_lauras_iphone
       data_template:
-        message: "I would've forced a refresh on the ios phones now - Lauras last update is {{states.device_tracker.lauras_iphone.last_updated.strftime('%H:%M')}}"
+        message: "request_location_update"
 
   - alias: Occupancy - Verify ios cg
     initial_state: on
