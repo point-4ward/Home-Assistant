@@ -51,7 +51,7 @@ notify:
 
 input_boolean:
   priority_message:
-    initial: off      
+    initial: off
 
 binary_sensor:
   platform: random
@@ -120,5 +120,15 @@ script:
       #TODO ... - condition: [when not to add a persistent notification]
       - service: persistent_notification.create
         data_template:
+          notification_id: "sys_info"
           title: "System Information"
-          message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"
+          message: >
+            {% if is_state('persistent_notification.sys_info', 'notifying') %}
+              {{states.persistent_notification.sys_info.attributes.message}}
+
+              {{ now().strftime('%H:%M') }} -
+              {{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}
+            {% else %}
+              {{ now().strftime('%H:%M') }} -
+              {{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}
+            {% endif %}
