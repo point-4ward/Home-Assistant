@@ -56,10 +56,6 @@ input_boolean:
     name: Holiday mode
     icon: mdi:airplane
 
-  school_day_mode:
-    name: School Day mode
-    icon: mdi:school
-
   bathtime_mode:
     name: Bathtime mode
     icon: mdi:hot-tub
@@ -67,10 +63,6 @@ input_boolean:
   cycling_mode:
     name: Cycling to work mode
     icon: mdi:bike
-
-  kids_night_mode:
-    name: Kids night monitor
-    icon: mdi:human-child
 
   bedtime_mode:
     name: Bedtime mode
@@ -117,9 +109,7 @@ group:
     entities:
       - group.all_automations
       - input_boolean.bathtime_mode
-      - input_boolean.kids_night_mode
       - input_boolean.bedtime_mode
-      - input_boolean.school_day_mode
       - input_boolean.cycling_mode
 
 
