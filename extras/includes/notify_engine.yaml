@@ -8,29 +8,28 @@
 #                                               #
 #################################################
 
-#TODO - else needs to be nobody
+no_show: '{{no_show}}'
+no_say: '{{no_say}}'
+
+
 who: >
-  {% if tell == 'mf' %} notify.mf
+  {% if is_state('input_boolean.maintenance_mode','on') %} notify.mf
+  {% elif tell == 'mf' %} notify.mf
   {% elif tell == 'ls' %} notify.ls
   {% elif tell == 'cg' %} notify.cg
   {% elif tell == 'all' %} notify.all
   {% elif tell == 'adults' %} notify.adults
-  {% elif tell == 'nobody' %} nobody
-  {% else %} notify.mf {% endif %}
+  {% else %} {{tell}} {% endif %}
 
 
 media_player: >
   {% if is_state ('input_boolean.bedtime_mode' , 'on') %} media_player.bedroom
-  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.bedroom
+  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.kitchen
   {% elif now().hour < 7 or now().hour > 20 %} media_player.adults
   {% else %} media_player.everywhere {% endif %}
 
+
 message: >
-
-  {# ************************************* #}
-  {#  ************* Macros  *************  #}
-  {# ************************************* #}
-
   {%- macro greeting() -%}
     {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
       {% set greeting = ["Hello, " , "Good Morning, " , "Hey Guys! "] %}
@@ -135,13 +134,7 @@ message: >
   {# ************************************* #}
 
 
-  {% if call_greeting == 1 %}
-    {{ greeting() }}
-  {% endif %}
-
-  {% if call_inform == 1 %}
-    {{ inform() }}
-  {% endif %}
+  {{ [greeting(), inform()] | random }}
 
   {% if call_unknown == 1 %}
     {{ unknown() }}
@@ -180,6 +173,10 @@ message: >
   {% if call_power_on == 1 %}
     {% if is_state ('input_boolean.maintenance_mode' , 'on') %} the system is back online
     {% else %} Home Assistant has restarted and is not in Maintenance Mode.  Is it a power cut? {% endif %}
+  {% endif %}
+
+  {% if call_upgrade == 1 %}
+    Update for Home Assistant is available.  Latest version is {{states('sensor.ha_upstream')}}  https://home-assistant.io/blog/
   {% endif %}
 
   {% if call_random_fact == 1 or is_state ('binary_sensor.random_binary_sensor' , 'on') %}

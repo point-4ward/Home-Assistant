@@ -61,5 +61,4 @@ automation:
           value: 0
       - service: script.notify
         data:
-          call_inform: 1
           message: "The timer has expired"

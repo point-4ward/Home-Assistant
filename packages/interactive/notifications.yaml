@@ -67,6 +67,7 @@ script:
     sequence:
       - service: script.announce
         data_template:
+          no_say: '{{ no_say }}'
           media_player: '{{ media_player }}'
           message: '{{ message }}'
       - service: script.text
@@ -75,11 +76,13 @@ script:
           message: '{{ message }}'
       - service: script.on_screen
         data_template:
+          no_show: '{{ no_show }}'
           message: '{{ message }}'
 
   announce:
     sequence:
-      #TODO - .... # - condition: [when to not announce]
+      - condition: template
+        value_template: "{{ no_say | length == 0 }}"
       - condition: or
         conditions:
           - condition: time
@@ -106,7 +109,8 @@ script:
 
   text:
     sequence:
-#TODO - ....# - condition: [when to not send a text]
+      - condition: template
+        value_template: "{{who | length != 0 }}"
       - service_template: '{{ who }}'
         data_template:
           message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"
@@ -117,7 +121,8 @@ script:
 
   on_screen:
     sequence:
-      #TODO ... - condition: [when not to add a persistent notification]
+      - condition: template
+        value_template: "{{ no_show | length == 0}}"
       - service: persistent_notification.create
         data_template:
           notification_id: "sys_info"
