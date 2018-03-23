@@ -57,7 +57,8 @@ automation:
     action:
       service: script.notify
       data:
-        call_inform: 1
+        tell: adults
+        no_say: 1
         message: "You have a low battery on one of your devices."
 
   - alias: Battery alert - Sensor (level)

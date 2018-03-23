@@ -63,7 +63,6 @@ automation:
           title: "Automations alert"
           message: "Some automations are disabled."
 
-#TODO - move this notification (only text)
   - alias: Device - Update Available Notifications
     initial_state: on
     trigger:
@@ -71,9 +70,11 @@ automation:
       entity_id: sensor.ha_upstream
     action:
       - delay: '00:30:00'
-      - service: notify.mf
-        data_template:
-          message: "Update for Home Assistant is available.  Latest version is {{states('sensor.ha_upstream')}}  https://home-assistant.io/blog/"
+      - service: script.notify
+        data:
+          no_say: 1
+          tell: mf
+          call_upgrade: 1
 
   - alias: Device - Disk use alarm
     initial_state: on
@@ -84,7 +85,8 @@ automation:
     action:
       service: script.notify
       data:
-        call_inform: 1
+        tell: mf
+        no_say: 1
         call_hdd_space: 1
 
   - alias: Device - System load alarm
@@ -99,7 +101,8 @@ automation:
     action:
       service: script.notify
       data:
-        call_inform: 1
+        tell: mf
+        no_say: 1
         call_system_load: 1
 
   - alias: Device - Power on
@@ -110,6 +113,5 @@ automation:
     action:
       service: script.notify
       data:
-        call_greeting: 1
-        call_inform: 1
         call_power_on: 1
+        tell: adults

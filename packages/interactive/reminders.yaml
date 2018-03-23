@@ -24,6 +24,5 @@ automation:
       - delay: 00:15:00
       - service: script.notify
         data:
-          call_greeting: 1
-          call_inform: 1
+          tell: adults
           message: "The bins need to go out tonight."
