@@ -18,8 +18,5 @@ homeassistant:
 
   packages: !include_dir_named packages/
 
-  customize_glob:
-    "*.*":
-      custom_ui_state_card: state-card-custom-ui
 
 ios:

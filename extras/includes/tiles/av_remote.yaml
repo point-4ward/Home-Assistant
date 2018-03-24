@@ -95,3 +95,20 @@ entities:
     row: 4
     color_on: blue
     color_off: blue
+
+  - entity: light.livingroom
+    icon: mdi:lightbulb
+    column: 1
+    row: 5
+  - entity: script.remote_livingroom_bright
+    label: Bright
+    column: 2
+    row: 5
+  - entity: script.remote_livingroom_dim
+    label: Dim
+    column: 3
+    row: 5
+  - entity: script.remote_livingroom_movie
+    label: Movie
+    column: 4
+    row: 5

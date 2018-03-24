@@ -26,7 +26,7 @@ remote_show_tv:
     - service: homeassistant.turn_off
       entity_id:
         - input_boolean.show_tv
-        - media_player.kodi
+        - input_boolean.kodi_power
         - input_boolean.bluray_power
 
 remote_show_movie:
@@ -48,7 +48,7 @@ remote_show_movie:
       data:
         visible: False
     - service: homeassistant.turn_off
-      entity_id: media_player.kodi
+      entity_id: input_boolean.kodi_power
 
 remote_show_kodi:
   sequence:
@@ -87,7 +87,7 @@ remote_show_consoles:
         visible: False
     - service: homeassistant.turn_off
       entity_id:
-        - media_player.kodi
+        - input_boolean.kodi_power
         - input_boolean.bluray_power
 
 remote_show_cctv:
@@ -120,7 +120,7 @@ remote_all_off:
         - switch.tv_power
         - input_boolean.bluray_power
         - switch.av_power_toggle
-        - media_player.kodi
+        - input_boolean.kodi_power
     - service: group.set_visibility
       entity_id:
         - group.tiles_cctv_remote
