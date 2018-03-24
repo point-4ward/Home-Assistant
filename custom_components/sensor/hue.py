@@ -15,7 +15,7 @@ from homeassistant.util import Throttle
 DEPENDENCIES = ['hue']
 
 _LOGGER = logging.getLogger(__name__)
-SCAN_INTERVAL = timedelta(seconds=0.1)
+SCAN_INTERVAL = timedelta(seconds=1.0)
 
 
 def parse_hue_api_response(response):
