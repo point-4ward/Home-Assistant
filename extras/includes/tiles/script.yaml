@@ -96,7 +96,6 @@ remote_show_cctv:
       entity_id:
         - switch.tv_power
         - switch.av_hdmi_4
-        - switch.cctv_switch
     - service: group.set_visibility
       entity_id: group.tiles_cctv_remote
       data:
