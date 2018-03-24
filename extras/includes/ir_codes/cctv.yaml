@@ -5,6 +5,7 @@
 #                                     #
 #######################################
 
+
 cctv_up:
   friendly_name: "CCTV Up"
   command_on: "JgBYAAABKJYRFREUERQRFRAUEhQRFBE5EjgSORE5EjgTOBE5ETkSFBITEhMSORI4EhMRFBMSERUTNxE5EhQRFBI4EjgTOBI4EQAFJwABKUwRAAxlAAEoTREADQU="
