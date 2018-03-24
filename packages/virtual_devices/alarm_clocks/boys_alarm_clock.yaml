@@ -40,16 +40,6 @@ scene:
       brightness: 180
 
 
-group:
-  boys_alarm_clock:
-    control: hidden
-    name: 'Alarm Clock'
-    entities:
-      - input_boolean.boys_alarm_clock_status
-      - input_datetime.boys_alarm_clock_time
-      - input_boolean.boys_alarm_clock_repeat
-
-
 automation:
   alias: Alarm clock - Boys
   initial_state: on

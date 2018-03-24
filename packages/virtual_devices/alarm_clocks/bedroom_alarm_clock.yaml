@@ -41,16 +41,6 @@ scene:
       rgb_color: [255,160,39]
 
 
-group:
-  bedroom_alarm_clock:
-    control: hidden
-    name: 'Alarm Clock'
-    entities:
-      - input_boolean.bedroom_alarm_clock_status
-      - input_datetime.bedroom_alarm_clock_time
-      - input_boolean.bedroom_alarm_clock_repeat
-
-
 automation:
   alias: Alarm clock - Bedroom
   initial_state: on

@@ -8,36 +8,32 @@
 
 homeassistant:
   customize:
-    group.downstairs:
+    group.av:
       order: 1
 
-    group.av:
+    group.media:
       order: 2
 
-    group.media:
+    group.bedroom:
       order: 3
 
-    group.bedroom:
+    group.boys_room:
       order: 4
 
-    group.boys_room:
+    group.girls_room:
       order: 5
 
-    group.girls_room:
-      order: 6
-
     group.tools:
-      order: 7
+      order: 6
 
 
 group:
   default_view:
     view: yes
-    icon: mdi:sofa
+    icon: mdi:home
     entities:
+      - group.occupancy
       - group.tiles_lights
-      - group.quick_timer
-      - group.downstairs_alarm_clock
 
   av:
     view: yes
@@ -58,31 +54,23 @@ group:
   bedroom:
     view: yes
     icon: mdi:hotel
-    entities:
-      - group.tiles_bedroom
-      - group.bedroom_alarm_clock
+    entities: group.tiles_bedroom
 
   boys_room:
     view: yes
     icon: mdi:human-handsdown
-    entities:
-      - group.tiles_boys
-      - group.boys_alarm_clock
+    entities: group.tiles_boys
 
   girls_room:
     view: yes
     icon: mdi:human-female
-    entities:
-      - group.tiles_girls
-      - group.girls_alarm_clock
+    entities: group.tiles_girls
 
   tools:
     view: yes
     icon: mdi:wrench
     entities:
       - group.maintenance
-      - group.occupancy_modes
-      - group.home_modes
-      - group.all_alarm_clock
       - group.configure_external
       - group.batteries
+      - group.all_alarm_clock

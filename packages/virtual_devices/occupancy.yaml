@@ -12,11 +12,13 @@
 
 homeassistant:
   customize_glob:
-    "automation.*":
+    automation.*:
+      custom_ui_state_card: state-card-custom-ui
       confirm_controls_show_lock: true
 
   customize:
     group.all_automations:
+      custom_ui_state_card: state-card-custom-ui
       friendly_name: Automations
       icon: mdi:home-automation
       hidden: false
@@ -27,12 +29,14 @@ homeassistant:
         - entity_id: sensor.automation_all
 
     group.phone_trackers:
+      custom_ui_state_card: state-card-custom-ui
       state_card_mode: badges
 
     sensor.home_status:
       icon: mdi:home-map-marker
 
     input_boolean.holiday_mode:
+      custom_ui_state_card: state-card-custom-ui
       hide_control: true
       extra_badge:
         entity_id: input_boolean.holiday_mode
@@ -91,8 +95,8 @@ group:
     - device_tracker.fa69j0300377
     - device_tracker.lauras_iphone
 
-  occupancy_modes:
-    name: Occupancy
+  Occupancy:
+    name: ' '
     control: hidden
     entities:
       - group.phone_trackers
@@ -102,11 +106,7 @@ group:
       - sensor.hline_2
       - input_boolean.guest_mode
       - input_boolean.holiday_mode
-
-  home_modes:
-    name: Home Modes
-    control: hidden
-    entities:
+      - sensor.hline_3
       - group.all_automations
       - input_boolean.bathtime_mode
       - input_boolean.bedtime_mode

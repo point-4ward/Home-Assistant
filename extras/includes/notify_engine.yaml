@@ -25,7 +25,7 @@ who: >
 
 media_player: >
   {% if is_state ('input_boolean.bedtime_mode' , 'on') %} media_player.bedroom
-  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.kitchen
+  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.bedroom
   {% elif now().hour < 7 or now().hour > 20 %} media_player.adults
   {% else %} media_player.everywhere {% endif %}
 
@@ -76,19 +76,19 @@ message: >
   {%- endmacro -%}
 
   {%- macro hdd_space() -%}
-    Your harddrive is running out of Space! /dev/root:{{ states('sensor.disk_use_percent_') }}%!
+    Your harddrive is running out of Space! /dev/root: {{ states('sensor.disk_use_percent_') }}%!
   {%- endmacro -%}
 
   {%- macro dark_outside() -%}
     {{ ["It is pretty dark outside. I will turn on the lights now.",
       "I will switch on the lights. It is getting dark outside.",
-      "Time to turn on the lights. I will take care of it."]|random }}
+      "It's time to turn on the lights. I will take care of it."]|random }}
   {%- endmacro -%}
 
   {%- macro light_outside() -%}
     {{ ["It is pretty light outside now. I will turn off the lights.",
       "I will switch off the lights. It is getting light outside.",
-      "Time to turn off the lights. I will take care of it."]|random }}
+      "It's time to turn off the lights. I will take care of it."]|random }}
   {%- endmacro -%}
 
   {%- macro travel_time() -%}
@@ -106,7 +106,7 @@ message: >
 
   {%- macro moon() -%}
     {% if states('sensor.moon') == 'Full moon' %}
-      Check out the full moon tonight!
+      There's a full moon tonight, check it out!
     {% else %}
       {{ outside_weather() }}
     {% endif %}

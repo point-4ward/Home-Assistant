@@ -12,6 +12,7 @@ homeassistant:
     script.all_sync:
       icon: mdi:clock-out
 
+
 input_datetime:
   sync_datetime:
     name: Alarm Time
@@ -37,19 +38,16 @@ script:
         data_template:
           time: '{{states.input_datetime.sync_datetime.state}}'
           entity_id:
-            - input_datetime.downstairs_alarm_clock_time
             - input_datetime.boys_alarm_clock_time
             - input_datetime.girls_alarm_clock_time
             - input_datetime.bedroom_alarm_clock_time
       - service: homeassistant.turn_on
         entity_id:
-          - input_boolean.downstairs_alarm_clock_status
           - input_boolean.boys_alarm_clock_status
           - input_boolean.girls_alarm_clock_status
           - input_boolean.bedroom_alarm_clock_status
       - service: homeassistant.turn_off
         entity_id:
-          - input_boolean.downstairs_alarm_clock_repeat
           - input_boolean.boys_alarm_clock_repeat
           - input_boolean.girls_alarm_clock_repeat
           - input_boolean.bedroom_alarm_clock_repeat
