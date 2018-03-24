@@ -92,7 +92,7 @@ automation:
           {% elif (states.sensor.dark_outside.state == "true") %} midnight
           {% else %} default {% endif %}
 
-  - alias: Interface - renew SSL ssl_certificate
+  - alias: Interface - Renew SSL certificate
     initial_state: on
     trigger:
       platform: numeric_state
@@ -101,7 +101,7 @@ automation:
     action:
       service: shell_command.renew_ssl
 
-  - alias: Interface - ssl_certificate expiry notification
+  - alias: Interface - SSL certificate expiry notification
     initial_state: on
     trigger:
       platform: numeric_state
