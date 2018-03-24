@@ -3,21 +3,19 @@
 
 ## Hardware builds:
 
-### My controllers
-I have created some controllers with Raspberry Pi's that I am using in the project, they follow a naming schematic 'node' followed by a number starting at zero so they can be identified and connected to easily on the network:
- - Node-zero - a Raspberry Pi 3 with a Z-wave.me Razberry module and a CSL bluetooth adapter, running Homeassistant and Mosquitto.  This is the main hub of my Home Automation system.
- - Node-one - (Coming soon - a Raspberry pi MQTT alarm controller).
- - Node-two - (Coming soon - a Raspberry pi RF transmitter/receiver).
+### My controller
+ - Node-zero - a Dell Wyse thin client with 128GB SSD-Dom, with a Z-wave.me UZB stick and a CSL bluetooth adapter, running Homeassistant and Mosquitto.  This is the main hub of my Home Automation system, and also has a 1TB external harddrive which functions as a NAS.
 
-### My home-brew sensors
-I have created some sensors with NodeMCU boards:
- - Sensor-one - (coming soon - motion sensor).
+### Coming soon
+ - Some motion sensors with NodeMCU boards:
+ - Node-one - (a Raspberry pi MQTT alarm controller).
+ - Node-two - (a Raspberry pi RF transmitter/receiver).
  
 
 ## Integrated platforms:
 
 ### Networking
- - Asus wifi router with USB NAS attached - connecting everything and centralised storage/backups.
+ - VM wifi router - connecting everything together.
  - Netgear 5 port switch - allowing to have lots of wired connections for reliability.
 
 ### Philips Hue
