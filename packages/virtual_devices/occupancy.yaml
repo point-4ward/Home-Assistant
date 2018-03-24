@@ -1,7 +1,7 @@
 #####################################################
 #                                                   #
-# This package creates a device with 2 UI elements  #
-# that monitor whether there is anybody at home,    #
+# This package creates a device and a UI element    #
+# that monitors whether there is anybody at home,   #
 # and provides modes that assist with automations.  #
 #                                                   #
 # It also includes a guest mode option for people   #
@@ -40,6 +40,7 @@ homeassistant:
       hide_control: true
       extra_badge:
         entity_id: input_boolean.holiday_mode
+        
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -134,11 +135,11 @@ automation:
       entity_id: group.phone_trackers
       to: 'home'
     action:
-      - service: homeassistant.turn_off
-        entity_id:
-          - input_boolean.guest_mode
-          - input_boolean.away_mode
-          - input_boolean.holiday_mode
+      service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.guest_mode
+        - input_boolean.away_mode
+        - input_boolean.holiday_mode
 
   - alias: Occupancy - Nobody home
     initial_state: on
@@ -201,7 +202,7 @@ automation:
         value_template:  "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.lauras_iphone.last_updated) > (61*60) }}"
     action:
       service: notify.ios_lauras_iphone
-      data_template:
+      data:
         message: "request_location_update"
 # TODO...
   # - alias: Occupancy - Verify ios cg
@@ -218,5 +219,5 @@ automation:
   #       value_template:  "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.courtney_iphone.last_updated) > (61*60) }}"
   #   action:
   #     service: notify.ios_???????????????????
-  #     data_template:
+  #     data:
   #       message: "request_location_update"
