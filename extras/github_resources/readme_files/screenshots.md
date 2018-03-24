@@ -1,16 +1,16 @@
 # Screenshots
 
 
-## Living Room
+## Main dashboard
 
-![Living Room](../images/livingroom.png?raw=true "Living Room")
+![Dashboard](../images/2018-03-24.png)
 
 
-## Information
+## Music
 
-![Information](../images/information.png?raw=true "Information")
+![Music](../images/2018-03-24(1).png)
 
 
 ## Tools
 
-![Tools](../images/tools.png?raw=true "Tools")
+![Tools](../images/2018-03-24(2).png)
