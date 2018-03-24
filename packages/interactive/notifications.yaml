@@ -53,6 +53,7 @@ input_boolean:
   priority_message:
     initial: off
 
+
 binary_sensor:
   platform: random
 
