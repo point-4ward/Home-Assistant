@@ -1,3 +1,11 @@
+#######################################################
+#                                                     #
+# This package configures the custom-ui-media-players #
+# in the frontend, as a lightweight alternative       #
+#                                                     #
+#######################################################
+
+
 homeassistant:
   customize:
     input_text.media_downstairs:
