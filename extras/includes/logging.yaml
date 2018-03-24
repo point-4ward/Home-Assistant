@@ -5,6 +5,7 @@
 #                                          #
 ############################################
 
+
 include:
   domains:
     - alarm_control_panel
