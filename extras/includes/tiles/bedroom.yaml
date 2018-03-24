@@ -47,7 +47,6 @@ entities:
     column: 4
     row: 2
 
-
   - entity: script.remote_bedroom_dim
     label: Dim
     column: 1
