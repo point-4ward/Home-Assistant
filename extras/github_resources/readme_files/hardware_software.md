@@ -10,7 +10,7 @@
  - Some motion sensors with NodeMCU boards:
  - Node-one - (a Raspberry pi MQTT alarm controller).
  - Node-two - (a Raspberry pi RF transmitter/receiver).
- 
+
 
 ## Integrated platforms:
 
@@ -28,17 +28,17 @@
 
 ### Zwave
  - 2 x Fibaro FGD-212 dimmers - for non-hue lighting.
- - Fibaro FGMS-001 multi-sensor - sensos movement, light levels and temperature.
+ - Fibaro FGMS-001 multi-sensor - senses movement, light levels and temperature.
 
 ### Broadlink
  - RM3 IR sender - to control non-smart infra-red devices.
- 
+
 ### Media
  - Wetek Openelec - running Kodi.
  - 5 x Google Chromecast Audios - for multi-room music.
  - Usual home theatre stuff - TV/Blu-Ray/AV Receiver/Games Consoles
- 
+
 ### Interfaces
  - Amazon Echo Dot - for voice control.
  - 2 x wall mounted tablets - for interactive touchscreen access.
- - Telegram App (on mobiles) - for two-way conversations with homeassistant.
+ - Telegram App (on mobiles) - for two-way conversations with Homeassistant.

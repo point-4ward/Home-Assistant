@@ -4,7 +4,7 @@ This is my current Home Automation setup.
 
 ## Information
 
-| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/google/skia.svg?style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
+| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/google/skia.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
 |:---:|:---:|
 | This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION)| This shows how up to date this repo is |
 [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) | [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) |
@@ -23,7 +23,7 @@ Click [here](extras/github_resources/readme_files/hardware_software.md) to see t
 ## What it does:
 
 **This section needs re-writing as timeline / automation based. - (coming soon)**
- 
+
 ## Configuration
 
 Click [here](extras/github_resources/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
@@ -38,4 +38,4 @@ Click [here](extras/github_resources/readme_files/screenshots.md) to see how it 
 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
-[HA examples](https://home-assistant.io/cookbook/) espescially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig) and [Bruh](https://github.com/bruhautomation/BRUH3-Home-Assistant-Configuration)
+[HA examples](https://home-assistant.io/cookbook/) especially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig)

@@ -6,13 +6,13 @@ I have put a comment block at the top of each file that hopefully will explain w
 
 # How it works:
 
-All your homeassistant files are contained within your `/path/to/.homeassistant/` directory.  Inside this directory are some files that can't be moved such as `secrets.yaml` , `known_devices.yaml` and (most importantly) `configuration.yaml` .
+All your Homeassistant files are contained within your `/path/to/.homeassistant/` directory.  Inside this directory are some files that can't be moved such as `secrets.yaml` , `known_devices.yaml` and (most importantly) `configuration.yaml` .
 
 There are various ways to split the configuration.yaml in to smaller chunks with !include statements, this is detailed here > https://home-assistant.io/docs/configuration/splitting_configuration/
 
 I've chosen to split the configuration in to packages (detailed here > https://home-assistant.io/docs/configuration/packages/ ), and create devices or utilities by grouping components and sensors together.  These are placed in a folder called `packages/` .  Where a config item is really long (like the list of ir codes to control my AV devices) I have used includes to keep things neat.
 
-I then have an `extras/` folder that contains my bash scripts, includes and github resources (including a redacted version of my `secrets.yaml` ).  I also have a `private/` folder that contains things relevant to my installation but I don't want to upload to github as they contain sensitive information and sanitised versions will be of no use to anyone.
+I then have an `extras/` folder that contains my bash scripts, includes and Github resources (including a redacted version of my `secrets.yaml` ).  I also have a `private/` folder that contains things relevant to my installation but I don't want to upload to Github as they contain sensitive information and sanitised versions will be of no use to anyone.
 
 The end result looks like this:
 
@@ -26,7 +26,7 @@ The end result looks like this:
     |
     |-----/private/
     |      |
-    |      |- [useful things that don't belong on github]
+    |      |- [useful things that don't belong on Github]
     |
     |
     |-----/packages/
@@ -38,7 +38,7 @@ The end result looks like this:
            |
            |-----/bash_scripts/
            |      |
-           |      |-[useful scripts that can be called from homeassistant]
+           |      |-[useful scripts that can be called from Homeassistant]
            |
            |
            |-----/github_resources/
