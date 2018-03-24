@@ -28,7 +28,7 @@ Click [here](extras/github_resources/readme_files/configuration.md) to see how I
 
 Click [here](extras/github_resources/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
 
-Click here to see how it looks! **(NOT WORKING - SORRY!)**
+Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks!
 
 ## Useful links/resources etc:
 
