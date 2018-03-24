@@ -4,12 +4,10 @@ This is my current Home Automation setup.
 
 ## Information
 
-| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | <a [![LastCommit](https://img.shields.io/github/last-commit/google/skia.svg?style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
+| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/google/skia.svg?style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
 |:---:|:---:|
 | This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION)| This shows how up to date this repo is |
-|:---:|:---:|
 [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) | [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) |
-|:---:|:---:|
 | This is like my TODO list | If you have any ideas, they're always welcome.  Either submit an issue or a PR, or drop me a message! |
 
 ## House:
