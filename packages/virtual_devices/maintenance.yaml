@@ -20,7 +20,6 @@ homeassistant:
     script.sync_dropbox:
       icon: mdi:dropbox
 
-
     script.upgrade_hass:
       icon: mdi:cloud-check
       can_cancel: false
@@ -115,7 +114,7 @@ alert:
       - 60
     skip_first: true
     notifiers:
-      - mf
+      - adults
 
 
 script:

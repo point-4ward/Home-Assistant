@@ -123,7 +123,7 @@ alert:
       - 120
     skip_first: true
     notifiers:
-      - mf
+      - adults
 
 
 automation:
@@ -182,8 +182,9 @@ automation:
       platform: event
       event_type: device_tracker_new_device
     action:
-      service: notify.mf
+      service: script.notify
       data:
+        tell: mf
         message: 'New trackable device detected'
 
   - alias: Occupancy - Verify ios ls

@@ -22,7 +22,7 @@ http:
 
 
 duckdns:
-  domain:  !secret domain
+  domain: !secret domain
   access_token: !secret access_token
 
 
@@ -108,6 +108,8 @@ automation:
       entity_id: sensor.ssl_cert_expiry
       below: 21
     action:
-      service: notify.mf
+      service: script.notify
       data:
+        tell: mf
+        no_say: 1
         message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
