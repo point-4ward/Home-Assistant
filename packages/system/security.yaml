@@ -24,6 +24,7 @@ sensor:
   - platform: mqtt
     name: "Doorbell"
     state_topic: "home-assistant/doorbell"
+    
 
 binary_sensor:
   platform: mqtt
