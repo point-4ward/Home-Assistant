@@ -3,14 +3,14 @@
 
 ## Main dashboard
 
-![Dashboard](../images/2018-03-24.png)
+![Dashboard](../images/dashboard.png)
 
 
 ## Music
 
-![Music](../images/2018-03-24%20(1).png)
+![Music](../images/music.png)
 
 
 ## Tools
 
-![Tools](../images/2018-03-24%20(2).png)
+![Tools](../images/tools.png)
