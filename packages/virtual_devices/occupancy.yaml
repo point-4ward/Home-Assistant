@@ -155,7 +155,7 @@ automation:
           - input_boolean.play_radio
           - switch.google_music
           - group.all_lights
-          - media_player.kodi
+          - input_boolean.kodi_power
       - service: homeassistant.turn_on
         entity_id:
           - input_boolean.away_mode
