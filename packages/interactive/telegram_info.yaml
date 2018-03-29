@@ -28,11 +28,11 @@ automation:
 
           Currently home is {{states('sensor.home_status')}}.
 
-          Marc is {{states('device_tracker.forthygpixel')}}.
+          Marc is {{states('device_tracker.fa69j0300377')}}.
 
           Laura is {{states('device_tracker.lauras_iphone')}}.
 
-          Courtney is {{states('device_tracker.iphone')}}.
+          Courtney is {{states('device_tracker.courtney_iphone')}}.
 
           Guest mode is {{states('input_boolean.guest_mode')}}.
 
@@ -46,7 +46,9 @@ automation:
 
           Landing lights are {{states('light.landing')}}.
 
-          Master bedroom lights are {{states('light.bedroom')}}."
+          Master bedroom lights are {{states('light.bedroom')}}.
+          
+          Girls lights are {{states('light.girls')}}."
         keyboard: ["/lights, /occupancy", "/menu"]
 
   - alias: Telegram - Reply with Occupancy
@@ -62,11 +64,11 @@ automation:
         target: '{{ trigger.event.data.user_id }}'
         message: "Currently home is {{states('sensor.home_status')}}.
 
-          Marc is {{states('device_tracker.forthygpixel')}}.
+          Marc is {{states('device_tracker.fa69j0300377')}}.
 
           Laura is {{states('device_tracker.lauras_iphone')}}.
 
-          Courtney is {{states('device_tracker.iphone')}}.
+          Courtney is {{states('device_tracker.courtney_iphone')}}.
 
           Guest mode is {{states('input_boolean.guest_mode')}}.
 
@@ -105,5 +107,7 @@ automation:
 
           Landing lights are {{states('light.landing')}}.
 
-          Master bedroom lights are {{states('light.bedroom')}}."
+          Master bedroom lights are {{states('light.bedroom')}}.
+          
+          Girls lights are {{states('light.girls')}}."
         keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom", "/menu"]
