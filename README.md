@@ -4,7 +4,7 @@ This is my current Home Automation setup.
 
 ## Information
 
-| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/google/skia.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
+| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/mf-social/Home-Assistant.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
 |:---:|:---:|
 | This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION) | This shows how up to date this repo is |
 | [![GitHub stars](https://img.shields.io/github/stars/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/stargazers) | [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) |
