@@ -9,6 +9,12 @@
 #                                                  #
 ####################################################
 
+# sensor:
+#   - platform: birthday
+#     name: Marc
+#     day: 01
+#     month: 01
+
 
 # sensor:
 #   - platform: fitbit
