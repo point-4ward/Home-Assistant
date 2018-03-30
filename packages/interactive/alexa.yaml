@@ -12,6 +12,10 @@ emulated_hue:
   host_ip: !secret hue_host_ip
   expose_by_default: false
   entities:
+    light.kitchen:
+      name: "Kitchen Light"
+      hidden: false
+    
     input_boolean.radio_downstairs:
       name: "Radio Downstairs"
       hidden: false
