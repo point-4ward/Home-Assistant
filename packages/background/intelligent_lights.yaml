@@ -73,17 +73,17 @@ automation:
     action:
       service: script.landing_light_scene
 
-  - alias: Lighting - Bedtime lights
+  - alias: Lighting - Kitchen motion
     initial_state: on
     trigger:
       platform: state
-      entity_id: sensor.living_room_switch
-      to: '4_hold'
+      entity_id: sensor.kitchen_motion_sensor_burglar
     action:
-      service: script.set_hue_scene
-      data_template:
-        group: "Bedroom"
-        scene: "Relax"
+      service_template: >
+        {% if is_state('sensor.kitchen_motion_sensor_burglar','8')
+          and is_state('input_boolean.bedtime_mode','off') %} homeassistant.turn_on
+        {% else %} homeassistant.turn_off {% endif %}
+      entity_id: light.kitchen
 
   - alias: Lighting - Kodi
     initial_state: on
