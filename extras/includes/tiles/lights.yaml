@@ -10,10 +10,10 @@ columns: 4
 column_width: 75px
 row_height: 75px
 entities:
-#  - entity: light.kitchen
-#    icon: mdi:silverware-variant
-#    column: 1
-#    row: 1
+  - entity: light.kitchen
+    icon: mdi:silverware-variant
+    column: 1
+    row: 1
   - entity: light.landing
     icon: mdi:stairs
     column: 2
