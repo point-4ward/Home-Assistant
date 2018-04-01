@@ -21,3 +21,6 @@ homeassistant:
 
 
 ios:
+
+developer:
+enable_debug:
