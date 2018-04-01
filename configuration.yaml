@@ -1,11 +1,12 @@
-##############################################
-#                                            #
-# This is my main configuration.yaml,I use a #
-# split configuration in a package-based     #
-# format, please see the ReadMe files  for   #
-# details on how this (and the repo) is done #
-#                                            #
-##############################################
+################################################
+#                                              #
+# This is my main configuration.yaml. I use    #
+# a package-based split-configuration format,  #
+# please see the ReadMe files for details on   #
+# how this is done, and thusly how this repo   #
+# is organised in to the various files/folders #
+#                                              #
+################################################
 
 
 homeassistant:
