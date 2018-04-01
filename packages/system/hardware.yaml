@@ -1,10 +1,10 @@
-############################################
-#                                          #
-# This package contains the components,    #
-# sensors and UI elements for the hardware #
-# I have connected to my homeassistant     #
-#                                          #
-############################################
+###########################################
+#                                         #
+# This package contains the components,   #
+# and sensors for monitoring the hardware #
+# I have connected to my homeassistant    #
+#                                         #
+###########################################
 
 
 homeassistant:
