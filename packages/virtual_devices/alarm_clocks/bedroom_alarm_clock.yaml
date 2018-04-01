@@ -44,7 +44,8 @@ automation:
   initial_state: on
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: {{ ((states.input_datetime.bedroom_alarm_clock_time.timestamp) - (15 * 60)) | timestamp_custom("%H:%M", false) }}
+ # "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
   condition:
     - condition: state
       entity_id: group.phone_trackers
@@ -64,6 +65,29 @@ automation:
 script:
   bedroom_wake_up:
     sequence:
+      - service_template: >
+          {% if not is_state('sensor.bad_weather','clear' %} script.early_wakeup
+          {% else %} script.on_time_wakeup {% endif %}
+  
+  early_wakeup:
+    sequence:
+      - service: script.notify
+        data:
+          no_say: 1
+          no_show: 1
+          tell: adults
+          message: "I am triggering the alarm fifteen minutes early because of bad weather"
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.remote_bedroom_radio
+      - condition: state
+        entity_id: sensor.dark_outside
+        state: 'true'
+      - service: homeassistant.turn_on
+        entity_id: scene.bedroom_wake_up
+  
+  on_time_wakeup:
+    sequence:
+      - delay: 00:15:00
       - service: homeassistant.turn_on
         entity_id: input_boolean.remote_bedroom_radio
       - condition: state
