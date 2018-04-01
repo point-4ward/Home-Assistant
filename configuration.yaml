@@ -21,3 +21,7 @@ homeassistant:
 
 
 ios:
+
+developer:
+  github_personal_token: !secret test_devel
+enable_debug:
