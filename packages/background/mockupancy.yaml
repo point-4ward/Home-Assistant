@@ -46,14 +46,14 @@ script:
       - service: script.random_girls
 
       # 1 hour before bedtime, dim living room lights to 20%
-      - wait_template: "{{ states('sensor.time') == (((states.input_datetime.mockupancy_bedtime.attributes.timestamp) - (60 * 60)) | timestamp_custom("%H:%M", false)) }}"
+      - wait_template: "{{ states('sensor.time') == (((states.input_datetime.mockupancy_bedtime.attributes.timestamp) - (60 * 60)) | timestamp_custom('%H:%M', false)) }}"
       - service: homeassistant.turn_on
         entity_id: light.livingroom
         data:
           brightness_pct: 20
           
       # 20 minutes before bedtime, raise lights to (50%)
-      - wait_template: "{{ states('sensor.time') == (((states.input_datetime.mockupancy_bedtime.attributes.timestamp) - (20 * 60)) | timestamp_custom("%H:%M", false)) }}"
+      - wait_template: "{{ states('sensor.time') == (((states.input_datetime.mockupancy_bedtime.attributes.timestamp) - (20 * 60)) | timestamp_custom('%H:%M', false)) }}"
       - service: homeassistant.turn_on
         entity_id: light.livingroom
         data:
