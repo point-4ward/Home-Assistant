@@ -60,7 +60,7 @@ scene:
     entities:
       light.livingroom:
         state: on
-        transition: 3
+        transition: 4
         brightness: 255
 
   - name: Livingroom sunset
