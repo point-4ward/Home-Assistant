@@ -44,7 +44,7 @@ automation:
   initial_state: on
   trigger:
     platform: template
-    value_template: {{ ((states.input_datetime.bedroom_alarm_clock_time.timestamp) - (15 * 60)) | timestamp_custom("%H:%M", false) }}
+    value_template: "{{ ((states.input_datetime.bedroom_alarm_clock_time.timestamp) - (15 * 60)) | timestamp_custom('%H:%M', false) }}"
  # "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
   condition:
     - condition: state
