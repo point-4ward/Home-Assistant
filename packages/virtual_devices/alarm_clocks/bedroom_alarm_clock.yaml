@@ -1,10 +1,8 @@
 ########################################################################
 #                                                                      #
 # This package creates an alarm clock which:                           #
-# - allows you to select what music plays when it goes off             #
 # - automatically switches the light on if it is dark when it goes off #
 # - allows to select if one time alarm, or repeating                   #
-#                                                                      #
 #                                                                      #
 #         ******This one is for the Master Bedroom******               #
 #                                                                      #
