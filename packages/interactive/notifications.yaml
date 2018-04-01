@@ -3,7 +3,8 @@
 # This package contains the components I use to   #
 # notify, and be notified by, homeassistant       #
 # and an engine that translates the notifications #
-# in to text messages and to TTS (see include)    #
+# in to text messages, on screen notifications,   #
+# and to TTS over the speakers (see !include)     #
 #                                                 #
 ###################################################
 
