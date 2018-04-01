@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#####################################
-## This script pulls my selected   ##
-## files from my github repo, and  ##
-## treats them as the 'master copy ##
-#####################################
+######################################
+## This script pulls my selected    ##
+## files from my Github repo, and   ##
+## treats them as the 'master' copy ##
+######################################
 
 cd /home/homeassistant/.homeassistant/
 git checkout master
