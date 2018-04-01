@@ -1,9 +1,9 @@
-##########################################################
-#                                                        #
-# This package contains the components and UI elements I #
-# use to configure the homeassistant web-based interface #
-#                                                        #
-##########################################################
+###########################################################
+#                                                         #
+# This package contains the components I use to configure #
+# and access the homeassistant web-based interface        #
+#                                                         #
+###########################################################
 
 
 homeassistant:

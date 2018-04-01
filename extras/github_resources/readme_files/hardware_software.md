@@ -39,6 +39,6 @@
  - Usual home theatre stuff - TV/Blu-Ray/AV Receiver/Games Consoles
 
 ### Interfaces
- - Amazon Echo Dot - for voice control.
+ - 2 x Amazon Echo Dots - for voice control.
  - 2 x wall mounted tablets - for interactive touchscreen access.
  - Telegram App (on mobiles) - for two-way conversations with Homeassistant.

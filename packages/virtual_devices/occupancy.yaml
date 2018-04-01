@@ -1,13 +1,10 @@
-#####################################################
-#                                                   #
-# This package creates a device and a UI element    #
-# that monitors whether there is anybody at home,   #
-# and provides modes that assist with automations.  #
-#                                                   #
-# It also includes a guest mode option for people   #
-# that may be in the house, but aren't tracked.     #
-#                                                   #
-#####################################################
+####################################################
+#                                                  #
+# This package creates a device that monitors who  #
+# is at home, including a guest mode, and provides #
+# modes that assist with automations.              #
+#                                                  #
+####################################################
 
 
 homeassistant:
