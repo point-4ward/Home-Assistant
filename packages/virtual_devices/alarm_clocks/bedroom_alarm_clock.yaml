@@ -66,7 +66,7 @@ script:
   bedroom_wake_up:
     sequence:
       - service_template: >
-          {% if not is_state('sensor.bad_weather','clear' %} script.early_wakeup
+          {% if not is_state('sensor.bad_weather','clear') %} script.early_wakeup
           {% else %} script.on_time_wakeup {% endif %}
   
   early_wakeup:
