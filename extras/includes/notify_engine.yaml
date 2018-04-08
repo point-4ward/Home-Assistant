@@ -25,7 +25,7 @@ who: >
 
 media_player: >
   {% if is_state ('input_boolean.bedtime_mode' , 'on') %} media_player.bedroom
-  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.bedroom
+  {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} media_player.kitchen
   {% elif now().hour < 7 or now().hour > 20 %} media_player.adults
   {% else %} media_player.everywhere {% endif %}
 
