@@ -126,7 +126,7 @@ message: >
 
   {%- macro bye() -%}
     {{["Adios! " , "Bye Guys! " , "See ya! " , "See you later. ",
-      "Untill next time!"] | random }}
+      "Until next time!"] | random }}
   {%- endmacro -%}
 
 
