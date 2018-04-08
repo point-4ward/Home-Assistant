@@ -83,7 +83,7 @@ sensor:
 
       dark_outside:
         value_template: >
-          {% if (states.input_boolean.sunset_offset.state == 'on') %}true
+          {% if is_state('input_boolean.sunset_offset' , 'on') %}true
           {% elif (states.sun.sun.attributes.elevation | int < 3) %}true
           {% elif ( (states.sun.sun.attributes.elevation | int < 4.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 80)) %}true
           {% elif ( (states.sun.sun.attributes.elevation | int < 6.5) and (states.sensor.dark_sky_cloud_coverage.state | int > 85)) %}true
@@ -92,7 +92,7 @@ sensor:
 
       bad_weather:
         value_template: >
-          {% if (states.sensor.dark_sky_precip.state == "snow") %}snow
+          {% if is_state('sensor.dark_sky_precip' , 'snow') %}snow
           {% elif ((states.sensor.dark_sky_daily_low_temperature.state | int < 4) and (states.sensor.dark_sky_dew_point.state | int < 6)
             and (states.sensor.dark_sky_wind_speed.state | int < 12) and (states.sensor.dark_sky_cloud_coverage.state | int < 20)
             and (states.sensor.dark_sky_humidity.state | int > 50)) %} frost

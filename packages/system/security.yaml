@@ -24,7 +24,7 @@ sensor:
   - platform: mqtt
     name: "Doorbell"
     state_topic: "home-assistant/doorbell"
-    
+
 
 binary_sensor:
   platform: mqtt
@@ -97,7 +97,6 @@ automation:
     initial_state: on
     trigger:
       - platform: numeric_state
-        above: 0
         entity_id:
           - !secret sensor_email_cf
           - !secret sensor_email_hass
@@ -106,6 +105,7 @@ automation:
           - !secret sensor_email_social
           - !secret sensor_email_run
           - !secret sensor_email_personal
+        above: 0
       - platform: numeric_state
         entity_id: !secret sensor_email_ls
         above: 1

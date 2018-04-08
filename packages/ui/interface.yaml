@@ -89,7 +89,7 @@ automation:
           {% if not is_state ('alarm_control_panel.alarm' , 'disarmed') %} darkred
           {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} darkorange
           {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
-          {% elif (states.sensor.dark_outside.state == "true") %} midnight
+          {% elif is_state('sensor.dark_outside' , 'true') %} midnight
           {% else %} default {% endif %}
 
   - alias: Interface - Renew SSL certificate

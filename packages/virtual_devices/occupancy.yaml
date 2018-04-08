@@ -37,7 +37,7 @@ homeassistant:
       hide_control: true
       extra_badge:
         entity_id: input_boolean.holiday_mode
-        
+
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -77,7 +77,7 @@ sensor:
     home_status:
       friendly_name: 'Home status'
       value_template: >
-        {% if (states.group.phone_trackers.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}Occupied
+        {% if is_state('group.phone_trackers' , 'home') or is_state('input_boolean.guest_mode' , 'on') %}Occupied
         {% else %} Unoccupied {% endif %}
 
 

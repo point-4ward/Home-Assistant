@@ -13,7 +13,7 @@ sensor:
       unit_of_measurement: days
       scan_interval: 3600
       command: !secret mf_birthday
-    
+
     - platform: command_line
       name: LS birthday
       unit_of_measurement: days
@@ -25,7 +25,7 @@ sensor:
       unit_of_measurement: days
       scan_interval: 3600
       command: !secret cg_birthday
-      
+
     - platform: command_line
       name: DF birthday
       unit_of_measurement: days
@@ -37,20 +37,20 @@ sensor:
       unit_of_measurement: days
       scan_interval: 3600
       command: !secret cf_birthday
-      
+
     - platform: command_line
       name: VF birthday
       unit_of_measurement: days
       scan_interval: 3600
       command: !secret vf_birthday
-      
+
     - platform: command_line
       name: ZS birthday
       unit_of_measurement: days
       scan_interval: 3600
       command: !secret zs_birthday
-      
-      
+
+
 automation:
   - alias: Reminder - Bin day
     initial_state: on
@@ -65,7 +65,7 @@ automation:
         entity_id: input_boolean.holiday_mode
         state: 'off'
     action:
-      - wait_template: "{{(states.group.adults.state == 'home')}}"
+      - wait_template: "{{ is_state('group.adults' , 'home') }}"
         timeout: 14:00:00
       - delay: 00:15:00
       - service: script.notify

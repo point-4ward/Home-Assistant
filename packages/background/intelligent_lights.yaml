@@ -105,9 +105,9 @@ automation:
       - condition: or
         conditions:
           - condition: template
-            value_template: "{{ states.media_player.kodi.attributes.media_content_type == 'tvshow' }}"
+            value_template: "{{ is_state_attr('media_player.kodi' , 'media_content_type' , 'tvshow') }}"
           - condition: template
-            value_template: "{{ states.media_player.kodi.attributes.media_content_type == 'movie' }}"
+            value_template: "{{ is_state_attr('media_player.kodi' , 'media_content_type' , 'movie') }}"
           - condition: state
             entity_id: media_player.kodi
             state: 'idle'
