@@ -26,13 +26,12 @@ automation:
           Last system reboot was on {{states('sensor.last_boot')}}.
 
 
-          Currently home is {{states('sensor.home_status')}}.
+          Locations are showing as -
 
-          Marc is {{states('device_tracker.fa69j0300377')}}.
+          {% for state in states.device_tracker %}
+            {{- state.name }} - {{state.state_with_unit}}
 
-          Laura is {{states('device_tracker.lauras_iphone')}}.
-
-          Courtney is {{states('device_tracker.courtney_iphone')}}.
+          {% endfor %}
 
           Guest mode is {{states('input_boolean.guest_mode')}}.
 
@@ -40,15 +39,12 @@ automation:
           The alarm is {{states('alarm_control_panel.alarm')}}.
 
 
-          The lights group is {{states('group.all_lights')}}
+          Lights are -
 
-          Living room lights are {{states('light.livingroom')}}.
+          {% for state in states.light %}
+            {{- state.name }} - {{state.state_with_unit}}
 
-          Landing lights are {{states('light.landing')}}.
-
-          Master bedroom lights are {{states('light.bedroom')}}.
-          
-          Girls lights are {{states('light.girls')}}."
+          {% endfor %}"
         keyboard: ["/lights, /occupancy", "/menu"]
 
   - alias: Telegram - Reply with Occupancy
@@ -62,13 +58,12 @@ automation:
       service: telegram_bot.send_message
       data_template:
         target: '{{ trigger.event.data.user_id }}'
-        message: "Currently home is {{states('sensor.home_status')}}.
+        message: "Locations are showing as -
 
-          Marc is {{states('device_tracker.fa69j0300377')}}.
+          {% for state in states.device_tracker %}
+            {{- state.name }} - {{state.state_with_unit}}
 
-          Laura is {{states('device_tracker.lauras_iphone')}}.
-
-          Courtney is {{states('device_tracker.courtney_iphone')}}.
+          {% endfor %}
 
           Guest mode is {{states('input_boolean.guest_mode')}}.
 
@@ -101,13 +96,10 @@ automation:
       service: telegram_bot.send_message
       data_template:
         target: '{{ trigger.event.data.user_id }}'
-        message: "The lights group is {{states('group.all_lights')}}
+        message: "Lights are -
 
-          Living room lights are {{states('light.livingroom')}}.
+          {% for state in states.light %}
+            {{- state.name }} - {{state.state_with_unit}}
 
-          Landing lights are {{states('light.landing')}}.
-
-          Master bedroom lights are {{states('light.bedroom')}}.
-          
-          Girls lights are {{states('light.girls')}}."
+          {% endfor %}"
         keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom", "/menu"]

@@ -32,9 +32,9 @@ media_player: >
 
 message: >
   {%- macro greeting() -%}
-    {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
+    {% if now().hour < 12 and now().hour > 6 %}
       {% set greeting = ["Hello, " , "Good Morning, " , "Hey Guys! "] %}
-    {% elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 %}
+    {% elif now().hour >= 12 and now().hour < 17 %}
       {% set greeting = ["Hey there! " , "Good afternoon, " , "Hi there, "] %}
     {% else %}
       {% set greeting = ["Hi, " , "Good evening, " , "Hello, "] %}
@@ -72,7 +72,11 @@ message: >
   {%- endmacro -%}
 
   {%- macro system_load() -%}
-    Your system is running under heavy load! CPU:  {{states('sensor.processor_use')}}%  Memory:  {{ states('sensor.memory_use_percent') }}%!
+    Your system is running under heavy load!
+
+    CPU:  {{states('sensor.processor_use')}}%
+
+    Memory:  {{ states('sensor.memory_use_percent') }}%!
   {%- endmacro -%}
 
   {%- macro hdd_space() -%}
@@ -135,55 +139,39 @@ message: >
   {# ************************************* #}
 
 
-  {{ [greeting(), inform()] | random }}
+  {{- [greeting(), inform()] | random }}
 
-  {% if call_unknown == 1 %}
-    {{ unknown() }}
-  {% endif %}
+  {%- if call_unknown == 1 %} {{- unknown() }} {% endif -%}
 
-  {% if call_error == 1 %}
-    {{ error() }}
-  {% endif %}
+  {%- if call_error == 1 %} {{- error() }} {% endif -%}
 
-  {% if call_okay == 1 %}
-    {{ okay () }}
-  {% endif %}
+  {%- if call_okay == 1 %} {{- okay () }} {% endif -%}
 
-  {% if call_system_load == 1 %}
-    {{ system_load() }}
-  {% endif %}
+  {%- if call_system_load == 1 %} {{- system_load() }} {% endif -%}
 
-  {% if call_hdd_space == 1 %}
-    {{ hdd_space() }}
-  {% endif %}
+  {%- if call_hdd_space == 1 %} {{- hdd_space() }} {% endif -%}
 
-  {% if call_dark_outside == 1 %}
-    {{ dark_outside() }}
-  {% endif %}
+  {%- if call_dark_outside == 1 %} {{- dark_outside() }} {% endif -%}
 
-  {% if call_light_outside == 1 %}
-    {{ light_outside() }}
-  {% endif %}
+  {%- if call_light_outside == 1 %} {{- light_outside() }} {% endif -%}
 
-  {% if call_travel_time == 1 %}
-    {{ travel_time() }}
-  {% endif %}
+  {%- if call_travel_time == 1 %} {{- travel_time() }} {% endif -%}
 
-  {{ message }}
+  {{- message -}}
 
-  {% if call_power_on == 1 %}
+  {%- if call_power_on == 1 %}
     {% if is_state ('input_boolean.maintenance_mode' , 'on') %} the system is back online
     {% else %} Home Assistant has restarted and is not in Maintenance Mode.  Is it a power cut? {% endif %}
-  {% endif %}
+  {% endif -%}
 
-  {% if call_upgrade == 1 %}
-    Update for Home Assistant is available.  Latest version is {{states('sensor.ha_upstream')}}  https://home-assistant.io/blog/
-  {% endif %}
+  {%- if call_upgrade == 1 %}
+    Update for Home Assistant is available.  Latest version is {{states('sensor.ha_upstream')}}
 
-  {% if call_random_fact == 1 or is_state ('binary_sensor.random_binary_sensor' , 'on') %}
-    Here is something interesting... {{ ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
-  {% endif %}
+    https://home-assistant.io/blog/
+  {% endif -%}
 
-  {% if call_bye == 1 %}
-    {{ bye() }}
-  {% endif %}
+  {%- if call_random_fact == 1 or is_state ('binary_sensor.random_binary_sensor' , 'on') %}
+    Here is something interesting, {{- ([iss, moon, uv_index, air_quality, outside_weather]|random)() }}
+  {% endif -%}
+
+  {%- if call_bye == 1 %} {{- bye() }} {% endif -%}
