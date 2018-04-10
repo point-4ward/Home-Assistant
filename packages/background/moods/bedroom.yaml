@@ -9,7 +9,7 @@ switch:
   platform: template
   switches:
     lullaby_bedroom:
-      value_template: "{{ is_state ('script.lullaby_bedroom' , 'on') }}"
+      value_template: "{{ is_state('script.lullaby_bedroom' , 'on') }}"
       turn_on:
         service: homeassistant.turn_on
         entity_id: script.lullaby_bedroom
@@ -18,7 +18,7 @@ switch:
         entity_id: script.lullaby_bedroom
 
     empty_bedroom:
-      value_template: "{{ is_state ('script.empty_bedroom' , 'on') }}"
+      value_template: "{{ is_state('script.empty_bedroom' , 'on') }}"
       turn_on:
         service: homeassistant.turn_on
         entity_id: script.empty_bedroom

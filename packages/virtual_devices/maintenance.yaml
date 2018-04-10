@@ -96,7 +96,7 @@ shell_command:
 
   github_pull: /home/homeassistant/.homeassistant/extras/bash_scripts/pull-from-github.sh
 
-  github_push: /home/homeassistant/.homeassistant/extras/bash_scripts/send-to-github.sh '{{states.input_text.github_message.state}}'
+  github_push: /home/homeassistant/.homeassistant/extras/bash_scripts/send-to-github.sh '{{ states.input_text.github_message.state }}'
 
   sync_dropbox: /home/homeassistant/.homeassistant/extras/bash_scripts/sync-dropbox.sh
 
@@ -138,7 +138,7 @@ script:
     alias: Push to Github
     sequence:
       - condition: template
-        value_template: "{{not is_state ('input_text.github_message' , '' )}}"
+        value_template: "{{ not is_state('input_text.github_message' , '' ) }}"
       - service: shell_command.github_push
       - service: persistent_notification.create
         data:

@@ -71,7 +71,7 @@ media_player:
     turn_off_action:
       service: media_player.kodi_call_method
       data_template:
-        entity_id: '{{ entity_id }}'
+        entity_id: "{{ entity_id }}"
         method: System.Shutdown
 
 

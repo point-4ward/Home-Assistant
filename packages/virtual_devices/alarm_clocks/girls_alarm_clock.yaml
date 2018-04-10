@@ -53,7 +53,7 @@ automation:
   initial_state: on
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (states.input_datetime.girls_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: "{{ states('sensor.time') == (states.input_datetime.girls_alarm_clock_time.attributes.timestamp|int|timestamp_custom('%H:%M', False)) }}"
   condition:
     - condition: state
       entity_id: group.phone_trackers

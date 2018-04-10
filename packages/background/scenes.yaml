@@ -122,7 +122,7 @@ automation:
       to: 'off'
     condition:
       condition: template
-      value_template: "{{ not is_state('input_select.bedroom_scenes' ,'Select') }}"
+      value_template: "{{ not is_state('input_select.bedroom_scenes' , 'Select') }}"
     action:
       service: input_select.select_option
       data:
@@ -136,7 +136,7 @@ automation:
       entity_id: input_select.bedroom_scenes
     condition:
       condition: template
-      value_template: "{{ not is_state('input_select.bedroom_scenes' ,'Select') }}"
+      value_template: "{{ not is_state('input_select.bedroom_scenes' , 'Select') }}"
     action:
       service: script.set_hue_scene
       data_template:
@@ -149,8 +149,8 @@ script:
     sequence:
       - service: hue.hue_activate_scene
         data_template:
-          group_name: '{{ group }}'
-          scene_name: '{{ scene }}'
+          group_name: "{{ group }}"
+          scene_name: "{{ scene }}"
 
   landing_light_scene:
     sequence:

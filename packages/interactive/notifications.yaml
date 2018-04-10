@@ -69,22 +69,22 @@ script:
     sequence:
       - service: script.announce
         data_template:
-          no_say: '{{ no_say }}'
-          media_player: '{{ media_player }}'
-          message: '{{ message }}'
+          no_say: "{{ no_say }}"
+          media_player: "{{ media_player }}"
+          message: "{{ message }}"
       - service: script.text
         data_template:
-          who: '{{ who }}'
-          message: '{{ message }}'
+          who: "{{ who }}"
+          message: "{{ message }}"
       - service: script.on_screen
         data_template:
-          no_show: '{{ no_show }}'
-          message: '{{ message }}'
+          no_show: "{{ no_show }}"
+          message: "{{ message }}"
 
   announce:
     sequence:
       - condition: template
-        value_template: "{{ no_say | length == 0 }}"
+        value_template: "{{ no_say|length == 0 }}"
       - condition: or
         conditions:
           - condition: time
@@ -95,27 +95,27 @@ script:
             state: 'on'
       - service: media_player.volume_set
         data_template:
-          entity_id: '{{ media_player }}'
+          entity_id: "{{ media_player }}"
           volume_level: >
             {% if now().hour < 7 or now().hour > 22 %} 0.2
             {% elif now().hour > 7 or now().hour < 9 %} 0.3
             {% else %} 0.4 {% endif %}
       - service: media_player.volume_mute
         data_template:
-          entity_id: '{{ media_player }}'
+          entity_id: "{{ media_player }}"
           is_volume_muted: false
       - service: tts.picotts_say
         data_template:
-          entity_id: '{{ media_player }}'
-          message: "{{ message | replace('\n',' ') | replace('   ',' ') | replace('  ',' ') }}"
+          entity_id: "{{ media_player }}"
+          message: "{{ message|replace('\n',' ')|replace('   ',' ')|replace('  ',' ') }}"
 
   text:
     sequence:
       - condition: template
         value_template: "{{who | length != 0 }}"
-      - service_template: '{{ who }}'
+      - service_template: "{{ who }}"
         data_template:
-          message: "{{ message | replace('   ',' ') | replace('  ',' ') }}"
+          message: "{{ message|replace('   ',' ')|replace('  ',' ') }}"
           data:
             keyboard:
               - '/status'
@@ -130,10 +130,10 @@ script:
           notification_id: "sys_info"
           title: "System Information"
           message: >
-            {% if is_state('persistent_notification.sys_info', 'notifying') %}
+            {% if is_state('persistent_notification.sys_info' , 'notifying') %}
               {{states.persistent_notification.sys_info.attributes.message}}
 
-              {{ now().strftime('%H:%M') }} - {{ message | replace('\n','-') | replace('   ',' ') | replace('  ',' ') }}
+              {{ now().strftime('%H:%M') }} - {{ message|replace('\n','-')|replace('   ',' ')|replace('  ',' ') }}
             {% else %}
-              {{ now().strftime('%H:%M') }} - {{ message | replace('\n','-') | replace('   ',' ') | replace('  ',' ') }}
+              {{ now().strftime('%H:%M') }} - {{ message|replace('\n','-')|replace('   ',' ')|replace('  ',' ') }}
             {% endif %}

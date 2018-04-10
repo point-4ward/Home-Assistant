@@ -109,15 +109,15 @@ automation:
         entity_id: switch.google_music
       - service: media_player.volume_set
         data_template:
-            entity_id: "media_player.{{states.input_select.media_player.state}}"
-            volume_level: "{{  states.input_number.volume_radio.state  }}"
+            entity_id: "media_player.{{ states.input_select.media_player.state }}"
+            volume_level: "{{ states.input_number.volume_radio.state }}"
       - service: media_player.volume_mute
         data_template:
-          entity_id: "media_player.{{states.input_select.media_player.state}}"
+          entity_id: "media_player.{{ states.input_select.media_player.state }}"
           is_volume_muted: false
       -  service: media_player.play_media
          data_template:
-           entity_id: "media_player.{{states.input_select.media_player.state}}"
+           entity_id: "media_player.{{ states.input_select.media_player.state }}"
            media_content_id: >
             {% if is_state('input_select.radio_station' , 'Free Radio CW') %}  http://tx.whatson.com/http_live_bauer.php?i=freecoventry.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
             {% elif is_state('input_select.radio_station' , 'Free Radio 80s') %} http://tx.whatson.com/http_live_bauer.php?i=free80s.aac&awparams=loggedin:false&amsparams=playerid:BMUK_tunein
@@ -151,11 +151,11 @@ automation:
     action:
       - service: media_player.volume_set
         data_template:
-          entity_id: "media_player.{{states.input_select.media_player.state}}"
-          volume_level: "{{  states.input_number.volume_radio.state  }}"
+          entity_id: "media_player.{{ states.input_select.media_player.state }}"
+          volume_level: "{{ states.input_number.volume_radio.state }}"
       - service: media_player.volume_mute
         data_template:
-          entity_id: "media_player.{{states.input_select.media_player.state}}"
+          entity_id: "media_player.{{ states.input_select.media_player.state }}"
           is_volume_muted: false
 
   - alias: Music Player - Stop all from Music Player
