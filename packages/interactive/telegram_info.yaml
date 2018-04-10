@@ -19,30 +19,30 @@ automation:
     action:
       service: telegram_bot.send_message
       data_template:
-        target: '{{ trigger.event.data.user_id }}'
+        target: "{{ trigger.event.data.user_id }}"
         message: "System is online!
 
 
-          Last system reboot was on {{states('sensor.last_boot')}}.
+          Last system reboot was on {{ states('sensor.last_boot') }}.
 
 
           Locations are showing as -
 
           {% for state in states.device_tracker %}
-            {{- state.name }} - {{state.state_with_unit}}
+            {{- state.name }} - {{ state.state_with_unit }}
 
           {% endfor %}
 
-          Guest mode is {{states('input_boolean.guest_mode')}}.
+          Guest mode is {{ states('input_boolean.guest_mode') }}.
 
 
-          The alarm is {{states('alarm_control_panel.alarm')}}.
+          The alarm is {{ states('alarm_control_panel.alarm') }}.
 
 
           Lights are -
 
           {% for state in states.light %}
-            {{- state.name }} - {{state.state_with_unit}}
+            {{- state.name }} - {{ state.state_with_unit }}
 
           {% endfor %}"
         keyboard: ["/lights, /occupancy", "/menu"]
@@ -57,18 +57,18 @@ automation:
     action:
       service: telegram_bot.send_message
       data_template:
-        target: '{{ trigger.event.data.user_id }}'
+        target: "{{ trigger.event.data.user_id }}"
         message: "Locations are showing as -
 
           {% for state in states.device_tracker %}
-            {{- state.name }} - {{state.state_with_unit}}
+            {{- state.name }} - {{ state.state_with_unit }}
 
           {% endfor %}
 
-          Guest mode is {{states('input_boolean.guest_mode')}}.
+          Guest mode is {{ states('input_boolean.guest_mode') }}.
 
 
-          The alarm is {{states('alarm_control_panel.alarm')}}."
+          The alarm is {{ states('alarm_control_panel.alarm') }}."
         keyboard: ["/away, /holiday" , "/guest, /lights", "/menu"]
 
   - alias: Telegram - Reply with Menu
@@ -81,7 +81,7 @@ automation:
     action:
       service: telegram_bot.send_message
       data_template:
-        target: '{{ trigger.event.data.user_id }}'
+        target: "{{ trigger.event.data.user_id }}"
         message: "Commands..."
         keyboard: ["/lights, /occupancy", "/status"]
 
@@ -95,11 +95,11 @@ automation:
     action:
       service: telegram_bot.send_message
       data_template:
-        target: '{{ trigger.event.data.user_id }}'
+        target: "{{ trigger.event.data.user_id }}"
         message: "Lights are -
 
           {% for state in states.light %}
-            {{- state.name }} - {{state.state_with_unit}}
+            {{- state.name }} - {{ state.state_with_unit }}
 
           {% endfor %}"
         keyboard: ["/onALL, /LivingRoom", "/offALL, /Bedroom", "/menu"]

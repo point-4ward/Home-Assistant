@@ -112,7 +112,7 @@ automation:
     action:
       service: notify.mf
       data_template:
-        message: "Warning - HaveIbeenPwned detected {{trigger.to_state.attributes.friendly_name}}"
+        message: "Warning - HaveIbeenPwned detected {{ trigger.to_state.attributes.friendly_name }}"
 
   - alias: Security - Mockupancy
     initial_state: on

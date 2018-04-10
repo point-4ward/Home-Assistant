@@ -115,5 +115,5 @@ automation:
       service: homeassistant.turn_on
       data_template:
         entity_id: >
-          {% if is_state ('media_player.kodi' , 'playing') %} scene.livingroom_movie
+          {% if is_state('media_player.kodi' , 'playing') %} scene.livingroom_movie
           {% else %} scene.livingroom_dim {% endif %}

@@ -21,8 +21,8 @@ automation:
         entity_id: light.livingroom
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
-          message: "Livingroom lights have been turned {{states('light.livingroom')}}."
+          target: "{{ trigger.event.data.user_id }}"
+          message: "Livingroom lights have been turned {{ states('light.livingroom') }}."
 
   - alias: Telegram - Bedroom lights toggle
     initial_state: on
@@ -36,8 +36,8 @@ automation:
         entity_id: light.bedroom
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
-          message: "Bedroom lights have been turned {{states('light.bedroom')}}."
+          target: "{{ trigger.event.data.user_id }}"
+          message: "Bedroom lights have been turned {{ states('light.bedroom') }}."
 
   - alias: Telegram - All lights on
     initial_state: on
@@ -51,7 +51,7 @@ automation:
         entity_id: group.all_lights
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
+          target: "{{ trigger.event.data.user_id }}"
           message: "All lights have been turned on."
 
   - alias: Telegram - All lights off
@@ -66,7 +66,7 @@ automation:
         entity_id: group.all_lights
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
+          target: "{{ trigger.event.data.user_id }}"
           message: "All lights have been turned off."
 
   - alias: Telegram - Maintenance mode toggle
@@ -81,8 +81,8 @@ automation:
         entity_id: input_boolean.maintenance_mode
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
-          message: "Maintenance mode has been turned {{states('input_boolean.maintenance_mode')}}."
+          target: "{{ trigger.event.data.user_id }}"
+          message: "Maintenance mode has been turned {{ states('input_boolean.maintenance_mode') }}."
 
   - alias: Telegram - Reboot
     initial_state: on
@@ -94,7 +94,7 @@ automation:
     action:
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
+          target: "{{ trigger.event.data.user_id }}"
           message: "Rebooting..."
       - delay: 00:00:05
       - service: shell_command.quick_restart
@@ -111,8 +111,8 @@ automation:
         entity_id: input_boolean.holiday_mode
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
-          message: "Holiday mode has been turned {{states('input_boolean.holiday_mode')}}"
+          target: "{{ trigger.event.data.user_id }}"
+          message: "Holiday mode has been turned {{ states('input_boolean.holiday_mode') }}"
 
   - alias: Telegram - Guest mode toggle
     initial_state: on
@@ -126,8 +126,8 @@ automation:
         entity_id: input_boolean.guest_mode
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
-          message: "Guest mode has been turned {{states('input_boolean.guest_mode')}}."
+          target: "{{ trigger.event.data.user_id }}"
+          message: "Guest mode has been turned {{ states('input_boolean.guest_mode') }}."
 
   - alias: Telegram - Away mode
     initial_state: on
@@ -141,5 +141,5 @@ automation:
         entity_id: input_boolean.away_mode
       - service: telegram_bot.send_message
         data_template:
-          target: '{{ trigger.event.data.user_id }}'
-          message: "Away mode has been turned {{states('input_boolean.away_mode')}}."
+          target: "{{ trigger.event.data.user_id }}"
+          message: "Away mode has been turned {{ states('input_boolean.away_mode') }}."

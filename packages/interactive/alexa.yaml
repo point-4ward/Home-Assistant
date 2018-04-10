@@ -13,7 +13,7 @@ emulated_hue:
     light.kitchen:
       name: "Kitchen Light"
       hidden: false
-    
+
     input_boolean.radio_downstairs:
       name: "Radio Downstairs"
       hidden: false
@@ -106,8 +106,8 @@ automation:
         data_template:
           entity_id: input_select.media_player
           option: >
-            {% if is_state ('input_boolean.radio_downstairs' , 'on') %} downstairs
-            {% elif is_state ('input_boolean.radio_everywhere' , 'on') %} everywhere
+            {% if is_state('input_boolean.radio_downstairs' , 'on') %} downstairs
+            {% elif is_state('input_boolean.radio_everywhere' , 'on') %} everywhere
             {% endif %}
       - service: homeassistant.turn_on
         entity_id: input_boolean.play_radio
