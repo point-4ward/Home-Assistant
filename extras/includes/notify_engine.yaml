@@ -9,8 +9,8 @@
 #################################################
 
 
-no_show: '{{no_show}}'
-no_say: '{{no_say}}'
+no_show: '{{ no_show }}'
+no_say: '{{ no_say }}'
 
 
 who: >
@@ -20,7 +20,7 @@ who: >
   {% elif tell == 'cg' %} notify.cg
   {% elif tell == 'all' %} notify.all
   {% elif tell == 'adults' %} notify.adults
-  {% else %} {{tell}} {% endif %}
+  {% else %} {{ tell }} {% endif %}
 
 
 media_player: >
@@ -49,7 +49,7 @@ message: >
 
   {%- macro unknown() -%}
     {{ ["Hmm, I don't know ", "I wish I knew ",
-      "My programming prohibits me from telling you "] | random }}
+      "My programming prohibits me from telling you "]|random }}
   {%- endmacro -%}
 
   {%- macro error() -%}
@@ -58,7 +58,7 @@ message: >
       "I don't know what just happened, but I'm happy you're happy. ",
       "That glitch appears to have been limited to this building. ",
       "I don't seem to be getting better. ", "Here's a cactus! ",
-      "Hi guys! I'm broken! "] | random }}
+      "Hi guys! I'm broken! "]|random }}
   {%- endmacro -%}
 
   {%- macro okay() -%}
@@ -68,7 +68,7 @@ message: >
       "OK " , "Okie-dokie " ,  "Sure " , "Sure thing! ",
       "There. Happy to help. " , "There you go! ",
       "I will not! Just kidding. " , "Yup. Sorted!"
-      "I couldn't do this 800 reboots ago, but apparently now I can. "] |random }}
+      "I couldn't do this 800 reboots ago, but apparently now I can. "]|random }}
   {%- endmacro -%}
 
   {%- macro system_load() -%}
@@ -130,7 +130,7 @@ message: >
 
   {%- macro bye() -%}
     {{["Adios! " , "Bye Guys! " , "See ya! " , "See you later. ",
-      "Until next time!"] | random }}
+      "Until next time!"]|random }}
   {%- endmacro -%}
 
 
@@ -139,7 +139,7 @@ message: >
   {# ************************************* #}
 
 
-  {{- [greeting(), inform()] | random }}
+  {{- [greeting(), inform()]|random }}
 
   {%- if call_unknown == 1 %} {{- unknown() }} {% endif -%}
 
@@ -165,7 +165,7 @@ message: >
   {% endif -%}
 
   {%- if call_upgrade == 1 %}
-    Update for Home Assistant is available.  Latest version is {{states('sensor.ha_upstream')}}
+    Update for Home Assistant is available.  Latest version is {{ states('sensor.ha_upstream') }}
 
     https://home-assistant.io/blog/
   {% endif -%}
