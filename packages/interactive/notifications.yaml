@@ -112,7 +112,7 @@ script:
   text:
     sequence:
       - condition: template
-        value_template: "{{who | length != 0 }}"
+        value_template: "{{ who | length != 0 }}"
       - service_template: "{{ who }}"
         data_template:
           message: "{{ message|replace('   ',' ')|replace('  ',' ') }}"
@@ -131,7 +131,7 @@ script:
           title: "System Information"
           message: >
             {% if is_state('persistent_notification.sys_info' , 'notifying') %}
-              {{states.persistent_notification.sys_info.attributes.message}}
+              {{ states.persistent_notification.sys_info.attributes.message }}
 
               {{ now().strftime('%H:%M') }} - {{ message|replace('\n','-')|replace('   ',' ')|replace('  ',' ') }}
             {% else %}
