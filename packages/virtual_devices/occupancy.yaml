@@ -183,7 +183,7 @@ automation:
       service: script.notify
       data:
         tell: mf
-        message: 'New trackable device detected'
+        message: ' a new trackable device has been detected'
 
   - alias: Occupancy - Verify ios ls
     initial_state: on
