@@ -9,6 +9,7 @@
 columns: 4
 column_width: 75px
 row_height: 75px
+text_uppercase: false
 entities:
   - entity: light.kitchen
     icon: mdi:silverware-variant
@@ -41,69 +42,69 @@ entities:
     row: 2
   - entity: script.remote_bedroom_bright
     icon: mdi:hotel
-    label: Bright
+    label_sec: Bright
     column: 4
     row: 2
 
   - entity: script.remote_livingroom_bright
-    label: Bright
+    label_sec: Bright
     icon: mdi:sofa
     column: 1
     row: 3
   - entity: script.remote_boys_bright
-    label: Bright
+    label_sec: Bright
     icon: mdi:human-handsdown
     column: 2
     row: 3
   - entity: script.remote_girls_bright
-    label: Bright
+    label_sec: Bright
     icon: mdi:human-female
     column: 3
     row: 3
   - entity: script.remote_bedroom_relax
     icon: mdi:hotel
-    label: Relax
+    label_sec: Relax
     column: 4
     row: 3
 
   - entity: script.remote_livingroom_dim
-    label: Dim
+    label_sec: Dim
     icon: mdi:sofa
     column: 1
     row: 4
   - entity: script.remote_boys_dim
-    label: Dim
+    label_sec: Dim
     icon: mdi:human-handsdown
     column: 2
     row: 4
   - entity: script.remote_girls_dim
-    label: Dim
+    label_sec: Dim
     icon: mdi:human-female
     column: 3
     row: 4
   - entity: script.remote_bedroom_dim
-    label: Dim
+    label_sec: Dim
     icon: mdi:hotel
     column: 4
     row: 4
 
   - entity: script.remote_livingroom_movie
-    label: Movie
+    label_sec: Movie
     icon: mdi:sofa
     column: 1
     row: 5
   - entity: script.remote_boys_nightlight
-    label: Night
+    label_sec: Night
     icon: mdi:human-handsdown
     column: 2
     row: 5
   - entity: script.remote_girls_nightlight
-    label: Night
+    label_sec: Night
     icon: mdi:human-female
     column: 3
     row: 5
   - entity: script.remote_bedroom_nightlight
-    label: Night
+    label_sec: Night
     icon: mdi:hotel
     column: 4
     row: 5
