@@ -20,10 +20,6 @@ history: !include ../../extras/includes/logging.yaml
 python_script:
 
 
-mqtt_eventstream:
-  publish_topic: '/node-zero'
-
-
 sensor:
   - platform: systemmonitor
     resources:

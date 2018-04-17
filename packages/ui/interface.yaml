@@ -53,6 +53,11 @@ sensor:
     scan_interval: 10800
     command: !secret ssl_command
 
+  - platform: rest
+    resource: https://raw.githubusercontent.com/c727/home-assistant-tiles/master/LATEST_VERSION
+    name: UI Tiles version
+    scan_interval: 3600
+
   - platform: template
     sensors:
       hline_1:
@@ -91,6 +96,17 @@ automation:
           {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
           {% elif is_state('sensor.dark_outside' , 'true') %} midnight
           {% else %} default {% endif %}
+
+  - alias: Interface - UI Tiles update available
+    trigger:
+      platform: state
+      entity_id: sensor.ui_tiles_version
+    action:
+      service: script.notify
+      data:
+        no_say: 1
+        tell: mf
+        call_tiles_update: 1
 
   - alias: Interface - Renew SSL certificate
     initial_state: on
