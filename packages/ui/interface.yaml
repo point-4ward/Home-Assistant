@@ -33,10 +33,12 @@ frontend:
     - /local/custom_ui/state-card-tiles.html
     - /local/custom_ui/state-card-mini-media-player.html
     - /local/custom_ui/state-card-hline.html
+    - /local/custom_ui/state-card-script-custom-text.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-tiles_es5.html
     - /local/custom_ui/state-card-mini-media-player_es5.html
     - /local/custom_ui/state-card-hline_es5.html
+    - /local/custom_ui/state-card-script-custom-text-es5.html
 
 
 config:
