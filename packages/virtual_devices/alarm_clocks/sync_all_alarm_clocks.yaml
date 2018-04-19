@@ -11,6 +11,8 @@ homeassistant:
   customize:
     script.all_sync:
       icon: mdi:clock-out
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Sync All Alarm Clocks"
 
 
 input_datetime:
@@ -32,7 +34,7 @@ group:
 
 script:
   all_sync:
-    alias: Sync All Alarm Clocks
+    alias: ' '
     sequence:
       - service: input_datetime.set_datetime
         data_template:

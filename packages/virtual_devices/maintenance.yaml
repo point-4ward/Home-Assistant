@@ -19,28 +19,42 @@ homeassistant:
 
     script.sync_dropbox:
       icon: mdi:dropbox
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Sync To Dropbox"
 
     script.upgrade_hass:
       icon: mdi:cloud-check
       can_cancel: false
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Upgrade HA and Restart"
 
     script.github_push:
       icon: mdi:github-circle
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Push to Github"
 
     script.github_pull:
       icon: mdi:github-box
       can_cancel: false
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Guthub Pull And Restart"
 
     script.quick_reboot:
       icon: mdi:server-network
       can_cancel: false
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Reboot Node-Zero"
 
     script.quick_restart:
       icon: mdi:home-assistant
       can_cancel: false
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Restart Homeassistant"
 
     script.learn_ir:
       icon: mdi:remote
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Learn New IR Code"
 
 
 weblink:
@@ -119,7 +133,7 @@ alert:
 
 script:
   upgrade_hass:
-    alias: Upgrade HA and Restart
+    alias: ' '
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.maintenance_mode
@@ -127,7 +141,7 @@ script:
       - service: shell_command.upgrade_hass
 
   github_pull:
-    alias: Pull from Github and Restart
+    alias: ' '
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.maintenance_mode
@@ -135,7 +149,7 @@ script:
       - service: shell_command.github_pull
 
   github_push:
-    alias: Push to Github
+    alias: ' '
     sequence:
       - condition: template
         value_template: "{{ not is_state('input_text.github_message' , '' ) }}"
@@ -147,12 +161,12 @@ script:
           message: "You have pushed your local files to github, you must merge the branches on github then sync the master branch here."
 
   sync_dropbox:
-    alias: Sync Dropbox
+    alias: ' '
     sequence:
       - service: shell_command.sync_dropbox
 
   quick_restart:
-    alias: Restart Homeassistant
+    alias: ' '
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.maintenance_mode
@@ -160,7 +174,7 @@ script:
       - service: shell_command.quick_restart
 
   quick_reboot:
-    alias: Reboot Node-Zero
+    alias: ' '
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.maintenance_mode
@@ -168,6 +182,6 @@ script:
       - service: shell_command.quick_reboot
 
   learn_ir:
-    alias: Learn IR code
+    alias: ' '
     sequence:
       - service: !secret learn_ir
