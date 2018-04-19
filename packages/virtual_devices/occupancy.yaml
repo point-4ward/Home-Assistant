@@ -87,6 +87,7 @@ group:
     - device_tracker.fa69j0300377
     - device_tracker.lauras_iphone
     - device_tracker.courtney_iphone
+    - device_tracker.courtney_iphone_bt
 
   Adults:
     - device_tracker.forthygpixel

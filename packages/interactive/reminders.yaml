@@ -8,47 +8,47 @@
 
 
 sensor:
-    - platform: command_line
-      name: MF birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret mf_birthday
+  - platform: command_line
+    name: MF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret mf_birthday
 
-    - platform: command_line
-      name: LS birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret ls_birthday
+  - platform: command_line
+    name: LS birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret ls_birthday
 
-    - platform: command_line
-      name: CG birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret cg_birthday
+  - platform: command_line
+    name: CG birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret cg_birthday
 
-    - platform: command_line
-      name: DF birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret df_birthday
+  - platform: command_line
+    name: DF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret df_birthday
 
-    - platform: command_line
-      name: CF birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret cf_birthday
+  - platform: command_line
+    name: CF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret cf_birthday
 
-    - platform: command_line
-      name: VF birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret vf_birthday
+  - platform: command_line
+    name: VF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret vf_birthday
 
-    - platform: command_line
-      name: ZS birthday
-      unit_of_measurement: days
-      scan_interval: 3600
-      command: !secret zs_birthday
+  - platform: command_line
+    name: ZS birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret zs_birthday
 
 
 automation:
