@@ -84,6 +84,8 @@ automation:
         tell: mf
         no_say: 1
         call_hdd_space: 1
+      #Attempt to clear cache if hard drive alert triggers.
+      service: tts.clear_cache
 
   - alias: Device - System load alarm
     initial_state: on
