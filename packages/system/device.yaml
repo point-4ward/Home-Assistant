@@ -111,3 +111,11 @@ automation:
       data:
         call_power_on: 1
         tell: adults
+
+  - alias: Device - Clear TTS cache
+    initial_state: on
+    trigger:
+      platform: time
+      at: '03:00:00'
+    action:
+      service: tts.clear_cache
