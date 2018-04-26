@@ -39,6 +39,9 @@ homeassistant:
         entity_id: input_boolean.holiday_mode
 
 
+ios:
+
+
 device_tracker:
   - platform: bluetooth_tracker
     new_device_defaults:
