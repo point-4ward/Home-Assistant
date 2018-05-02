@@ -11,6 +11,9 @@ This is my current Home Automation setup, based on Homeassistant.  This is my li
 | Please :star: this repo if you find it useful, like these people have. | This is like my TODO list |
 |[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)| [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) |
 | This tells you you can use anything you like from this repo for your project, gratis! | If you have any ideas, they're always welcome.  Either submit an issue or a PR, or drop me a message! |
+| 
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m780352466-da3a90fa1da0e09f6f0ee745.svg)](https://uptimerobot.com/) | [![Buy Me A Beer](https://img.shields.io/badge/BuyMeABeer-Paypal-blue.svg)](https://www.paypal.me/marcforth) |
+| I use Uptime Robot to monitor my instance from outside in case of crashes - Guide coming soon. | Sometimes people want to buy me a beer when I've been helpful, now it's as easy as clicking the badge! |
 
 ## House:
 
