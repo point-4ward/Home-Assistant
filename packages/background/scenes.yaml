@@ -141,7 +141,7 @@ automation:
       service: script.set_hue_scene
       data_template:
         group: "Bedroom"
-        scene: "{{ states.input_select.bedroom_scenes.state }}"
+        scene: "{{ states('input_select.bedroom_scenes') }}"
 
 
 script:
