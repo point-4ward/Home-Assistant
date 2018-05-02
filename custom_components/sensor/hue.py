@@ -12,7 +12,7 @@ from homeassistant.helpers.entity import Entity
 from homeassistant.util import Throttle
 
 _LOGGER = logging.getLogger(__name__)
-SCAN_INTERVAL = timedelta(seconds=0.1)
+SCAN_INTERVAL = timedelta(seconds=1.1)
 URL = "http://192.168.0.2/api/anurbgv175EPyD4CdxV6zbr-IgYcAshobvjd3n4L/sensors"
 
 
