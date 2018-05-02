@@ -38,7 +38,7 @@ script:
     sequence:
       - service: input_datetime.set_datetime
         data_template:
-          time: "{{ states.input_datetime.sync_datetime.state }}"
+          time: "{{ states('input_datetime.sync_datetime') }}"
           entity_id:
             - input_datetime.boys_alarm_clock_time
             - input_datetime.girls_alarm_clock_time

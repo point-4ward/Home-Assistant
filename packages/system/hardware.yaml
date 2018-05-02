@@ -91,6 +91,10 @@ switch:
     switches: !include_dir_merge_named ../../extras/includes/ir_codes/
 
 
+sensor:
+  platform: hue
+  
+
 automation:
   alias: Hardware - Heater off after 15min
   initial_state: on
