@@ -2,7 +2,7 @@
 
 ## Checking my Homeassistant is online
 
-One thing you cannot monitor from within homeassistant itself is if it crashes, or for some other reason goes 'offline'.  This is because if it is offline it cannot send you a message to tell you about it!  To make sure I am kept up-to-date if there is a problem I use Uptime Robot .  This service simply checks to see if my web front end is reachable every few minutes, and sends me a message on Telegram if it cannot get through.
+One thing you cannot monitor from within homeassistant itself is if it crashes, or for some other reason goes 'offline'.  This is because if it is offline it cannot send you a message to tell you about it!  To make sure I am kept up-to-date if there is a problem I use [Uptime Robot](https://uptimerobot.com/) .  This service simply checks to see if my web front end is reachable every few minutes, and sends me a message on Telegram if it cannot get through.
 
 ## How I manage backups
 
