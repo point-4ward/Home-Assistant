@@ -32,14 +32,20 @@ Click [here](extras/github_resources/readme_files/hardware_software.md) to see t
 
 Click [here](extras/github_resources/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
 
-Click [here](extras/github_resources/readme_files/backups.md) to see how I manage backups and ensure my config is valid with GitHub, TravisCI and Dropbox.
+Click [here](extras/github_resources/readme_files/backups.md) to see how I keep everything running smoothly by monitoring my instances uptime, checking the validity of my config and managing backups.
 
 Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks!
 
 ## Useful links/resources etc:
 
-[Home Assistant](http://home-assistant.io)
+[Home Assistant](http://home-assistant.io) and the [Community Forum](https://community.home-assistant.io/)
 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
 
 [HA examples](https://home-assistant.io/cookbook/) especially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig)
+
+[Travis CI](https://travis-ci.org/) for checking configuration.
+
+[Uptime Robot](https://uptimerobot.com/) for checking my system is online.
+
+[Dropbox](https://www.dropbox.com/) and [Martikainen87's sync script](https://github.com/martikainen87/Home-Automation/wiki/Backup-your-configuration-to-Dropbox) for managing backups.
