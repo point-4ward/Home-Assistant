@@ -26,22 +26,6 @@ input_select:
 
 
 scene:
-  - name: Landing evening
-    entities:
-      light.landing:
-        state: on
-        transition: 4
-        brightness: 180
-        rgb_color: [255,206,119]
-
-  - name: Landing night
-    entities:
-      light.landing:
-        state: on
-        transition: 4
-        brightness: 85
-        rgb_color: [254,63,189]
-
   - name: Livingroom dim
     entities:
       light.livingroom:
@@ -151,16 +135,3 @@ script:
         data_template:
           group_name: "{{ group }}"
           scene_name: "{{ scene }}"
-
-  landing_light_scene:
-    sequence:
-      - service: homeassistant.turn_on
-        entity_id: scene.landing_evening
-      - condition: or
-        conditions:
-          - condition: time
-            after: '21:30:00'
-          - condition: time
-            before: '07:30:00'
-      - service: homeassistant.turn_on
-        entity_id: scene.landing_night

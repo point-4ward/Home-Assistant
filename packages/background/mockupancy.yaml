@@ -36,7 +36,6 @@ script:
       - service: homeassistant.turn_on
         entity_id:
           - scene.livingroom_dim
-          - scene.landing_night
 
       # Start scripts to randomise occasional lights
       - service: script.random_bathroom

@@ -7,7 +7,7 @@
 
 
 emulated_hue:
-  host_ip: !secret hue_host_ip
+  host_ip: !secret host_ip
   expose_by_default: false
   entities:
     light.kitchen:

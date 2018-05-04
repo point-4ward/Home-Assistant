@@ -28,6 +28,12 @@ homeassistant:
     sensor.girls_switch_battery:
       friendly_name: Girls switch
 
+    sensor.landing_motion_motion_battery:
+      friendly_name: Landing sensor
+
+    sensor.boys_switch_battery:
+      friendly_name: Boys switch
+
 
 group:
   battery alert:
@@ -36,11 +42,12 @@ group:
     - sensor.kitchen_multisensor_battery
     - sensor.stairs_motion_motion_battery
     - sensor.girls_switch_battery
+    - sensor.landing_motion_motion_battery
+    - sensor.boys_switch_battery
 
   Batteries:
     control: hidden
-    entities:
-      - group.battery_alert
+    entities: group.battery_alert
 
 
 automation:
@@ -54,6 +61,8 @@ automation:
           - sensor.kitchen_multisensor_battery
           - sensor.stairs_motion_motion_battery
           - sensor.girls_switch_battery
+          - sensor.landing_motion_motion_battery
+          - sensor.boys_switch_battery
         below: 21
     action:
       service: script.notify
