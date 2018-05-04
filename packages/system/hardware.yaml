@@ -54,7 +54,7 @@ zwave:
 
 hue:
   bridges:
-    - host: !secret hue_light_host
+    - host: !secret hue_hub_ip
       allow_unreachable: true
 
 
@@ -93,7 +93,8 @@ switch:
 
 sensor:
   platform: hue
-  
+  ip_address: !secret hue_hub_ip
+  token: !secret hue_token
 
 automation:
   alias: Hardware - Heater off after 15min

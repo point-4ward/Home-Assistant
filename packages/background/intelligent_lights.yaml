@@ -42,7 +42,6 @@ automation:
           call_dark_outside: 1
       - service: homeassistant.turn_on
         entity_id: scene.livingroom_sunset
-      - service: script.landing_light_scene
 
   - alias: Lighting - on when dark (arriving home)
     initial_state: on
@@ -57,21 +56,6 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: scene.livingroom_bright
-      - service: script.landing_light_scene
-
-  - alias: Lighting - Landing light
-    initial_state: on
-    trigger:
-      - platform: time
-        at: '21:31:00'
-      - platform: time
-        at: '07:31:00'
-    condition:
-      condition: state
-      entity_id: light.landing
-      state: 'on'
-    action:
-      service: script.landing_light_scene
 
   - alias: Lighting - Kitchen motion
     initial_state: on

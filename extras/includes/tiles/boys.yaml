@@ -10,10 +10,10 @@ columns: 4
 column_width: 75px
 row_height: 75px
 entities:
-#  - entity: light.boys
-#    icon: mdi:lightbulb
-#    column: 1
-#    row: 1
+  - entity: light.boys
+    icon: mdi:lightbulb
+    column: 1
+    row: 1
   - entity: script.remote_boys_bright
     label: Bright
     column: 2
