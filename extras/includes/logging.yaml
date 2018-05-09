@@ -18,7 +18,6 @@ include:
     - input_boolean.guest_mode
     - sensor.calendar
     - sensor.bad_weather
-    - sensor.dark_outside
     - sensor.home_status
     - sensor.kitchen_motion_sensor_burglar
     - sensor.memory_use_percent

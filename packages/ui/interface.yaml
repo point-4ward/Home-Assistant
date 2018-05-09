@@ -152,7 +152,12 @@ automation:
         entity_id:
           - alarm_control_panel.alarm
           - input_boolean.maintenance_mode
-          - sensor.dark_outside
+      - platform: numeric_state
+        entity_id: sensor.average_light_level
+        below: 20
+      - platform: numeric_state
+        entity_id: sensor.average_light_level
+        above: 25
       - platform: time
         at: '23:00:00'
       - platform: time
@@ -164,7 +169,7 @@ automation:
           {% if not is_state ('alarm_control_panel.alarm' , 'disarmed') %} darkred
           {% elif is_state ('input_boolean.maintenance_mode' , 'on') %} darkorange
           {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
-          {% elif is_state('sensor.dark_outside' , 'true') %} midnight
+          {% elif (states('sensor.average_light_level')|int < 25) %} midnight
           {% else %} default {% endif %}
 
   - alias: Interface - UI Tiles update available

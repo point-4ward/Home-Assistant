@@ -114,9 +114,9 @@ automation:
   - alias: Lighting - off when daylight
     initial_state: on
     trigger:
-      platform: state
-      entity_id: sensor.dark_outside
-      to: 'false'
+      platform: numeric_state
+      entity_id: sensor.average_light_level
+      above: 25
     condition:
       condition: state
       entity_id: sensor.home_status
@@ -124,16 +124,16 @@ automation:
     action:
       - service: script.notify
         data:
-          call_light_outside: 1
+          call_light_inside: 1
       - service: homeassistant.turn_off
         entity_id: group.all_lights
 
   - alias: Lighting - on when dark (already home)
     initial_state: on
     trigger:
-      platform: state
-      entity_id: sensor.dark_outside
-      to: 'true'
+      platform: numeric_state
+      entity_id: sensor.average_light_level
+      below: 20
     condition:
       condition: state
       entity_id: sensor.home_status
@@ -141,7 +141,7 @@ automation:
     action:
       - service: script.notify
         data:
-          call_dark_outside: 1
+          call_dark_inside: 1
       - service: homeassistant.turn_on
         entity_id: scene.livingroom_sunset
 
@@ -152,9 +152,9 @@ automation:
       entity_id: sensor.home_status
       to: 'Occupied'
     condition:
-      condition: state
-      entity_id: sensor.dark_outside
-      state: 'true'
+      condition: numeric_state
+      entity_id: sensor.average_light_level
+      below: 20
     action:
       - service: homeassistant.turn_on
         entity_id: scene.livingroom_bright
@@ -185,9 +185,9 @@ automation:
         to: 'idle'
         from: 'playing'
     condition:
-      - condition: state
-        entity_id: sensor.dark_outside
-        state: 'true'
+      - condition: numeric_state
+        entity_id: sensor.average_light_level
+        below: 20
       - condition: or
         conditions:
           - condition: template
