@@ -42,10 +42,6 @@ entities:
     icon: mdi:alarm
     column: 3
     row: 2
-  - entity: switch.lullaby_bedroom
-    label: Lullaby
-    column: 4
-    row: 2
 
   - entity: script.remote_bedroom_dim
     label: Dim
