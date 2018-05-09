@@ -29,11 +29,10 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-#TODO - fix this...
-  # - platform: command_line
-  #   command: python3 -c "import requests; print(requests.get('https://pypi.org/simple/homeassistant').text.split('homeassistant')[-1].split('-')[1].split('.tar')[0])"
-  #   name: HA upstream
-  #   scan_interval: 3600
+  - platform: scrape
+    name: HA upstream
+    resource: https://pypi.org/project/homeassistant/#history
+    select: 'a[href^="/project/homeassistant/0"]'
 
 
 automation:
