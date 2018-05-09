@@ -243,7 +243,7 @@ automation:
       - service: homeassistant.turn_on
         entity_id: scene.boys_night
       - delay: 00:30:00
-      - service: script.boys_empty
+      - service: script.empty_boys
 
   - alias: Lighting - Girls nightlight mode
     initial_state: on
@@ -255,7 +255,7 @@ automation:
       - service: homeassistant.turn_on
         entity_id: scene.girls_night
       - delay: 00:30:00
-      - service: script.girls_empty
+      - service: script.empty_girls
 
   - alias: Lighting - Override Bathroom for bathtime_mode
     initial_state: on
