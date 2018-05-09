@@ -36,10 +36,6 @@ entities:
     icon: mdi:alarm
     column: 2
     row: 2
-  - entity: switch.lullaby_boys
-    label: Lullaby
-    column: 3
-    row: 2
   - entity: switch.empty_boys
     label: Empty
     column: 4

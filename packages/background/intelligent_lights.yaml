@@ -8,6 +8,108 @@
 ############################################################
 
 
+switch:
+  platform: command_line
+  switches:
+    bathroom_motion_status:
+      command_on: !secret bathtime_command_on
+      command_off: !secret bathtime_command_off
+      command_state: !secret bathtime_command_state
+      value_template: '{{value_json.config.on}}'
+
+
+input_select:
+  bedroom_scenes:
+    name: Scenes
+    options:
+      - Select
+      - Arctic aurora
+      - Bright
+      - Concentrate
+      - Dimmed
+      - Energize
+      - Nightlight
+      - Read
+      - Relax
+      - Savanna sunset
+      - Spring blossom
+      - Tropical twilight
+    initial: Select
+    icon: mdi:creation
+
+
+scene:
+  - name: Livingroom dim
+    entities:
+      light.livingroom:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Livingroom movie
+    entities:
+      light.livingroom:
+        state: on
+        transition: 4
+        brightness: 35
+
+  - name: Livingroom bright
+    entities:
+      light.livingroom:
+        state: on
+        transition: 4
+        brightness: 255
+
+  - name: Livingroom sunset
+    entities:
+      light.livingroom:
+        state: on
+        transition: 600
+        brightness: 255
+
+  - name: Boys bright
+    entities:
+      light.boys:
+        state: on
+        transition: 4
+        brightness: 200
+
+  - name: Boys dim
+    entities:
+      light.boys:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Boys night
+    entities:
+      light.boys:
+        state: on
+        transition: 4
+        brightness: 5
+
+  - name: Girls bright
+    entities:
+      light.girls:
+        state: on
+        transition: 4
+        brightness: 200
+
+  - name: Girls dim
+    entities:
+      light.girls:
+        state: on
+        transition: 4
+        brightness: 125
+
+  - name: Girls night
+    entities:
+      light.girls:
+        state: on
+        transition: 4
+        brightness: 5
+
+
 automation:
   - alias: Lighting - off when daylight
     initial_state: on
@@ -64,8 +166,8 @@ automation:
       entity_id: sensor.kitchen_motion_sensor_burglar
     action:
       service_template: >
-        {% if is_state('sensor.kitchen_motion_sensor_burglar','8')
-          and is_state('input_boolean.bedtime_mode','off') %} homeassistant.turn_on
+        {% if is_state('sensor.kitchen_motion_sensor_burglar' , '8')
+          and is_state('input_boolean.bedtime_mode' , 'off') %} homeassistant.turn_on
         {% else %} homeassistant.turn_off {% endif %}
       entity_id: light.kitchen
 
@@ -101,3 +203,96 @@ automation:
         entity_id: >
           {% if is_state('media_player.kodi' , 'playing') %} scene.livingroom_movie
           {% else %} scene.livingroom_dim {% endif %}
+
+  - alias: Lighting - Reset scene selector (Bedroom)
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: light.bedroom
+      to: 'off'
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.bedroom_scenes' , 'Select') }}"
+    action:
+      service: input_select.select_option
+      data:
+        entity_id: input_select.bedroom_scenes
+        option: Select
+
+  - alias: Lighting - Trigger scene (Bedroom)
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_select.bedroom_scenes
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.bedroom_scenes' , 'Select') }}"
+    action:
+      service: script.set_hue_scene
+      data_template:
+        group: "Bedroom"
+        scene: "{{ states('input_select.bedroom_scenes') }}"
+
+  - alias: Lighting - Boys nightlight mode
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: sensor.boys_switch
+      to: '4_hold'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.boys_night
+      - delay: 00:30:00
+      - service: script.boys_empty
+
+  - alias: Lighting - Girls nightlight mode
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: sensor.girls_switch
+      to: '4_hold'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.girls_night
+      - delay: 00:30:00
+      - service: script.girls_empty
+
+  - alias: Lighting - Override Bathroom for bathtime_mode
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_boolean.bathtime_mode
+    action:
+      service_template: >
+        {% if is_state('input_boolean.bathtime_mode' , 'on') %} script.bathtime_mode_on
+        {% else %} script.bathtime_mode_off {% endif %}
+
+
+script:
+  set_hue_scene:
+    sequence:
+      - service: hue.hue_activate_scene
+        data_template:
+          group_name: "{{ group }}"
+          scene_name: "{{ scene }}"
+
+  bathtime_mode_on:
+    sequence:
+      - service_template: >
+          {%if states('sensor.bathroom_light_level')|int < 50 %} homeassistant.turn_on
+          {% else %} homeassistant.turn_off {% endif %}
+        entity_id: light.bathroom
+      - service: homeassistant.turn_off
+        entity_id: switch.bathroom_motion_status
+      - wait_template: "{{ states('sensor.average_light_level')|int < 50 }}"
+      - service: homeassistant.turn_on
+        entity_id: light.bathroom
+
+  bathtime_mode_off:
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id:
+          - script.bathtime_mode_on
+          - light.bathroom
+      - service: homeassistant.turn_on
+        entity_id: switch.bathroom_motion_status

@@ -41,10 +41,6 @@ entities:
     column: 1
     row: 2
     column_span: 2
-  - entity: switch.lullaby_girls
-    label: Lullaby
-    column: 3
-    row: 2
   - entity: switch.empty_girls
     label: Empty
     column: 4

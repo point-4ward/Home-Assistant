@@ -107,18 +107,29 @@ sensor:
         value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'lux') }}"
         unit_of_measurement: lux
 
+      landing_temperature:
+        friendly_name: "Landing temperature"
+        value_template: "{{ state_attr('sensor.landing_motion_motion' , 'temperature') }}"
+        unit_of_measurement: °C
+
+      landing_light_level:
+        friendly_name: "Landing light level"
+        value_template: "{{ state_attr('sensor.landing_motion_motion' , 'lux') }}"
+        unit_of_measurement: lux
+
       average_temperature:
         friendly_name: "Average temperature"
         value_template: >
           {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
-            + (states('sensor.kitchen_motion_sensor_temperature')|float)) /3)|round(2) }}
+            + (states('sensor.landing_temperature')|float) +
+            (states('sensor.kitchen_motion_sensor_temperature')|float)) /4)|round(2) }}
         unit_of_measurement: °C
 
       average_light_level:
         friendly_name: "Average Light Level"
         value_template: >
-          {{ (((states('sensor.bathroom_light_level')|float)
-            + (states('sensor.kitchen_motion_sensor_luminance')|float)) /2)|round(2) }}
+          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
+            + (states('sensor.kitchen_motion_sensor_luminance')|float)) /3)|round(2) }}
         unit_of_measurement: lux
 
 
