@@ -65,8 +65,8 @@ script:
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.remote_boys_radio
-      - condition: state
-        entity_id: sensor.dark_outside
-        state: 'true'
+      - condition: numeric_state
+        entity_id: sensor.average_light_level
+        below: 20
       - service: homeassistant.turn_on
         entity_id: scene.boys_wake_up

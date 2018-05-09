@@ -83,15 +83,15 @@ message: >
     Your harddrive is running out of Space! /dev/root: {{ states('sensor.disk_use_percent_') }}%!
   {%- endmacro -%}
 
-  {%- macro dark_outside() -%}
-    {{ ["It is pretty dark outside. I will turn on the lights now.",
-      "I will switch on the lights. It is getting dark outside.",
+  {%- macro dark_inside() -%}
+    {{ ["It is pretty dark. I will turn on the lights now.",
+      "I will switch on the lights. It is getting dark.",
       "It's time to turn on the lights. I will take care of it."]|random }}
   {%- endmacro -%}
 
-  {%- macro light_outside() -%}
-    {{ ["It is pretty light outside now. I will turn off the lights.",
-      "I will switch off the lights. It is getting light outside.",
+  {%- macro light_inside() -%}
+    {{ ["It is pretty light inside now. I will turn off the lights.",
+      "I will switch off the lights. It is getting light.",
       "It's time to turn off the lights. I will take care of it."]|random }}
   {%- endmacro -%}
 
@@ -151,9 +151,9 @@ message: >
 
   {%- if call_hdd_space == 1 %} {{- hdd_space() }} {% endif -%}
 
-  {%- if call_dark_outside == 1 %} {{- dark_outside() }} {% endif -%}
+  {%- if call_dark_inside == 1 %} {{- dark_inside() }} {% endif -%}
 
-  {%- if call_light_outside == 1 %} {{- light_outside() }} {% endif -%}
+  {%- if call_light_inside == 1 %} {{- light_inside() }} {% endif -%}
 
   {%- if call_travel_time == 1 %} {{- travel_time() }} {% endif -%}
 

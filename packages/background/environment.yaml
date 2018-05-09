@@ -69,15 +69,6 @@ sensor:
       calendar:
         value_template: !secret google_calendar_sensor
 
-      dark_outside:
-        value_template: >
-          {% if is_state('input_boolean.sunset_offset' , 'on') %} true
-          {% elif (state_attr('sun.sun' , 'elevation')|int < 3) %} true
-          {% elif ((state_attr('sun.sun' , 'elevation')|int < 4.5) and (states('sensor.dark_sky_cloud_coverage')|int > 80)) %} true
-          {% elif ((state_attr('sun.sun' , 'elevation')|int < 6.5) and (states('sensor.dark_sky_cloud_coverage')|int > 85)) %} true
-          {% elif (states('sensor.dark_sky_cloud_coverage')|int > 90) %} true
-          {% else %} false {% endif %}
-
       bad_weather:
         value_template: >
           {% if is_state('sensor.dark_sky_precip' , 'snow') %} snow
@@ -135,20 +126,3 @@ sensor:
 
 binary_sensor:
   platform: iss
-
-
-automation:
-  alias: Environment - Dusk monitor
-  initial_state: on
-  trigger:
-    - platform: sun
-      event: sunrise
-      offset: '+00:35:00'
-    - platform: sun
-      event: sunset
-      offset: '-00:35:00'
-  action:
-    entity_id: input_boolean.sunset_offset
-    service_template: >
-      {% if (now().hour < 12) %} homeassistant.turn_off
-      {% else %} homeassistant.turn_on {% endif %}
