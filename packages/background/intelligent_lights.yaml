@@ -116,7 +116,7 @@ automation:
     trigger:
       platform: numeric_state
       entity_id: sensor.average_light_level
-      above: 25
+      above: 40
     condition:
       condition: state
       entity_id: sensor.home_status

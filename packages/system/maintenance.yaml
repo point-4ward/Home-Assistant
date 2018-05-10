@@ -115,7 +115,7 @@ shell_command:
 
   github_push: /home/homeassistant/.homeassistant/extras/bash_scripts/send-to-github.sh "{{ states('input_text.github_message') }}"
 
-  sync_dropbox: /home/homeassistant/.homeassistant/extras/bash_scripts/sync-dropbox.sh
+  sync_dropbox: /home/homeassistant/.homeassistant/extras/bash_scripts/sync-dropbox.sh "{{ password }}" "{{ url }}"
 
   quick_restart: sudo systemctl restart home-assistant@homeassistant.service
 
@@ -133,6 +133,17 @@ alert:
     notifiers:
       - adults
 
+automation:
+  # TODO - Perform a backup automatically
+  # TODO - Status check
+  - alias: Maintenance - Notify when backups completed
+    trigger:
+      platform: event
+      event_type: done_sync
+    action:
+      service: notify.mf
+      data:
+        message: "The dropbox sync has finished."
 
 script:
   upgrade_hass:
@@ -167,6 +178,9 @@ script:
     alias: ' '
     sequence:
       - service: shell_command.sync_dropbox
+        data:
+          password: !secret api_password
+          url: !secret done_url
 
   quick_restart:
     alias: ' '

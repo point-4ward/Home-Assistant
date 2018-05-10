@@ -157,7 +157,7 @@ automation:
         below: 20
       - platform: numeric_state
         entity_id: sensor.average_light_level
-        above: 25
+        above: 40
       - platform: time
         at: '23:00:00'
       - platform: time
