@@ -79,37 +79,38 @@ sensor:
           {% else %} clear {% endif %}
 
       bathroom_temperature:
-        friendly_name: "Bathroom temperature"
         value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'temperature') }}"
         unit_of_measurement: °C
 
       bathroom_light_level:
-        friendly_name: "Bathroom light level"
         value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'lux') }}"
         unit_of_measurement: lux
 
       attic_temperature:
-        friendly_name: "Attic temperature"
         value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'temperature') }}"
         unit_of_measurement: °C
 
       attic_light_level:
-        friendly_name: "Attic light level"
         value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'lux') }}"
         unit_of_measurement: lux
 
       landing_temperature:
-        friendly_name: "Landing temperature"
         value_template: "{{ state_attr('sensor.landing_motion_motion' , 'temperature') }}"
         unit_of_measurement: °C
 
       landing_light_level:
-        friendly_name: "Landing light level"
         value_template: "{{ state_attr('sensor.landing_motion_motion' , 'lux') }}"
         unit_of_measurement: lux
 
+      # hall_temperature:
+      #   value_template: "{{ state_attr('sensor.hall_motion_motion' , 'temperature') }}"
+      #   unit_of_measurement: °C
+      #
+      # hall_light_level:
+      #   value_template: "{{ state_attr('sensor.hall_motion_motion' , 'lux') }}"
+      #   unit_of_measurement: lux
+# TODO - add hallway to averages....
       average_temperature:
-        friendly_name: "Average temperature"
         value_template: >
           {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
             + (states('sensor.landing_temperature')|float) +
@@ -117,7 +118,6 @@ sensor:
         unit_of_measurement: °C
 
       average_light_level:
-        friendly_name: "Average Light Level"
         value_template: >
           {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
             + (states('sensor.kitchen_motion_sensor_luminance')|float)) /3)|round(2) }}

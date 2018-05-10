@@ -109,7 +109,7 @@ sensor:
   platform: template
   sensors:
     home_status:
-      friendly_name: 'Home status'
+      friendly_name: Home status
       value_template: >
         {% if is_state('group.phone_trackers' , 'home') or is_state('input_boolean.guest_mode' , 'on') %}Occupied
         {% else %} Unoccupied {% endif %}
