@@ -16,6 +16,7 @@ include:
   entities:
     - switch.heater
     - input_boolean.guest_mode
+    - input_boolean.dark
     - sensor.calendar
     - sensor.bad_weather
     - sensor.home_status

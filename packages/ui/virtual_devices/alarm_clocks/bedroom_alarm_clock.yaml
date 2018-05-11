@@ -77,9 +77,9 @@ script:
           {% if is_state('input_boolean.bedroom_alarm_clock_repeat' , 'on') %} homeassistant.turn_on
           {% else %} homeassistant.turn_off {% endif %}
         entity_id: input_boolean.bedroom_alarm_clock_status
-      - condition: numeric_state
-        entity_id: sensor.average_light_level
-        below: 20
+      - condition: state
+        entity_id: input_boolean.dark
+        state: 'on'
       - service: homeassistant.turn_on
         entity_id: scene.bedroom_wake_up
 
@@ -92,8 +92,8 @@ script:
           {% if is_state('input_boolean.bedroom_alarm_clock_repeat' , 'on') %} homeassistant.turn_on
           {% else %} homeassistant.turn_off {% endif %}
         entity_id: input_boolean.bedroom_alarm_clock_status
-      - condition: numeric_state
-        entity_id: sensor.average_light_level
-        below: 20
+      - condition: state
+        entity_id: input_boolean.dark
+        state: 'on'
       - service: homeassistant.turn_on
         entity_id: scene.bedroom_wake_up

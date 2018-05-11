@@ -75,8 +75,8 @@ script:
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.remote_girls_radio
-      - condition: numeric_state
-        entity_id: sensor.average_light_level
-        below: 20
+      - condition: state
+        entity_id: input_boolean.dark
+        state: 'on'
       - service: homeassistant.turn_on
         entity_id: scene.girls_wake_up
