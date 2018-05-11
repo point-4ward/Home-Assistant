@@ -114,9 +114,9 @@ automation:
   - alias: Lighting - off when daylight
     initial_state: on
     trigger:
-      platform: numeric_state
-      entity_id: sensor.average_light_level
-      above: 40
+      platform: state
+      entity_id: input_boolean.dark
+      to: 'on'
     condition:
       condition: state
       entity_id: sensor.home_status
@@ -131,9 +131,9 @@ automation:
   - alias: Lighting - on when dark (already home)
     initial_state: on
     trigger:
-      platform: numeric_state
-      entity_id: sensor.average_light_level
-      below: 20
+      platform: state
+      entity_id: input_boolean.dark
+      to: 'on'
     condition:
       condition: state
       entity_id: sensor.home_status
@@ -152,9 +152,9 @@ automation:
       entity_id: sensor.home_status
       to: 'Occupied'
     condition:
-      condition: numeric_state
-      entity_id: sensor.average_light_level
-      below: 20
+      condition: state
+      entity_id: input_boolean.dark
+      state: 'on'
     action:
       - service: homeassistant.turn_on
         entity_id: scene.livingroom_bright
@@ -185,9 +185,9 @@ automation:
         to: 'idle'
         from: 'playing'
     condition:
-      - condition: numeric_state
-        entity_id: sensor.average_light_level
-        below: 20
+      - condition: state
+        entity_id: input_boolean.dark
+        state: 'on'
       - condition: or
         conditions:
           - condition: template
@@ -284,7 +284,7 @@ script:
         entity_id: light.bathroom
       - service: homeassistant.turn_off
         entity_id: switch.bathroom_motion_status
-      - wait_template: "{{ states('sensor.average_light_level')|int < 50 }}"
+      - wait_template: "{{ is_state('input_boolean.dark' , 'on') }}"
       - service: homeassistant.turn_on
         entity_id: light.bathroom
 

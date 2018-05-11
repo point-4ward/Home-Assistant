@@ -58,6 +58,10 @@ hue:
       allow_unreachable: true
 
 
+light:
+  platform: flux_led
+  automatic_add: true
+
 media_player:
   - platform: cast
 

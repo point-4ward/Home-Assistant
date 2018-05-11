@@ -29,7 +29,7 @@ zone:
 
 
 input_boolean:
-  sunset_offset:
+  dark:
 
 
 sensor:
@@ -126,3 +126,19 @@ sensor:
 
 binary_sensor:
   platform: iss
+
+automation:
+  alias: Environment - Darkness monitor
+  initial_state: on
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.average_light_level
+      below: 20
+    - platform: numeric_state
+      entity_id: sensor.average_light_level
+      above: 40
+  action:
+    service_template: >
+      {% if states('sensor.average_light_level')|int < 21 %} homeassistant.turn_on
+      {% else %} homeassistant.turn_off {% endif %}
+    entity_id: input_boolean.dark
