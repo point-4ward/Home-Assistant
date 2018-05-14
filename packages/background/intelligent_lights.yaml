@@ -116,7 +116,7 @@ automation:
     trigger:
       platform: state
       entity_id: input_boolean.dark
-      to: 'on'
+      to: 'off'
     condition:
       condition: state
       entity_id: sensor.home_status
