@@ -134,6 +134,7 @@ group:
     entities:
       - group.maintenance
       - group.configure_external
+      - group.zwave
       - group.batteries
       - group.all_alarm_clock
 
