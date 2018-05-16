@@ -60,7 +60,8 @@ hue:
 
 light:
   platform: flux_led
-  automatic_add: true
+  devices: !secret flux_led_devices
+
 
 media_player:
   - platform: cast
@@ -99,6 +100,17 @@ sensor:
   platform: hue
   ip_address: !secret hue_hub_ip
   token: !secret hue_token
+
+
+group:
+  led_strips:
+    name: LED strips
+    control: hidden
+    entities:
+      - light.led1
+      - light.led2
+      - light.led3
+      
 
 automation:
   alias: Hardware - Heater off after 15min
