@@ -23,7 +23,7 @@ homeassistant:
       friendly_name: Kitchen Multisensor
 
     sensor.stairs_motion_motion_battery:
-      friendly_name: Girls motion
+      friendly_name: Girls sensor
 
     sensor.girls_switch_battery:
       friendly_name: Girls switch
@@ -33,6 +33,9 @@ homeassistant:
 
     sensor.boys_switch_battery:
       friendly_name: Boys switch
+
+    sensor.hall_motion_motion_battery:
+      friendly_name: Hall sensor
 
 
 group:
@@ -44,6 +47,7 @@ group:
     - sensor.girls_switch_battery
     - sensor.landing_motion_motion_battery
     - sensor.boys_switch_battery
+    - sensor.hall_motion_motion_battery
 
   Batteries:
     control: hidden
@@ -63,6 +67,7 @@ automation:
           - sensor.girls_switch_battery
           - sensor.landing_motion_motion_battery
           - sensor.boys_switch_battery
+          - sensor.hall_motion_motion_battery
         below: 21
     action:
       service: script.notify
