@@ -96,6 +96,7 @@ group:
     entities:
       - group.occupancy
       - group.tiles_lights
+      - group.led_strips
 
   av:
     view: yes
