@@ -5,7 +5,7 @@
   window.CUSTOM_UI_LIST.push({
     name: 'Tiles custom state card',
     url: 'https://github.com/c727/home-assistant-tiles',
-    version: '20180414_es5',
+    version: '20180521_es5',
   });
 </script>
 
@@ -82,7 +82,7 @@
 <script>
 var DOMAIN_SCRIPT = ['script', 'python_script'];
 var DOMAIN_SENSOR = ['sensor', 'binary_sensor', 'device_tracker'];
-var DOMAIN_NO_ONOFF = DOMAIN_SCRIPT.concat('sensor', 'scene');
+var DOMAIN_NO_ONOFF = DOMAIN_SCRIPT.concat('sensor', 'scene', 'weblink');
 
 var ON_STATES = ['on', 'open', 'locked', 'home'];
 
@@ -187,7 +187,7 @@ Polymer({
     if (entity.text_color_on != null) style += ' --tiles-text-color-on: ' + entity.text_color_on + ';';
     if (entity.text_color_off != null) style += ' --tiles-text-color-off: ' + entity.text_color_off + ';';
     if (entity.text_size != null) style += ' --tiles-text-size: ' + entity.text_size + ';';
-    if (entity.text_uppercase != null) style += ' --tiles-text-transform: ' + (entity.text_uppercase ? 'uppercase' : 'none');
+    if (entity.text_uppercase != null) style += ' --tiles-text-transform: ' + (entity.text_uppercase ? 'uppercase;' : 'none;');
     if (entity.text_sec_color != null) style += ' --tiles-text-sec-color: ' + entity.text_sec_color + ';';
     if (entity.text_sec_color_on != null) style += ' --tiles-text-sec-color-on: ' + entity.text_sec_color_on + ';';
     if (entity.text_sec_color_off != null) style += ' --tiles-text-sec-color-off: ' + entity.text_sec_color_off + ';';
@@ -207,7 +207,9 @@ Polymer({
     var entity_id = entity.entity;
     var stateDomain = entity_id.split('.')[0];
 
-    if (DOMAIN_SENSOR.includes(stateDomain) || entity.more_info) {
+    if (stateDomain === 'weblink') {
+        window.open(this.hass.states[entity_id].state, '_blank');
+    } else if (DOMAIN_SENSOR.includes(stateDomain) || entity.more_info) {
       this.fire('hass-more-info', { entityId: entity.more_info || entity_id });
     } else {
       var serviceDomain, service;
@@ -241,6 +243,20 @@ Polymer({
       this.hass.callService(serviceDomain, service, data);
     }
     ev.stopPropagation();
+  },
+
+  fire: function (type, detail, options) {
+    options = options || {};
+    detail = (detail === null || detail === undefined) ? {} : detail;
+    var event = new Event(type, {
+      bubbles: options.bubbles === undefined ? true : options.bubbles,
+      cancelable: Boolean(options.cancelable),
+      composed: options.composed === undefined ? true : options.composed
+    });
+    event.detail = detail;
+    var node = options.node || this;
+    node.dispatchEvent(event);
+    return event;
   },
 
   stopPropagation: function (ev) {
