@@ -1,6 +1,6 @@
 <!--
 https://github.com/c727/home-assistant-mini-media-player
-version: 20180129.2
+version: 20180601
 -->
 <dom-module id='state-card-mini-media-player'>
   <template>
@@ -13,10 +13,10 @@ version: 20180129.2
         margin-left: 56px;
       }
       .state,
-      .playnername {
+      .playername {
         line-height: 40px;
       }
-      .playnername[has-info] {
+      .playername[has-info] {
         line-height: 20px;
       }
       .mediainfo {
@@ -65,7 +65,7 @@ version: 20180129.2
         <div class='state-info'>
           <state-badge state-obj='[[playerObj]]'></state-badge>
           <div class='info'>
-            <div class='playnername' has-info$='[[playerObj.hasMediaInfo]]'>[[computeStateName(playerObj)]]</div>
+            <div class='playername' has-info$='[[playerObj.hasMediaInfo]]'>[[computeStateName(playerObj)]]</div>
             <div class='mediainfo' hidden='[[!playerObj.hasMediaInfo]]'>[[playerObj.mediaInfo]]</div>
           </div>
         </div>
@@ -141,8 +141,8 @@ class StateCardMiniMediaPlayer extends Polymer.Element {
   }
 
   computePlayerObj(hass, config) {
-    if (config && config.player && hass.states[this.config.player]) {
-      var playerObj = hass.states[this.config.player];
+    if (config && config.player && hass.states[config.player]) {
+      var playerObj = hass.states[config.player];
       playerObj.isOff = playerObj.state === 'off';
       playerObj.isPlaying = playerObj.state === 'playing';
       playerObj.hasMediaInfo = (playerObj.attributes.media_title || playerObj.attributes.app_name) ? true : false;
@@ -161,7 +161,8 @@ class StateCardMiniMediaPlayer extends Polymer.Element {
   }
 
   computeStateName(stateObj) {
-    return window.hassUtil.computeStateName(stateObj);
+    return stateObj.attributes.friendly_name ||
+      (stateObj.entity_id).replace(/_/g, ' ');
   }
 
   handlePreviousTap(ev) {
