@@ -118,9 +118,12 @@ automation:
       entity_id: input_boolean.dark
       to: 'off'
     condition:
-      condition: state
-      entity_id: sensor.home_status
-      state: 'Occupied'
+      - condition: state
+        entity_id: sensor.home_status
+        state: 'Occupied'
+      - condition: state
+        entity_id: group.all_lights
+        state: 'on'
     action:
       - service: script.notify
         data:

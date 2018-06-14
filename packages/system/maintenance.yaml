@@ -17,6 +17,9 @@ homeassistant:
     input_text.github_message:
       icon: mdi:pencil
 
+    switch.catch_all:
+      icon: mdi:help-circle
+
     script.sync_dropbox:
       icon: mdi:dropbox
       custom_ui_state_card: state-card-script-custom-text
@@ -85,6 +88,28 @@ weblink:
     - name: Uptime Robot
       url: https://uptimerobot.com
 
+switch:
+  platform: template
+  switches:
+    catch_all:
+      friendly_name: Show Catch-all
+      value_template: "{{ is_state_attr('group.developer' , 'view' , true) }}"
+      turn_on:
+        - service: python_script.populate_catchall_group
+        - service: group.set
+          data:
+            object_id: developer
+            view: true
+            visible: true
+      turn_off:
+        - service: group.set
+          data:
+            object_id: developer
+            view: false
+            visible: false
+        - service: group.remove
+          data:
+            object_id: catchall
 
 input_boolean:
   maintenance_mode:
@@ -103,6 +128,7 @@ group:
     control: hidden
     entities:
       - input_boolean.maintenance_mode
+      - switch.catch_all
       - sensor.hline_1
       - script.quick_restart
       - script.quick_reboot
@@ -131,6 +157,10 @@ group:
       - script.zwave_on
       - script.zwave_off
       - script.zwave_include
+
+  developer:
+    icon: mdi:help-circle
+    entities: group.catchall
 
 
 shell_command:
