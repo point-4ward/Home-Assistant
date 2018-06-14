@@ -31,6 +31,10 @@ include:
     - sensor.attic_temperature
     - sensor.bathroom_temperature
     - sensor.kitchen_motion_sensor_temperature
+    - sensor.hall_light_level
+    - sensor.hall_temperature
+    - sensor.landing_light_level
+    - sensor.landing_temperature
 
 
 exclude:
