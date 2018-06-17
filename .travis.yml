@@ -6,7 +6,7 @@ before_install:
   - touch fake.pem
   - mv extras/github_resources/secrets_redacted.yaml secrets.yaml
 
-install: pip3 install homeassistant
+install: pip3 install --pre --upgrade homeassistant
 
 script: hass -c . --script check_config --info all
 

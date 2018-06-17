@@ -17,8 +17,8 @@ homeassistant:
     input_text.github_message:
       icon: mdi:pencil
 
-    switch.catch_all:
-      icon: mdi:help-circle
+    switch.debug:
+      icon: mdi:bug
 
     script.sync_dropbox:
       icon: mdi:dropbox
@@ -91,25 +91,29 @@ weblink:
 switch:
   platform: template
   switches:
-    catch_all:
-      friendly_name: Show Catch-all
-      value_template: "{{ is_state_attr('group.developer' , 'view' , true) }}"
+    debug:
+      friendly_name: Show Debug View
+      value_template: "{{ is_state_attr('group.debug' , 'view' , true) }}"
       turn_on:
         - service: python_script.populate_catchall_group
+        - service: python_script.find_dead_items
         - service: group.set
           data:
-            object_id: developer
+            object_id: debug
             view: true
             visible: true
       turn_off:
         - service: group.set
           data:
-            object_id: developer
+            object_id: debug
             view: false
             visible: false
         - service: group.remove
           data:
             object_id: catchall
+        - service: group.remove
+          data:
+            object_id: deaditems
 
 input_boolean:
   maintenance_mode:
@@ -128,7 +132,7 @@ group:
     control: hidden
     entities:
       - input_boolean.maintenance_mode
-      - switch.catch_all
+      - switch.debug
       - sensor.hline_1
       - script.quick_restart
       - script.quick_reboot
@@ -141,6 +145,8 @@ group:
       - sensor.hline_3
       - script.sync_dropbox
       - weblink.dropbox
+      - media_player.testing_testing_123
+      #TODO - remove the above entry!!
 
   Configure external:
       - weblink.configure_alexa
@@ -158,9 +164,11 @@ group:
       - script.zwave_off
       - script.zwave_include
 
-  developer:
-    icon: mdi:help-circle
-    entities: group.catchall
+  debug:
+    icon: mdi:bug
+    entities:
+      - group.catchall
+      - group.deaditems
 
 
 shell_command:
