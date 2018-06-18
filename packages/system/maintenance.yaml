@@ -145,8 +145,6 @@ group:
       - sensor.hline_3
       - script.sync_dropbox
       - weblink.dropbox
-      - media_player.testing_testing_123
-      #TODO - remove the above entry!!
 
   Configure external:
       - weblink.configure_alexa
