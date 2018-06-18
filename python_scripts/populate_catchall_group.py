@@ -1,15 +1,9 @@
-# Script to combine all ungrouped entities in one groups
-
 def scan_for_new_entities(hass, logger, data):
     ignore = data.get("domains_to_ignore", "zone,automation,script,zwave")
     domains_to_ignore = ignore.replace(" ", "").split(",")
     target_group = data.get("target_group", "group.catchall")
-    show_as_view = data.get("show_as_view", False)
     show_if_empty = data.get("show_if_empty", False)
     min_items_to_show = data.get("min_items_to_show", 1)
-
-    logger.info("ignoring {} domain(s)".format(len(domains_to_ignore)))
-    logger.info("Targetting group {}".format(target_group))
 
     entity_ids = []
     groups = []
@@ -31,10 +25,6 @@ def scan_for_new_entities(hass, logger, data):
         if (domain == "group") and (state.entity_id != target_group):
             groups.append(state.entity_id)
 
-    logger.info("==== Entity count ====")
-    logger.info("{0} entities".format(len(entity_ids)))
-    logger.info("{0} groups".format(len(groups)))
-
     for groupname in groups:
         group = hass.states.get(groupname)
         for a in group.attributes["entity_id"]:
@@ -46,14 +36,10 @@ def scan_for_new_entities(hass, logger, data):
     else:
         visible = False
 
-    entity_ids.insert(0, "python_script.scan_for_new_entities")
-
     service_data = {'object_id': 'catchall', 'name': 'Ungrouped Items',
-                    'view': show_as_view, 'icon': 'mdi:magnify',
-                    'control': 'hidden', 'entities': entity_ids,
-                    'visible': visible}
+                    'view': False, 'visible': visible,
+                    'control': 'hidden', 'entities': entity_ids}
 
     hass.services.call('group', 'set', service_data, False)
-
 
 scan_for_new_entities(hass, logger, data)

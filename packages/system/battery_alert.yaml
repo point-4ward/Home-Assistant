@@ -19,7 +19,7 @@ homeassistant:
     sensor.livingroom_switch_battery:
       friendly_name: Livingroom switch
 
-    sensor.kitchen_multisensor_battery:
+    sensor.kitchen_sensor_battery:
       friendly_name: Kitchen Multisensor
 
     sensor.stairs_motion_motion_battery:
@@ -42,7 +42,7 @@ group:
   battery alert:
     - sensor.bathroom_motion_motion_battery
     - sensor.livingroom_switch_battery
-    - sensor.kitchen_multisensor_battery
+    - sensor.kitchen_sensor_battery
     - sensor.stairs_motion_motion_battery
     - sensor.girls_switch_battery
     - sensor.landing_motion_motion_battery
@@ -62,7 +62,7 @@ automation:
         entity_id:
           - sensor.bathroom_motion_motion_battery
           - sensor.livingroom_switch_battery
-          - sensor.kitchen_multisensor_battery
+          - sensor.kitchen_sensor_battery
           - sensor.stairs_motion_motion_battery
           - sensor.girls_switch_battery
           - sensor.landing_motion_motion_battery
