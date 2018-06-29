@@ -172,7 +172,7 @@ automation:
         {% if is_state('sensor.kitchen_motion_sensor_burglar' , '8')
           and is_state('input_boolean.bedtime_mode' , 'off') %} homeassistant.turn_on
         {% else %} homeassistant.turn_off {% endif %}
-      entity_id: light.kitchen
+      entity_id: light.kitchen_light_level
 
   - alias: Lighting - Kodi
     initial_state: on

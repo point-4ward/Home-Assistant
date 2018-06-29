@@ -11,7 +11,7 @@ column_width: 75px
 row_height: 75px
 text_uppercase: false
 entities:
-  - entity: light.kitchen
+  - entity: light.kitchen_light_level
     icon: mdi:silverware-variant
     column: 1
     row: 1
