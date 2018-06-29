@@ -77,7 +77,7 @@ script:
         entity_id: light.bathroom
       - delay: "00:00:{{ (range(15, 59)|random|int) }}"
       - service: homeassistant.turn_off
-        entity_id: light.kitchen
+        entity_id: light.kitchen_light_level
       - delay: "00:00:{{ (range(20, 30)|random|int) }}"
       - service: homeassistant.turn_off
         entity_id: light.livingroom
@@ -191,14 +191,14 @@ script:
       # Wait a random nmber of minutes between 15 and 90 and switch on
       - delay: "00:{{ (range(15, 90)|random|int) }}:00"
       - service: homeassistant.turn_on
-        entity_id: light.kitchen
+        entity_id: light.kitchen_light_level
         data:
           brightness: 100
 
       # Wait for between 3 minutes and 9 minutes and switch off
       - delay: "00:{{ (range(3, 9)|random|int) }}:00"
       - service: homeassistant.turn_off
-        entity_id: light.kitchen
+        entity_id: light.kitchen_light_level
 
       # Loop the script for next time.
       - service: script.random_kitchen_loop
