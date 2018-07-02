@@ -10,7 +10,7 @@ emulated_hue:
   host_ip: !secret host_ip
   expose_by_default: false
   entities:
-    light.kitchen:
+    light.kitchen_light_level:
       name: "Kitchen Light"
       hidden: false
 
