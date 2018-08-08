@@ -138,7 +138,6 @@ group:
     entities:
       - group.maintenance
       - group.configure_external
-      - group.zwave
       - group.batteries
       - group.all_alarm_clock
 
@@ -172,17 +171,6 @@ automation:
           {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
           {% elif is_state('input_boolean.dark' , 'on') %} midnight
           {% else %} default {% endif %}
-
-  - alias: Interface - UI Tiles update available
-    trigger:
-      platform: state
-      entity_id: sensor.ui_tiles_version
-    action:
-      service: script.notify
-      data:
-        no_say: 1
-        tell: mf
-        call_tiles_update: 1
 
   - alias: Interface - Renew SSL certificate
     initial_state: on

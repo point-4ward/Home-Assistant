@@ -59,21 +59,6 @@ homeassistant:
       custom_ui_state_card: state-card-script-custom-text
       custom_text: "Learn New IR Code"
 
-    script.zwave_on:
-      icon: mdi:check-circle-outline
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: Zwave On
-
-    script.zwave_off:
-      icon: mdi:close-octagon-outline
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: Zwave Off
-
-    script.zwave_include:
-      icon: mdi:plus-circle-outline
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Add New Device (Secure)"
-
 
 weblink:
   entities:
@@ -151,16 +136,6 @@ group:
       - weblink.router
       - weblink.uptime_robot
       - script.learn_ir
-
-  Zwave:
-    control: hidden
-    entities:
-      - zwave.zwaveme_zme_uzb1_usb_stick
-      - zwave.kitchen_light
-      - zwave.kitchen_multisensor
-      - script.zwave_on
-      - script.zwave_off
-      - script.zwave_include
 
   debug:
     icon: mdi:bug
@@ -263,18 +238,3 @@ script:
     alias: ' '
     sequence:
       - service: !secret learn_ir
-
-  zwave_on:
-    alias: ' '
-    sequence:
-      - service: zwave.start_network
-
-  zwave_off:
-    alias: ' '
-    sequence:
-      - service: zwave.stop_network
-
-  zwave_include:
-    alias: ' '
-    sequence:
-      - service: zwave.add_node_secure

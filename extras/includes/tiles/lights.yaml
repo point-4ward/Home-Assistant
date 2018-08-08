@@ -11,10 +11,11 @@ column_width: 75px
 row_height: 75px
 text_uppercase: false
 entities:
-  - entity: light.kitchen_light_level
-    icon: mdi:silverware-variant
-    column: 1
-    row: 1
+  # TODO...
+  # - entity: light.kitchen_light_level
+  #   icon: mdi:silverware-variant
+  #   column: 1
+  #   row: 1
   - entity: light.landing
     icon: mdi:stairs
     column: 2

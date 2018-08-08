@@ -11,6 +11,9 @@
 
 homeassistant:
   name: Home Assistant - Node Zero
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
 
   latitude: !secret latitude
   longitude: !secret longitude
@@ -20,3 +23,5 @@ homeassistant:
   unit_system: metric
 
   packages: !include_dir_named packages/
+
+auth:

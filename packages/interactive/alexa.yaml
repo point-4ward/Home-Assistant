@@ -10,10 +10,6 @@ emulated_hue:
   host_ip: !secret host_ip
   expose_by_default: false
   entities:
-    light.kitchen_light_level:
-      name: "Kitchen Light"
-      hidden: false
-
     input_boolean.radio_downstairs:
       name: "Radio Downstairs"
       hidden: false
@@ -134,8 +130,5 @@ automation:
           group: "Bedroom"
           scene: "Relax"
       - delay: 00:03:00
-# TODO ...
-      # - Do a nighttime briefing
-      # - switch alarm to armed nighttime
       - service: homeassistant.turn_off
         entity_id: input_boolean.bedtime_mode
