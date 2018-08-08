@@ -162,18 +162,6 @@ automation:
       - service: homeassistant.turn_on
         entity_id: scene.livingroom_bright
 
-  - alias: Lighting - Kitchen motion
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: sensor.kitchen_multisensor_burglar
-    action:
-      service_template: >
-        {% if is_state('sensor.kitchen_multisensor_burglar' , '8')
-          and is_state('input_boolean.bedtime_mode' , 'off') %} homeassistant.turn_on
-        {% else %} homeassistant.turn_off {% endif %}
-      entity_id: light.kitchen_light_level
-
   - alias: Lighting - Kodi
     initial_state: on
     trigger:

@@ -1,5 +1,5 @@
 def scan_for_new_entities(hass, logger, data):
-    ignore = data.get("domains_to_ignore", "zone,automation,script,zwave")
+    ignore = data.get("domains_to_ignore", "zone,automation,script")
     domains_to_ignore = ignore.replace(" ", "").split(",")
     target_group = data.get("target_group", "group.catchall")
     show_if_empty = data.get("show_if_empty", False)
