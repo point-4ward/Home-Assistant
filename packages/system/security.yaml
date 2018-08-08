@@ -90,7 +90,7 @@ automation:
     action:
       service: notify.mf
       data_template:
-        message: "{{ state_attr('persistent_notification.httplogin', 'message' }}"
+        message: "{{ state_attr('persistent_notification.httplogin', 'message') }}"
 
   - alias: Security - Email breach
     initial_state: on
