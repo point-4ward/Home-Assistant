@@ -77,11 +77,6 @@ sensor:
     scan_interval: 10800
     command: !secret ssl_command
 
-  - platform: rest
-    resource: https://raw.githubusercontent.com/c727/home-assistant-tiles/master/LATEST_VERSION
-    name: UI Tiles version
-    scan_interval: 3600
-
   - platform: template
     sensors:
       hline_1:
