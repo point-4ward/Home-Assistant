@@ -6,10 +6,11 @@
 ### My controller
  - Node-zero - a Dell Wyse thin client with 128GB SSD-Dom, with a CSL bluetooth adapter, running Homeassistant and Mosquitto.  This is the main hub of my Home Automation system, and also has a 1TB external harddrive which functions as a NAS.
 
+### My sensors
+ - 3 x - NodeMCU boards with PIR sensors
+
 ### Coming soon
- - Some motion sensors with NodeMCU boards:
- - Node-one - (a Raspberry pi MQTT alarm controller).
- - Node-two - (a Raspberry pi RF transmitter/receiver).
+ - Node-one - (a Raspberry pi RF transmitter/receiver).
 
 
 ## Integrated platforms:
