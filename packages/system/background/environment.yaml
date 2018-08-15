@@ -121,14 +121,14 @@ sensor:
       average_temperature:
         value_template: >
           {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
-            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float))
-            + (states('sensor.kitchen_temperature')|float) /5)|round(2) }}
+            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float)
+            + (states('sensor.kitchen_temperature')|float)) /5)|round(2) }}
         unit_of_measurement: °C
 
       average_light_level:
         value_template: >
-          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float))
-            + (states('sensor.kitchen_light_level')) /3)|round(2) }}
+          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
+            + (states('sensor.kitchen_light_level')|float)) /3)|round(2) }}
         unit_of_measurement: lux
 
 
