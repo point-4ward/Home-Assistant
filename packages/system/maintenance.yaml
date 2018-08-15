@@ -173,6 +173,7 @@ automation:
   # TODO - Perform a backup automatically
   # TODO - Status check
   - alias: Maintenance - Notify when backups completed
+    initial_state: on
     trigger:
       platform: event
       event_type: done_sync

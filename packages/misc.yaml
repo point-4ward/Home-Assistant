@@ -15,6 +15,7 @@ feedreader:
 
 automation:
   - alias: Test - HA podcast_update test
+    initial_state: on
     trigger:
       platform: event
       event_type: feedreader
