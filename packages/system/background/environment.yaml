@@ -110,15 +110,25 @@ sensor:
         value_template: "{{ state_attr('sensor.hall_motion_motion' , 'lux') }}"
         unit_of_measurement: lux
 
+      kitchen_temperature:
+        value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'temperature') }}"
+        unit_of_measurement: °C
+
+      kitchen_light_level:
+        value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'lux') }}"
+        unit_of_measurement: lux
+
       average_temperature:
         value_template: >
           {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
-            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float)) /4)|round(2) }}
+            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float))
+            + (states('sensor.kitchen_temperature')|float) /5)|round(2) }}
         unit_of_measurement: °C
 
       average_light_level:
         value_template: >
-          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)) /3)|round(2) }}
+          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float))
+            + (states('sensor.kitchen_light_level')) /3)|round(2) }}
         unit_of_measurement: lux
 
 

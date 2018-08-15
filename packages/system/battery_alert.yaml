@@ -34,6 +34,9 @@ homeassistant:
     sensor.hall_motion_motion_battery:
       friendly_name: Hall sensor
 
+    sensor.kitchen_motion_sensor_battery:
+      friendly_name: Kitchen sensor
+
 
 group:
   battery alert:
@@ -44,6 +47,7 @@ group:
     - sensor.landing_motion_motion_battery
     - sensor.boys_switch_battery
     - sensor.hall_motion_motion_battery
+    - sensor.kitchen_motion_sensor_battery
 
   Batteries:
     control: hidden
@@ -63,6 +67,7 @@ automation:
           - sensor.landing_motion_motion_battery
           - sensor.boys_switch_battery
           - sensor.hall_motion_motion_battery
+          - sensor.kitchen_motion_sensor_battery
         below: 21
     action:
       service: script.notify
