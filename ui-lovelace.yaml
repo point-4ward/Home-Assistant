@@ -1,0 +1,76 @@
+title: Node-Zero
+# Include external resources
+# resources:
+#   - url: /local/my-custom-card.js
+#     type: js
+#   - url: /local/my-webfont.css
+#     type: css
+
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+# background: center / cover no-repeat url("/background.png") fixed
+# Exclude entities from "Unused entities" view
+# excluded_entities:
+#   - weblink.router
+views:
+    # View tab title.
+  - title: Example
+    # Optional unique id for direct access /lovelace/${id}
+    id: example
+    # Optional background (overwrites the global background).
+    background: radial-gradient(crimson, skyblue)
+    # The cards to show on this view.
+    cards:
+        # The filter card will filter entities for their state
+      - type: entity-filter
+        entities:
+          - device_tracker.fa69j0300377
+          - device_tracker.lauras_iphone
+          - device_tracker.forthygpixel
+          - device_tracker.courtney_iphone
+          - device_tracker.courtney_iphone_bt
+        state_filter:
+          - 'home'
+        card:
+          type: glance
+          title: People that are home
+
+        # The picture entity card will represent an entity with a picture
+      - type: picture-entity
+        image: https://www.home-assistant.io/images/default-social.png
+        entity: light.bed_light
+
+      - type: glance
+        entities:
+          - entity: light.kitchen
+            tap_action: toggle
+          - light.livingroom
+          - light.bath
+          - light.bedroom
+          - light.girls
+          - light.boys
+
+
+
+    # Specify a tab icon if you want the view tab to be an icon.
+  - icon: mdi:home-assistant
+    # Title of the view. Will be used as the tooltip for tab icon
+    title: Second view
+    cards:
+        # Entities card will take a list of entities and show their state.
+      - type: entities
+        # Title of the entities card
+        title: Example
+        # The entities here will be shown in the same order as specified.
+        # Each entry is an entity ID or a map with extra options.
+        entities:
+          - light.kitchen
+          - light.livingroom
+          # - entity: light.living_room
+          #   # Override the name to use
+          #   name: LR Lights
+
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
