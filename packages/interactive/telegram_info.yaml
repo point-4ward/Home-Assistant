@@ -61,7 +61,7 @@ automation:
         message: "Locations are showing as -
 
           {% for state in states.device_tracker %}
-            {{- state.name }} - {{ state.state_with_unit }}
+            {{- state.name }} - {{ state.state_with_unit|replace('_','-') }}
 
           {% endfor %}
 
