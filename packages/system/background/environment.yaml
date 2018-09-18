@@ -83,7 +83,7 @@ sensor:
         unit_of_measurement: °C
 
       bathroom_light_level:
-        value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'lux') }}"
+        value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'lx') }}"
         unit_of_measurement: lux
 
       attic_temperature:
@@ -91,7 +91,7 @@ sensor:
         unit_of_measurement: °C
 
       attic_light_level:
-        value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'lux') }}"
+        value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'lx') }}"
         unit_of_measurement: lux
 
       landing_temperature:
@@ -99,7 +99,7 @@ sensor:
         unit_of_measurement: °C
 
       landing_light_level:
-        value_template: "{{ state_attr('sensor.landing_motion_motion' , 'lux') }}"
+        value_template: "{{ state_attr('sensor.landing_motion_motion' , 'lx') }}"
         unit_of_measurement: lux
 
       hall_temperature:
@@ -107,7 +107,7 @@ sensor:
         unit_of_measurement: °C
 
       hall_light_level:
-        value_template: "{{ state_attr('sensor.hall_motion_motion' , 'lux') }}"
+        value_template: "{{ state_attr('sensor.hall_motion_motion' , 'lx') }}"
         unit_of_measurement: lux
 
       kitchen_temperature:
@@ -115,7 +115,7 @@ sensor:
         unit_of_measurement: °C
 
       kitchen_light_level:
-        value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'lux') }}"
+        value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'lx') }}"
         unit_of_measurement: lux
 
       average_temperature:
