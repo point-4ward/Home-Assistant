@@ -16,9 +16,11 @@ from homeassistant.const import (CONF_IP_ADDRESS, CONF_TOKEN)
 from homeassistant.helpers.entity import Entity
 from homeassistant.util import Throttle
 
+__version__ = '0.7'
+
 _LOGGER = logging.getLogger(__name__)
 
-SCAN_INTERVAL = timedelta(seconds=1.2)
+SCAN_INTERVAL = timedelta(seconds=0.1)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_IP_ADDRESS): cv.string,
@@ -57,11 +59,11 @@ def parse_sml(response):
     if response['type'] == "ZLLLightLevel":
         lightlevel = response['state']['lightlevel']
         if lightlevel is not None:
-            lux = round(float(10**((lightlevel-1)/10000)), 2)
+            lx = round(float(10**((lightlevel-1)/10000)), 2)
             dark = response['state']['dark']
             daylight = response['state']['daylight']
             data = {'light_level': lightlevel,
-                    'lux': lux,
+                    'lx': lx,
                     'dark': dark,
                     'daylight': daylight, }
         else:
@@ -112,12 +114,23 @@ def parse_zgp(response):
 
 def parse_rwl(response):
     """Parse the json response for a RWL Hue remote."""
-    press = str(response['state']['buttonevent'])
 
-    if press[-1] in ['0', '2']:
-        button = str(press)[0] + '_click'
-    else:
-        button = str(press)[0] + '_hold'
+    """
+        I know it should be _released not _up
+        but _hold_up is too good to miss isn't it
+    """
+    responsecodes = {
+        '0' : "_click",
+        '1' : "_hold",
+        '2' : "_click_up",
+        '3' : "_hold_up"
+    }
+
+
+    button = ""
+    if response['state']['buttonevent']:
+        press = str(response['state']['buttonevent'])
+        button = str(press)[0] + responsecodes[press[-1]]
 
     data = {'model': 'RWL',
             'name': response['name'],
@@ -220,39 +233,42 @@ class HueSensor(Entity):
         """Update the sensor."""
         self._data.update()
         self._state = self._data.data[self._hue_id]['state']
-        if self._model == 'SML':
-            self._icon = 'mdi:run-fast'
-            self._attributes['light_level'] = self._data.data[
-                self._hue_id]['light_level']
-            self._attributes['battery'] = self._data.data[
-                self._hue_id]['battery']
-            self._attributes['last_updated'] = self._data.data[
-                self._hue_id]['last_updated']
-            self._attributes['lux'] = self._data.data[
-                self._hue_id]['lux']
-            self._attributes['dark'] = self._data.data[
-                self._hue_id]['dark']
-            self._attributes['daylight'] = self._data.data[
-                self._hue_id]['daylight']
-            self._attributes['temperature'] = self._data.data[
-                self._hue_id]['temperature']
-            self._attributes['on'] = self._data.data[
-                self._hue_id]['on']
-            self._attributes['reachable'] = self._data.data[
-                self._hue_id]['reachable']
-        elif self._model == 'RWL':
-            self._icon = 'mdi:remote'
-            self._attributes['last_updated'] = self._data.data[
-                self._hue_id]['last_updated']
-            self._attributes['battery'] = self._data.data[
-                self._hue_id]['battery']
-            self._attributes['on'] = self._data.data[
-                self._hue_id]['on']
-            self._attributes['reachable'] = self._data.data[
-                self._hue_id]['reachable']
-        elif self._model == 'ZGP':
-            self._icon = 'mdi:remote'
-            self._attributes['last_updated'] = self._data.data[
-                self._hue_id]['last_updated']
-        elif self._model == 'Geofence':
-            self._icon = 'mdi:cellphone'
+        try:
+            if self._model == 'SML':
+                self._icon = 'mdi:run-fast'
+                self._attributes['light_level'] = self._data.data[
+                    self._hue_id]['light_level']
+                self._attributes['battery'] = self._data.data[
+                    self._hue_id]['battery']
+                self._attributes['last_updated'] = self._data.data[
+                    self._hue_id]['last_updated']
+                self._attributes['lx'] = self._data.data[
+                    self._hue_id]['lx']
+                self._attributes['dark'] = self._data.data[
+                    self._hue_id]['dark']
+                self._attributes['daylight'] = self._data.data[
+                    self._hue_id]['daylight']
+                self._attributes['temperature'] = self._data.data[
+                    self._hue_id]['temperature']
+                self._attributes['on'] = self._data.data[
+                    self._hue_id]['on']
+                self._attributes['reachable'] = self._data.data[
+                    self._hue_id]['reachable']
+            elif self._model == 'RWL':
+                self._icon = 'mdi:remote'
+                self._attributes['last_updated'] = self._data.data[
+                    self._hue_id]['last_updated']
+                self._attributes['battery'] = self._data.data[
+                    self._hue_id]['battery']
+                self._attributes['on'] = self._data.data[
+                    self._hue_id]['on']
+                self._attributes['reachable'] = self._data.data[
+                    self._hue_id]['reachable']
+            elif self._model == 'ZGP':
+                self._icon = 'mdi:remote'
+                self._attributes['last_updated'] = self._data.data[
+                    self._hue_id]['last_updated']
+            elif self._model == 'Geofence':
+                self._icon = 'mdi:cellphone'
+        except:
+            _LOGGER.error("Error updating Hue sensors")

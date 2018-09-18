@@ -31,15 +31,6 @@ homeassistant:
       order: 6
 
 
-http:
-  api_password: !secret api_password
-  ip_ban_enabled: True
-  login_attempts_threshold: 3
-  ssl_certificate: !secret ssl_certificate
-  ssl_key: !secret ssl_key
-  base_url: !secret base_url
-
-
 duckdns:
   domain: !secret domain
   access_token: !secret access_token
