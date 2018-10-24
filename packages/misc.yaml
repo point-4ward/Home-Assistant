@@ -27,22 +27,3 @@ automation:
           message: "{{ trigger.event.data.title }}"
           notification_id: "podcast_update"
     #TODO - add a new entry to an input_select
-
-# sensor:
-#   - platform: birthday
-#     name: Marc
-#     day: 01
-#     month: 01
-
-
-# sensor:
-#   - platform: fitbit
-#
-#   - platform: fitbit
-#     filename: steve.conf
-#
-#   - platform: fitbit
-#     filename: bob.conf
-#
-#   - platform: fitbit
-#     filename: john.conf
