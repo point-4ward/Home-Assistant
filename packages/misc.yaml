@@ -27,7 +27,7 @@ automation:
           message: "{{ trigger.event.data.title }}"
           notification_id: "podcast_update"
     #TODO - add a new entry to an input_select
-
+captain_birdseye:
 # sensor:
 #   - platform: birthday
 #     name: Marc
