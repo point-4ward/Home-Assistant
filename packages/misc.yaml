@@ -33,7 +33,7 @@ automation:
 #     name: Marc
 #     day: 01
 #     month: 01
-
+captain:
 
 # sensor:
 #   - platform: fitbit
