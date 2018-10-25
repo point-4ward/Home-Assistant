@@ -15,10 +15,10 @@ jobs:
           name: Create environment
           command: |
             python3.6 -m venv .
-            source bin/activate
       - run:
           name: Install homeassistant
           command: |
+            source bin/activate
             pip3 install --pre --upgrade homeassistant
       - run:
           name: Check config
