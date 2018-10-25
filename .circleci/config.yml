@@ -7,20 +7,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Substitute private resources
+          name: Check config
           command: |
             touch fake.pem
             mv extras/github_resources/secrets_redacted.yaml secrets.yaml
-      - run:
-          name: Create environment
-          command: |
             python3.6 -m venv .
-      - run:
-          name: Install homeassistant
-          command: |
             source bin/activate
             pip3 install --pre --upgrade homeassistant
-      - run:
-          name: Check config
-          command: |
             hass -c . --script check_config --info all
