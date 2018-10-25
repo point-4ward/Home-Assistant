@@ -4,7 +4,7 @@ This is my current Home Automation setup, based on Homeassistant.  This is my li
 
 ## Information
 
-| [![TravisCI](https://travis-ci.org/mf-social/Home-Assistant.svg?branch=master)](https://travis-ci.org/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/mf-social/Home-Assistant.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
+| [![CircleCI](https://circleci.com/gh/mf-social/Home-Assistant.svg?style=shield)](https://circleci.com/gh/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/mf-social/Home-Assistant.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
 |:---:|:---:|
 | This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION) | This shows how up to date this repo is |
 | [![GitHub stars](https://img.shields.io/github/stars/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/stargazers) | [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) |
@@ -44,7 +44,7 @@ Click [here](extras/github_resources/readme_files/screenshots.md) to see how it 
 
 [HA examples](https://home-assistant.io/cookbook/) especially [CCOSTAN](https://github.com/CCOSTAN/Home-AssistantConfig)
 
-[Travis CI](https://travis-ci.org/) for checking configuration.
+[CircleCI](https://circleci.com) for checking configuration.
 
 [Uptime Robot](https://uptimerobot.com/) for checking my system is online.
 
