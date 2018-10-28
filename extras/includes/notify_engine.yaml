@@ -17,8 +17,6 @@ who: >
   {% if is_state('input_boolean.maintenance_mode','on') %} notify.mf
   {% elif tell == 'mf' %} notify.mf
   {% elif tell == 'ls' %} notify.ls
-  {% elif tell == 'cg' %} notify.cg
-  {% elif tell == 'all' %} notify.all
   {% elif tell == 'adults' %} notify.adults
   {% else %} {{ tell }} {% endif %}
 
