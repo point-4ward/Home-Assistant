@@ -39,15 +39,14 @@ homeassistant:
         entity_id: input_boolean.holiday_mode
 
 
-ios:
-
-
 device_tracker:
   - platform: bluetooth_tracker
     new_device_defaults:
       track_new_devices: false
 
-  - platform: gpslogger
+  - platform: gpslogger #TODO - remove this
+
+  - platform: owntracks_http
 
 
 switch:
@@ -229,39 +228,6 @@ automation:
         tell: mf
         message: ' a new trackable device has been detected'
 
-  - alias: Occupancy - Verify ios ls
-    initial_state: on
-    trigger:
-      platform: time
-      minutes: '/30'
-      seconds: 00
-    condition:
-      - condition: time
-        after: '08:00:00'
-        before: '23:00:00'
-      - condition: template
-        value_template:  "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.lauras_iphone.last_updated) > (61*60) }}"
-    action:
-      service: notify.ios_lauras_iphone
-      data:
-        message: "request_location_update"
-# TODO...
-  # - alias: Occupancy - Verify ios cg
-  #   initial_state: on
-  #   trigger:
-  #     platform: time
-  #     minutes: '/30'
-  #     seconds: 00
-  #   condition:
-  #     - condition: time
-  #       after: '08:00:00'
-  #       before: '23:00:00'
-  #     - condition: template
-  #       value_template:  "{{ as_timestamp(now()) - as_timestamp(states.device_tracker.courtney_iphone.last_updated) > (61*60) }}"
-  #   action:
-  #     service: notify.ios_???????????????????
-  #     data:
-  #       message: "request_location_update"
 
 script:
   empty_bedroom:
