@@ -44,8 +44,6 @@ device_tracker:
     new_device_defaults:
       track_new_devices: false
 
-  - platform: gpslogger #TODO - remove this
-
   - platform: owntracks_http
 
 
@@ -117,15 +115,18 @@ sensor:
 group:
   Phone trackers:
     - device_tracker.forthygpixel
-    - device_tracker.fa69j0300377
+    - device_tracker.marc_pixel
     - device_tracker.lauras_iphone
-    - device_tracker.courtney_iphone
+    - device_tracker.laura_iphone
     - device_tracker.courtney_iphone_bt
+    - device_tracker.courtney_iphone
+    - device_tracker.daniels_iphone
 
   Adults:
     - device_tracker.forthygpixel
-    - device_tracker.fa69j0300377
+    - device_tracker.marc_pixel
     - device_tracker.lauras_iphone
+    - device_tracker.laura_iphone
 
   Occupancy:
     name: ' '
