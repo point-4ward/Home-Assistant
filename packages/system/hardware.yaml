@@ -91,12 +91,6 @@ switch:
     switches: !include_dir_merge_named ../../extras/includes/ir_codes/
 
 
-sensor:
-  platform: hue
-  ip_address: !secret hue_hub_ip
-  token: !secret hue_token
-
-
 group:
   led_strips:
     name: LED strips
