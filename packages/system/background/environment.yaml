@@ -78,58 +78,80 @@ sensor:
           {% elif (states('sensor.dark_sky_precip_intensity')|int > 7) %} heavy_rain
           {% else %} clear {% endif %}
 
-      bathroom_temperature:
-        value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'temperature') }}"
-        unit_of_measurement: °C
-
-      bathroom_light_level:
-        value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'lx') }}"
-        unit_of_measurement: lux
-
-      attic_temperature:
-        value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'temperature') }}"
-        unit_of_measurement: °C
-
-      attic_light_level:
-        value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'lx') }}"
-        unit_of_measurement: lux
-
-      landing_temperature:
-        value_template: "{{ state_attr('sensor.landing_motion_motion' , 'temperature') }}"
-        unit_of_measurement: °C
-
-      landing_light_level:
-        value_template: "{{ state_attr('sensor.landing_motion_motion' , 'lx') }}"
-        unit_of_measurement: lux
-
-      hall_temperature:
-        value_template: "{{ state_attr('sensor.hall_motion_motion' , 'temperature') }}"
-        unit_of_measurement: °C
-
-      hall_light_level:
-        value_template: "{{ state_attr('sensor.hall_motion_motion' , 'lx') }}"
-        unit_of_measurement: lux
-
-      kitchen_temperature:
-        value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'temperature') }}"
-        unit_of_measurement: °C
-
-      kitchen_light_level:
-        value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'lx') }}"
-        unit_of_measurement: lux
-
-      average_temperature:
+      sunlight_pct:
+        entity_id:
+          - sun.sun
+          - sensor.dark_sky_cloud_coverage
         value_template: >
-          {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
-            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float)
-            + (states('sensor.kitchen_temperature')|float)) /5)|round(2) }}
-        unit_of_measurement: °C
+          {% set elevation = state_attr('sun.sun','elevation') | float %}
+          {% set cloud_coverage = states('sensor.dark_sky_cloud_coverage') | float %}
+          {% set cloud_factor = (1 - (0.75 * ( cloud_coverage / 100) ** 3 )) %}
+          {% set min_elevation = -6 %}
+          {% set max_elevation = 90 %}
+          {% set adjusted_elevation = elevation - min_elevation %}
+          {% set adjusted_elevation = [adjusted_elevation,0] | max %}
+          {% set adjusted_elevation = [adjusted_elevation,max_elevation - min_elevation] | min %}
+          {% set adjusted_elevation = adjusted_elevation / (max_elevation - min_elevation) %}
+          {% set adjusted_elevation = adjusted_elevation %}
+          {% set adjusted_elevation = adjusted_elevation * 100 %}
+          {% set brightness = adjusted_elevation * cloud_factor %}
+          {{ brightness | round }}
+        unit_of_measurement: '%'
+        device_class: 'illuminance'
 
-      average_light_level:
-        value_template: >
-          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
-            + (states('sensor.kitchen_light_level')|float)) /3)|round(2) }}
-        unit_of_measurement: lux
+#TODO - reinstate these when available
+      # bathroom_temperature:
+      #   value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'temperature') }}"
+      #   unit_of_measurement: °C
+      #
+      # bathroom_light_level:
+      #   value_template: "{{ state_attr('sensor.bathroom_motion_motion' , 'lx') }}"
+      #   unit_of_measurement: lux
+      #
+      # attic_temperature:
+      #   value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'temperature') }}"
+      #   unit_of_measurement: °C
+      #
+      # attic_light_level:
+      #   value_template: "{{ state_attr('sensor.stairs_motion_motion' , 'lx') }}"
+      #   unit_of_measurement: lux
+      #
+      # landing_temperature:
+      #   value_template: "{{ state_attr('sensor.landing_motion_motion' , 'temperature') }}"
+      #   unit_of_measurement: °C
+      #
+      # landing_light_level:
+      #   value_template: "{{ state_attr('sensor.landing_motion_motion' , 'lx') }}"
+      #   unit_of_measurement: lux
+      #
+      # hall_temperature:
+      #   value_template: "{{ state_attr('sensor.hall_motion_motion' , 'temperature') }}"
+      #   unit_of_measurement: °C
+      #
+      # hall_light_level:
+      #   value_template: "{{ state_attr('sensor.hall_motion_motion' , 'lx') }}"
+      #   unit_of_measurement: lux
+      #
+      # kitchen_temperature:
+      #   value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'temperature') }}"
+      #   unit_of_measurement: °C
+      #
+      # kitchen_light_level:
+      #   value_template: "{{ state_attr('sensor.kitchen_motion_sensor' , 'lx') }}"
+      #   unit_of_measurement: lux
+      #
+      # average_temperature:
+      #   value_template: >
+      #     {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
+      #       + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float)
+      #       + (states('sensor.kitchen_temperature')|float)) /5)|round(2) }}
+      #   unit_of_measurement: °C
+      #
+      # average_light_level:
+      #   value_template: >
+      #     {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
+      #       + (states('sensor.kitchen_light_level')|float)) /3)|round(2) }}
+      #   unit_of_measurement: lux
 
 
 binary_sensor:
