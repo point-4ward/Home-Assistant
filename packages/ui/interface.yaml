@@ -31,11 +31,6 @@ homeassistant:
       order: 6
 
 
-duckdns:
-  domain: !secret domain
-  access_token: !secret access_token
-
-
 frontend:
   javascript_version: auto
   themes: !include_dir_merge_named ../../extras/includes/themes/
@@ -62,12 +57,6 @@ customizer:
 
 
 sensor:
-  - platform: command_line
-    name: SSL cert expiry
-    unit_of_measurement: days
-    scan_interval: 10800
-    command: !secret ssl_command
-
   - platform: template
     sensors:
       hline_1:
@@ -126,10 +115,7 @@ group:
       - group.configure_external
       - group.batteries
       - group.all_alarm_clock
-
-
-shell_command:
-  renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+      - group.docker
 
 
 automation:
@@ -157,25 +143,3 @@ automation:
           {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
           {% elif is_state('input_boolean.dark' , 'on') %} midnight
           {% else %} default {% endif %}
-
-  - alias: Interface - Renew SSL certificate
-    initial_state: on
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.ssl_cert_expiry
-      below: 29
-    action:
-      service: shell_command.renew_ssl
-
-  - alias: Interface - SSL certificate expiry notification
-    initial_state: on
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.ssl_cert_expiry
-      below: 21
-    action:
-      service: script.notify
-      data:
-        tell: mf
-        no_say: 1
-        message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'

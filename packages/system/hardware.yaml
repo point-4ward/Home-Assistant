@@ -77,6 +77,8 @@ media_player:
 
 mqtt:
   broker: !secret mqtt_broker
+  username: !secret mqtt_username
+  password: !secret mqtt_password
   discovery: true
   discovery_prefix: homeassistant
 
