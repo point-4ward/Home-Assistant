@@ -45,10 +45,7 @@ device_tracker:
       track_new_devices: false
 
   - platform: owntracks_http
-<<<<<<< HEAD:homeassistant/packages/system/background/occupancy.yaml
     webhook_id: !secret owntracks_webhook
-=======
->>>>>>> master:packages/system/background/occupancy.yaml
 
 
 switch:
