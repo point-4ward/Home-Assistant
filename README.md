@@ -1,3 +1,5 @@
+# Changes are happening at Chateau mf_social!!  This repo is being reorganised, please bare with me whilst I get the README's caught up!!
+
 # My Home Assistant setup:
 
 This is my current Home Automation setup, based on Homeassistant.  This is my live system as it is running in my house at the moment.  I am currently tracking the beta channel of releases.  Below you will find links to how it is all organised, and I am in the process of adding a Wiki to this site that will explain how to create a system like mine from scratch...
