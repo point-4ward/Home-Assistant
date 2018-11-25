@@ -45,7 +45,10 @@ device_tracker:
       track_new_devices: false
 
   - platform: owntracks_http
+<<<<<<< HEAD:homeassistant/packages/system/background/occupancy.yaml
     webhook_id: !secret owntracks_webhook
+=======
+>>>>>>> master:packages/system/background/occupancy.yaml
 
 
 switch:
@@ -125,6 +128,7 @@ group:
     - device_tracker.marc_pixel
     - device_tracker.lauras_iphone
     - device_tracker.laura_iphone
+<<<<<<< HEAD:homeassistant/packages/system/background/occupancy.yaml
 
   Marc:
     - device_tracker.forthygpixel
@@ -141,6 +145,8 @@ group:
   Daniel:
     - device_tracker.daniels_iphone
 
+=======
+>>>>>>> master:packages/system/background/occupancy.yaml
 
   Occupancy:
     name: ' '
