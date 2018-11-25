@@ -31,15 +31,11 @@ homeassistant:
       order: 6
 
 
-<<<<<<< HEAD:homeassistant/packages/ui/interface.yaml
 http:
   ip_ban_enabled: True
   login_attempts_threshold: 3
   base_url: !secret base_url
 
-
-=======
->>>>>>> master:packages/ui/interface.yaml
 frontend:
   javascript_version: auto
   themes: !include_dir_merge_named ../../extras/includes/themes/
