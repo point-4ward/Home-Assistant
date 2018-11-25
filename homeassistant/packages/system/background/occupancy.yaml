@@ -125,7 +125,6 @@ group:
     - device_tracker.marc_pixel
     - device_tracker.lauras_iphone
     - device_tracker.laura_iphone
-<<<<<<< HEAD:homeassistant/packages/system/background/occupancy.yaml
 
   Marc:
     - device_tracker.forthygpixel
@@ -141,9 +140,6 @@ group:
 
   Daniel:
     - device_tracker.daniels_iphone
-
-=======
->>>>>>> master:packages/system/background/occupancy.yaml
 
   Occupancy:
     name: ' '
