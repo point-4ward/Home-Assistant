@@ -2,21 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7.0
+      - image: circleci/python:3.7-rc-node
     working_directory: ~/repo
     steps:
       - checkout
       - run:
           name: Check config
           command: |
-<<<<<<< HEAD
             mv homeassistant/extras/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
             python3.7 -m venv .
-=======
-            touch fake.pem
-            mv extras/github_resources/secrets_redacted.yaml secrets.yaml
-            python3.6 -m venv .
->>>>>>> master
             source bin/activate
             pip3 install --pre --upgrade homeassistant
             hass -c homeassistant/ --script check_config --info all
