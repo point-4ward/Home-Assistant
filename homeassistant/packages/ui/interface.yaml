@@ -120,10 +120,6 @@ group:
       - group.configure_external
       - group.batteries
       - group.all_alarm_clock
-<<<<<<< HEAD:homeassistant/packages/ui/interface.yaml
-=======
-      - group.docker
->>>>>>> master:packages/ui/interface.yaml
 
 
 automation:
