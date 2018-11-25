@@ -6,7 +6,7 @@
 
 .git
 marytts
-*mariadb*
+mariadb
 node-red
 organizr
 portainer
