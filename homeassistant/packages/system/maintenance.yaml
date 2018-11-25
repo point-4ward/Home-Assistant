@@ -74,37 +74,32 @@ weblink:
       url: https://uptimerobot.com
 
 switch:
-  - platform: hadockermon
-    host: 192.168.0.3
-    port: 8126
-    stats: true
-    prefix: hadockermon
+  platform: template
+  switches:
+    debug:
+      friendly_name: Show Debug View
+      value_template: "{{ is_state_attr('group.debug' , 'view' , true) }}"
+      turn_on:
+        - service: python_script.populate_catchall_group
+        - service: python_script.find_dead_items
+        - service: group.set
+          data:
+            object_id: debug
+            view: true
+            visible: true
+      turn_off:
+        - service: group.set
+          data:
+            object_id: debug
+            view: false
+            visible: false
+        - service: group.remove
+          data:
+            object_id: catchall
+        - service: group.remove
+          data:
+            object_id: deaditems
 
-  - platform: template
-    switches:
-      debug:
-        friendly_name: Show Debug View
-        value_template: "{{ is_state_attr('group.debug' , 'view' , true) }}"
-        turn_on:
-          - service: python_script.populate_catchall_group
-          - service: python_script.find_dead_items
-          - service: group.set
-            data:
-              object_id: debug
-              view: true
-              visible: true
-        turn_off:
-          - service: group.set
-            data:
-              object_id: debug
-              view: false
-              visible: false
-          - service: group.remove
-            data:
-              object_id: catchall
-          - service: group.remove
-            data:
-              object_id: deaditems
 
 input_boolean:
   maintenance_mode:
