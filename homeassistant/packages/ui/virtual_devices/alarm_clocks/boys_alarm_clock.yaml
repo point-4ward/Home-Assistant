@@ -1,0 +1,72 @@
+########################################################################
+#                                                                      #
+# This package creates an alarm clock which:                           #
+# - automatically switches the light on if it is dark when it goes off #
+# - allows to select if one time alarm, or repeating                   #
+#                                                                      #
+#         ******This one is for the Boys Bedroom******                 #
+#                                                                      #
+# DEPENDS ON: Environment and Occupancy                                #
+#                                                                      #
+########################################################################
+
+
+input_datetime:
+  boys_alarm_clock_time:
+    name: Alarm Time
+    has_date: false
+    has_time: true
+    initial: '07:30'
+
+
+input_boolean:
+  boys_alarm_clock_status:
+    name: Activate Alarm
+    icon: mdi:alarm-check
+
+  boys_alarm_clock_repeat:
+    name: Repeat?
+    icon: mdi:autorenew
+
+
+scene:
+  name: Boys wake up
+  entities:
+    light.boys:
+      state: on
+      transition: 120
+      brightness: 180
+
+
+automation:
+  alias: Alarm clock - Boys
+  initial_state: on
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.boys_alarm_clock_time' , 'timestamp')|int|timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: state
+      entity_id: group.phone_trackers
+      state: 'home'
+    - condition: state
+      entity_id: input_boolean.boys_alarm_clock_status
+      state: 'on'
+  action:
+    - service: script.boys_wake_up
+    - condition: state
+      entity_id: input_boolean.boys_alarm_clock_repeat
+      state: 'off'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.boys_alarm_clock_status
+
+
+script:
+  boys_wake_up:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.remote_boys_radio
+      - condition: state
+        entity_id: input_boolean.dark
+        state: 'on'
+      - service: homeassistant.turn_on
+        entity_id: scene.boys_wake_up

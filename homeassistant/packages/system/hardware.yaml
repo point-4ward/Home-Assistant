@@ -1,0 +1,116 @@
+###########################################
+#                                         #
+# This package contains the components,   #
+# and sensors for monitoring the hardware #
+# I have connected to my homeassistant    #
+#                                         #
+###########################################
+
+
+homeassistant:
+  customize:
+    media_player.everywhere:
+      friendly_name: Everywhere
+      icon: mdi:play
+
+    media_player.downstairs:
+      friendly_name: Downstairs
+      icon: mdi:play
+
+    media_player.livingroom:
+      friendly_name: Livingroom
+      icon: mdi:play
+
+    media_player.kitchen:
+      friendly_name: Kitchen
+      icon: mdi:play
+
+    media_player.bedroom:
+      friendly_name: Bedroom
+      icon: mdi:play
+
+    media_player.boys:
+      friendly_name: Boys
+      icon: mdi:play
+
+    media_player.girls:
+      friendly_name: Girls
+      icon: mdi:play
+
+    media_player.kids:
+      friendly_name: Kids
+      icon: mdi:play
+
+    media_player.adults:
+      friendly_name: Adults
+      icon: mdi:play
+
+
+hue:
+  bridges:
+    - host: !secret hue_hub_ip
+      allow_unreachable: true
+
+
+light:
+  platform: flux_led
+  devices: !secret flux_led_devices
+
+
+cast:
+
+
+media_player:
+  platform: kodi
+  name: Kodi
+  host: !secret media_host
+  port: !secret media_port
+  enable_websocket: false
+  username: !secret media_username
+  password: !secret media_password
+  turn_off_action:
+    service: media_player.kodi_call_method
+    data_template:
+      entity_id: "{{ entity_id }}"
+      method: System.Shutdown
+
+
+mqtt:
+  broker: !secret mqtt_broker
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
+
+
+switch:
+  - platform: tplink
+    host: !secret switch_tplink_host
+
+  - platform: broadlink
+    host: !secret switch_broadlink_host
+    mac: !secret switch_broadlink_mac
+    switches: !include_dir_merge_named ../../extras/includes/ir_codes/
+
+
+group:
+  led_strips:
+    name: LED strips
+    control: hidden
+    entities:
+      - light.led1
+      - light.led2
+      - light.led3
+
+
+automation:
+  alias: Hardware - Heater off after 15min
+  initial_state: on
+  trigger:
+    platform: state
+    entity_id: switch.heater
+    to: 'on'
+  action:
+    - delay: 00:15:00
+    - service: homeassistant.turn_off
+      entity_id: switch.heater

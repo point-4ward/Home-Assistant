@@ -1,0 +1,74 @@
+#########################################################
+#                                                       #
+# This package contains automations that send reminders #
+#                                                       #
+# DEPENDS ON: Occupancy                                 #
+#                                                       #
+#########################################################
+
+
+sensor:
+  - platform: command_line
+    name: MF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret mf_birthday
+
+  - platform: command_line
+    name: LS birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret ls_birthday
+
+  - platform: command_line
+    name: CG birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret cg_birthday
+
+  - platform: command_line
+    name: DF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret df_birthday
+
+  - platform: command_line
+    name: CF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret cf_birthday
+
+  - platform: command_line
+    name: VF birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret vf_birthday
+
+  - platform: command_line
+    name: ZS birthday
+    unit_of_measurement: days
+    scan_interval: 3600
+    command: !secret zs_birthday
+
+
+automation:
+  - alias: Reminder - Bin day
+    initial_state: on
+    trigger:
+      platform: time
+      at: '18:15:00'
+    condition:
+      - condition: time
+        weekday:
+          - wed
+      - condition: state
+        entity_id: input_boolean.holiday_mode
+        state: 'off'
+    action:
+      - wait_template: "{{ is_state('group.adults' , 'home') }}"
+        timeout: 14:00:00
+      - delay: 00:15:00
+      - service: script.notify
+        data:
+          tell: adults
+          message: "The bins need to go out tonight."

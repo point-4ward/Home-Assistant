@@ -1,0 +1,48 @@
+#
+#
+# TODO - comments
+#
+#
+
+
+## Sensitive config files by pattern
+
+*.xml
+*.txt
+*.conf
+*.db-journal
+*.json
+*.log
+*.db*
+*.sqlite
+*.pickle
+*.sh
+.*
+
+
+## System generated caches
+
+*pycache*
+
+
+## Folders
+tts
+deps
+private
+
+www/private
+
+
+## Specific sensitive files
+
+secrets.yaml
+known_devices.yaml
+entity_registry.yaml
+google_calendars.yaml
+ip_bans.yaml
+
+
+## Whitelist
+
+!/.HA_VERSION
+!/.gitignore

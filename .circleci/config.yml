@@ -2,18 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.4
+      - image: circleci/python:3.7.0
     working_directory: ~/repo
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "requirements.txt" }}
-          - v1-dependencies-
       - run:
-          name: install dependencies
+          name: Check config
           command: |
-            touch fake.pem
-            mv extras/github_resources/secrets_redacted.yaml secrets.yaml
+            mv homeassistant/extras/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
+            python3.7 -m venv .
+            source bin/activate
             pip3 install --pre --upgrade homeassistant
-            hass -c . --script check_config --info all
+            hass -c homeassistant/ --script check_config --info all

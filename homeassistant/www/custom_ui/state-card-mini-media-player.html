@@ -1,0 +1,211 @@
+<!--
+https://github.com/c727/home-assistant-mini-media-player
+version: 20180601
+-->
+<dom-module id='state-card-mini-media-player'>
+  <template>
+    <style include='iron-flex iron-flex-alignment'></style>
+    <style>
+      state-badge {
+        float: left;
+      }
+      .info {
+        margin-left: 56px;
+      }
+      .state,
+      .playername {
+        line-height: 40px;
+      }
+      .playername[has-info] {
+        line-height: 20px;
+      }
+      .mediainfo {
+        color: var(--secondary-text-color);
+      }
+      paper-dialog {
+        padding: 20px 8px;
+        border-radius: 2px;
+        font-weight: 500;
+        min-width: 500px;
+      }
+      @media screen and (max-width: 600px) {
+        paper-dialog {
+          position: absolute !important;
+          bottom: 0; left: 0; right: 0;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          margin: 0;
+        }
+      }
+      paper-button-group {
+        display: grid;
+        grid-template-columns: repeat(3, 120px);
+        grid-gap: 4px;
+        margin-top: 8px;
+        padding: 0;
+      }
+      paper-button {
+        background-color: var(--primary-color);
+        color: #FFF;
+        font-weight: 500;
+        width: 100%;
+        margin: 0;
+      }
+    </style>
+
+    <template is='dom-if' if='[[!playerObj]]'>
+      <div class='horizontal justified layout'>
+        <state-info state-obj='[[stateObj]]' in-dialog='[[dialog]]'></state-info>
+        <div class='state'>Offline</div>
+      </div>
+    </template>
+
+    <template is='dom-if' if='[[playerObj]]'>
+      <div class='horizontal justified layout' on-tap='openInfoCard'>
+        <div class='state-info'>
+          <state-badge state-obj='[[playerObj]]'></state-badge>
+          <div class='info'>
+            <div class='playername' has-info$='[[playerObj.hasMediaInfo]]'>[[computeStateName(playerObj)]]</div>
+            <div class='mediainfo' hidden='[[!playerObj.hasMediaInfo]]'>[[playerObj.mediaInfo]]</div>
+          </div>
+        </div>
+        <div class='horizontal layout'>
+          <paper-icon-button icon='mdi:power' on-tap='handlePowerTap'></paper-icon-button>
+        </div>
+      </div>
+
+      <template is='dom-if' if='[[!playerObj.isOff]]'>
+        <div class='info horizontal justified layout'>
+          <paper-icon-button icon='mdi:volume-off' on-tap='handleVolumeTap' hidden='[[!playerObj.isMuted]]'></paper-icon-button>
+          <paper-icon-button icon='mdi:volume-high' on-tap='handleVolumeTap' hidden='[[playerObj.isMuted]]'></paper-icon-button>
+          <paper-slider disabled='[[playerObj.isMuted]]'
+            min='0' max='100' value='[[playerObj.volumeSliderValue]]'
+            on-change='volumeSliderChanged' class='flex'>
+          </paper-slider>
+          <div class='horizontal layout'>
+            <paper-icon-button icon='mdi:skip-backward' on-tap='handlePreviousTap'></paper-icon-button>
+            <paper-icon-button icon='mdi:play' on-tap='handlePlayPauseTap' hidden='[[playerObj.isPlaying]]'></paper-icon-button>
+            <paper-icon-button icon='mdi:pause' on-tap='handlePlayPauseTap' hidden='[[!playerObj.isPlaying]]'></paper-icon-button>
+            <paper-icon-button icon='mdi:skip-forward' on-tap='handleNextTap'></paper-icon-button>
+          </div>
+        </div>
+      </template>
+      <paper-dialog id='infoCard'>
+        <template is='dom-if' if='[[config.buttons]]'>
+          Choose a playlist for [[computeStateName(playerObj)]]:
+          <paper-button-group>
+            <template is='dom-repeat' items='[[config.buttons]]'>
+              <paper-button raised on-tap='fireScript'>
+                <template is='dom-if' if='[[config.buttons]]'>
+                  <iron-icon icon='[[item.icon]]'></iron-icon>
+                </template>
+                [[item.name]]
+              </paper-button>
+            </template>
+          </paper-button-group>
+        </template>
+        <more-info-media_player
+          hass='[[hass]]'
+          state-obj='[[playerObj]]'
+        ></more-info-media_player>
+      </paper-dialog>
+    </template>
+  </template>
+</dom-module>
+
+<script>
+class StateCardMiniMediaPlayer extends Polymer.Element {
+  static get is() { return 'state-card-mini-media-player'; }
+
+  static get properties() {
+    return {
+      hass: Object,
+      stateObj: Object,
+      config: {
+        type: Object,
+        computed: 'computeConfig(stateObj)',
+      },
+      playerObj: {
+        type: Object,
+        computed: 'computePlayerObj(hass, config)',
+      },
+      dialog: {
+        type: Boolean,
+        value: false,
+      },
+    };
+  }
+
+  computeConfig(stateObj) {
+    return stateObj.attributes.config;
+  }
+
+  computePlayerObj(hass, config) {
+    if (config && config.player && hass.states[config.player]) {
+      var playerObj = hass.states[config.player];
+      playerObj.isOff = playerObj.state === 'off';
+      playerObj.isPlaying = playerObj.state === 'playing';
+      playerObj.hasMediaInfo = (playerObj.attributes.media_title || playerObj.attributes.app_name) ? true : false;
+      if (playerObj.hasMediaInfo) {
+        if (playerObj.attributes.media_title) {
+          playerObj.mediaInfo = playerObj.attributes.media_artist ? playerObj.attributes.media_artist + ' - ' + playerObj.attributes.media_title : playerObj.attributes.media_title;
+        } else {
+          playerObj.mediaInfo = playerObj.attributes.app_name;
+        }
+      }
+      playerObj.isMuted = playerObj.attributes.is_volume_muted;
+      playerObj.volumeSliderValue = playerObj.attributes.volume_level * 100;
+      return playerObj;
+    }
+    return null;
+  }
+
+  computeStateName(stateObj) {
+    return stateObj.attributes.friendly_name ||
+      (stateObj.entity_id).replace(/_/g, ' ');
+  }
+
+  handlePreviousTap(ev) {
+    ev.stopPropagation();
+    this.callService('media_previous_track');
+  }
+
+  handlePlayPauseTap(ev) {
+    ev.stopPropagation();
+    this.callService('media_play_pause');
+  }
+
+  handleNextTap(ev) {
+    ev.stopPropagation();
+    this.callService('media_next_track');
+  }
+
+  handlePowerTap(ev) {
+    ev.stopPropagation();
+    this.callService('toggle');
+  }
+
+  callService(service) {
+    this.hass.callService('media_player', service, { 'entity_id': this.playerObj.entity_id });
+  }
+
+  fireScript(ev) {
+    this.hass.callService('script', ev.model.item.script.split('.')[1], { 'entity_id': this.playerObj.entity_id });
+  }
+
+  handleVolumeTap() {
+    this.hass.callService('media_player', 'volume_mute', { 'entity_id': this.playerObj.entity_id, 'is_volume_muted': !this.playerObj.isMuted });
+  }
+
+  volumeSliderChanged(ev) {
+    var volPercentage = parseFloat(ev.target.value);
+    var vol = volPercentage > 0 ? volPercentage / 100 : 0;
+    this.hass.callService('media_player', 'volume_set', { 'entity_id': this.playerObj.entity_id, 'volume_level': vol });
+  }
+
+  openInfoCard() {
+    this.root.getElementById('infoCard').open();
+  }
+}
+customElements.define(StateCardMiniMediaPlayer.is, StateCardMiniMediaPlayer);
+</script>

@@ -1,0 +1,110 @@
+###################################################
+#                                                 #
+# This !include contains the configuration for    #
+# the tiles making up the lighting card in the UI #
+#                                                 #
+###################################################
+
+
+columns: 4
+column_width: 75px
+row_height: 75px
+text_uppercase: false
+entities:
+  - entity: light.kitchen
+    icon: mdi:silverware-variant
+    column: 1
+    row: 1
+  - entity: light.landing
+    icon: mdi:stairs
+    column: 2
+    row: 1
+  - entity: light.bathroom
+    icon: mdi:hot-tub
+    column: 3
+    row: 1
+  - entity: light.bedroom
+    icon: mdi:hotel
+    column: 4
+    row: 1
+
+  - entity: light.livingroom
+    icon: mdi:sofa
+    column: 1
+    row: 2
+  - entity: light.boys
+    icon: mdi:human-handsdown
+    column: 2
+    row: 2
+  - entity: light.girls
+    icon: mdi:human-female
+    column: 3
+    row: 2
+  - entity: script.remote_bedroom_bright
+    icon: mdi:hotel
+    label_sec: Bright
+    column: 4
+    row: 2
+
+  - entity: script.remote_livingroom_bright
+    label_sec: Bright
+    icon: mdi:sofa
+    column: 1
+    row: 3
+  - entity: script.remote_boys_bright
+    label_sec: Bright
+    icon: mdi:human-handsdown
+    column: 2
+    row: 3
+  - entity: script.remote_girls_bright
+    label_sec: Bright
+    icon: mdi:human-female
+    column: 3
+    row: 3
+  - entity: script.remote_bedroom_relax
+    icon: mdi:hotel
+    label_sec: Relax
+    column: 4
+    row: 3
+
+  - entity: script.remote_livingroom_dim
+    label_sec: Dim
+    icon: mdi:sofa
+    column: 1
+    row: 4
+  - entity: script.remote_boys_dim
+    label_sec: Dim
+    icon: mdi:human-handsdown
+    column: 2
+    row: 4
+  - entity: script.remote_girls_dim
+    label_sec: Dim
+    icon: mdi:human-female
+    column: 3
+    row: 4
+  - entity: script.remote_bedroom_dim
+    label_sec: Dim
+    icon: mdi:hotel
+    column: 4
+    row: 4
+
+  - entity: script.remote_livingroom_movie
+    label_sec: Movie
+    icon: mdi:sofa
+    column: 1
+    row: 5
+  - entity: script.remote_boys_nightlight
+    label_sec: Night
+    icon: mdi:human-handsdown
+    column: 2
+    row: 5
+  - entity: script.remote_girls_nightlight
+    label_sec: Night
+    icon: mdi:human-female
+    column: 3
+    row: 5
+  - entity: script.remote_bedroom_nightlight
+    label_sec: Night
+    icon: mdi:hotel
+    column: 4
+    row: 5

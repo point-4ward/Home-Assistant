@@ -1,0 +1,58 @@
+###################################################
+#                                                 #
+# This !include contains the configuration for    #
+# the tiles making up the bedroom card in the UI  #
+#                                                 #
+###################################################
+
+
+columns: 5
+column_width: 75px
+row_height: 75px
+entities:
+  - entity: light.bedroom
+    icon: mdi:lightbulb
+    column: 1
+    row: 1
+  - entity: switch.empty_bedroom
+    label: Empty
+    column: 2
+    row: 1
+  - entity: script.remote_bedroom_alarm_earlies
+    label: '5.30'
+    icon: mdi:alarm
+    column: 3
+    row: 1
+  - entity: script.remote_bedroom_alarm_school
+    label: '7.30'
+    icon: mdi:alarm
+    column: 4
+    row: 1
+
+  - entity: script.remote_bedroom_bright
+    label: Bright
+    column: 1
+    row: 2
+  - entity: script.remote_bedroom_relax
+    label: Relax
+    column: 2
+    row: 2
+  - entity: script.remote_bedroom_alarm_day
+    label: '8.30'
+    icon: mdi:alarm
+    column: 3
+    row: 2
+
+  - entity: script.remote_bedroom_dim
+    label: Dim
+    column: 1
+    row: 3
+  - entity: script.remote_bedroom_nightlight
+    label: Night
+    column: 2
+    row: 3
+  - entity: input_boolean.remote_bedroom_radio
+    label: Radio
+    column: 3
+    row: 3
+    column_span: 2

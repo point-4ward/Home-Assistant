@@ -1,0 +1,131 @@
+#######################################
+#                                     #
+# This !include contains the IR codes #
+# for the Virgin TV tivo box          #
+#                                     #
+#######################################
+
+
+virgin_key_0:
+  command_on: JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR0dHQALpA0FAAAAAAAAAAAAAAAAAAA=
+  command_off: JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR0dHQALpA0FAAAAAAAAAAAAAAAAAAA=
+
+virgin_key_1:
+  command_on: JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR06HQALhw0FAAAAAAAAAAAAAAAAAAA=
+  command_off: JgAYAB0dOh0dOjo6Oh0dHR0dHR0dHR06HQALhw0FAAAAAAAAAAAAAAAAAAA=
+
+virgin_key_2:
+  command_on: JgAWAB0dOh0dOjo6Oh0dHR0dHR0dOjoAC6QNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dHR0dHR0dOjoAC6QNBQ==
+
+virgin_key_3:
+  command_on: JgAYAB0dOh0dOjo6Oh0dHR0dHR0dOh0dHQALhw0FAAAAAAAAAAAAAAAAAAA=
+  command_off: JgAYAB0dOh0dOjo6Oh0dHR0dHR0dOh0dHQALhw0FAAAAAAAAAAAAAAAAAAA=
+
+virgin_key_4:
+  command_on: JgAWAB0dOh0dOjo6Oh0dHR0dHTo6HR0AC6QNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dHR0dHTo6HR0AC6QNBQ==
+
+virgin_key_5:
+  command_on: JgAWAB0dOh0dOjo6Oh0dHR0dHTo6Oh0AC4cNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dHR0dHTo6Oh0AC4cNBQ==
+
+virgin_key_6:
+  command_on: JgAWAB0dOh0dOjo6Oh0dHR0dHTodHToAC6QNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dHR0dHTodHToAC6QNBQ==
+
+virgin_key_7:
+  command_on: JgAYAB0dOh0dOjo6Oh0dHR0dHTodHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA=
+  command_off: JgAYAB0dOh0dOjo6Oh0dHR0dHTodHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA=
+
+virgin_key_8:
+  command_on: JgAWAB0dOh0dOjo6Oh0dHR06Oh0dHR0AC6QNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dHR06Oh0dHR0AC6QNBQ==
+
+virgin_key_9:
+  command_on: JgAWAB0dOh0dOjo6Oh0dHR06Oh0dOh0AC4cNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dHR06Oh0dOh0AC4cNBQ==
+
+virgin_key_pause:
+  command_on: JgAWAB0dOh0dOjo6Oh0dOjodHTodHR0AC4cNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dOjodHTodHR0AC4cNBQ==
+
+virgin_key_clear:
+  command_on: JgAWAB0dOh0dOjo6Oh0dOh0dOh0dOh0AC4cNBQ==
+  command_off: JgAWAB0dOh0dOjo6Oh0dOh0dOh0dOh0AC4cNBQ==
+
+virgin_key_channelup:
+  command_on: JgAWAB0dOh0dOjo6Ojo6HR0dHR0dHR0AC6QNBQ==
+  command_off: JgAWAB0dOh0dOjo6Ojo6HR0dHR0dHR0AC6QNBQ==
+
+virgin_key_channeldown:
+  command_on: JgAWAB0dOh0dOjo6Ojo6HR0dHR0dOh0AC4cNBQ==
+  command_off: JgAWAB0dOh0dOjo6Ojo6HR0dHR0dOh0AC4cNBQ==
+
+virgin_key_back:
+  command_on: JgASAB0dOh0dOjo6Ojo6Ojo6OgALpA0FAAAAAA==
+  command_off: JgASAB0dOh0dOjo6Ojo6Ojo6OgALpA0FAAAAAA==
+
+virgin_key_info:
+  command_on: JgAWAB0dOh0dOjo6Ojo6Oh0dHR0dHR0AC4cNBQ==
+  command_off: JgAWAB0dOh0dOjo6Ojo6Oh0dHR0dHR0AC4cNBQ==
+
+virgin_key_play:
+  command_on: JgAWAB0dOh0dOjo6OjodHTodHR0dHR0AC6QNBQ==
+  command_off: JgAWAB0dOh0dOjo6OjodHTodHR0dHR0AC6QNBQ==
+
+virgin_key_rewind:
+  command_on: JgAUAB0dOh0dOjo6OjodHTodHTo6AAukDQUAAA==
+  command_off: JgAUAB0dOh0dOjo6OjodHTodHTo6AAukDQUAAA==
+
+virgin_key_fastforward:
+  command_on: JgAUAB0dOh0dOjo6OjodHTo6Oh0dAAukDQUAAA==
+  command_off: JgAUAB0dOh0dOjo6OjodHTo6Oh0dAAukDQUAAA==
+
+virgin_key_stop:
+  command_on: JgAUAB0dOh0dOjo6OjodHTo6HR06AAukDQUAAA==
+  command_off: JgAUAB0dOh0dOjo6OjodHTo6HR06AAukDQUAAA==
+
+virgin_key_home:
+  command_on: JgAYADodHR0dOjo6Oh0dHR06HR0dHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA=
+  command_off: JgAYADodHR0dOjo6Oh0dHR06HR0dHR0dHQALhw0FAAAAAAAAAAAAAAAAAAA=
+
+virgin_key_up:
+  command_on: JgAWADodHR0dOjo6Oh0dOjodHR0dHR0AC6QNBQ==
+  command_off: JgAWADodHR0dOjo6Oh0dOjodHR0dHR0AC6QNBQ==
+
+virgin_key_down:
+  command_on: JgAWADodHR0dOjo6Oh0dOjodHR0dOh0AC4cNBQ==
+  command_off: JgAWADodHR0dOjo6Oh0dOjodHR0dOh0AC4cNBQ==
+
+virgin_key_tv:
+  command_on: JgAWADodHR0dOjo6Oh0dOjodHTodHR0AC4cNBQ==
+  command_off: JgAWADodHR0dOjo6Oh0dOjodHTodHR0AC4cNBQ==
+
+virgin_key_left:
+  command_on: JgAUADodHR0dOjo6Oh0dOjo6OjodAAuHDQUAAA==
+  command_off: JgAUADodHR0dOjo6Oh0dOjo6OjodAAuHDQUAAA==
+
+virgin_key_right:
+  command_on: JgAUADodHR0dOjo6Oh0dOjo6HR06AAukDQUAAA==
+  command_off: JgAUADodHR0dOjo6Oh0dOjo6HR06AAukDQUAAA==
+
+virgin_key_ok:
+  command_on: JgAWADodHR0dOjo6Oh0dOjo6HR0dHR0AC4cNBQ==
+  command_off: JgAWADodHR0dOjo6Oh0dOjo6HR0dHR0AC4cNBQ==
+
+virgin_key_red:
+  command_on: JgAUADodHR0dOjo6Ojo6Ojo6HR0dAAuHDQUAAA==
+  command_off: JgAUADodHR0dOjo6Ojo6Ojo6HR0dAAuHDQUAAA==
+
+virgin_key_green:
+  command_on: JgAUADodHR0dOjo6Ojo6Oh0dOh0dAAukDQUAAA==
+  command_off: JgAUADodHR0dOjo6Ojo6Oh0dOh0dAAukDQUAAA==
+
+virgin_key_yellow:
+  command_on: JgAUADodHR0dOjo6Ojo6Oh0dOjodAAuHDQUAAA==
+  command_off: JgAUADodHR0dOjo6Ojo6Oh0dOjodAAuHDQUAAA==
+
+virgin_key_blue:
+  command_on: JgAUADodHR0dOjo6Ojo6Oh0dHR06AAukDQUAAA==
+  command_off: JgAUADodHR0dOjo6Ojo6Oh0dHR06AAukDQUAAA==

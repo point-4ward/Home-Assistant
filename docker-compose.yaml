@@ -1,0 +1,111 @@
+#
+#
+# TODO - file title here
+#
+#
+
+version: '3'
+
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/home-assistant:rc
+    network_mode: host
+    volumes:
+      - /opt/docker/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    devices:
+      - /dev/ttyS0:/dev/ttyS0:rwm
+    restart: on-failure
+    depends_on:
+      - "mosquitto"
+      - "marytts"
+      - "mariadb"
+
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker/mosquitto:/mosquitto/config:ro
+      - /opt/docker/mosquitto:/mosquitto/data
+    restart: on-failure
+
+  marytts:
+    container_name: marytts
+    image: sliversniper/marytts
+    ports:
+      - "59125:59125"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    restart: on-failure
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - /opt/docker/mariadb:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - MYSQL_DATABASE=homeassistant
+      - MYSQL_USER=homeassistant
+      - MYSQL_PASSWORD=homeassistant
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    restart: on-failure
+
+#TODO - get this running...
+#  node-red:
+#    container_name: node-red
+#    image: nodered/node-red-docker
+#    ports:
+#      - "1880:1880"
+#    volumes:
+#      - /opt/docker/node-red:/data
+#      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
+#    restart: on-failure
+#    depends_on:
+#      - "mosquitto"
+#      - "homeassistant"
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    ports:
+      - "9000:9000"
+    volumes:
+      - /opt/docker/portainer:/data:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: on-failure
+
+  organizr:
+    container_name: organizr
+    image: lsiocommunity/organizr
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /opt/docker/organizr:/config:rw
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    environment:
+      - PGID=1000
+      - PUID=1000
+    restart: on-failure
+
+  syncthing:
+    container_name: syncthing
+    image: linuxserver/syncthing
+    network_mode: host
+    volumes:
+      - /opt/docker/syncthing:/config
+      - /opt:/config/Sync
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PGID=1000
+      - PUID=1000
+    restart: unless-stopped

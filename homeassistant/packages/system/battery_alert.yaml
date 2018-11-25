@@ -1,0 +1,155 @@
+#######################################################################
+#                                                                     #
+# This package monitors any devices that report their battery level   #
+# and creates a sensor for them, it then notifies me if the battery   #
+# level is below 20% so that I can change them                        #
+#                                                                     #
+#######################################################################
+
+
+homeassistant:
+  customize:
+    group.battery_alert:
+      custom_ui_state_card: state-card-custom-ui
+      state_card_mode: badges
+
+    sensor.bathroom_motion_motion_battery:
+      friendly_name: Bathroom sensor
+
+    sensor.livingroom_switch_battery:
+      friendly_name: Livingroom switch
+
+    sensor.stairs_motion_motion_battery:
+      friendly_name: Girls sensor
+
+    sensor.girls_switch_battery:
+      friendly_name: Girls switch
+
+    sensor.landing_motion_motion_battery:
+      friendly_name: Landing sensor
+
+    sensor.boys_switch_battery:
+      friendly_name: Boys switch
+
+    sensor.hall_motion_motion_battery:
+      friendly_name: Hall sensor
+
+    sensor.kitchen_motion_sensor_battery:
+      friendly_name: Kitchen sensor
+
+
+group:
+  battery alert:
+    - sensor.bathroom_motion_motion_battery
+    - sensor.livingroom_switch_battery
+    - sensor.stairs_motion_motion_battery
+    - sensor.girls_switch_battery
+    - sensor.landing_motion_motion_battery
+    - sensor.boys_switch_battery
+    - sensor.hall_motion_motion_battery
+    - sensor.kitchen_motion_sensor_battery
+
+  Batteries:
+    control: hidden
+    entities: group.battery_alert
+
+
+automation:
+  - alias: Battery alert - notification
+    initial_state: on
+    trigger:
+      - platform: numeric_state
+        entity_id:
+          - sensor.bathroom_motion_motion_battery
+          - sensor.livingroom_switch_battery
+          - sensor.stairs_motion_motion_battery
+          - sensor.girls_switch_battery
+          - sensor.landing_motion_motion_battery
+          - sensor.boys_switch_battery
+          - sensor.hall_motion_motion_battery
+          - sensor.kitchen_motion_sensor_battery
+        below: 21
+    action:
+      service: script.notify
+      data:
+        tell: adults
+        no_say: 1
+        message: "You have a low battery on one of your devices."
+
+  - alias: Battery alert - Sensor (level)
+    initial_state: on
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition:
+      - condition: template
+        value_template: "{{ (trigger.event.data is not none) and (trigger.event.data.new_state is not none)
+          and (trigger.event.data.new_state.attributes is not none) and (trigger.event.data.old_state is not none)
+          and ('battery' not in trigger.event.data.new_state.name|lower) }}"
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state.attributes.battery_level is defined }}"
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/config"
+          retain: true
+          payload: >
+            { "name": "{{ trigger.event.data.new_state.name }} Battery", "unit_of_measurement": "%",
+              "state_topic": "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/state" }
+      - service: mqtt.publish
+        data_template:
+          topic: "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/state"
+          retain: true
+          payload: "{{ trigger.event.data.new_state.attributes.battery_level|int }}"
+
+  - alias: Battery alert - Sensor (attribute)
+    initial_state: on
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition:
+      - condition: template
+        value_template: "{{ (trigger.event.data is not none) and (trigger.event.data.new_state is not none)
+          and (trigger.event.data.new_state.attributes is not none) and (trigger.event.data.old_state is not none)
+          and ('battery' not in trigger.event.data.new_state.name|lower) }}"
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state.attributes.battery is defined }}"
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/config"
+          retain: true
+          payload: >
+            { "name": "{{ trigger.event.data.new_state.name }} Battery", "unit_of_measurement": "%" ,
+              "state_topic": "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/state" }
+      - service: mqtt.publish
+        data_template:
+          topic: "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/state"
+          retain: true
+          payload: "{{ trigger.event.data.new_state.attributes.battery|int }}"
+
+  - alias: Battery alert - Sensor (numeric)
+    initial_state: on
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition:
+      - condition: template
+        value_template: "{{ (trigger.event.data is not none) and (trigger.event.data.new_state is not none)
+          and (trigger.event.data.new_state.attributes is not none) and (trigger.event.data.old_state is not none)
+          and ('battery' not in trigger.event.data.new_state.name|lower) }}"
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state.attributes['Battery numeric'] is defined }}"
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/config"
+          retain: true
+          payload: >
+            { "name": "{{ trigger.event.data.new_state.name }} Battery", "unit_of_measurement": "%",
+              "state_topic": "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/state" }
+      - service: mqtt.publish
+        data_template:
+          topic: "homeassistant/sensor/{{ trigger.event.data.new_state.object_id }}_battery/state"
+          retain: true
+          payload: "{{ (trigger.event.data.new_state.attributes['Battery numeric']|int + 1) * 10 }}"
