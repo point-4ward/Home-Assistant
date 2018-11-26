@@ -39,7 +39,6 @@ www/private
 
 secrets.yaml
 known_devices.yaml
-entity_registry.yaml
 google_calendars.yaml
 ip_bans.yaml
 
