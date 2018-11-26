@@ -12,10 +12,10 @@ recorder:
   purge_keep_days: 10
 
 
-logbook: !include ../../extras/includes/logging.yaml
+logbook: !include includes/logging.yaml
 
 
-history: !include ../../extras/includes/logging.yaml
+history: !include includes/logging.yaml
 
 
 python_script:
