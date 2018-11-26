@@ -61,6 +61,9 @@ homeassistant:
 
 
 custom_updater:
+  track:
+    - cards
+    - components
   card_urls:
     - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
 
