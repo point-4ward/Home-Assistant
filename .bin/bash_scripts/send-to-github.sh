@@ -6,9 +6,8 @@
 ## new branch called 'upload'     ##
 ####################################
 
-cd /opt/docker/homeassistant
+cd /opt/docker/
 git add .
-git checkout -b upload
 git commit -m "$1"
-git push origin upload
+git push origin master:upload
 exit

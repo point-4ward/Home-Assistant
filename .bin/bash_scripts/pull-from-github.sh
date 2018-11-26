@@ -6,9 +6,8 @@
 ## treats them as the 'master' copy ##
 ######################################
 
-cd /home/homeassistant/.homeassistant/
-git checkout master
-git branch -D upload
+cd /opt/docker
 git fetch origin master
 git reset --hard origin/master
-sudo systemctl restart home-assistant@homeassistant.service
+#TODO - restart the container
+exit
