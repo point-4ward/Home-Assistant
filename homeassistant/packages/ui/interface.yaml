@@ -38,7 +38,7 @@ http:
 
 frontend:
   javascript_version: auto
-  themes: !include_dir_merge_named ../../extras/includes/themes/
+  themes: !include_dir_merge_named includes/themes/
   extra_html_url:
     - /local/custom_ui/state-card-tiles.html
     - /local/custom_ui/state-card-mini-media-player.html

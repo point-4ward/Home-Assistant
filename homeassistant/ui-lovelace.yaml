@@ -1,8 +1,8 @@
-#
-#
-# TODO - description here
-#
-#
+########################################################
+#                                                      #
+# This file configures the homeassistant web interface #
+#                                                      #
+########################################################
 
 title: Home Assistant
 
@@ -190,7 +190,7 @@ views:
         entities:
           - entity: input_boolean.maintenance_mode
           #TODO - other maintenance stuff
-          
+
       - id: updater
         type: custom:tracker-card
         trackers:

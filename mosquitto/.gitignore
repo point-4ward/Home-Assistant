@@ -1,0 +1,18 @@
+##################################################################
+#                                                                #
+# This .gitignore file prevents all the sensitive data from this #
+# folder being included in the repo, just exposing the .conf     #
+# file for reference of how to configure the MQTT broker         #
+#                                                                #
+##################################################################
+
+
+# Ignore everything except whitelist
+
+*
+
+
+# Whitelist
+
+!.gitignore
+!mosquitto.conf
