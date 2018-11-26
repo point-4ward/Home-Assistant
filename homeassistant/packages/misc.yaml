@@ -27,7 +27,3 @@ automation:
           message: "{{ trigger.event.data.title }}"
           notification_id: "podcast_update"
     #TODO - add a new entry to an input_select
-    
-custom_updater:
-  card_urls:
-    - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json

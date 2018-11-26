@@ -12,7 +12,7 @@ This is my current Home Automation setup, based on Homeassistant.  This is my li
 | [![GitHub stars](https://img.shields.io/github/stars/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/stargazers) | [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) |
 | Please :star: this repo if you find it useful, like these people have. | This is like my TODO list |
 |[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)| [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) |
-| This tells you you can use anything you like from this repo for your project, gratis! | If you have any ideas, they're always welcome.  Either submit an issue or a PR, or drop me a message! |
+| This tells you that you can use anything you like from this repo for your project, gratis! | If you have any ideas, they're always welcome.  Either submit an issue or a PR, or drop me a message! |
 | [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m781496781-e11cc3f52039d8549430a954.svg)](https://uptimerobot.com/) | [![Buy Me A Beer](https://img.shields.io/badge/BuyMeABeer-Paypal-blue.svg)](https://www.paypal.me/marcforth) |
 | I use Uptime Robot to monitor my instance from outside in case of crashes - Guide coming soon. | Sometimes people want to buy me a beer when I've been helpful, now it's as easy as clicking the badge! |
 
@@ -24,7 +24,7 @@ This is my current Home Automation setup, based on Homeassistant.  This is my li
  - Boys' bedroom, Girls' bedroom and bathroom on the first floor.
  - Stairs leading to Master bedroom on the second floor.
 
-Click [here](extras/github_resources/readme_files/hardware_software.md) to see the Hardware and Software I am using around the house.
+Click [here](.bin/github_resources/readme_files/hardware_software.md) to see the Hardware and Software I am using around the house.
 
 ## What it does:
 
@@ -32,11 +32,11 @@ Click [here](extras/github_resources/readme_files/hardware_software.md) to see t
 
 ## Configuration
 
-Click [here](extras/github_resources/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
+Click [here](.bin/github_resources/readme_files/configuration.md) to see how I've configured it and how this repo is organised.
 
-Click [here](extras/github_resources/readme_files/backups.md) to see how I keep everything running smoothly by monitoring my instances uptime, checking the validity of my config and managing backups.
+Click [here](.bin/github_resources/readme_files/backups.md) to see how I keep everything running smoothly by monitoring my instances uptime, checking the validity of my config and managing backups.
 
-Click [here](extras/github_resources/readme_files/screenshots.md) to see how it looks!
+Click [here](.bin/github_resources/readme_files/screenshots.md) to see how it looks!
 
 ## Useful links/resources etc:
 

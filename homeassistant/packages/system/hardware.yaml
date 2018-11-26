@@ -90,7 +90,7 @@ switch:
   - platform: broadlink
     host: !secret switch_broadlink_host
     mac: !secret switch_broadlink_mac
-    switches: !include_dir_merge_named ../../extras/includes/ir_codes/
+    switches: !include_dir_merge_named includes/ir_codes/
 
 
 group:

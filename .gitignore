@@ -1,8 +1,13 @@
-#
-#
-# TODO - comments
-#
-#
+#######################################################
+#                                                     #
+# This is the top level .gitignore file which defines #
+# folders that are not committed to the repo          #
+#                                                     #
+#######################################################
+
+# Ignore the following folders that all contain only sensitive
+# information, so that only customised non-sensitive files
+# are committed to the repo
 
 .git
 marytts

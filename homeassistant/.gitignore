@@ -1,11 +1,13 @@
-#
-#
-# TODO - comments
-#
-#
+##############################################################
+#                                                            #
+# This .gitignore file prevents sensitive information from   #
+# my homeassistant instance being committed to the repo, and #
+# exposes just the configuration files for reference         #
+#                                                            #
+##############################################################
 
 
-## Sensitive config files by pattern
+# Ignore Sensitive config files by pattern
 
 *.xml
 *.txt
@@ -20,12 +22,12 @@
 .*
 
 
-## System generated caches
+# Ignore System generated caches
 
 *pycache*
 
 
-## Folders
+# Ignore Folders
 tts
 deps
 private
@@ -33,7 +35,7 @@ private
 www/private
 
 
-## Specific sensitive files
+# Ignore Specific sensitive files
 
 secrets.yaml
 known_devices.yaml
@@ -42,7 +44,8 @@ google_calendars.yaml
 ip_bans.yaml
 
 
-## Whitelist
+# Whitelist files that would be shared but would otherwise
+# be ignored due to pattern matching
 
 !/.HA_VERSION
 !/.gitignore

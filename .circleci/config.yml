@@ -1,8 +1,13 @@
+# python3.7 -m venv .
+# source bin/activate
+# pip3 install --pre --upgrade homeassistant
+
 version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7-rc-node
+#      - image: circleci/python:3.7-rc-node
+      - image: homeassistant/home-assistant:rc
     working_directory: ~/repo
     steps:
       - checkout
@@ -10,7 +15,4 @@ jobs:
           name: Check config
           command: |
             mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
-            python3.7 -m venv .
-            source bin/activate
-            pip3 install --pre --upgrade homeassistant
             hass -c homeassistant/ --script check_config --info all

@@ -1,8 +1,8 @@
-#
-#
-# TODO - file title here
-#
-#
+################################################################
+#                                                              #
+# This file defines the containers running in the docker stack #
+#                                                              #
+################################################################
 
 version: '3'
 
@@ -14,7 +14,7 @@ services:
     volumes:
       - /opt/docker/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+#      - /etc/letsencrypt:/etc/letsencrypt:ro
     devices:
       - /dev/ttyS0:/dev/ttyS0:rwm
     restart: on-failure
