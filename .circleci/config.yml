@@ -1,13 +1,17 @@
-# python3.7 -m venv .
-# source bin/activate
-# pip3 install --pre --upgrade homeassistant
+###########################################################
+#                                                         #
+# This file runs a check of my configuration before it is #
+# merged in to the master branch on Github to ensure that #
+# the code in the repo is fully valid                     #
+#                                                         #
+###########################################################
+
 
 version: 2
 jobs:
   build:
     docker:
-#      - image: circleci/python:3.7-rc-node
-      - image: homeassistant/home-assistant:rc
+      - image: homeassistant/amd64-homeassistant:rc
     working_directory: ~/repo
     steps:
       - checkout
