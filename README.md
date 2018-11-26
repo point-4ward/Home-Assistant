@@ -8,7 +8,7 @@ This is my current Home Automation setup, based on Homeassistant.  This is my li
 
 | [![CircleCI](https://circleci.com/gh/mf-social/Home-Assistant.svg?style=shield)](https://circleci.com/gh/mf-social/Home-Assistant) | [![LastCommit](https://img.shields.io/github/last-commit/mf-social/Home-Assistant.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master)|
 |:---:|:---:|
-| This shows whether the configuration in this repo is valid. [Version I'm running.](.HA_VERSION) | This shows how up to date this repo is |
+| This shows whether the configuration in this repo is valid. [Version I'm running.](homeassistant/.HA_VERSION) | This shows how up to date this repo is |
 | [![GitHub stars](https://img.shields.io/github/stars/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/stargazers) | [![GitHub issues](https://img.shields.io/github/issues/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/issues) |
 | Please :star: this repo if you find it useful, like these people have. | This is like my TODO list |
 |[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)| [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg?style=flat)](https://github.com/mf-social/Home-Assistant/pulls) |
