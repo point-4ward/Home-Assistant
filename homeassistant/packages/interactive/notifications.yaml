@@ -88,7 +88,7 @@ script:
   notify:
     sequence:
       - service: script.message
-        data_template: !include ../../extras/includes/notify_engine.yaml
+        data_template: !include ../../includes/notify_engine.yaml
 
   message:
     sequence:

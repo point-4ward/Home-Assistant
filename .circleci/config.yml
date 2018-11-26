@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Check config
           command: |
-            mv homeassistant/extras/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
+            mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
             python3.7 -m venv .
             source bin/activate
             pip3 install --pre --upgrade homeassistant
