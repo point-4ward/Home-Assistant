@@ -2,7 +2,7 @@
 
 [What do these badges all mean?](.bin/github_resources/readme_files/badges.md)
 
-# Changes are happening at Chateau mf_social!!  This repo is being reorganised, please bare with me whilst I get the README's caught up and get the Wiki written!!
+# Changes are happening at Chateau mf_social!!  This repo is being reorganised, please bear with me whilst I get the README's caught up and get the Wiki written!!
 
 
 # My Home Assistant setup:
@@ -10,7 +10,7 @@
 This is my current Home Automation setup, based on Homeassistant, running in docker.  This repo contains copies of non-sensitive configuration files for the containers I am using.  This is my live system as it is running in my house at the moment.  I am currently tracking the beta channel of Homeassistant releases.  Below you will find some explanatory notes, and the [Wiki](https://github.com/mf-social/Home-Assistant/wiki) explains exactly what this repo contains and how to create a system like mine from scratch...
 
 
-## What Sofware makes up your Home Automation System?
+## What Software makes up your Home Automation System?
 
 <details><summary>On my host system I have a few bash scripts that run mainanence and git operations, but the majority of the system is run in docker containers.  Expand to read more.</summary>
 <p>
