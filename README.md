@@ -46,6 +46,7 @@ This might help to visualise what's going on with my hardware devices.  I live i
  
 <details><summary>Around the house I have:</summary>
 <p>
+ 
  - A Dell Wyse thin client with 128GB SSD-Dom, with a CSL bluetooth adapter.  This is the main hub of my Home Automation system, and also has a 1TB external harddrive which functions as a NAS.
  
  - 3 x - NodeMCU boards with PIR sensors
@@ -90,6 +91,7 @@ Have a look at the [Wiki](https://github.com/mf-social/Home-Assistant/wiki) to s
 
 <details><summary>Some really useful resources are:</summary>
 <p>
+
 [Home Assistant](http://home-assistant.io) and the [Community Forum](https://community.home-assistant.io/)
 
 [Bruh's website](http://www.bruhautomation.com/) and [Youtube](https://www.youtube.com/c/bruhautomation1)
