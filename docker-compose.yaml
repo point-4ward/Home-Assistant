@@ -57,21 +57,6 @@ services:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
     restart: on-failure
 
-#TODO - get this running...
-#  node-red:
-#    container_name: node-red
-#    image: nodered/node-red-docker
-#    ports:
-#      - "1880:1880"
-#    volumes:
-#      - /opt/docker/node-red:/data
-#      - /etc/localtime:/etc/localtime:ro
-#      - /etc/timezone:/etc/timezone:ro
-#    restart: on-failure
-#    depends_on:
-#      - "mosquitto"
-#      - "homeassistant"
-
   portainer:
     container_name: portainer
     image: portainer/portainer
@@ -107,4 +92,16 @@ services:
     environment:
       - PGID=1000
       - PUID=1000
+    restart: unless-stopped
+
+  dropbox:
+    container_name: dropbox
+    image: drodgers/dropbox
+    network_mode: bridge
+    volumes:
+      - /opt/dropbox:/dbox/Dropbox
+      - /opt/docker:/dbox/Dropbox/Backup
+    environment:
+      - DBOX_UID=1000
+      - DBOX_GID=1000
     restart: unless-stopped

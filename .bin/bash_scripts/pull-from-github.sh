@@ -9,5 +9,5 @@
 cd /opt/docker
 git fetch origin master
 git reset --hard origin/master
-#TODO - restart the container
+docker restart homeassistant
 exit
