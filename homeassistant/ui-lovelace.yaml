@@ -35,8 +35,13 @@ views:
                         cards:
                           - type: entity-button
                             entity: device_tracker.forthygpixel
+                            name: ' '
                           - type: entity-button
                             entity: device_tracker.marc_pixel
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.mf
+                            name: ' '
                   - type: vertical-stack
                     cards:
                       - type: picture-entity
@@ -47,8 +52,13 @@ views:
                         cards:
                           - type: entity-button
                             entity: device_tracker.lauras_iphone
+                            name: ' '
                           - type: entity-button
                             entity: device_tracker.laura_iphone
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.ls
+                            name: ' '
               - type: horizontal-stack
                 cards:
                   - type: vertical-stack
@@ -61,8 +71,13 @@ views:
                         cards:
                           - type: entity-button
                             entity: device_tracker.courtney_iphone_bt
+                            name: ' '
                           - type: entity-button
                             entity: device_tracker.courtney_iphone
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.cg
+                            name: ' '
                   - type: vertical-stack
                     cards:
                       - type: picture-entity
@@ -72,9 +87,15 @@ views:
                       - type: horizontal-stack
                         cards:
                           - type: entity-button
-                            entity: device_tracker.daniel_bt
+                            entity: device_tracker.df
+                            name: ' '
                           - type: entity-button
-                            entity: device_tracker.daniel
+                            entity: device_tracker.df
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.df
+                            name: ' '
+
 
           - id: security
             type: entities

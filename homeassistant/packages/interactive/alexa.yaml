@@ -34,10 +34,6 @@ emulated_hue:
       name: "Bedroom heater"
       hidden: false
 
-    input_boolean.bedtime_mode:
-      name: "Bedtime Mode"
-      hidden: false
-
 
 input_boolean:
   radio_downstairs:
@@ -111,24 +107,3 @@ automation:
         entity_id:
           - input_boolean.radio_downstairs
           - input_boolean.radio_everywhere
-
-  - alias: Alexa - Bedtime mode
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: input_boolean.bedtime_mode
-      to: 'on'
-    action:
-      - service: tts.marytts_say
-        entity_id: media_player.livingroom
-        data:
-          message: 'Bedtime mode activated'
-      - service: homeassistant.turn_off
-        entity_id: light.livingroom
-      - service: script.set_hue_scene
-        data:
-          group: "Bedroom"
-          scene: "Relax"
-      - delay: 00:03:00
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.bedtime_mode
