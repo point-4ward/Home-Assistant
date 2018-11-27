@@ -10,7 +10,7 @@ resources:
   - url: /local/mini-media-player-bundle.js
     type: module
 
-  - url: /local/tracker-card.js?v=0
+  - url: /local/tracker-card.js?v=0.1.5
     type: js
 
 views:
