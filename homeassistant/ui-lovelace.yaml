@@ -7,7 +7,7 @@
 title: Home Assistant
 
 resources:
-  - url: /local/mini-media-player-bundle.js
+  - url: /local/mini-media-player-bundle.js?v=0.9.4
     type: module
 
   - url: /local/tracker-card.js?v=0.1.5

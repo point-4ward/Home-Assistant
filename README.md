@@ -7,7 +7,7 @@
 
 # My Home Assistant setup:
 
-This is my current Home Automation setup, based on Homeassistant, running in docker.  This repo contains copies of non-sensitive configuration files for the containers I am using.  This is my live system as it is running in my house at the moment.  I am currently tracking the beta channel of Homeassistant releases.  Below you will find some explanatory notes, and I am in the process of adding a Wiki to this site that will explain how to create a system like mine from scratch...
+This is my current Home Automation setup, based on Homeassistant, running in docker.  This repo contains copies of non-sensitive configuration files for the containers I am using.  This is my live system as it is running in my house at the moment.  I am currently tracking the beta channel of Homeassistant releases.  Below you will find some explanatory notes, and the [Wiki](https://github.com/mf-social/Home-Assistant/wiki) explains exactly what this repo contains and how to create a system like mine from scratch...
 
 
 ## What Sofware makes up your Home Automation System?
@@ -34,6 +34,8 @@ Portainer - a graphical manager for the docker stack
 Organizr - a webpage that you run on your server to help put all your services into one webpage.  This container also contains a nginx reverse proxy that directs web traffic to the correct container.
 </p>
 </details>
+
+[And here's how it looks.](.bin/github_resources/screenshots.md)
 
 
 ## What hardware do you use?:
