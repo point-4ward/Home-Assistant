@@ -38,12 +38,6 @@ Organizr - a webpage that you run on your server to help put all your services i
 
 ## What hardware do you use?:
 
-This might help to visualise what's going on with my hardware devices.  I live in a 3 storey townhouse, consisting of:
- - A living area on the ground floor (Living room and kitchen/diner)
- - Hall stairs and landing leading to first floor.
- - Boys' bedroom, Girls' bedroom and bathroom on the first floor.
- - Stairs leading to Master bedroom on the second floor.
- 
 <details><summary>Around the house I have:</summary>
 <p>
  
@@ -81,6 +75,19 @@ This might help to visualise what's going on with my hardware devices.  I live i
  
  - Telegram App (on mobiles) - for two-way conversations with Homeassistant.
 
+</p>
+</details>
+
+ 
+<details><summary>This might help to visualise what's going on with my hardware devices:</summary>
+<p>
+
+I live in a 3 storey townhouse, consisting of:
+ - A living area on the ground floor (Living room and kitchen/diner)
+ - Hall stairs and landing leading to first floor.
+ - Boys' bedroom, Girls' bedroom and bathroom on the first floor.
+ - Stairs leading to Master bedroom on the second floor.
+ 
 </p>
 </details>
 
