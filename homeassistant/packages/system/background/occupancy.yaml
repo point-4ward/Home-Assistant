@@ -47,6 +47,11 @@ device_tracker:
   - platform: owntracks_http
     webhook_id: !secret owntracks_webhook
 
+  - platform: ping
+    hosts:
+      mf: !secret ping_mf
+      ls: !secret ping ls
+
 
 switch:
   platform: template
