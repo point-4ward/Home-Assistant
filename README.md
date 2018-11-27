@@ -35,7 +35,8 @@ Organizr - a webpage that you run on your server to help put all your services i
 </p>
 </details>
 
-[And here's how it looks.](.bin/github_resources/screenshots.md)
+
+[And here's how it looks.](.bin/github_resources/readme_files/screenshots.md)
 
 
 ## What hardware do you use?:
