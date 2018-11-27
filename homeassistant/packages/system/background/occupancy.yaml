@@ -50,7 +50,7 @@ device_tracker:
   - platform: ping
     hosts:
       mf: !secret ping_mf
-      ls: !secret ping ls
+      ls: !secret ping_ls
 
 
 switch:
