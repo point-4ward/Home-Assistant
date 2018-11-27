@@ -40,14 +40,11 @@ homeassistant:
 
 group:
   battery alert:
-    - sensor.bathroom_motion_motion_battery
-    - sensor.livingroom_switch_battery
-    - sensor.stairs_motion_motion_battery
-    - sensor.girls_switch_battery
-    - sensor.landing_motion_motion_battery
-    - sensor.boys_switch_battery
-    - sensor.hall_motion_motion_battery
-    - sensor.kitchen_motion_sensor_battery
+    - sensor.bathroom_battery
+    - sensor.attic_battery
+    - sensor.landing_battery
+    - sensor.hall_battery
+    - sensor.kitchen_battery
 
   Batteries:
     control: hidden
@@ -60,14 +57,11 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id:
-          - sensor.bathroom_motion_motion_battery
-          - sensor.livingroom_switch_battery
-          - sensor.stairs_motion_motion_battery
-          - sensor.girls_switch_battery
-          - sensor.landing_motion_motion_battery
-          - sensor.boys_switch_battery
-          - sensor.hall_motion_motion_battery
-          - sensor.kitchen_motion_sensor_battery
+          - sensor.bathroom_battery
+          - sensor.attic_battery
+          - sensor.landing_battery
+          - sensor.hall_battery
+          - sensor.kitchen_battery
         below: 21
     action:
       service: script.notify
