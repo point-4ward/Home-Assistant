@@ -51,6 +51,7 @@ device_tracker:
     hosts:
       mf: !secret ping_mf
       ls: !secret ping_ls
+      cg: !secret ping_cg
 
 
 switch:
@@ -166,7 +167,6 @@ group:
       - sensor.hline_3
       - group.all_automations
       - input_boolean.bathtime_mode
-      - input_boolean.bedtime_mode
 
 
 alert:
