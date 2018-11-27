@@ -123,7 +123,10 @@ group:
     - device_tracker.laura_iphone
     - device_tracker.courtney_iphone_bt
     - device_tracker.courtney_iphone
-    - device_tracker.daniels_iphone
+    - device_tracker.mf
+    - device_tracker.ls
+    - device_tracker.cg
+    - device_tracker.df
 
   Adults:
     - device_tracker.forthygpixel
@@ -134,17 +137,20 @@ group:
   Marc:
     - device_tracker.forthygpixel
     - device_tracker.marc_pixel
+    - device_tracker.mf
 
   Laura:
     - device_tracker.lauras_iphone
     - device_tracker.laura_iphone
+    - device_tracker.ls
 
   Courtney:
     - device_tracker.courtney_iphone_bt
     - device_tracker.courtney_iphone
+    - device_tracker.cg
 
   Daniel:
-    - device_tracker.daniels_iphone
+    - device_tracker.df
 
   Occupancy:
     name: ' '

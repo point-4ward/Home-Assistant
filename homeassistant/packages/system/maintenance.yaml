@@ -42,12 +42,6 @@ homeassistant:
       custom_ui_state_card: state-card-script-custom-text
       custom_text: "Guthub Pull And Restart"
 
-    script.quick_reboot:
-      icon: mdi:server-network
-      can_cancel: false
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Reboot Node-Zero"
-
     script.quick_restart:
       icon: mdi:home-assistant
       can_cancel: false
@@ -129,7 +123,6 @@ group:
       - switch.debug
       - sensor.hline_1
       - script.quick_restart
-      - script.quick_reboot
       - script.upgrade_hass
       - script.github_pull
       - sensor.hline_2
@@ -151,13 +144,6 @@ group:
     entities:
       - group.catchall
       - group.deaditems
-
-  Docker:
-    - switch.hadockermonhomeassistant
-    - switch.hadockermonmosquitto
-    - switch.hadockermonorganizr
-    - switch.hadockermonha_dockermon
-    - switch.hadockermonportainer
 
 
 shell_command:
