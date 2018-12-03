@@ -1,0 +1,20 @@
+################################################
+#                                              #
+# This is my main configuration.yaml. I use    #
+# a package-based split-configuration format,  #
+# please see the ReadMe files for details on   #
+# how this is done, and thusly how this repo   #
+# is organised in to the various files/folders #
+#                                              #
+################################################
+
+
+homeassistant:
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+
+  time_zone: !secret time_zone
+  unit_system: metric
+
+  packages: !include_dir_named packages/

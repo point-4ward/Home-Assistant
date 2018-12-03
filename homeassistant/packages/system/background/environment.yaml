@@ -1,0 +1,223 @@
+#####################################################
+#                                                   #
+# This package contains the components and sensors  #
+# I use to monitor environmental factors            #
+#                                                   #
+#####################################################
+
+
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_secret
+
+
+sun:
+
+
+zone:
+  - name: Chace
+    latitude: !secret chace_lat
+    longitude: !secret chace_long
+
+  - name: CV Central
+    latitude: !secret cv_central_lat
+    longitude: !secret cv_central_long
+
+  - name: Wiseman
+    latitude: !secret wiseman_lat
+    longitude: !secret wiseman_long
+
+
+input_boolean:
+  dark:
+
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    units: auto
+    update_interval:
+      minutes: 60
+    monitored_conditions:
+      - summary
+      - minutely_summary
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - apparent_temperature
+      - temperature_low
+      - dew_point
+      - wind_speed
+      - cloud_cover
+      - humidity
+      - uv_index
+
+  - platform: moon
+
+  - platform: airvisual
+    api_key: !secret airvisual_api_key
+    monitored_conditions: us
+    show_on_map: false
+
+  - platform: template
+    sensors:
+      calendar:
+        value_template: !secret google_calendar_sensor
+
+      bad_weather:
+        value_template: >
+          {% if is_state('sensor.dark_sky_precip' , 'snow') %} snow
+          {% elif ((states('sensor.dark_sky_daily_low_temperature')|int < 4) and (states('sensor.dark_sky_dew_point')|int < 6)
+            and (states('sensor.dark_sky_wind_speed')|int < 12) and (states('sensor.dark_sky_cloud_coverage')|int < 20)
+            and (states('sensor.dark_sky_humidity')|int > 50)) %} frost
+          {% elif (states('sensor.dark_sky_precip_intensity')|int > 7) %} heavy_rain
+          {% else %} clear {% endif %}
+
+      sunlight_pct:
+        entity_id:
+          - sun.sun
+          - sensor.dark_sky_cloud_coverage
+        value_template: >
+          {% set elevation = state_attr('sun.sun','elevation') | float %}
+          {% set cloud_coverage = states('sensor.dark_sky_cloud_coverage') | float %}
+          {% set cloud_factor = (1 - (0.75 * ( cloud_coverage / 100) ** 3 )) %}
+          {% set min_elevation = -6 %}
+          {% set max_elevation = 90 %}
+          {% set adjusted_elevation = elevation - min_elevation %}
+          {% set adjusted_elevation = [adjusted_elevation,0] | max %}
+          {% set adjusted_elevation = [adjusted_elevation,max_elevation - min_elevation] | min %}
+          {% set adjusted_elevation = adjusted_elevation / (max_elevation - min_elevation) %}
+          {% set adjusted_elevation = adjusted_elevation %}
+          {% set adjusted_elevation = adjusted_elevation * 100 %}
+          {% set brightness = adjusted_elevation * cloud_factor %}
+          {{ brightness | round }}
+        unit_of_measurement: '%'
+        device_class: 'illuminance'
+
+      average_temperature:
+        value_template: >
+          {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
+            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float)
+            + (states('sensor.kitchen_temperature')|float)) /5)|round(2) }}
+        unit_of_measurement: °C
+
+      average_light_level:
+        value_template: >
+          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
+            + (states('sensor.kitchen_light_level')|float)) /3)|round(2) }}
+        unit_of_measurement: lx
+
+  - platform: rest
+    name: Bathroom temperature
+    resource: !secret hue_resource_bathroom_temp
+    value_template: "{{ value_json.state.temperature|float / 100 }}"
+    unit_of_measurement: °C
+
+  - platform: rest
+    name: Bathroom light level
+    resource: !secret hue_resource_bathroom_lx
+    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
+    unit_of_measurement: lx
+
+  - platform: rest
+    name: Bathroom battery
+    resource: !secret hue_resource_bathroom_motion
+    value_template: "{{ value_json.config.battery }}"
+    unit_of_measurement: "%"
+
+  - platform: rest
+    name: Hall temperature
+    resource: !secret hue_resource_hall_temp
+    value_template: "{{ value_json.state.temperature|float / 100 }}"
+    unit_of_measurement: °C
+
+  - platform: rest
+    name: Hall light level
+    resource: !secret hue_resource_hall_lx
+    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
+    unit_of_measurement: lx
+
+  - platform: rest
+    name: Hall battery
+    resource: !secret hue_resource_hall_motion
+    value_template: "{{ value_json.config.battery }}"
+    unit_of_measurement: "%"
+
+  - platform: rest
+    name: Kitchen temperature
+    resource: !secret hue_resource_kitchen_temp
+    value_template: "{{ value_json.state.temperature|float / 100 }}"
+    unit_of_measurement: °C
+
+  - platform: rest
+    name: Kitchen light level
+    resource: !secret hue_resource_kitchen_lx
+    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
+    unit_of_measurement: lx
+
+  - platform: rest
+    name: Kitchen battery
+    resource: !secret hue_resource_kitchen_motion
+    value_template: "{{ value_json.config.battery }}"
+    unit_of_measurement: "%"
+
+  - platform: rest
+    name: Attic temperature
+    resource: !secret hue_resource_attic_temp
+    value_template: "{{ value_json.state.temperature|float / 100 }}"
+    unit_of_measurement: °C
+
+  - platform: rest
+    name: Attic light level
+    resource: !secret hue_resource_attic_lx
+    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
+    unit_of_measurement: lx
+
+  - platform: rest
+    name: Attic battery
+    resource: !secret hue_resource_attic_motion
+    value_template: "{{ value_json.config.battery }}"
+    unit_of_measurement: "%"
+
+  - platform: rest
+    name: Landing temperature
+    resource: !secret hue_resource_landing_temp
+    value_template: "{{ value_json.state.temperature|float / 100 }}"
+    unit_of_measurement: °C
+
+  - platform: rest
+    name: Landing light level
+    resource: !secret hue_resource_landing_lx
+    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
+    unit_of_measurement: lx
+
+  - platform: rest
+    name: Landing battery
+    resource: !secret hue_resource_landing_motion
+    value_template: "{{ value_json.config.battery }}"
+    unit_of_measurement: "%"
+
+
+binary_sensor:
+  platform: iss
+
+automation:
+  alias: Environment - Darkness monitor
+  initial_state: on
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.average_light_level
+      below: 20
+    - platform: numeric_state
+      entity_id: sensor.average_light_level
+      above: 40
+  action:
+    service_template: >
+      {% if states('sensor.average_light_level')|int < 21 %} homeassistant.turn_on
+      {% else %} homeassistant.turn_off {% endif %}
+    entity_id: input_boolean.dark

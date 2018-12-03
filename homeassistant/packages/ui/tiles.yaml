@@ -1,0 +1,146 @@
+#######################################################
+#                                                     #
+# This package configures the custom-ui-tiles I use   #
+# in the frontend, the configuration is long so it is #
+# split in to includes, and the scripts in this       #
+# configuration are purely for one-touch purposes in  #
+# the UI, such as remotes or 'quick' settings         #
+#                                                     #
+#######################################################
+
+
+homeassistant:
+  customize:
+    input_text.lights:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/lights.yaml
+
+    input_text.bedroom:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/bedroom.yaml
+
+    input_text.boys:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/boys.yaml
+
+    input_text.girls:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/girls.yaml
+
+    input_text.av_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/av_remote.yaml
+
+    input_text.tv_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/tv_remote.yaml
+
+    input_text.bluray_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/bluray_remote.yaml
+
+    input_text.cctv_remote:
+      custom_ui_state_card: state-card-tiles
+      config: !include ../../includes/tiles/cctv_remote.yaml
+
+
+input_boolean:
+  remote_bedroom_radio:
+
+  remote_boys_radio:
+
+  remote_girls_radio:
+
+  bluray_power:
+    initial: off
+
+  kodi_power:
+    initial: off
+
+input_text:
+  lights:
+    name: lights
+
+  bedroom:
+    name: bedroom
+
+  boys:
+    name: boys
+
+  girls:
+    name: girls
+
+  av_remote:
+    name: av_remote
+
+  tv_remote:
+    name: tv_remote
+
+  bluray_remote:
+    name: bluray_remote
+
+  cctv_remote:
+    name: cctv_remote
+
+
+group:
+  tiles_lights:
+    name: ' '
+    entities: input_text.lights
+
+  tiles_bedroom:
+    name: Bedroom
+    control: hidden
+    entities:
+      - input_select.bedroom_scenes
+      - input_text.bedroom
+      - sensor.hline_1
+      - input_boolean.bedroom_alarm_clock_status
+      - input_datetime.bedroom_alarm_clock_time
+      - input_boolean.bedroom_alarm_clock_repeat
+      - sensor.hline_2
+      - input_text.media_bedroom
+
+  tiles_boys:
+    name: Boys
+    control: hidden
+    entities:
+      - input_text.boys
+      - sensor.hline_1
+      - input_boolean.boys_alarm_clock_status
+      - input_datetime.boys_alarm_clock_time
+      - input_boolean.boys_alarm_clock_repeat
+      - sensor.hline_2
+      - input_text.media_boys
+
+  tiles_girls:
+    name: Girls
+    control: hidden
+    entities:
+     - input_text.girls
+     - sensor.hline_1
+     - input_boolean.girls_alarm_clock_status
+     - input_datetime.girls_alarm_clock_time
+     - input_boolean.girls_alarm_clock_repeat
+     - sensor.hline_2
+     - input_text.media_girls
+
+  tiles_av_remote:
+    name: ' '
+    entities: input_text.av_remote
+
+  tiles_tv_remote:
+    name: TV
+    entities: input_text.tv_remote
+
+  tiles_bluray_remote:
+    name: Blu-Ray
+    entities: input_text.bluray_remote
+
+  tiles_cctv_remote:
+    name: CCTV
+    entities: input_text.cctv_remote
+
+
+automation: !include ../../includes/tiles/automation.yaml
+script: !include ../../includes/tiles/script.yaml

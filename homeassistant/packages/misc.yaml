@@ -1,0 +1,29 @@
+####################################################
+#                                                  #
+# This package is where I place things that I'm    #
+# testing - like if I add a new platform I may     #
+# add notification automations here to ensure      #
+# they are working as expected.  I also add things #
+# that are short term - like Xmas lights or one    #
+# off automations, or anything else seasonal       #
+#                                                  #
+####################################################
+
+feedreader:
+  urls:
+    - https://hasspodcast.io/feed/podcast
+
+automation:
+  - alias: Test - HA podcast_update test
+    initial_state: on
+    trigger:
+      platform: event
+      event_type: feedreader
+    #TODO - add a condition that checks it's a HA one
+    action:
+      - service: persistent_notification.create
+        data_template:
+          title: "New HA Podcast available"
+          message: "{{ trigger.event.data.title }}"
+          notification_id: "podcast_update"
+    #TODO - add a new entry to an input_select

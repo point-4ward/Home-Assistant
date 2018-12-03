@@ -1,0 +1,22 @@
+###########################################################
+#                                                         #
+# This file runs a check of my configuration before it is #
+# merged in to the master branch on Github to ensure that #
+# the code in the repo is fully valid                     #
+#                                                         #
+###########################################################
+
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: homeassistant/amd64-homeassistant
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Check config
+          command: |
+            mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
+            hass -c homeassistant/ --script check_config --info all

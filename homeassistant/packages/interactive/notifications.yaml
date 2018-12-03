@@ -1,0 +1,164 @@
+###################################################
+#                                                 #
+# This package contains the components I use to   #
+# notify, and be notified by, homeassistant       #
+# and an engine that translates the notifications #
+# in to text messages, on screen notifications,   #
+# and to TTS over the speakers (see !include)     #
+#                                                 #
+###################################################
+
+
+tts:
+  platform: marytts
+  language: 'en-GB'
+  host: !secret host_ip
+
+
+telegram_bot:
+  platform: polling
+  api_key: !secret telegram_bot_api_key
+  parse_mode: html
+  allowed_chat_ids:
+    - !secret telegram_bot_chat_id_mf
+    - !secret telegram_bot_chat_id_ls
+
+
+notify:
+  - platform: telegram
+    name: mf
+    chat_id: !secret telegram_bot_chat_id_mf
+
+  - platform: telegram
+    name: ls
+    chat_id: !secret telegram_bot_chat_id_ls
+
+  - platform: group
+    name: adults
+    services:
+      - service: mf
+      - service: ls
+
+
+variable:
+  save_adults:
+    value: 0
+
+  save_bedroom:
+    value: 0
+
+  save_boys:
+    value: 0
+
+  save_downstairs:
+    value: 0
+
+  save_everywhere:
+    value: 0
+
+  save_kids:
+    value: 0
+
+  save_kitchen:
+    value: 0
+
+  save_livingroom:
+    value: 0
+
+#TODO ...
+# {% for state in states.media_player -%}
+#   {% if state.state == "playing" %}
+#     {{ state.name | lower }} is {{state.attributes.media_content_id}}
+#   {% else %}
+#     {{state.name | lower }} is 0
+#   {% endif %}
+# {%- endfor %}
+
+
+input_boolean:
+  priority_message:
+    initial: off
+
+
+binary_sensor:
+  platform: random
+
+
+script:
+  notify:
+    sequence:
+      - service: script.message
+        data_template: !include ../../includes/notify_engine.yaml
+
+  message:
+    sequence:
+      - service: script.announce
+        data_template:
+          no_say: "{{ no_say }}"
+          media_player: "{{ media_player }}"
+          message: "{{ message }}"
+      - service: script.text
+        data_template:
+          who: "{{ who }}"
+          message: "{{ message }}"
+      - service: script.on_screen
+        data_template:
+          no_show: "{{ no_show }}"
+          message: "{{ message }}"
+
+  announce:
+    sequence:
+      - condition: template
+        value_template: "{{ no_say|length == 0 }}"
+      - condition: or
+        conditions:
+          - condition: time
+            after: '07:30:00'
+            before: '23:00:00'
+          - condition: state
+            entity_id: input_boolean.priority_message
+            state: 'on'
+      - service: media_player.volume_set
+        data_template:
+          entity_id: "{{ media_player }}"
+          volume_level: >
+            {% if now().hour < 7 or now().hour > 22 %} 0.2
+            {% elif now().hour > 7 or now().hour < 9 %} 0.3
+            {% else %} 0.4 {% endif %}
+      - service: media_player.volume_mute
+        data_template:
+          entity_id: "{{ media_player }}"
+          is_volume_muted: false
+      - service: tts.marytts_say
+        data_template:
+          entity_id: "{{ media_player }}"
+          message: "{{ message|replace('\n',' ')|replace('   ',' ')|replace('  ',' ') }}"
+
+  text:
+    sequence:
+      - condition: template
+        value_template: "{{ who | length != 0 }}"
+      - service_template: "{{ who }}"
+        data_template:
+          message: "{{ message|replace('   ',' ')|replace('  ',' ') }}"
+          data:
+            keyboard:
+              - '/status'
+              - '/maintenance'
+
+  on_screen:
+    sequence:
+      - condition: template
+        value_template: "{{ no_show | length == 0}}"
+      - service: persistent_notification.create
+        data_template:
+          notification_id: "sys_info"
+          title: "System Information"
+          message: >
+            {% if is_state('persistent_notification.sys_info' , 'notifying') %}
+              {{ states.persistent_notification.sys_info.attributes.message }}
+
+              {{ now().strftime('%H:%M') }} - {{ message|replace('\n','-')|replace('   ',' ')|replace('  ',' ') }}
+            {% else %}
+              {{ now().strftime('%H:%M') }} - {{ message|replace('\n','-')|replace('   ',' ')|replace('  ',' ') }}
+            {% endif %}

@@ -1,0 +1,55 @@
+###########################################################
+#                                                         #
+# This package creates a device that syncs all the alarm  #
+# clock packages to the same time and music so we can     #
+# wake up the whole house at the same time!               #
+#                                                         #
+###########################################################
+
+
+homeassistant:
+  customize:
+    script.all_sync:
+      icon: mdi:clock-out
+      custom_ui_state_card: state-card-script-custom-text
+      custom_text: "Sync All Alarm Clocks"
+
+
+input_datetime:
+  sync_datetime:
+    name: Alarm Time
+    has_date: false
+    has_time: true
+    initial: '07:30'
+
+
+group:
+  all_alarm_clock:
+    control: hidden
+    name: 'Sync All Alarm Clocks'
+    entities:
+      - input_datetime.sync_datetime
+      - script.all_sync
+
+
+script:
+  all_sync:
+    alias: ' '
+    sequence:
+      - service: input_datetime.set_datetime
+        data_template:
+          time: "{{ states('input_datetime.sync_datetime') }}"
+          entity_id:
+            - input_datetime.boys_alarm_clock_time
+            - input_datetime.girls_alarm_clock_time
+            - input_datetime.bedroom_alarm_clock_time
+      - service: homeassistant.turn_on
+        entity_id:
+          - input_boolean.boys_alarm_clock_status
+          - input_boolean.girls_alarm_clock_status
+          - input_boolean.bedroom_alarm_clock_status
+      - service: homeassistant.turn_off
+        entity_id:
+          - input_boolean.boys_alarm_clock_repeat
+          - input_boolean.girls_alarm_clock_repeat
+          - input_boolean.bedroom_alarm_clock_repeat

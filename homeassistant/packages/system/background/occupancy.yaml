@@ -1,0 +1,283 @@
+####################################################
+#                                                  #
+# This package creates a device that monitors who  #
+# is at home, including a guest mode, and provides #
+# modes that assist with automations.              #
+#                                                  #
+####################################################
+
+
+homeassistant:
+  customize_glob:
+    automation.*:
+      custom_ui_state_card: state-card-custom-ui
+      confirm_controls_show_lock: true
+
+  customize:
+    group.all_automations:
+      custom_ui_state_card: state-card-custom-ui
+      friendly_name: Automations
+      icon: mdi:home-automation
+      hidden: false
+      hide_control: true
+      confirm_controls_show_lock: true
+      extra_badge:
+        - entity_id: sensor.automation_on
+        - entity_id: sensor.automation_all
+
+    group.phone_trackers:
+      custom_ui_state_card: state-card-custom-ui
+      state_card_mode: badges
+
+    sensor.home_status:
+      icon: mdi:home-map-marker
+
+    input_boolean.holiday_mode:
+      custom_ui_state_card: state-card-custom-ui
+      hide_control: true
+      extra_badge:
+        entity_id: input_boolean.holiday_mode
+
+
+device_tracker:
+  - platform: bluetooth_tracker
+    new_device_defaults:
+      track_new_devices: false
+
+  - platform: owntracks_http
+    webhook_id: !secret owntracks_webhook
+
+  - platform: ping
+    hosts:
+      mf: !secret ping_mf
+      ls: !secret ping_ls
+      cg: !secret ping_cg
+
+
+switch:
+  platform: template
+  switches:
+    empty_bedroom:
+      value_template: "{{ is_state('script.empty_bedroom' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.empty_bedroom
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.empty_bedroom
+
+    empty_boys:
+      value_template: "{{ is_state('script.empty_boys' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.empty_boys
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.empty_boys
+
+    empty_girls:
+      value_template: "{{ is_state('script.empty_girls' , 'on') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        entity_id: script.empty_girls
+      turn_off:
+        service: homeassistant.turn_off
+        entity_id: script.empty_girls
+
+
+input_boolean:
+  away_mode:
+
+  holiday_mode:
+
+  guest_mode:
+    name: Guest mode
+    icon: mdi:human-handsup
+
+  bathtime_mode:
+    name: Bathtime mode
+    icon: mdi:hot-tub
+
+
+sensor:
+  platform: template
+  sensors:
+    home_status:
+      friendly_name: Home status
+      value_template: >
+        {% if is_state('group.phone_trackers' , 'home') or is_state('input_boolean.guest_mode' , 'on') %}Occupied
+        {% else %} Unoccupied {% endif %}
+
+binary_sensor:
+  platform: template
+  sensors:
+    holiday_mode:
+      friendly_name: Holiday mode
+      value_template: "{{ is_state('input_boolean.holiday_mode' , 'on') }}"
+
+
+group:
+  Phone trackers:
+    - device_tracker.pixel
+    - device_tracker.marc_pixel
+    - device_tracker.laura_iphone
+    - device_tracker.laura_iphone_bt
+    - device_tracker.courtney_iphone_bt
+    - device_tracker.courtney_iphone
+    - device_tracker.mf
+    - device_tracker.ls
+    - device_tracker.cg
+    - device_tracker.df
+
+  Adults:
+    - device_tracker.pixel
+    - device_tracker.marc_pixel
+    - device_tracker.laura_iphone
+    - device_tracker.laura_iphone_bt
+
+  Marc:
+    - device_tracker.pixel
+    - device_tracker.marc_pixel
+    - device_tracker.mf
+
+  Laura:
+    - device_tracker.laura_iphone
+    - device_tracker.laura_iphone_bt
+    - device_tracker.ls
+
+  Courtney:
+    - device_tracker.courtney_iphone_bt
+    - device_tracker.courtney_iphone
+    - device_tracker.cg
+
+  Daniel:
+    - device_tracker.df
+
+  Occupancy:
+    name: ' '
+    control: hidden
+    entities:
+      - group.phone_trackers
+      - sensor.hline_1
+      - alarm_control_panel.alarm
+      - sensor.home_status
+      - sensor.hline_2
+      - input_boolean.guest_mode
+      - input_boolean.holiday_mode
+      - sensor.hline_3
+      - group.all_automations
+      - input_boolean.bathtime_mode
+
+
+alert:
+  guest_mode_alert:
+    name: Guest Mode has been on for a long time
+    done_message: Guest Mode de-activated
+    entity_id: input_boolean.guest_mode
+    repeat:
+      - 240
+      - 120
+    skip_first: true
+    notifiers:
+      - adults
+
+  bathtime_mode_alert:
+    name: Bathtime Mode has been on for a long time
+    done_message: Bathtime Mode de-activated
+    entity_id: input_boolean.bathtime_mode
+    repeat: 60
+    skip_first: true
+    notifiers:
+      - adults
+
+
+automation:
+  - alias: Occupancy - Return home
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: group.phone_trackers
+      to: 'home'
+    action:
+      service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.guest_mode
+        - input_boolean.away_mode
+        - input_boolean.holiday_mode
+
+  - alias: Occupancy - Nobody home
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: sensor.home_status
+      to: 'Unoccupied'
+      for:
+        minutes: 2
+    action:
+      - service: homeassistant.turn_off
+        entity_id:
+          - input_boolean.play_radio
+          - switch.google_music
+          - group.all_lights
+          - input_boolean.kodi_power
+      - service: homeassistant.turn_on
+        entity_id:
+          - input_boolean.away_mode
+          - script.empty_bedroom
+          - script.empty_girls
+          - script.empty_boys
+
+  - alias: Occupancy - Holiday Mode
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_boolean.away_mode
+      to: 'on'
+      for:
+        hours: 24
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.holiday_mode
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.away_mode
+
+  - alias: Occupancy - Trackable device detected
+    initial_state: on
+    trigger:
+      platform: event
+      event_type: device_tracker_new_device
+    action:
+      service: script.notify
+      data:
+        tell: mf
+        message: ' a new trackable device has been detected'
+
+
+script:
+  empty_bedroom:
+    alias: bedroom Empty
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.bedroom
+          - input_boolean.remote_bedroom_radio
+          - media_player.bedroom
+
+  empty_boys:
+    alias: Boys Empty
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.boys
+          - input_boolean.remote_boys_radio
+          - media_player.boys
+
+  empty_girls:
+    alias: Girls Empty
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.girls
+          - input_boolean.remote_girls_radio
+          - media_player.girls
+          - switch.heater

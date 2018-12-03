@@ -1,0 +1,79 @@
+#######################################################
+#                                                     #
+# This package configures the custom-ui-media-players #
+# in the frontend, as a lightweight alternative       #
+#                                                     #
+#######################################################
+
+
+homeassistant:
+  customize:
+    input_text.media_downstairs:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.downstairs
+
+    input_text.media_everywhere:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.everywhere
+
+    input_text.media_livingroom:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.livingroom
+
+    input_text.media_kitchen:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.kitchen
+
+    input_text.media_boys:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.boys
+
+    input_text.media_girls:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.girls
+
+    input_text.media_bedroom:
+      custom_ui_state_card: state-card-mini-media-player
+      config:
+        player: media_player.bedroom
+
+input_text:
+  media_everywhere:
+    name: Everywhere
+
+  media_downstairs:
+   name: Downstairs
+
+  media_livingroom:
+   name: Livingroom
+
+  media_kitchen:
+   name: Kitchen
+
+  media_boys:
+    name: Boys
+
+  media_girls:
+    name: Girls
+
+  media_bedroom:
+    name: Bedroom
+
+
+group:
+  tiles_media:
+    name: Chromecasts
+    entities:
+      - input_text.media_downstairs
+      - input_text.media_everywhere
+      - input_text.media_livingroom
+      - input_text.media_kitchen
+      - input_text.media_boys
+      - input_text.media_girls
+      - input_text.media_bedroom

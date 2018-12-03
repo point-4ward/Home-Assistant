@@ -1,0 +1,47 @@
+####################################################
+#                                                  #
+# This !include contains the configuration for the #
+# tiles making up the girls room card in the UI    #
+#                                                  #
+####################################################
+
+
+columns: 4
+column_width: 75px
+row_height: 75px
+entities:
+  - entity: light.girls
+    icon: mdi:lightbulb
+    column: 1
+    row: 1
+  - entity: script.remote_girls_bright
+    label: Bright
+    column: 2
+    row: 1
+  - entity: script.remote_girls_dim
+    label: Dim
+    column: 3
+    row: 1
+  - entity: script.remote_girls_nightlight
+    label: Night
+    column: 4
+    row: 1
+
+  # - entity: input_boolean.remote_girls_radio
+  #   label: Radio
+  #   column: 1
+  #   row: 2
+  # - entity: script.remote_girls_alarm
+  #   label: '7.30'
+  #   icon: mdi:alarm
+  #   column: 2
+  #   row: 2
+  - entity: switch.heater
+    label: Heater
+    column: 1
+    row: 2
+    column_span: 2
+  - entity: switch.empty_girls
+    label: Empty
+    column: 4
+    row: 2

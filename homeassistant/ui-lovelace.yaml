@@ -1,0 +1,219 @@
+########################################################
+#                                                      #
+# This file configures the homeassistant web interface #
+#                                                      #
+########################################################
+
+title: Home Assistant
+
+resources:
+  - url: /local/mini-media-player-bundle.js?v=0.9.4
+    type: module
+
+  - url: /local/tracker-card.js?v=0.1.5
+    type: js
+
+views:
+  - id: home
+    icon: mdi:home
+    cards:
+      - id: general
+        type: vertical-stack
+        cards:
+          - id: occupancy #TODO - black and white images for not-home
+            type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: vertical-stack
+                    cards:
+                      - type: picture-entity
+                        entity: group.marc
+                        image: /local/private/marc.jpg
+                        aspect_ratio: 4x3
+                      - type: horizontal-stack
+                        cards:
+                          - type: entity-button
+                            entity: device_tracker.pixel
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.marc_pixel
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.mf
+                            name: ' '
+                  - type: vertical-stack
+                    cards:
+                      - type: picture-entity
+                        entity: group.laura
+                        image: /local/private/laura.jpg
+                        aspect_ratio: 4x3
+                      - type: horizontal-stack
+                        cards:
+                          - type: entity-button
+                            entity: device_tracker.laura_iphone_bt
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.laura_iphone
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.ls
+                            name: ' '
+              - type: horizontal-stack
+                cards:
+                  - type: vertical-stack
+                    cards:
+                      - type: picture-entity
+                        entity: group.courtney
+                        image: /local/private/courtney.jpg
+                        aspect_ratio: 4x3
+                      - type: horizontal-stack
+                        cards:
+                          - type: entity-button
+                            entity: device_tracker.courtney_iphone_bt
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.courtney_iphone
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.cg
+                            name: ' '
+                  - type: vertical-stack
+                    cards:
+                      - type: picture-entity
+                        entity: group.daniel
+                        image: /local/private/daniel.jpg
+                        aspect_ratio: 4x3
+                      - type: horizontal-stack
+                        cards:
+                          - type: entity-button
+                            entity: device_tracker.df
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.df
+                            name: ' '
+                          - type: entity-button
+                            entity: device_tracker.df
+                            name: ' '
+
+
+          - id: security
+            type: entities
+            card:
+              type: glance
+            entities:
+              - entity: alarm_control_panel.alarm
+              - entity: sensor.home_status
+              - type: divider
+              - entity: input_boolean.guest_mode
+                tap_action: toggle
+              - entity: binary_sensor.holiday_mode
+                icon: mdi:airplane
+              - type: divider
+              - entity: input_boolean.bathtime_mode
+              - type: divider
+              - type: entity-button
+                entity: switch.heater
+
+      - id: lights
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.livingroom
+              - type: light
+                entity: light.kitchen
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.bath
+              - type: light
+                entity: light.bedroom
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.girls
+              - type: light
+                entity: light.boys
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.hall
+              - type: light
+                entity: light.landing
+
+  - id: av
+    icon: mdi:television-classic
+    cards:
+      - id: tv
+        type: entities
+        entities:
+          - entity: group.tiles_av_remote
+                #TODO - remote control cards!!
+
+  - id: media
+    icon: mdi:speaker-wireless
+    cards:
+      - id: music
+        title: Music
+        show_header_toggle: false
+        type: entities
+        entities:
+          - entity: input_number.volume_radio
+          - entity: input_select.media_player
+          - type: divider
+          - entity: input_boolean.play_radio
+          - entity: input_select.radio_station
+          - type: divider
+          - entity: switch.google_music
+          - entity: input_select.google_music
+
+      - id: cca
+        type: vertical-stack
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.everywhere
+            icon: mdi:cast
+            artwork_border: true
+            show_tts: marytts
+          - type: custom:mini-media-player
+            entity: media_player.downstairs
+            icon: mdi:cast
+            artwork_border: true
+            show_tts: marytts
+          - type: custom:mini-media-player
+            entity: media_player.livingroom
+            icon: mdi:cast
+            artwork_border: true
+            show_tts: marytts
+          - type: custom:mini-media-player
+            entity: media_player.kitchen
+            icon: mdi:cast
+            artwork_border: true
+            show_tts: marytts
+          - type: custom:mini-media-player
+            entity: media_player.bedroom
+            icon: mdi:cast
+            artwork_border: true
+            show_tts: marytts
+          - type: custom:mini-media-player
+            entity: media_player.adults
+            icon: mdi:cast
+            artwork_border: true
+            show_tts: marytts
+
+  - id: tools
+    icon: mdi:wrench
+    cards:
+      - id: maintenance
+        type: entities
+        entities:
+          - entity: input_boolean.maintenance_mode
+          #TODO - other maintenance stuff
+
+      - id: updater
+        type: custom:tracker-card
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker

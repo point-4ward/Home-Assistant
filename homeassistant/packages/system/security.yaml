@@ -1,0 +1,150 @@
+##########################################
+#                                        #
+# This package contains the sensors I    #
+# use for my security monitoring         #
+#                                        #
+# DEPENDS ON: Occupancy                  #
+#                                        #
+##########################################
+
+
+alarm_control_panel:
+  platform: manual_mqtt
+  name: "Alarm"
+  code: !secret alarm_code
+  state_topic: home-assistant/alarm
+  command_topic: home-assistant/alarm/set
+  pending_time: 10
+
+
+sensor:
+  - platform: haveibeenpwned
+    email: !secret haveibeenpwned_email
+
+  - platform: mqtt
+    name: "Doorbell"
+    state_topic: "home-assistant/doorbell"
+
+  - platform: rest
+    name: Attic motion
+    resource: !secret hue_resource_attic_motion
+    value_template: "{{ value_json.state.presence }}"
+
+  - platform: rest
+    name: Landing motion
+    resource: !secret hue_resource_landing_motion
+    value_template: "{{ value_json.state.presence }}"
+
+  - platform: rest
+    name: Bathroom motion
+    resource: !secret hue_resource_bathroom_motion
+    value_template: "{{ value_json.state.presence }}"
+
+  - platform: rest
+    name: Hall motion
+    resource: !secret hue_resource_hall_motion
+    value_template: "{{ value_json.state.presence }}"
+
+  - platform: rest
+    name: Kitchen motion
+    resource: !secret hue_resource_kitchen_motion
+    value_template: "{{ value_json.state.presence }}"
+
+
+binary_sensor:
+  platform: mqtt
+  state_topic: "/sensor-zero/motion/motion"
+  name: "TEST-Motion"
+  payload_on: 1
+  payload_off: 0
+
+
+automation:
+  - alias: Security - Doorbell
+    initial_state: on
+    trigger:
+      platform: mqtt
+      topic: home-assistant/doorbell
+      payload: 'Ring'
+    action:
+#TODO - this action
+      service: notify.mf
+      data:
+        message: "Doorbell test"
+
+  - alias: Security - Set alarm
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: sensor.home_status
+      to: 'Unoccupied'
+    action:
+      - service: tts.marytts_say
+        entity_id: media_player.everywhere
+        data:
+          message: "The house is unoccupied, the alarm will set in 30 seconds if not overridden"
+      - delay: 00:00:30
+      - condition: state
+        entity_id: sensor.home_status
+        state: 'Unoccupied'
+      - service: alarm_control_panel.alarm_arm_away
+        data:
+          entity_id: alarm_control_panel.alarm
+          code: !secret alarm_code
+
+  - alias: Security - Disarm alarm
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: sensor.home_status
+      to: 'Occupied'
+    action:
+      service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.alarm
+        code: !secret alarm_code
+
+  - alias: Security - Failed login attempt
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: persistent_notification.httplogin
+    condition:
+      condition: template
+      value_template: "{{ trigger.to_state.state != off }}"
+    action:
+      service: notify.mf
+      data_template:
+        message: "{{ state_attr('persistent_notification.httplogin', 'message') }}"
+
+  - alias: Security - Email breach
+    initial_state: on
+    trigger:
+      - platform: numeric_state
+        entity_id:
+          - !secret sensor_email_cf
+          - !secret sensor_email_hass
+          - !secret sensor_email_df
+          - !secret sensor_email_vf
+          - !secret sensor_email_social
+          - !secret sensor_email_run
+          - !secret sensor_email_personal
+        above: 0
+      - platform: numeric_state
+        entity_id: !secret sensor_email_ls
+        above: 1
+    action:
+      service: notify.mf
+      data_template:
+        message: "Warning - HaveIbeenPwned detected {{ trigger.to_state.attributes.friendly_name }}"
+
+  - alias: Security - Mockupancy
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_boolean.holiday_mode
+    action:
+      service_template: >
+        {% if is_state('input_boolean.holiday_mode' , 'on') %} script.turn_on
+        {% else %} script.turn_off {% endif %}
+      entity_id: script.mockupancy

@@ -1,0 +1,247 @@
+# ##############################################
+# #                                            #
+# # This package contains the scripts I use to #
+# # simulate the house being occupied when the #
+# # system is in holiday mode                  #
+# #                                            #
+# ##############################################
+#
+# #TODO - Some fixes for this!! - dark_outside and now() and kitchen!!
+#
+# # This is used to set a random bedtime for our phantom house guest
+# input_datetime:
+#   mockupancy_bedtime:
+#     has_date: false
+#     has_time: true
+#     initial: '23:00'
+#
+#
+# # The main mockupancy script...
+# script:
+#   mockupancy:
+#     sequence:
+#       # Wait until it is after 6pm and dark to start the routine
+#       - wait_template: "{{ now().hour >= 18 and is_state('sensor.dark_outside' , 'on') }}"
+#
+#       # Check that it Holiday mode is still on
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#
+#       # Pick a random bedtime between 10pm and midnight.
+#       - service: input_datetime.set_time
+#         data_template:
+#           entity_id: input_datetime.mockupancy_bedtime
+#           time: "{{ (range(22, 23)|random|int) }}:{{ (range(0, 59)|random|int) }}:00"
+#
+#       # Start the routine, switch on the 'usual' lights
+#       - service: homeassistant.turn_on
+#         entity_id:
+#           - scene.livingroom_dim
+#
+#       # Start scripts to randomise occasional lights
+#       - service: script.random_bathroom
+#       - service: script.random_kitchen
+#
+#       # Start scripts to randomise kids' bedtime simulation
+#       - service: script.random_boys
+#       - service: script.random_girls
+#
+#       # 1 hour before bedtime, dim living room lights to 20%
+#       - wait_template: "{{ states('sensor.time') == (((state_attr('input_datetime.mockupancy_bedtime' , 'timestamp')) - (60 * 60))|timestamp_custom('%H:%M', false)) }}"
+#       - service: homeassistant.turn_on
+#         entity_id: light.livingroom
+#         data:
+#           brightness_pct: 20
+#
+#       # 20 minutes before bedtime, raise lights to (50%)
+#       - wait_template: "{{ states('sensor.time') == (((state_attr('input_datetime.mockupancy_bedtime' , 'timestamp')) - (20 * 60))|timestamp_custom('%H:%M', false)) }}"
+#       - service: homeassistant.turn_on
+#         entity_id: light.livingroom
+#         data:
+#           brightness_pct: 50
+#
+#       # Stop kitchen/bathroom randomisation
+#       - service: homeassistant.turn_off
+#         entity_id:
+#           - script.random_bathroom
+#           - script.random_bathroom_loop
+#           - script.random_kitchen
+#           - script.random_kitchen_loop
+#
+#       # At 'bedtime', turn on bathroom for random time between 2 and 15 minutes
+#       # turn off kitchen, wait 20-30 seconds, turn off living room wait 30-59 seconds,
+#       # turn on bedroom.
+#       - wait_template: "{{ states('sensor.time') == (state_attr('input_datetime.mockupancy_bedtime' , 'timestamp')|int|timestamp_custom('%H:%M', False)) }}"
+#       - service: homeassistant.turn_on
+#         entity_id: light.bathroom
+#       - delay: "00:00:{{ (range(15, 59)|random|int) }}"
+#       - service: homeassistant.turn_off
+#         entity_id: light.kitchen_light_level
+#       - delay: "00:00:{{ (range(20, 30)|random|int) }}"
+#       - service: homeassistant.turn_off
+#         entity_id: light.livingroom
+#       - delay: "00:00{{ (range(20, 30)|random|int) }}"
+#       - service: homeassistant.turn_on
+#         entity_id: light.bedroom
+#         data:
+#           brightness: 80
+#       - delay: "00:{{ (range(2, 15)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.bathroom
+#       - delay: "00:{{ (range(15, 59)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.bedroom
+#
+#       # After a random time between 15 minutes and an hour, turn off the lights
+#       - delay: "00:{{ (range(15, 59)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.bedroom
+#
+#       # If light before 7am, switch off lights, stop and loop, if not run a further script first
+#       - wait_template: "{{ now().hour == 7 }}"
+#       - service_template: >
+#           {% if states('sensor.dark_outside' , 'true') %} script.morning_mockupancy
+#           {% else %} script.mockupancy_loop {% endif %}
+#
+#
+# # A further script for if it is still dark in the morning
+#   morning_mockupancy:
+#     sequence:
+#       # Check that it Holiday mode is still on
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#
+#       # Wait a random nmber of minutes between 1 and 30 and switch on the living room lights
+#       - delay: "00:{{ (range(1, 30)|random|int) }}:00"
+#       - service: homeassistant.turn_on
+#         entity_id: scene.livingroom_dim
+#
+#       # Wait until it is light, switch off lights and loop
+#       - wait_template: "{{ is_state('sensor.dark_outside' , 'false') }}"
+#       - service: script.mockupancy_loop
+#
+#
+# # Randomising beditmes for the kids
+#   random_boys:
+#     sequence:
+#       # Wait until after 8pm, and create a random delay up to 30 minutes and check if it is dark
+#       - wait_template: "{{ now().hour >= 20 }}"
+#       - delay: "00:{{ (range(1, 30)|random|int) }}:00"
+#       - condition: state
+#         entity_id: sensor.dark_outside
+#         state: 'true'
+#
+#       # Switch light on for between 10 and 30 minutes
+#       - service: homeassistant.turn_on
+#         entity_id: light.boys
+#       - delay: "00:{{ (range(10, 30)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.boys
+#
+#   random_girls:
+#     sequence:
+#       # Wait until after 9pm, and create a random delay up to 30 minutes and check if it is dark
+#       - wait_template: "{{ now().hour >= 21 }}"
+#       - delay: "00:{{ (range(1, 30)|random|int) }}:00"
+#       - condition: state
+#         entity_id: sensor.dark_outside
+#         state: 'true'
+#
+#       # Switch light on for between 10 and 30 minutes
+#       - service: homeassistant.turn_on
+#         entity_id: light.girls
+#       - delay: "00:{{ (range(10, 30)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.girls
+#
+#
+# # Randomising rooms we're in and out off
+#   random_bathroom:
+#     sequence:
+#       # Check that it Holiday mode is still on
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#
+#       # Wait a random nmber of minutes between 15 and 90 and switch on
+#       - delay: "00:{{ (range(15, 90)|random|int) }}:00"
+#       - service: homeassistant.turn_on
+#         entity_id: light.bathroom
+#         data:
+#           brightness: 100
+#
+#       # Wait for between 3 minutes and 9 minutes and switch off
+#       - delay: "00:{{ (range(3, 9)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.bathroom
+#
+#       # Loop the script for next time.
+#       - service: script.random_bathroom_loop
+#
+#
+#   random_kitchen:
+#     sequence:
+#       # Check that it Holiday mode is still on
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#
+#       # Wait a random nmber of minutes between 15 and 90 and switch on
+#       - delay: "00:{{ (range(15, 90)|random|int) }}:00"
+#       - service: homeassistant.turn_on
+#         entity_id: light.kitchen_light_level
+#         data:
+#           brightness: 100
+#
+#       # Wait for between 3 minutes and 9 minutes and switch off
+#       - delay: "00:{{ (range(3, 9)|random|int) }}:00"
+#       - service: homeassistant.turn_off
+#         entity_id: light.kitchen_light_level
+#
+#       # Loop the script for next time.
+#       - service: script.random_kitchen_loop
+#
+#
+# # Scripts that loop the ones above that need looping
+#   mockupancy_loop:
+#     sequence:
+#       # Switch off the lights, and make sure the calling scripts have stopped
+#       - service: homeassistant.turn_off
+#         entity_id:
+#           - group.all_lights
+#           - script.mockupancy
+#       - delay: 00:05:00
+#
+#       # Check that it Holiday mode is still on and restart the script for a new day
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#       - service: script.mockupancy
+#
+#   random_bathroom_loop:
+#     sequence:
+#       # Stop the calling script
+#       - service: homeassistant.turn_off
+#         entity_id: script.random_bathroom
+#       - delay: 00:05:00
+#
+#       # Check that holiday mode is on and restart the script
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#       - service: script.random_bathroom
+#
+#   random_kitchen_loop:
+#     sequence:
+#       # Stop the calling script
+#       - service: homeassistant.turn_off
+#         entity_id: script.random_kitchen
+#       - delay: 00:05:00
+#
+#       # Check that holiday mode is on and restart the script
+#       - condition: state
+#         entity_id: input_boolean.holiday_mode
+#         state: 'on'
+#       - service: script.random_kitchen
