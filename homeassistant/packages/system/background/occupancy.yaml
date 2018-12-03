@@ -44,9 +44,6 @@ device_tracker:
     new_device_defaults:
       track_new_devices: false
 
-  - platform: owntracks_http
-    webhook_id: !secret owntracks_webhook
-
   - platform: ping
     hosts:
       mf: !secret ping_mf
