@@ -40,41 +40,6 @@ notify:
       - service: ls
 
 
-variable:
-  save_adults:
-    value: 0
-
-  save_bedroom:
-    value: 0
-
-  save_boys:
-    value: 0
-
-  save_downstairs:
-    value: 0
-
-  save_everywhere:
-    value: 0
-
-  save_kids:
-    value: 0
-
-  save_kitchen:
-    value: 0
-
-  save_livingroom:
-    value: 0
-
-#TODO ...
-# {% for state in states.media_player -%}
-#   {% if state.state == "playing" %}
-#     {{ state.name | lower }} is {{state.attributes.media_content_id}}
-#   {% else %}
-#     {{state.name | lower }} is 0
-#   {% endif %}
-# {%- endfor %}
-
-
 input_boolean:
   priority_message:
     initial: off
