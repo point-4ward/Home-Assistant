@@ -1,6 +1,6 @@
 # What the badges say:
 
-| [![CircleCI](https://circleci.com/gh/mf-social/Home-Assistant.svg?style=shield)](https://circleci.com/gh/mf-social/Home-Assistant) | This shows whether the configuration in this repo is valid. [Version I'm running.](homeassistant/.HA_VERSION) |
+| [![CircleCI](https://circleci.com/gh/mf-social/Home-Assistant.svg?style=shield)](https://circleci.com/gh/mf-social/Home-Assistant) | This shows whether the configuration in this repo is valid. [Version I'm running.](../../homeassistant/.HA_VERSION) |
 |:---:|:---:|
 | [![LastCommit](https://img.shields.io/github/last-commit/mf-social/Home-Assistant.svg?color=blue&style=plasticr)](https://github.com/mf-social/Home-Assistant/commits/master) | This shows how up to date this repo is |
 | [![GitHub stars](https://img.shields.io/github/stars/mf-social/Home-Assistant.svg)](https://github.com/mf-social/Home-Assistant/stargazers) | Please :star: this repo if you find it useful, like these people have. |

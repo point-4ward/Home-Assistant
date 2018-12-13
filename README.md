@@ -2,12 +2,9 @@
 
 [What do these badges all mean?](.bin/github_resources/readme_files/badges.md)
 
-# Changes are happening at Chateau mf_social!!  This repo is being reorganised, please bear with me whilst I get the README's caught up and get the Wiki written!!
-
-
 # My Home Assistant setup:
 
-This is my current Home Automation setup, based on Homeassistant, running in docker.  This repo contains copies of non-sensitive configuration files for the containers I am using.  This is my live system as it is running in my house at the moment.  I am currently tracking the beta channel of Homeassistant releases.  Below you will find some explanatory notes, and the [Wiki](https://github.com/mf-social/Home-Assistant/wiki) explains exactly what this repo contains and how to create a system like mine from scratch...
+This is my current Home Automation setup, based on Homeassistant, running in docker.  This repo contains copies of non-sensitive configuration files for the containers I am using.  This is my live system as it is running in my house at the moment.  I am currently tracking the beta channel of Homeassistant releases.  Each file has comments that explain the file's purpose at the top, some have further explanatory commments within to explain what the code is doing.  Below you will find some explanatory notes about the system as a whole, and the [Wiki](https://github.com/mf-social/Home-Assistant/wiki) explains exactly what this repo contains and how to create a system like mine from scratch...
 
 
 ## What Software makes up your Home Automation System?
@@ -27,13 +24,12 @@ MaryTTS - a local Text-To-Speech engine that lets Homeassistant speak to us at h
 
 Syncthing - a peer-to-peer file synchronization application that allows me to edit and backup my configuration files on a remote device.
 
-Dropbox - an online storage system for full off-site backups of my config.
-
 Portainer - a graphical manager for the docker stack
 
 Organizr - a webpage that you run on your server to help put all your services into one webpage.  This container also contains a nginx reverse proxy that directs web traffic to the correct container.
 </p>
 </details>
+
 
 
 [And here's how it looks.](.bin/github_resources/readme_files/screenshots.md)
@@ -80,6 +76,7 @@ Organizr - a webpage that you run on your server to help put all your services i
 
 </p>
 </details>
+
 
 
 <details><summary>This might help to visualise what's going on with my hardware devices:</summary>
