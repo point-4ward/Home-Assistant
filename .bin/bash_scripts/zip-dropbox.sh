@@ -10,15 +10,17 @@
 ##                                                          ##
 ##############################################################
 
-_now=$(date +"%m_%d_%Y")
+_now=$(date +"%d_%m_%Y")
 _file="backup_$_now.zip"
 
 cd /opt
-rsync -avz --delete --exclude=docker/mosquitto/mosquitto.db --exclude=docker/mariadb/* . backup/
-zip -r backup/zip/$_file backup/
+rsync -avz --delete --exclude=docker/mosquitto/mosquitto.db --exclude=docker/mariadb/* . backup_tmp/
+zip -r backup_zip/$_file backup_tmp/
 cd dropbox/
 python dropbox_sync.py
-rm -rf backup/*
+cd /opt
+rm -rf backup_tmp/*
+rm -rf backup_tmp/.*
 curl -X POST -H "Authorization: Bearer $1" $2
 
 exit
