@@ -9,10 +9,8 @@
 # information, so that only customised non-sensitive files
 # are committed to the repo
 
-.git
 marytts
 mariadb
-node-red
 organizr
 portainer
 syncthing
