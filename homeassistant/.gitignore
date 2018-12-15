@@ -30,7 +30,6 @@
 # Ignore Folders
 tts
 deps
-private
 
 www/private
 
