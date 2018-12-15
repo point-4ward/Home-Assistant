@@ -49,6 +49,7 @@ device_tracker:
       mf: !secret ping_mf
       ls: !secret ping_ls
       cg: !secret ping_cg
+      df: !secret ping_df
 
 
 switch:

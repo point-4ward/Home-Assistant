@@ -30,10 +30,9 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-  - platform: scrape
-    name: HA upstream
-    resource: https://pypi.org/project/homeassistant/#history
-    select: 'a[href^="/project/homeassistant/0"]'
+  - platform: version
+    source: docker
+    beta: true
 
 
 automation:
@@ -63,7 +62,7 @@ automation:
     initial_state: on
     trigger:
       platform: state
-      entity_id: sensor.ha_upstream
+      entity_id: sensor.latest_version
     action:
       - delay: '00:30:00'
       - service: script.notify
