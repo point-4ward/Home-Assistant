@@ -7,45 +7,6 @@
 ###########################################
 
 
-homeassistant:
-  customize:
-    media_player.everywhere:
-      friendly_name: Everywhere
-      icon: mdi:play
-
-    media_player.downstairs:
-      friendly_name: Downstairs
-      icon: mdi:play
-
-    media_player.livingroom:
-      friendly_name: Livingroom
-      icon: mdi:play
-
-    media_player.kitchen:
-      friendly_name: Kitchen
-      icon: mdi:play
-
-    media_player.bedroom:
-      friendly_name: Bedroom
-      icon: mdi:play
-
-    media_player.boys:
-      friendly_name: Boys
-      icon: mdi:play
-
-    media_player.girls:
-      friendly_name: Girls
-      icon: mdi:play
-
-    media_player.kids:
-      friendly_name: Kids
-      icon: mdi:play
-
-    media_player.adults:
-      friendly_name: Adults
-      icon: mdi:play
-
-
 hue:
   bridges:
     - host: !secret hue_hub_ip
@@ -91,16 +52,6 @@ switch:
     host: !secret switch_broadlink_host
     mac: !secret switch_broadlink_mac
     switches: !include_dir_merge_named ../../includes/ir_codes/
-
-
-group:
-  led_strips:
-    name: LED strips
-    control: hidden
-    entities:
-      - light.led1
-      - light.led2
-      - light.led3
 
 
 automation:

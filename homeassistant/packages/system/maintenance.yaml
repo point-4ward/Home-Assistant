@@ -8,52 +8,6 @@
 ################################################
 
 
-homeassistant:
-  customize_glob:
-    weblink.*:
-      icon: mdi:web
-
-  customize:
-    input_text.github_message:
-      icon: mdi:pencil
-
-    switch.debug:
-      icon: mdi:bug
-
-    script.sync_dropbox:
-      icon: mdi:dropbox
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Sync To Dropbox"
-
-    script.upgrade_hass:
-      icon: mdi:cloud-check
-      can_cancel: false
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Upgrade HA and Restart"
-
-    script.github_push:
-      icon: mdi:github-circle
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Push to Github"
-
-    script.github_pull:
-      icon: mdi:github-box
-      can_cancel: false
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Guthub Pull And Restart"
-
-    script.quick_restart:
-      icon: mdi:home-assistant
-      can_cancel: false
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Restart Homeassistant"
-
-    script.learn_ir:
-      icon: mdi:remote
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Learn New IR Code"
-
-
 custom_updater:
   track:
     - cards
@@ -113,37 +67,6 @@ input_text:
   github_message:
     name: Commit Message
     initial: Push from local
-
-
-group:
-  Maintenance:
-    control: hidden
-    entities:
-      - input_boolean.maintenance_mode
-      - switch.debug
-      - sensor.hline_1
-      - script.quick_restart
-      - script.upgrade_hass
-      - script.github_pull
-      - sensor.hline_2
-      - input_text.github_message
-      - script.github_push
-      - weblink.github
-      - sensor.hline_3
-      - script.sync_dropbox
-      - weblink.dropbox
-
-  Configure external:
-      - weblink.configure_alexa
-      - weblink.router
-      - weblink.uptime_robot
-      - script.learn_ir
-
-  debug:
-    icon: mdi:bug
-    entities:
-      - group.catchall
-      - group.deaditems
 
 
 shell_command:

@@ -7,50 +7,6 @@
 #######################################################################
 
 
-homeassistant:
-  customize:
-    group.battery_alert:
-      custom_ui_state_card: state-card-custom-ui
-      state_card_mode: badges
-
-    sensor.bathroom_motion_motion_battery:
-      friendly_name: Bathroom sensor
-
-    sensor.livingroom_switch_battery:
-      friendly_name: Livingroom switch
-
-    sensor.stairs_motion_motion_battery:
-      friendly_name: Girls sensor
-
-    sensor.girls_switch_battery:
-      friendly_name: Girls switch
-
-    sensor.landing_motion_motion_battery:
-      friendly_name: Landing sensor
-
-    sensor.boys_switch_battery:
-      friendly_name: Boys switch
-
-    sensor.hall_motion_motion_battery:
-      friendly_name: Hall sensor
-
-    sensor.kitchen_motion_sensor_battery:
-      friendly_name: Kitchen sensor
-
-
-group:
-  battery alert:
-    - sensor.bathroom_battery
-    - sensor.attic_battery
-    - sensor.landing_battery
-    - sensor.hall_battery
-    - sensor.kitchen_battery
-
-  Batteries:
-    control: hidden
-    entities: group.battery_alert
-
-
 automation:
   - alias: Battery alert - notification
     initial_state: on

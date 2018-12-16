@@ -7,38 +7,6 @@
 ####################################################
 
 
-homeassistant:
-  customize_glob:
-    automation.*:
-      custom_ui_state_card: state-card-custom-ui
-      confirm_controls_show_lock: true
-
-  customize:
-    group.all_automations:
-      custom_ui_state_card: state-card-custom-ui
-      friendly_name: Automations
-      icon: mdi:home-automation
-      hidden: false
-      hide_control: true
-      confirm_controls_show_lock: true
-      extra_badge:
-        - entity_id: sensor.automation_on
-        - entity_id: sensor.automation_all
-
-    group.phone_trackers:
-      custom_ui_state_card: state-card-custom-ui
-      state_card_mode: badges
-
-    sensor.home_status:
-      icon: mdi:home-map-marker
-
-    input_boolean.holiday_mode:
-      custom_ui_state_card: state-card-custom-ui
-      hide_control: true
-      extra_badge:
-        entity_id: input_boolean.holiday_mode
-
-
 device_tracker:
   - platform: bluetooth_tracker
     new_device_defaults:
@@ -150,21 +118,6 @@ group:
 
   Daniel:
     - device_tracker.df
-
-  Occupancy:
-    name: ' '
-    control: hidden
-    entities:
-      - group.phone_trackers
-      - sensor.hline_1
-      - alarm_control_panel.alarm
-      - sensor.home_status
-      - sensor.hline_2
-      - input_boolean.guest_mode
-      - input_boolean.holiday_mode
-      - sensor.hline_3
-      - group.all_automations
-      - input_boolean.bathtime_mode
 
 
 alert:
