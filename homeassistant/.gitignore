@@ -31,6 +31,7 @@
 tts
 deps
 
+www/private
 
 # Ignore Specific sensitive files
 
