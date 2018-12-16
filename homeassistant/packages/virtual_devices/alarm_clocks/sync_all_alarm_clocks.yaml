@@ -7,29 +7,12 @@
 ###########################################################
 
 
-homeassistant:
-  customize:
-    script.all_sync:
-      icon: mdi:clock-out
-      custom_ui_state_card: state-card-script-custom-text
-      custom_text: "Sync All Alarm Clocks"
-
-
 input_datetime:
   sync_datetime:
     name: Alarm Time
     has_date: false
     has_time: true
     initial: '07:30'
-
-
-group:
-  all_alarm_clock:
-    control: hidden
-    name: 'Sync All Alarm Clocks'
-    entities:
-      - input_datetime.sync_datetime
-      - script.all_sync
 
 
 script:

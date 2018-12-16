@@ -72,31 +72,6 @@ input_number:
     initial: '0.2'
 
 
-group:
-  Music:
-    control: hidden
-    name: Music
-    entities:
-      - input_number.volume_radio
-      - input_select.media_player
-      - sensor.hline_1
-      - input_boolean.play_radio
-      - input_select.radio_station
-      - sensor.hline_2
-      - switch.google_music
-      - input_select.google_music
-
-  cca:
-    - media_player.kitchen
-    - media_player.livingroom
-    - media_player.bedroom
-    - media_player.downstairs
-    - media_player.everywhere
-    - media_player.boys
-    - media_player.girls
-    - media_player.kids
-
-
 automation:
   - alias: Music Player - Play Radio
     initial_state: on
