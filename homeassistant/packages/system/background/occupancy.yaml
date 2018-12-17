@@ -94,6 +94,7 @@ group:
     - device_tracker.courtney_iphone
     - device_tracker.cg
     - device_tracker.df
+    - device_tracker.daniels_iphone_bt
 
   Adults:
     - device_tracker.pixel
@@ -118,6 +119,7 @@ group:
 
   Daniel:
     - device_tracker.df
+    - device_tracker.daniels_iphone_bt
 
 
 alert:
