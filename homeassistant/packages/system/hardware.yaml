@@ -46,7 +46,10 @@ mqtt:
 
 switch:
   - platform: tplink
-    host: !secret switch_tplink_host
+    host: !secret switch_tplink_heater
+
+  - platform: tplink
+    host: !secret switch_tplink_xmas
 
   - platform: broadlink
     host: !secret switch_broadlink_host

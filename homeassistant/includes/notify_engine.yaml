@@ -156,7 +156,7 @@ message: >
   {% endif -%}
 
   {%- if call_upgrade == 1 %}
-    Update for Home Assistant is available.  Latest version is {{ states('sensor.ha_upstream') }}
+    Update for Home Assistant is available.  Latest version is {{ states('sensor.latest_version') }}
 
     https://home-assistant.io/blog/
   {% endif -%}
