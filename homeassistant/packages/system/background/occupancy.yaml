@@ -78,7 +78,8 @@ binary_sensor:
   platform: template
   sensors:
     holiday_mode:
-      friendly_name: Holiday mode
+      friendly_name: Holiday Mode
+      icon_template: mdi:airplane
       value_template: "{{ is_state('input_boolean.holiday_mode' , 'on') }}"
 
 
