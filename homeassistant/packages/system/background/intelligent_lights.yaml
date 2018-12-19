@@ -315,6 +315,16 @@ automation:
         {% if is_state('input_boolean.bathtime_mode' , 'on') %} script.bathtime_mode_on
         {% else %} script.bathtime_mode_off {% endif %}
 
+  - alias: Lighting - Xmas lights off with main lights
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: light.livingroom
+      to: 'off'
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.xmas_lights
+
 
 script:
   set_hue_scene:

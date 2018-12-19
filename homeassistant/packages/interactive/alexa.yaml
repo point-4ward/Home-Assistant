@@ -34,6 +34,10 @@ emulated_hue:
       name: "Bedroom heater"
       hidden: false
 
+    switch.xmas_lights:
+      name: "Christmas Lights"
+      hidden: false
+
 
 input_boolean:
   radio_downstairs:
