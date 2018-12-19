@@ -6,6 +6,12 @@
 #####################################################
 
 
+homeassistant:
+  customize_glob:
+    sensor.*battery*:
+      icon: mdi:battery
+
+
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret
