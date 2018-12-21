@@ -97,7 +97,7 @@ automation:
       - service: homeassistant.turn_off
         entity_id: switch.heater
 
-  - alias: Hardware
+  - alias: Hardware - Washing machine monitor
     initial_state: on
     trigger:
       platform: state
