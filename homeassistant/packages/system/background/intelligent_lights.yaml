@@ -321,6 +321,7 @@ automation:
       platform: state
       entity_id: light.livingroom
       to: 'off'
+      from: 'on'
     action:
       service: homeassistant.turn_off
       entity_id: switch.xmas_lights
