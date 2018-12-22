@@ -10,8 +10,8 @@ cd /opt/docker
 git fetch origin master
 git reset --hard origin/master
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove
-docker-compose down
 docker-compose pull
+docker-compose down
 docker-compose up -d
 docker system prune -fa
 docker volume prune -f
