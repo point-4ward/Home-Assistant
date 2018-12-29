@@ -19,6 +19,7 @@ zip -r backup_zip/$_file backup_tmp/
 cd dropbox/
 python dropbox_sync.py
 cd /opt
+rsync -avz --delete backup_zip/ /media/ext/Backups/Homeasistant/
 rm -rf backup_tmp/*
 rm -rf backup_tmp/.*
 curl -X POST -H "Authorization: Bearer $1" $2
