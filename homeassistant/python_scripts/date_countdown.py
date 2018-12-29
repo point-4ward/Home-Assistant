@@ -61,8 +61,9 @@ elif today > nextOccur:
 
 hass.states.set(sensorName , numberOfDays ,
   {
+    "icon" : "mdi:calendar-star" ,
     "unit_of_measurement" : "days" ,
-    "friendly_name" : "{}'s {}".format(name, type),
+    "friendly_name" : "{}'s {}".format(name, type) ,
     "years" : years
   }
 )
