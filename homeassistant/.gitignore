@@ -46,3 +46,4 @@ ip_bans.yaml
 
 !/.HA_VERSION
 !/.gitignore
+!.storage/lovelace

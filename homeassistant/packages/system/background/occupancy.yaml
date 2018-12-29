@@ -98,10 +98,8 @@ group:
     - device_tracker.daniels_iphone_bt
 
   Adults:
-    - device_tracker.pixel
-    - device_tracker.marc_pixel
-    - device_tracker.laura_296999d1f6d5402eaccd2f0a54379e86
-    - device_tracker.laura_iphone_bt
+    - group.marc
+    - group.laura
 
   Marc:
     - device_tracker.pixel
