@@ -12,6 +12,7 @@ git reset --hard origin/master
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove
 docker-compose pull
 docker-compose down
+sudo chown -R x:x /opt/docker/
 docker-compose up -d
 docker system prune -fa
 docker volume prune -f
