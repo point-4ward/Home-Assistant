@@ -62,15 +62,16 @@ input_text:
 
 
 shell_command:
-  upgrade_hass: /extras/bash_scripts/upgrade-hass.sh
+  #TODO - these now need to be SSH....
+  upgrade_system: ssh.../upgrade-system.sh
 
-  github_pull: /extras/bash_scripts/pull-from-github.sh
+  github_sync: ssh.../sync-from-github.sh
 
-  github_push: /extras/bash_scripts/send-to-github.sh "{{ states('input_text.github_message') }}"
+  github_send: ssh.../send-to-github.sh "{{ states('input_text.github_message') }}"
 
-  sync_dropbox: /extras/bash_scripts/sync-dropbox.sh "{{ token }}" "{{ url }}"
+  backup_sync: ssh.../zip-dropbox.sh "{{ token }}" "{{ url }}"
 
-  quick_restart: sudo systemctl restart home-assistant@homeassistant.service
+  quick_restart: ssh.../DOCKER_RESTART
 
 
 alert:
@@ -85,8 +86,18 @@ alert:
       - adults
 
 automation:
-  # TODO - Perform a backup automatically
-  # TODO - Status check
+  - alias: Maintenance - Backup system to Dropbox and NAS
+    initial_state: on
+    trigger:
+      platform: time
+      at: '19:00:00'
+    condition:
+      condition: time
+      weekday:
+        - sun
+    action:
+      service: script.backup_sync
+
   - alias: Maintenance - Notify when backups completed
     initial_state: on
     trigger:
@@ -95,41 +106,41 @@ automation:
     action:
       service: notify.mf
       data:
-        message: "The dropbox sync has finished."
+        message: "The backup has finished."
 
 script:
-  upgrade_hass:
+  upgrade_system:
     alias: ' '
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.maintenance_mode
       - delay: 00:00:02
-      - service: shell_command.upgrade_hass
+      - service: shell_command.upgrade_system
 
-  github_pull:
+  github_sync:
     alias: ' '
     sequence:
       - service: homeassistant.turn_on
         entity_id: input_boolean.maintenance_mode
       - delay: 00:00:02
-      - service: shell_command.github_pull
+      - service: shell_command.github_sync
 
-  github_push:
+  github_send:
     alias: ' '
     sequence:
       - condition: template
         value_template: "{{ not is_state('input_text.github_message' , '' ) }}"
-      - service: shell_command.github_push
+      - service: shell_command.github_send
       - service: persistent_notification.create
         data:
-          notification_id: "Github_push_alert"
+          notification_id: "github_send_alert"
           title: "Github"
           message: "You have pushed your local files to github, you must merge the branches on github then sync the master branch here."
 
-  sync_dropbox:
+  backup_sync:
     alias: ' '
     sequence:
-      - service: shell_command.sync_dropbox
+      - service: shell_command.backup_sync
         data:
           token: !secret done_token
           url: !secret done_url
