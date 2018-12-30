@@ -86,16 +86,17 @@ binary_sensor:
 group:
   Phone trackers:
     - device_tracker.pixel
-    - device_tracker.marc_pixel
     - device_tracker.mf
-    - device_tracker.laura_296999d1f6d5402eaccd2f0a54379e86
+    - device_tracker.marc_pixel
     - device_tracker.laura_iphone_bt
     - device_tracker.ls
+    - device_tracker.laura_296999d1f6d5402eaccd2f0a54379e86
     - device_tracker.courtney_iphone_bt
-    - device_tracker.courtney_iphone
     - device_tracker.cg
-    - device_tracker.df
+    - device_tracker.courtney_e2d7244b6d854c11af4c30c4e04c108a
     - device_tracker.daniels_iphone_bt
+    - device_tracker.df
+
 
   Adults:
     - group.marc
@@ -103,22 +104,22 @@ group:
 
   Marc:
     - device_tracker.pixel
-    - device_tracker.marc_pixel
     - device_tracker.mf
+    - device_tracker.marc_pixel
 
   Laura:
-    - device_tracker.laura_296999d1f6d5402eaccd2f0a54379e86
     - device_tracker.laura_iphone_bt
     - device_tracker.ls
+    - device_tracker.laura_296999d1f6d5402eaccd2f0a54379e86
 
   Courtney:
     - device_tracker.courtney_iphone_bt
-    - device_tracker.courtney_iphone
     - device_tracker.cg
+    - device_tracker.courtney_e2d7244b6d854c11af4c30c4e04c108a
 
   Daniel:
-    - device_tracker.df
     - device_tracker.daniels_iphone_bt
+    - device_tracker.df
 
 
 alert:
