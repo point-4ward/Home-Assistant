@@ -50,7 +50,6 @@ years = int(thisYear) - dateYear
 
 
 if today < nextOccur:
-  nextOccur = datetime.date(thisYear+1 , dateMonth , dateDay)
   numberOfDays = (nextOccur - today).days
 
 elif today > nextOccur:
