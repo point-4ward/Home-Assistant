@@ -17,6 +17,12 @@ switch:
         command_state: !secret bathtime_command_state
         value_template: "{{ value_json.config.on }}"
 
+      kitchen_motion_status:
+        command_on: !secret kitchen_command_on
+        command_off: !secret kitchen_command_off
+        command_state: !secret kitchen_command_state
+        value_template: "{{ value_json.config.on }}"
+
   - platform: template
     switches:
       bathtime_mode:
