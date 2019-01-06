@@ -38,6 +38,14 @@ emulated_hue:
       name: "Christmas Lights"
       hidden: false
 
+    switch.bathtime_mode:
+      name: "Bathtime Mode"
+      hidden: false
+
+    input_boolean.movie_mode:
+      name: "Movie Mode"
+      hidden: false
+
 
 input_boolean:
   radio_downstairs:
@@ -53,10 +61,21 @@ input_boolean:
     initial: 'off'
 
   av_off:
-     initial: 'off'
+    initial: 'off'
+
+  movie_mode:
+    initial: 'off'
 
 
 automation:
+  - alias: Alexa - Movie mode
+    initial_state: on
+    trigger:
+      platform: state
+      entity_id: input_boolean.movie_mode
+    action:
+      service_template: "script.movie_mode_{{ states('input_boolean.movie_mode') }}"
+
   - alias: Alexa - Show TV
     initial_state: on
     trigger:
@@ -111,3 +130,21 @@ automation:
         entity_id:
           - input_boolean.radio_downstairs
           - input_boolean.radio_everywhere
+
+
+script:
+  movie_mode_on:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: scene.livingroom_movie
+      - service: homeassistant.turn_off
+        entity_id:
+          - switch.kitchen_motion_status
+          - light.kitchen
+
+  movie_mode_off:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id:
+          - scene.livingroom_bright
+          - switch.kitchen_motion_status
