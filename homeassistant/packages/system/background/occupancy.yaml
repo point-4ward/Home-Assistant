@@ -60,10 +60,6 @@ input_boolean:
     name: Guest mode
     icon: mdi:human-handsup
 
-  bathtime_mode:
-    name: Bathtime mode
-    icon: mdi:hot-tub
-
 
 sensor:
   platform: template
@@ -130,15 +126,6 @@ alert:
     repeat:
       - 240
       - 120
-    skip_first: true
-    notifiers:
-      - adults
-
-  bathtime_mode_alert:
-    name: Bathtime Mode has been on for a long time
-    done_message: Bathtime Mode de-activated
-    entity_id: input_boolean.bathtime_mode
-    repeat: 60
     skip_first: true
     notifiers:
       - adults
