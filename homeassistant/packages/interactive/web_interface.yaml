@@ -23,6 +23,13 @@ config:
 map:
 
 
+panel_iframe:
+  portainer:
+    title: Portainer
+    url: !secret iframe_url_portainer
+    icon: mdi:docker
+
+
 automation:
   - alias: Interface - Set UI theme
     initial_state: on
