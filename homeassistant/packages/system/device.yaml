@@ -74,7 +74,7 @@ automation:
     initial_state: on
     trigger:
       platform: numeric_state
-      entity_id: sensor.disk_use_percent_
+      entity_id: sensor.disk_use_percent
       above: 85
     action:
       service: script.notify
