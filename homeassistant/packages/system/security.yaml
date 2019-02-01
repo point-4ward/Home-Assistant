@@ -8,7 +8,7 @@
 ##########################################
 
 
-# alarm_control_panel:
+#alarm_control_panel:
 #   platform: manual_mqtt
 #   name: "Alarm"
 #   code: !secret alarm_code
