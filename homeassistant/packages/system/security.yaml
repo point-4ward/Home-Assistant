@@ -8,13 +8,13 @@
 ##########################################
 
 
-#alarm_control_panel:
-#   platform: manual_mqtt
-#   name: "Alarm"
-#   code: !secret alarm_code
-#   state_topic: home-assistant/alarm
-#   command_topic: home-assistant/alarm/set
-#   pending_time: 10
+alarm_control_panel:
+  platform: manual_mqtt
+  name: "Alarm"
+  code: !secret alarm_code
+  state_topic: home-assistant/alarm
+  command_topic: home-assistant/alarm/set
+  pending_time: 10
 
 
 ffmpeg:

@@ -21,6 +21,9 @@ history: !include ../../includes/logging.yaml
 python_script:
 
 
+system_health:
+
+
 sensor:
   - platform: systemmonitor
     resources:
