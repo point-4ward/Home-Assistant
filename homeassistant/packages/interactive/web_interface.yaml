@@ -49,8 +49,8 @@ automation:
     action:
       service: frontend.set_theme
       data_template:
-#          {% if not is_state ('alarm_control_panel.alarm' , 'disarmed') %} darkred
         name: >
+          {% if not is_state ('alarm_control_panel.alarm' , 'disarmed') %} darkred
           {% if is_state ('input_boolean.maintenance_mode' , 'on') %} darkorange
           {% elif ((now().hour == 23) or (now().hour < 7)) %} darkcyan
           {% elif is_state('input_boolean.dark' , 'on') %} midnight
