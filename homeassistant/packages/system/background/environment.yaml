@@ -47,7 +47,7 @@ sensor:
   - platform: darksky
     api_key: !secret darksky_api_key
     units: auto
-    update_interval:
+    scan_interval:
       minutes: 60
     monitored_conditions:
       - summary

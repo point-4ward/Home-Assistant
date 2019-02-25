@@ -18,29 +18,25 @@ alarm_control_panel:
 
 
 ffmpeg:
+  ffmpeg_bin: /usr/local/bin/ffmpeg
 
 
 camera:
   - platform: ffmpeg
     name: Front
     input: !secret cam_front
-    ffmpeg_bin: /usr/local/bin/ffmpeg
 
   - platform: ffmpeg
     name: Drive
     input: !secret cam_drive
-    ffmpeg_bin: /usr/local/bin/ffmpeg
 
   - platform: ffmpeg
     name: Garden
     input: !secret cam_garden
-    ffmpeg_bin: /usr/local/bin/ffmpeg
 
   - platform: ffmpeg
     name: Livingroom
     input: !secret cam_livingroom
-    ffmpeg_bin: /usr/local/bin/ffmpeg
-
 
 
 sensor:

@@ -11,6 +11,9 @@ services:
     container_name: homeassistant
     image: homeassistant/home-assistant:rc
     network_mode: host
+    environment: &env
+      - PGID=1000
+      - PUID=1000
     volumes:
       - /opt/docker/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
@@ -27,6 +30,7 @@ services:
     image: eclipse-mosquitto
     ports:
       - "1883:1883"
+    environment: *env
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /opt/docker/mosquitto:/mosquitto/config:ro
@@ -38,6 +42,7 @@ services:
     image: sliversniper/marytts
     ports:
       - "59125:59125"
+    environment: *env
     volumes:
       - /etc/localtime:/etc/localtime:ro
     restart: on-failure
@@ -62,6 +67,7 @@ services:
     image: portainer/portainer
     ports:
       - "9000:9000"
+    environment: *env
     volumes:
       - /opt/docker/portainer:/data:rw
       - /var/run/docker.sock:/var/run/docker.sock
@@ -73,24 +79,20 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    environment: *env
     volumes:
       - /opt/docker/organizr:/config:rw
       - /etc/letsencrypt:/etc/letsencrypt:ro
-    environment:
-      - PGID=1000
-      - PUID=1000
     restart: on-failure
 
   syncthing:
     container_name: syncthing
     image: linuxserver/syncthing
     network_mode: host
+    environment: *env
     volumes:
       - /opt/docker/syncthing:/config
       - /opt:/config/Sync
       - /etc/localtime:/etc/localtime:ro
-    environment:
-      - PGID=1000
-      - PUID=1000
     restart: unless-stopped
 
