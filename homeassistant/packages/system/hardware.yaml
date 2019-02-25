@@ -34,27 +34,18 @@ cast:
 
 
 media_player:
-  - platform: virgintivo
-    tivos:
-      1:
-        name: Virgin
-        host: !secret virgin_host
-    guide:
-      picture_refresh: 30
-    channels: !include ../../includes/virgin_channels.yaml
-
-  - platform: kodi
-    name: Kodi
-    host: !secret kodi_host
-    port: !secret kodi_port
-    enable_websocket: false
-    username: !secret kodi_username
-    password: !secret kodi_password
-    turn_off_action:
-      service: media_player.kodi_call_method
-      data_template:
-        entity_id: "{{ entity_id }}"
-        method: System.Shutdown
+  platform: kodi
+  name: Kodi
+  host: !secret kodi_host
+  port: !secret kodi_port
+  enable_websocket: false
+  username: !secret kodi_username
+  password: !secret kodi_password
+  turn_off_action:
+    service: media_player.kodi_call_method
+    data_template:
+      entity_id: "{{ entity_id }}"
+      method: System.Shutdown
 
 
 mqtt:
