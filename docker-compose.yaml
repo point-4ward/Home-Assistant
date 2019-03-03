@@ -11,15 +11,19 @@ services:
     container_name: homeassistant
     image: homeassistant/home-assistant:rc
     network_mode: host
-    environment: &env
-      - PGID=1000
-      - PUID=1000
+    environment:
+      - &user
+        PUID=1000
+      - &group
+        PGID=1000
     volumes:
+      - &localtime
+        /etc/localtime:/etc/localtime:ro
       - /opt/docker/homeassistant:/config
-      - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/ttyS0:/dev/ttyS0:rwm
-    restart: on-failure
+    restart: &restart
+      on-failure
     depends_on:
       - "mosquitto"
       - "marytts"
@@ -30,22 +34,26 @@ services:
     image: eclipse-mosquitto
     ports:
       - "1883:1883"
-    environment: *env
+    environment:
+      - *user
+      - *group
     volumes:
-      - /etc/localtime:/etc/localtime:ro
+      - *localtime
       - /opt/docker/mosquitto:/mosquitto/config:ro
       - /opt/docker/mosquitto:/mosquitto/data
-    restart: on-failure
+    restart: *restart
 
   marytts:
     container_name: marytts
     image: sliversniper/marytts
     ports:
       - "59125:59125"
-    environment: *env
+    environment: 
+      - *user
+      - *group
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-    restart: on-failure
+      - *localtime
+    restart: *restart
 
   mariadb:
     image: mariadb
@@ -53,25 +61,30 @@ services:
     ports:
       - "3306:3306"
     volumes:
+      - *localtime
       - /opt/docker/mariadb:/var/lib/mysql
-      - /etc/localtime:/etc/localtime:ro
     environment:
+      - *user
+      - *group
       - MYSQL_DATABASE=homeassistant
       - MYSQL_USER=homeassistant
       - MYSQL_PASSWORD=homeassistant
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
-    restart: on-failure
+    restart: *restart
 
   portainer:
     container_name: portainer
     image: portainer/portainer
     ports:
       - "9000:9000"
-    environment: *env
+    environment:
+      - *user
+      - *group
     volumes:
+      - *localtime
       - /opt/docker/portainer:/data:rw
       - /var/run/docker.sock:/var/run/docker.sock
-    restart: on-failure
+    restart: *restart
 
   organizr:
     container_name: organizr
@@ -79,20 +92,24 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    environment: *env
+    environment:
+      - *user
+      - *group
     volumes:
+      - *localtime
       - /opt/docker/organizr:/config:rw
       - /etc/letsencrypt:/etc/letsencrypt:ro
-    restart: on-failure
+    restart: *restart
 
   syncthing:
     container_name: syncthing
     image: linuxserver/syncthing
     network_mode: host
-    environment: *env
+    environment:
+      - *user
+      - *group
     volumes:
+      - *localtime
       - /opt/docker/syncthing:/config
       - /opt:/config/Sync
-      - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
-
