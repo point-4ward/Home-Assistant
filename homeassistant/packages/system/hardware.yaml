@@ -57,16 +57,10 @@ mqtt:
 
 
 switch:
-  - platform: tplink
-    host: !secret switch_tplink_heater
-
-  - platform: tplink
-    host: !secret switch_tplink_xmas
-
-  - platform: broadlink
-    host: !secret switch_broadlink_host
-    mac: !secret switch_broadlink_mac
-    switches: !include_dir_merge_named ../../includes/ir_codes/
+  platform: broadlink
+  host: !secret switch_broadlink_host
+  mac: !secret switch_broadlink_mac
+  switches: !include_dir_merge_named ../../includes/ir_codes/
 
 binary_sensor:
   platform: mqtt
