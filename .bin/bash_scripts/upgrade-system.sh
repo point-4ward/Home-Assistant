@@ -16,3 +16,4 @@ docker-compose up -d
 docker system prune -fa
 docker volume prune -f
 exit
+
