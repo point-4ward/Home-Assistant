@@ -25,3 +25,4 @@ rm -rf backup_tmp/.*
 curl -X POST -H "Authorization: Bearer $1" $2
 
 exit
+
