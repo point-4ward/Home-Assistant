@@ -344,3 +344,19 @@ script:
         data_template:
           group_name: "{{ group }}"
           scene_name: "{{ scene }}"
+
+  movie_mode_on:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: scene.livingroom_movie
+      - service: homeassistant.turn_off
+        entity_id:
+          - switch.kitchen_motion_status
+          - light.kitchen
+
+  movie_mode_off:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id:
+          - scene.livingroom_dim
+          - switch.kitchen_motion_status
