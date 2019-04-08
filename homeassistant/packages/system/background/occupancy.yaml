@@ -7,6 +7,9 @@
 ####################################################
 
 
+person:
+
+
 device_tracker:
   - platform: bluetooth_tracker
     new_device_defaults:
@@ -67,7 +70,7 @@ sensor:
     home_status:
       friendly_name: Home status
       value_template: >
-        {% if is_state('group.phone_trackers' , 'home') or is_state('input_boolean.guest_mode' , 'on') %}Occupied
+        {% if is_state('group.everyone' , 'home') or is_state('input_boolean.guest_mode' , 'on') %}Occupied
         {% else %} Unoccupied {% endif %}
 
 binary_sensor:
@@ -80,41 +83,17 @@ binary_sensor:
 
 
 group:
-  Phone trackers:
-    - device_tracker.pixel
-    - device_tracker.mf
-    - device_tracker.marc_pixel
-    - device_tracker.laura_iphone_bt
-    - device_tracker.ls
-    - device_tracker.laura_296999d1_f6d5_402e_accd_2f0a54379e86
-    - device_tracker.courtney_iphone_bt
-    - device_tracker.cg
-    - device_tracker.courtney_e2d7244b_6d85_4c11_af4c_30c4e04c108a
-    - device_tracker.daniels_iphone_bt
-    - device_tracker.df
+  everyone:
+    - &marc
+      person.marc
+    - &laura
+      person.laura
+    - person.courtney
+    - person.daniel
 
-  Adults:
-    - group.marc
-    - group.laura
-
-  Marc:
-    - device_tracker.pixel
-    - device_tracker.mf
-    - device_tracker.marc_pixel
-
-  Laura:
-    - device_tracker.laura_iphone_bt
-    - device_tracker.ls
-    - device_tracker.laura_296999d1_f6d5_402e_accd_2f0a54379e86
-
-  Courtney:
-    - device_tracker.courtney_iphone_bt
-    - device_tracker.cg
-    - device_tracker.courtney_e2d7244b_6d85_4c11_af4c_30c4e04c108a
-
-  Daniel:
-    - device_tracker.daniels_iphone_bt
-    - device_tracker.df
+  adults:
+    - *marc
+    - *laura
 
 
 alert:
@@ -135,7 +114,7 @@ automation:
     initial_state: on
     trigger:
       platform: state
-      entity_id: group.phone_trackers
+      entity_id: group.everyone
       to: 'home'
     action:
       service: homeassistant.turn_off
