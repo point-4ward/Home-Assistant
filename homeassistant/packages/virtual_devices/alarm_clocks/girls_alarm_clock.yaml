@@ -46,7 +46,7 @@ automation:
     value_template: "{{ states('sensor.time') == (state_attr('input_datetime.girls_alarm_clock_time' , 'timestamp')|int|timestamp_custom('%H:%M', False)) }}"
   condition:
     - condition: state
-      entity_id: group.phone_trackers
+      entity_id: group.everyone
       state: 'home'
     - condition: state
       entity_id: input_boolean.girls_alarm_clock_status
