@@ -56,13 +56,10 @@ services:
     restart: *restart
 
   mariadb:
-    image: mariadb
     container_name: mariadb
+    image: mariadb
     ports:
       - "3306:3306"
-    volumes:
-      - *localtime
-      - /opt/docker/mariadb:/var/lib/mysql
     environment:
       - *user
       - *group
@@ -70,6 +67,9 @@ services:
       - MYSQL_USER=homeassistant
       - MYSQL_PASSWORD=homeassistant
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - *localtime
+      - /opt/docker/mariadb:/var/lib/mysql
     restart: *restart
 
   portainer:
