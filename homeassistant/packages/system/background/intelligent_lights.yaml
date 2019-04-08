@@ -65,7 +65,7 @@ input_select:
 scene:
   - name: Livingroom dim
     entities:
-      light.livingroom:
+      light.livingroom: &dim
         state: on
         transition: 4
         brightness: 125
@@ -79,7 +79,7 @@ scene:
 
   - name: Livingroom bright
     entities:
-      light.livingroom:
+      light.livingroom: &bright
         state: on
         transition: 4
         brightness: 255
@@ -93,45 +93,30 @@ scene:
 
   - name: Boys bright
     entities:
-      light.boys:
-        state: on
-        transition: 4
-        brightness: 200
+      light.boys: *bright
 
   - name: Boys dim
     entities:
-      light.boys:
-        state: on
-        transition: 4
-        brightness: 125
+      light.boys: *dim
 
   - name: Boys night
     entities:
-      light.boys:
+      light.boys: &night
         state: on
         transition: 4
         brightness: 5
 
   - name: Girls bright
     entities:
-      light.girls:
-        state: on
-        transition: 4
-        brightness: 200
+      light.girls: *bright
 
   - name: Girls dim
     entities:
-      light.girls:
-        state: on
-        transition: 4
-        brightness: 125
+      light.girls: *dim
 
   - name: Girls night
     entities:
-      light.girls:
-        state: on
-        transition: 4
-        brightness: 5
+      light.girls: *night
 
 
 automation:
@@ -359,3 +344,19 @@ script:
         data_template:
           group_name: "{{ group }}"
           scene_name: "{{ scene }}"
+
+  movie_mode_on:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: scene.livingroom_movie
+      - service: homeassistant.turn_off
+        entity_id:
+          - switch.kitchen_motion_status
+          - light.kitchen
+
+  movie_mode_off:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id:
+          - scene.livingroom_dim
+          - switch.kitchen_motion_status
