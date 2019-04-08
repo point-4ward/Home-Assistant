@@ -8,19 +8,6 @@
 ################################################
 
 
-weblink:
-  entities:
-    - name: Github
-      url: https://github.com/mf-social/Home-Assistant
-    - name: Configure Alexa
-      url: https://alexa.amazon.co.uk/spa/index.html#smart-home
-    - name: Dropbox
-      url: https://dropbox.com
-    - name: Router
-      url: !secret weblink_router
-    - name: Uptime Robot
-      url: https://uptimerobot.com
-
 switch:
   platform: template
   switches:
