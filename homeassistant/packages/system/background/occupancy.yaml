@@ -7,6 +7,21 @@
 ####################################################
 
 
+homeassistant:
+  customize:
+    person.marc:
+      entity_picture: local/private/marc.jpg
+
+    person.laura:
+      entity_picture: local/private/laura.jpg
+
+    person.courtney:
+      entity_picture: local/private/courtney.jpg
+
+    person.daniel:
+      entity_picture: local/private/dan.jpg
+
+
 person:
 
 
