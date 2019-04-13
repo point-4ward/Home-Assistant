@@ -10,16 +10,16 @@
 homeassistant:
   customize:
     person.marc:
-      entity_picture: local/private/marc.jpg
+      entity_picture: !secret image_mf
 
     person.laura:
-      entity_picture: local/private/laura.jpg
+      entity_picture: !secret image_ls
 
     person.courtney:
-      entity_picture: local/private/courtney.jpg
+      entity_picture: !secret image_cg
 
     person.daniel:
-      entity_picture: local/private/dan.jpg
+      entity_picture: !secret image_df
 
 
 person:
