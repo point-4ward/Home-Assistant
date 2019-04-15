@@ -11,7 +11,7 @@ version: 2
 
 workflows:
   version: 2
-  verify:
+  Verify:
     jobs:
       - build
       - test
