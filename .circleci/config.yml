@@ -15,9 +15,15 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      
+      # Validate docker-compose file
+      - run:
+        name: Check Compose
+        command: docker-compose -f docker-compose.yaml config
+      
+      #Validate Homeassistant configuration
       - run:
           name: Check config
           command: |
             mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
-            cd /usr/src/app
-            python -m homeassistant -c ~/repo/homeassistant --script check_config --info all
+            python -m /usr/src/app/homeassistant -c ~/repo/homeassistant --script check_config --info all
