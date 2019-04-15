@@ -118,95 +118,74 @@ sensor:
             + (states('sensor.kitchen_light_level')|float)) /3)|round(2) }}
         unit_of_measurement: lx
 
-  - platform: rest
+  - &temp
+    platform: rest
     name: Bathroom temperature
     resource: !secret hue_resource_bathroom_temp
     value_template: "{{ value_json.state.temperature|float / 100 }}"
     unit_of_measurement: °C
 
-  - platform: rest
+  - &lux
+    platform: rest
     name: Bathroom light level
     resource: !secret hue_resource_bathroom_lx
     value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
     unit_of_measurement: lx
 
-  - platform: rest
+  - &battery
+    platform: rest
     name: Bathroom battery
     resource: !secret hue_resource_bathroom_motion
     value_template: "{{ value_json.config.battery }}"
     unit_of_measurement: "%"
 
-  - platform: rest
+  - <<: *temp
     name: Hall temperature
     resource: !secret hue_resource_hall_temp
-    value_template: "{{ value_json.state.temperature|float / 100 }}"
-    unit_of_measurement: °C
 
-  - platform: rest
+  - <<: *lux
     name: Hall light level
     resource: !secret hue_resource_hall_lx
-    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
-    unit_of_measurement: lx
 
-  - platform: rest
+  - <<: *battery
     name: Hall battery
     resource: !secret hue_resource_hall_motion
-    value_template: "{{ value_json.config.battery }}"
-    unit_of_measurement: "%"
 
-  - platform: rest
+  - <<: *temp
     name: Kitchen temperature
     resource: !secret hue_resource_kitchen_temp
-    value_template: "{{ value_json.state.temperature|float / 100 }}"
-    unit_of_measurement: °C
 
-  - platform: rest
+  - <<: *lux
     name: Kitchen light level
     resource: !secret hue_resource_kitchen_lx
-    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
-    unit_of_measurement: lx
 
-  - platform: rest
+  - <<: *battery
     name: Kitchen battery
     resource: !secret hue_resource_kitchen_motion
-    value_template: "{{ value_json.config.battery }}"
-    unit_of_measurement: "%"
 
-  - platform: rest
+  - <<: *temp
     name: Attic temperature
     resource: !secret hue_resource_attic_temp
-    value_template: "{{ value_json.state.temperature|float / 100 }}"
-    unit_of_measurement: °C
 
-  - platform: rest
+  - <<: *lux
     name: Attic light level
     resource: !secret hue_resource_attic_lx
-    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
-    unit_of_measurement: lx
 
-  - platform: rest
+  - <<: *battery
     name: Attic battery
     resource: !secret hue_resource_attic_motion
-    value_template: "{{ value_json.config.battery }}"
-    unit_of_measurement: "%"
 
-  - platform: rest
+  - <<: *temp
     name: Landing temperature
     resource: !secret hue_resource_landing_temp
-    value_template: "{{ value_json.state.temperature|float / 100 }}"
-    unit_of_measurement: °C
 
-  - platform: rest
+  - <<: *lux
     name: Landing light level
     resource: !secret hue_resource_landing_lx
-    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
-    unit_of_measurement: lx
 
-  - platform: rest
+  - <<: *battery
     name: Landing battery
     resource: !secret hue_resource_landing_motion
-    value_template: "{{ value_json.config.battery }}"
-    unit_of_measurement: "%"
 
 
 binary_sensor:
