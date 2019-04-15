@@ -31,19 +31,19 @@ sensor:
     resource: !secret hue_resource_attic_motion
     value_template: "{{ value_json.state.presence }}"
 
-  - *motion
+  - <<: *motion
     name: Landing motion
     resource: !secret hue_resource_landing_motion
 
-  - *motion
+  - <<: *motion
     name: Bathroom motion
     resource: !secret hue_resource_bathroom_motion
 
-  - *motion
+  - <<: *motion
     name: Hall motion
     resource: !secret hue_resource_hall_motion
 
-  - *motion
+  - <<: *motion
     name: Kitchen motion
     resource: !secret hue_resource_kitchen_motion
 
