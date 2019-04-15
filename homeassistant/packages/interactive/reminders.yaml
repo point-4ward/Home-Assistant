@@ -97,4 +97,4 @@ automation:
       - service: script.notify
         data_template:
           tell: adults
-          message: "{{ trigger.to_state.attributes.friendly_name }} is in {{ trigger.to_state.attributes.days }}"
+          message: "{{ trigger.to_state.attributes.friendly_name }} is only a week away!"
