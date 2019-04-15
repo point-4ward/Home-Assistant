@@ -280,7 +280,7 @@ automation:
     trigger:
       platform: state
       entity_id: light.boys
-      to: 'on
+      to: 'on'
     condition:
       condition: state
       entity_id: input_boolean.dark
