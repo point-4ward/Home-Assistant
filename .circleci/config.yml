@@ -16,10 +16,10 @@ jobs:
     steps:
       - checkout
       
-      # Validate docker-compose file
-      - run:
-          name: Check Compose
-          command: docker-compose -f docker-compose.yaml config
+# TODO -       # Validate docker-compose file
+#       - run:
+#           name: Check Compose
+#           command: docker-compose -f docker-compose.yaml config
       
       #Validate Homeassistant configuration
       - run:
