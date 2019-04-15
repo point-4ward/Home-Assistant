@@ -13,7 +13,7 @@ jobs:
 
 ### Validate docker-compose file
 
-  check_compose:
+  build 1:
     docker:
       - image: alpine
     working_directory: ~/repo
@@ -25,7 +25,7 @@ jobs:
 
 ### Validate Homeassistant configuration
 
-  check_homeassistant:
+  build 2:
     docker:
       - image: homeassistant/home-assistant:rc
     working_directory: ~/repo
