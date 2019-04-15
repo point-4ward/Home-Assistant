@@ -25,30 +25,27 @@ sensor:
     name: "Doorbell"
     state_topic: "home-assistant/doorbell"
 
-  - platform: rest
+  - &motion
+    platform: rest
     name: Attic motion
     resource: !secret hue_resource_attic_motion
     value_template: "{{ value_json.state.presence }}"
 
-  - platform: rest
+  - *motion
     name: Landing motion
     resource: !secret hue_resource_landing_motion
-    value_template: "{{ value_json.state.presence }}"
 
-  - platform: rest
+  - *motion
     name: Bathroom motion
     resource: !secret hue_resource_bathroom_motion
-    value_template: "{{ value_json.state.presence }}"
 
-  - platform: rest
+  - *motion
     name: Hall motion
     resource: !secret hue_resource_hall_motion
-    value_template: "{{ value_json.state.presence }}"
 
-  - platform: rest
+  - *motion
     name: Kitchen motion
     resource: !secret hue_resource_kitchen_motion
-    value_template: "{{ value_json.state.presence }}"
 
 
 binary_sensor:
