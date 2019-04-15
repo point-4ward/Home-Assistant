@@ -8,8 +8,24 @@
 
 
 version: 2
+
 jobs:
-  build:
+
+### Validate docker-compose file
+
+  check_compose:
+    docker:
+      - image: alpine
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Check docker-compose
+          command: docker-compose config -q
+
+### Validate Homeassistant configuration
+
+  check_homeassistant:
     docker:
       - image: homeassistant/home-assistant:rc
     working_directory: ~/repo
