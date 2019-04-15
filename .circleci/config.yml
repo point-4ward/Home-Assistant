@@ -11,7 +11,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: homeassistant/amd64-homeassistant
+      - image: homeassistant/home-assistant:rc
     working_directory: ~/repo
     steps:
       - checkout
@@ -19,4 +19,5 @@ jobs:
           name: Check config
           command: |
             mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
-            hass -c homeassistant/ --script check_config --info all
+            cd /usr/src/app
+            python -m homeassistant -c ~/repo/homeassistant --script check_config --info all
