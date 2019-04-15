@@ -20,4 +20,4 @@ jobs:
           command: |
             mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
             cd /usr/src/app
-            python -m homeassistant -c /homeassistant --script check_config --info all
+            python -m homeassistant -c ~/repo/homeassistant --script check_config --info all
