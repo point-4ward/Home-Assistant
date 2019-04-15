@@ -9,11 +9,18 @@
 
 version: 2
 
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+
 jobs:
 
 ### Validate docker-compose file
 
-  build 1:
+  build:
     docker:
       - image: alpine
     working_directory: ~/repo
@@ -25,7 +32,7 @@ jobs:
 
 ### Validate Homeassistant configuration
 
-  build 2:
+  test:
     docker:
       - image: homeassistant/home-assistant:rc
     working_directory: ~/repo
@@ -37,3 +44,4 @@ jobs:
             mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
             cd /usr/src/app
             python -m homeassistant -c ~/repo/homeassistant --script check_config --info all
+
