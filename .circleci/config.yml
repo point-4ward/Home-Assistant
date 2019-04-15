@@ -11,7 +11,7 @@ version: 2
 
 workflows:
   version: 2
-  build_and_test:
+  verify:
     jobs:
       - build
       - test
@@ -22,7 +22,7 @@ jobs:
 
   build:
     docker:
-      - image: alpine
+      - image: tiangolo/docker-with-compose
     working_directory: ~/repo
     steps:
       - checkout
