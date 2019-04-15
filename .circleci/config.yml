@@ -19,4 +19,4 @@ jobs:
           name: Check config
           command: |
             mv .bin/github_resources/secrets_redacted.yaml homeassistant/secrets.yaml
-            python -m hass --script check_config --info all
+            python -m homeassistant --config /config --script check_config --info all
