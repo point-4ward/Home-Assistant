@@ -9,7 +9,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/home-assistant:rc
+    image: homeassistant/home-assistant
     network_mode: host
     environment:
       - &user
