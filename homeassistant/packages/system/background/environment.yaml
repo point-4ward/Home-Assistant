@@ -107,85 +107,16 @@ sensor:
 
       average_temperature:
         value_template: >
-          {{ (((states('sensor.bathroom_temperature')|float) + (states('sensor.attic_temperature')|float)
-            + (states('sensor.landing_temperature')|float) + (states('sensor.hall_temperature')|float)
-            + (states('sensor.kitchen_temperature')|float)) /5)|round(2) }}
+          {{ (((states('sensor.bathroom_motion_temperature')|float) + (states('sensor.stairs_motion_temperature')|float)
+            + (states('sensor.landing_motion_temperature')|float) + (states('sensor.hall_motion_temperature')|float)
+            + (states('sensor.kitchen_sensor_temperature')|float)) /5)|round(2) }}
         unit_of_measurement: °C
 
       average_light_level:
         value_template: >
-          {{ (((states('sensor.bathroom_light_level')|float) + (states('sensor.landing_light_level')|float)
-            + (states('sensor.kitchen_light_level')|float)) /3)|round(2) }}
+          {{ (((states('sensor.bathroom_motion_light_level')|float) + (states('sensor.landing_motion_light_level')|float)
+            + (states('sensor.kitchen_sensor_light_level')|float)) /3)|round(2) }}
         unit_of_measurement: lx
-
-  - &temp
-    platform: rest
-    name: Bathroom temperature
-    resource: !secret hue_resource_bathroom_temp
-    value_template: "{{ value_json.state.temperature|float / 100 }}"
-    unit_of_measurement: °C
-
-  - &lux
-    platform: rest
-    name: Bathroom light level
-    resource: !secret hue_resource_bathroom_lx
-    value_template: "{{ (10 ** ( float(value_json.state.lightlevel) / 10000 )-1 )|round(1) }}"
-    unit_of_measurement: lx
-
-  - &battery
-    platform: rest
-    name: Bathroom battery
-    resource: !secret hue_resource_bathroom_motion
-    value_template: "{{ value_json.config.battery }}"
-    unit_of_measurement: "%"
-
-  - <<: *temp
-    name: Hall temperature
-    resource: !secret hue_resource_hall_temp
-
-  - <<: *lux
-    name: Hall light level
-    resource: !secret hue_resource_hall_lx
-
-  - <<: *battery
-    name: Hall battery
-    resource: !secret hue_resource_hall_motion
-
-  - <<: *temp
-    name: Kitchen temperature
-    resource: !secret hue_resource_kitchen_temp
-
-  - <<: *lux
-    name: Kitchen light level
-    resource: !secret hue_resource_kitchen_lx
-
-  - <<: *battery
-    name: Kitchen battery
-    resource: !secret hue_resource_kitchen_motion
-
-  - <<: *temp
-    name: Attic temperature
-    resource: !secret hue_resource_attic_temp
-
-  - <<: *lux
-    name: Attic light level
-    resource: !secret hue_resource_attic_lx
-
-  - <<: *battery
-    name: Attic battery
-    resource: !secret hue_resource_attic_motion
-
-  - <<: *temp
-    name: Landing temperature
-    resource: !secret hue_resource_landing_temp
-
-  - <<: *lux
-    name: Landing light level
-    resource: !secret hue_resource_landing_lx
-
-  - <<: *battery
-    name: Landing battery
-    resource: !secret hue_resource_landing_motion
 
 
 binary_sensor:
