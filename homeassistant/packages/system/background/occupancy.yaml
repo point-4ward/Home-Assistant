@@ -22,7 +22,7 @@ homeassistant:
       entity_picture: !secret image_df
 
 
-person:
+#person:
 
 
 device_tracker:
