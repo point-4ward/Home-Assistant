@@ -23,16 +23,8 @@ config:
 map:
 
 
-panel_iframe:
-  portainer:
-    title: Portainer
-    url: !secret iframe_url_portainer
-    icon: mdi:docker
-
-
 automation:
   - alias: Interface - Set UI theme
-    initial_state: on
     trigger:
       - platform: homeassistant
         event: start
@@ -40,8 +32,7 @@ automation:
         entity_id:
           - alarm_control_panel.alarm
           - input_boolean.maintenance_mode
-      - platform: state
-        entity_id: input_boolean.dark
+          - input_boolean.dark
       - platform: time
         at: '23:00:00'
       - platform: time

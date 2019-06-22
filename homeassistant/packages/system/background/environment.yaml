@@ -6,12 +6,6 @@
 #####################################################
 
 
-homeassistant:
-  customize_glob:
-    sensor.*battery*:
-      icon: mdi:battery
-
-
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_secret
@@ -119,12 +113,8 @@ sensor:
         unit_of_measurement: lx
 
 
-binary_sensor:
-  platform: iss
-
 automation:
   alias: Environment - Darkness monitor
-  initial_state: on
   trigger:
     - platform: numeric_state
       entity_id: sensor.average_light_level

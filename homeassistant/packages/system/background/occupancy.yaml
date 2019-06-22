@@ -38,37 +38,6 @@ device_tracker:
       df: !secret ping_df
 
 
-switch:
-  platform: template
-  switches:
-    empty_bedroom:
-      value_template: "{{ is_state('script.empty_bedroom' , 'on') }}"
-      turn_on:
-        service: homeassistant.turn_on
-        entity_id: script.empty_bedroom
-      turn_off:
-        service: homeassistant.turn_off
-        entity_id: script.empty_bedroom
-
-    empty_boys:
-      value_template: "{{ is_state('script.empty_boys' , 'on') }}"
-      turn_on:
-        service: homeassistant.turn_on
-        entity_id: script.empty_boys
-      turn_off:
-        service: homeassistant.turn_off
-        entity_id: script.empty_boys
-
-    empty_girls:
-      value_template: "{{ is_state('script.empty_girls' , 'on') }}"
-      turn_on:
-        service: homeassistant.turn_on
-        entity_id: script.empty_girls
-      turn_off:
-        service: homeassistant.turn_off
-        entity_id: script.empty_girls
-
-
 input_boolean:
   away_mode:
 
@@ -87,15 +56,6 @@ sensor:
       value_template: >
         {% if is_state('group.everyone' , 'home') or is_state('input_boolean.guest_mode' , 'on') %}Occupied
         {% else %} Unoccupied {% endif %}
-
-binary_sensor:
-  platform: template
-  sensors:
-    holiday_mode:
-      friendly_name: Holiday Mode
-      icon_template: mdi:airplane
-      value_template: "{{ is_state('input_boolean.holiday_mode' , 'on') }}"
-
 
 group:
   everyone:
@@ -126,7 +86,6 @@ alert:
 
 automation:
   - alias: Occupancy - Return home
-    initial_state: on
     trigger:
       platform: state
       entity_id: group.everyone
@@ -139,7 +98,6 @@ automation:
         - input_boolean.holiday_mode
 
   - alias: Occupancy - Nobody home
-    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.home_status
@@ -148,21 +106,15 @@ automation:
         minutes: 2
     action:
       - service: homeassistant.turn_off
+######## TODO - change this to areas?????
         entity_id:
-          - input_boolean.play_radio
-          - switch.google_music
           - group.all_lights
-          - input_boolean.kodi_power
-          - switch.xmas_lights
+          - switch.heater
+          - switch.xmas_tree
       - service: homeassistant.turn_on
-        entity_id:
-          - input_boolean.away_mode
-          - script.empty_bedroom
-          - script.empty_girls
-          - script.empty_boys
+        entity_id: input_boolean.away_mode
 
   - alias: Occupancy - Holiday Mode
-    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.away_mode
@@ -176,7 +128,6 @@ automation:
         entity_id: input_boolean.away_mode
 
   - alias: Occupancy - Trackable device detected
-    initial_state: on
     trigger:
       platform: event
       event_type: device_tracker_new_device
@@ -186,32 +137,3 @@ automation:
         tell: mf
         message: ' a new trackable device has been detected'
 
-
-script:
-  empty_bedroom:
-    alias: bedroom Empty
-    sequence:
-      - service: homeassistant.turn_off
-        entity_id:
-          - light.bedroom
-          - input_boolean.remote_bedroom_radio
-          - media_player.bedroom
-
-  empty_boys:
-    alias: Boys Empty
-    sequence:
-      - service: homeassistant.turn_off
-        entity_id:
-          - light.boys
-          - input_boolean.remote_boys_radio
-          - media_player.boys
-
-  empty_girls:
-    alias: Girls Empty
-    sequence:
-      - service: homeassistant.turn_off
-        entity_id:
-          - light.girls
-          - input_boolean.remote_girls_radio
-          - media_player.girls
-          - switch.heater

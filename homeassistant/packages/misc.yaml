@@ -9,21 +9,3 @@
 #                                                  #
 ####################################################
 
-feedreader:
-  urls:
-    - https://hasspodcast.io/feed/podcast
-
-automation:
-  - alias: Test - HA podcast_update test
-    initial_state: on
-    trigger:
-      platform: event
-      event_type: feedreader
-    #TODO - add a condition that checks it's a HA one
-    action:
-      - service: persistent_notification.create
-        data_template:
-          title: "New HA Podcast available"
-          message: "{{ trigger.event.data.title }}"
-          notification_id: "podcast_update"
-    #TODO - add a new entry to an input_select

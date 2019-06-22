@@ -9,7 +9,6 @@
 
 automation:
   - alias: Reminder - Bin day
-    initial_state: on
     trigger:
       platform: time
       at: '18:15:00'
@@ -30,7 +29,6 @@ automation:
           message: "The bins need to go out tonight."
 
   - alias: Reminder - Refresh date countdown sensors
-    initial_state: on
     trigger:
       - platform: time
         at: '00:00:01'
@@ -79,7 +77,6 @@ automation:
           date: !secret date_anniversary
 
   - alias: Reminder - 7 days to significant date
-    initial_state: on
     trigger:
       - platform: state
         entity_id: 

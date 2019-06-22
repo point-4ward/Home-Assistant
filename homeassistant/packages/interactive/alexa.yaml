@@ -6,30 +6,15 @@
 ########################################################
 
 
+homeassistant:
+  customize:
+    switch.movie_mode:
+      icon: mdi:movie-outline
+
 emulated_hue:
   host_ip: !secret host_ip
   expose_by_default: false
   entities:
-    input_boolean.radio_downstairs:
-      name: "Radio Downstairs"
-      hidden: false
-
-    input_boolean.radio_everywhere:
-      name: "Radio Everywhere"
-      hidden: false
-
-    input_boolean.show_tv:
-      name: "Show TV"
-      hidden: false
-
-    input_boolean.show_cctv:
-      name: "Show CCTV"
-      hidden: false
-
-    input_boolean.av_off:
-      name: "AV off"
-      hidden: false
-
     switch.heater:
       name: "Bedroom heater"
       hidden: false
@@ -42,91 +27,21 @@ emulated_hue:
       name: "Bathtime Mode"
       hidden: false
 
-    input_boolean.movie_mode:
+    switch.movie_mode:
       name: "Movie Mode"
       hidden: false
 
-
-input_boolean:
-  radio_downstairs:
-    initial: 'off'
-
-  radio_everywhere:
-    initial: 'off'
-
-  show_tv:
-    initial: 'off'
-
-  show_cctv:
-    initial: 'off'
-
-  av_off:
-    initial: 'off'
-
-  movie_mode:
-    initial: 'off'
+    light.floor_lights:
+      name: "Floor lights"
+      hidden: false
 
 
-automation:
-  - alias: Alexa - Movie mode
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: input_boolean.movie_mode
-    action:
-      service_template: "script.movie_mode_{{ states('input_boolean.movie_mode') }}"
-
-  - alias: Alexa - Show TV
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: input_boolean.show_tv
-      to: 'on'
-    action:
-      service: script.remote_show_tv
-
-  - alias: Alexa - Show CCTV
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: input_boolean.show_cctv
-      to: 'on'
-    action:
-      service: script.remote_show_cctv
-
-  - alias: Alexa - TV off
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: input_boolean.av_off
-      to: 'on'
-    action:
-      service: script.remote_tv_off
-
-  - alias: Alexa - Play radio
-    initial_state: on
-    trigger:
-      - platform: state
-        entity_id: input_boolean.radio_downstairs
-        to: 'on'
-      - platform: state
-        entity_id: input_boolean.radio_everywhere
-        to: 'on'
-    action:
-      - service: input_select.select_option
-        data:
-          entity_id: input_select.radio_station
-          option: Free Radio CW
-      - service: input_select.select_option
-        data_template:
-          entity_id: input_select.media_player
-          option: >
-            {% if is_state('input_boolean.radio_downstairs' , 'on') %} downstairs
-            {% elif is_state('input_boolean.radio_everywhere' , 'on') %} everywhere
-            {% endif %}
-      - service: homeassistant.turn_on
-        entity_id: input_boolean.play_radio
-      - service: homeassistant.turn_off
-        entity_id:
-          - input_boolean.radio_downstairs
-          - input_boolean.radio_everywhere
+switch:
+  platform: template
+  switches:
+    movie_mode:
+      value_template: "{{ is_state('switch.kitchen_motion_status' , 'off') }}"
+      turn_on:
+        service: script.movie_mode_on
+      turn_off:
+        service: script.movie_mode_off
