@@ -25,7 +25,6 @@ services:
       on-failure
     depends_on:
       - "mosquitto"
-      - "marytts"
       - "mariadb"
 
   mosquitto:
