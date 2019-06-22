@@ -8,6 +8,23 @@
 ############################################################
 
 
+homeassistant:
+  customize:
+    light.led1:
+      icon: mdi:led-outline
+
+    light.led2:
+      icon: mdi:led-outline
+
+
+light:
+  - platform: group
+    name: Floor lights
+    entities:
+      - light.led1
+      - light.led2
+
+
 switch:
   - platform: command_line
     switches:
@@ -40,6 +57,16 @@ switch:
             entity_id: switch.bathroom_motion_status
           - service: homeassistant.turn_off
             entity_id: light.bathroom
+        
+
+binary_sensor:
+  platform: template
+  sensors:
+    floor_light_control:
+      value_template: >
+        {{ is_state('light.livingroom' , 'on')
+          and is_state('input_boolean.dark' , 'on' )
+          and is_state('switch.movie_mode' , 'off') }}
 
 
 input_select:
@@ -121,7 +148,6 @@ scene:
 
 automation:
   - alias: Lighting - off when daylight
-    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.dark
@@ -134,14 +160,10 @@ automation:
         entity_id: group.all_lights
         state: 'on'
     action:
-      - service: script.notify
-        data:
-          call_light_inside: 1
-      - service: homeassistant.turn_off
-        entity_id: group.all_lights
+      service: homeassistant.turn_off
+      entity_id: group.all_lights
 
   - alias: Lighting - on when dark (already home)
-    initial_state: on
     trigger:
       platform: state
       entity_id: input_boolean.dark
@@ -151,14 +173,10 @@ automation:
       entity_id: sensor.home_status
       state: 'Occupied'
     action:
-      - service: script.notify
-        data:
-          call_dark_inside: 1
-      - service: homeassistant.turn_on
-        entity_id: scene.livingroom_sunset
+      service: homeassistant.turn_on
+      entity_id: scene.livingroom_sunset
 
   - alias: Lighting - on when dark (arriving home)
-    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.home_status
@@ -168,44 +186,10 @@ automation:
       entity_id: input_boolean.dark
       state: 'on'
     action:
-      - service: homeassistant.turn_on
-        entity_id: scene.livingroom_bright
-
-  - alias: Lighting - Kodi
-    initial_state: on
-    trigger:
-      - platform: state
-        entity_id: media_player.kodi
-        to: 'playing'
-      - platform: state
-        entity_id: media_player.kodi
-        to: 'paused'
-      - platform: state
-        entity_id: media_player.kodi
-        to: 'idle'
-        from: 'playing'
-    condition:
-      - condition: state
-        entity_id: input_boolean.dark
-        state: 'on'
-      - condition: or
-        conditions:
-          - condition: template
-            value_template: "{{ is_state_attr('media_player.kodi' , 'media_content_type' , 'tvshow') }}"
-          - condition: template
-            value_template: "{{ is_state_attr('media_player.kodi' , 'media_content_type' , 'movie') }}"
-          - condition: state
-            entity_id: media_player.kodi
-            state: 'idle'
-    action:
       service: homeassistant.turn_on
-      data_template:
-        entity_id: >
-          {% if is_state('media_player.kodi' , 'playing') %} scene.livingroom_movie
-          {% else %} scene.livingroom_dim {% endif %}
+      entity_id: scene.livingroom_bright
 
   - alias: Lighting - Reset scene selector (Bedroom)
-    initial_state: on
     trigger:
       platform: state
       entity_id: light.bedroom
@@ -220,7 +204,6 @@ automation:
         option: Select
 
   - alias: Lighting - Trigger scene (Bedroom)
-    initial_state: on
     trigger:
       platform: state
       entity_id: input_select.bedroom_scenes
@@ -233,97 +216,63 @@ automation:
         group: "Bedroom"
         scene: "{{ states('input_select.bedroom_scenes') }}"
 
-  - alias: Lighting - Boys nightlight mode
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: sensor.boys_switch
-      to: '4_hold'
-    action:
-      - service: homeassistant.turn_on
-        entity_id: scene.boys_night
-      - delay: 00:30:00
-      - service: script.empty_boys
-
-  - alias: Lighting - Girls nightlight mode
-    initial_state: on
-    trigger:
-      platform: state
-      entity_id: sensor.girls_switch
-      to: '4_hold'
-    action:
-      - service: homeassistant.turn_on
-        entity_id: scene.girls_night
-      - delay: 00:30:00
-      - service: script.empty_girls
-
-  - alias: Lighting - Bedroom lights off if turned on during daylight
-    initial_state: on
+  - alias: Lighting - Bedroom light 10 min daylight
     trigger:
       platform: state
       entity_id: light.bedroom
       to: 'on'
+      for:
+        minutes: 10
     condition:
       condition: state
       entity_id: input_boolean.dark
       state: 'off'
     action:
-      - delay: '00:10:00'
-      - condition: state
-        entity_id: input_boolean.dark
-        state: 'off'
-      - service: homeassistant.turn_off
-        entity_id: light.bedroom
+      service: homeassistant.turn_off
+      entity_id: light.bedroom
 
-  - alias: Lighting - Boys lights off if turned on during daylight
-    initial_state: on
+  - alias: Lighting - Boys lights 10 min daylight
     trigger:
       platform: state
       entity_id: light.boys
       to: 'on'
+      for:
+        minutes: 10
     condition:
       condition: state
       entity_id: input_boolean.dark
       state: 'off'
     action:
-      - delay: '00:10:00'
-      - condition: state
-        entity_id: input_boolean.dark
-        state: 'off'
-      - service: homeassistant.turn_off
-        entity_id: light.boys
+      service: homeassistant.turn_off
+      entity_id: light.boys
 
-  - alias: Lighting - Girls lights off if turned on during daylight
-    initial_state: on
+  - alias: Lighting - Girls lights 10 min daylight
     trigger:
       platform: state
       entity_id: light.girls
       to: 'on'
+      for:
+        minutes: 10
     condition:
       condition: state
       entity_id: input_boolean.dark
       state: 'off'
     action:
-      - delay: '00:10:00'
-      - condition: state
-        entity_id: input_boolean.dark
-        state: 'off'
-      - service: homeassistant.turn_off
-        entity_id: light.girls
+      service: homeassistant.turn_off
+      entity_id: light.girls
 
   - alias: Lighting - Override Bathroom for bathtime_mode
-    initial_state: on
     trigger:
       platform: state
       entity_id: switch.bathtime_mode
       to: 'on'
+      for:
+        hours: 1
     action:
-      - delay: '01:00:00'
-      - service: homeassistant.turn_off
-        entity_id: switch.bathtime_mode
+      service: homeassistant.turn_off
+      entity_id: switch.bathtime_mode
 
-  - alias: Lighting - Xmas lights off with main lights
-    initial_state: on
+  - alias: Lighting - Supporting lights off with main lights
     trigger:
       platform: state
       entity_id: light.livingroom
@@ -331,7 +280,48 @@ automation:
       from: 'on'
     action:
       service: homeassistant.turn_off
-      entity_id: switch.xmas_lights
+      entity_id:
+         - light.kitchen
+         - switch.xmas_lights
+
+  - alias: Lighting - Floor light control
+    trigger:
+      platform: state
+      entity_id: binary_sensor.floor_light_control
+    action:
+      service_template: "homeassistant.turn_{{ states('binary_sensor.floor_light_control') }}"
+      entity_id: light.floor_lights
+
+  - alias: Lighting - Floor light colors
+    trigger:
+      platform: time_pattern
+      seconds: '/30'
+    condition:
+      condition: state
+      entity_id: light.floor_lights
+      state: 'on'
+    action:
+      service: light.turn_on
+      entity_id: light.floor_lights
+      data_template:
+        hs_color:
+          - "{{ (15 + (state_attr('light.floor_lights' , 'hs_color')[0] or 0)) % 360 }}"
+          - 100
+        brightness_pct: 100
+
+  - alias: Lighting - Movie mode timeout
+    trigger:
+      - platform: state
+        entity_id: switch.movie_mode
+        to: 'on'
+        for:
+          hours: 4
+      - platform: state
+        entity_id: light.living_room
+        to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.movie_mode
 
 
 script:
@@ -354,6 +344,9 @@ script:
   movie_mode_off:
     sequence:
       - service: homeassistant.turn_on
-        entity_id:
-          - scene.livingroom_dim
-          - switch.kitchen_motion_status
+        entity_id: switch.kitchen_motion_status
+      - condition: state
+        entity_id: light.living_room
+        state: 'on'
+      - service: homeassistant.turn_on
+        entity_id: scene.livingroom_dim

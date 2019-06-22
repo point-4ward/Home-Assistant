@@ -9,12 +9,6 @@
 ###################################################
 
 
-tts:
-  platform: marytts
-  language: 'en-GB'
-  host: !secret host_ip
-
-
 telegram_bot:
   platform: polling
   api_key: !secret telegram_bot_api_key
@@ -40,11 +34,6 @@ notify:
       - service: ls
 
 
-input_boolean:
-  priority_message:
-    initial: off
-
-
 binary_sensor:
   platform: random
 
@@ -57,11 +46,6 @@ script:
 
   message:
     sequence:
-      - service: script.announce
-        data_template:
-          no_say: "{{ no_say }}"
-          media_player: "{{ media_player }}"
-          message: "{{ message }}"
       - service: script.text
         data_template:
           who: "{{ who }}"
@@ -70,34 +54,6 @@ script:
         data_template:
           no_show: "{{ no_show }}"
           message: "{{ message }}"
-
-  announce:
-    sequence:
-      - condition: template
-        value_template: "{{ no_say|length == 0 }}"
-      - condition: or
-        conditions:
-          - condition: time
-            after: '07:30:00'
-            before: '23:00:00'
-          - condition: state
-            entity_id: input_boolean.priority_message
-            state: 'on'
-      - service: media_player.volume_set
-        data_template:
-          entity_id: "{{ media_player }}"
-          volume_level: >
-            {% if now().hour < 7 or now().hour > 22 %} 0.2
-            {% elif now().hour > 7 or now().hour < 9 %} 0.3
-            {% else %} 0.4 {% endif %}
-      - service: media_player.volume_mute
-        data_template:
-          entity_id: "{{ media_player }}"
-          is_volume_muted: false
-      - service: tts.marytts_say
-        data_template:
-          entity_id: "{{ media_player }}"
-          message: "{{ message|replace('\n',' ')|replace('   ',' ')|replace('  ',' ') }}"
 
   text:
     sequence:

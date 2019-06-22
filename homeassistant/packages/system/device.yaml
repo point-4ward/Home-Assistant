@@ -39,28 +39,16 @@ sensor:
 
 
 automation:
-  - alias: Device - Check automations status
-    initial_state: on
+  - alias: Device - Automations status on on restart
+    initial_state: true
     trigger:
-      - platform: homeassistant
-        event: start
-      - platform: time_pattern
-        minutes: 5
+      platform: homeassistant
+      event: start
     action:
-      - delay: 00:02:00
-      - service: python_script.all_automations_counter
-      - service: python_script.on_automations_counter
-      - delay: 00:00:30
-      - condition: template
-        value_template: "{{ states('sensor.automation_on') != states('sensor.automation_all') }}"
-      - service: persistent_notification.create
-        data:
-          notification_id: "Automations_counter"
-          title: "Automations alert"
-          message: "Some automations are disabled."
+      service: automation.turn_on
+      entity_id: all
 
   - alias: Device - Update Available Notifications
-    initial_state: on
     trigger:
       platform: state
       entity_id: sensor.latest_version
@@ -68,12 +56,10 @@ automation:
       - delay: '00:30:00'
       - service: script.notify
         data:
-          no_say: 1
           tell: mf
           call_upgrade: 1
 
   - alias: Device - Disk use alarm
-    initial_state: on
     trigger:
       platform: numeric_state
       entity_id: sensor.disk_use_percent
@@ -82,11 +68,9 @@ automation:
       service: script.notify
       data:
         tell: mf
-        no_say: 1
         call_hdd_space: 1
 
   - alias: Device - System load alarm
-    initial_state: on
     trigger:
       - platform: numeric_state
         entity_id: sensor.processor_use
@@ -98,11 +82,9 @@ automation:
       service: script.notify
       data:
         tell: mf
-        no_say: 1
         call_system_load: 1
 
   - alias: Device - Power on
-    initial_state: on
     trigger:
       platform: homeassistant
       event: start
@@ -110,12 +92,4 @@ automation:
       service: script.notify
       data:
         call_power_on: 1
-        tell: adults
-
-  - alias: Device - Clear TTS cache
-    initial_state: on
-    trigger:
-      platform: time
-      at: '03:00:00'
-    action:
-      service: tts.clear_cache
+        tell: mf

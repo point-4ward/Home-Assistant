@@ -30,24 +30,6 @@ light:
   devices: !secret flux_led_devices
 
 
-cast:
-
-
-media_player:
-  platform: kodi
-  name: Kodi
-  host: !secret kodi_host
-  port: !secret kodi_port
-  enable_websocket: false
-  username: !secret kodi_username
-  password: !secret kodi_password
-  turn_off_action:
-    service: media_player.kodi_call_method
-    data_template:
-      entity_id: "{{ entity_id }}"
-      method: System.Shutdown
-
-
 mqtt:
   broker: !secret mqtt_broker
   username: !secret mqtt_username
@@ -62,6 +44,7 @@ switch:
   mac: !secret switch_broadlink_mac
   switches: !include_dir_merge_named ../../includes/ir_codes/
 
+
 binary_sensor:
   platform: mqtt
   state_topic: "washing_machine/sensor"
@@ -72,18 +55,17 @@ binary_sensor:
 
 automation:
   - alias: Hardware - Heater off after 15min
-    initial_state: on
     trigger:
       platform: state
       entity_id: switch.heater
       to: 'on'
+      for:
+        minutes: 15
     action:
-      - delay: 00:15:00
-      - service: homeassistant.turn_off
-        entity_id: switch.heater
+      service: homeassistant.turn_off
+      entity_id: switch.heater
 
   - alias: Hardware - Washing machine monitor
-    initial_state: on
     trigger:
       platform: state
       entity_id: binary_sensor.washing_machine

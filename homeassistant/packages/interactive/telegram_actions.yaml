@@ -10,7 +10,6 @@
 
 automation:
   - alias: Telegram - Livingroom lights toggle
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -25,7 +24,6 @@ automation:
           message: "Livingroom lights have been turned {{ states('light.livingroom') }}."
 
   - alias: Telegram - Bedroom lights toggle
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -40,7 +38,6 @@ automation:
           message: "Bedroom lights have been turned {{ states('light.bedroom') }}."
 
   - alias: Telegram - All lights on
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -55,7 +52,6 @@ automation:
           message: "All lights have been turned on."
 
   - alias: Telegram - All lights off
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -70,7 +66,6 @@ automation:
           message: "All lights have been turned off."
 
   - alias: Telegram - Maintenance mode toggle
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -85,7 +80,6 @@ automation:
           message: "Maintenance mode has been turned {{ states('input_boolean.maintenance_mode') }}."
 
   - alias: Telegram - Holiday mode toggle
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -100,7 +94,6 @@ automation:
           message: "Holiday mode has been turned {{ states('input_boolean.holiday_mode') }}"
 
   - alias: Telegram - Guest mode toggle
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
@@ -115,7 +108,6 @@ automation:
           message: "Guest mode has been turned {{ states('input_boolean.guest_mode') }}."
 
   - alias: Telegram - Away mode
-    initial_state: on
     trigger:
       platform: event
       event_type: telegram_command
