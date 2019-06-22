@@ -8,7 +8,6 @@ version: '3'
 
 services:
   homeassistant:
-    container_name: homeassistant
     image: homeassistant/home-assistant:rc
     network_mode: host
     environment:
@@ -26,11 +25,9 @@ services:
       on-failure
     depends_on:
       - "mosquitto"
-      - "marytts"
       - "mariadb"
 
   mosquitto:
-    container_name: mosquitto
     image: eclipse-mosquitto
     ports:
       - "1883:1883"
@@ -43,20 +40,7 @@ services:
       - /opt/docker/mosquitto:/mosquitto/data
     restart: *restart
 
-  marytts:
-    container_name: marytts
-    image: sliversniper/marytts
-    ports:
-      - "59125:59125"
-    environment: 
-      - *user
-      - *group
-    volumes:
-      - *localtime
-    restart: *restart
-
   mariadb:
-    container_name: mariadb
     image: mariadb
     ports:
       - "3306:3306"
@@ -73,7 +57,6 @@ services:
     restart: *restart
 
   portainer:
-    container_name: portainer
     image: portainer/portainer
     ports:
       - "9000:9000"
@@ -87,7 +70,6 @@ services:
     restart: *restart
 
   organizr:
-    container_name: organizr
     image: lsiocommunity/organizr
     ports:
       - "80:80"
@@ -102,7 +84,6 @@ services:
     restart: *restart
 
   syncthing:
-    container_name: syncthing
     image: linuxserver/syncthing
     network_mode: host
     environment:

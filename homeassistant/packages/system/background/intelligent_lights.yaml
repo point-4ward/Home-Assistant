@@ -64,9 +64,12 @@ binary_sensor:
   sensors:
     floor_light_control:
       value_template: >
-        {{ is_state('light.livingroom' , 'on')
+        {{ is_state('input_boolean.livingroom_light_smoother' , 'on')
           and is_state('input_boolean.dark' , 'on' )
           and is_state('switch.movie_mode' , 'off') }}
+          
+input_boolean:
+  livingroom_light_smoother:
 
 
 input_select:
@@ -283,6 +286,25 @@ automation:
       entity_id:
          - light.kitchen
          - switch.xmas_lights
+         
+  - alias: Lighting - Smooth Livingroom Lights (prevent 'unreachable' affecting Floor)
+    trigger:
+      - platform: state
+        entity_id: light.livingroom
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: light.livingroom
+          state: 'on'
+        - condition: state
+          entity_id: light.livingroom
+          state: 'off'
+    action:
+      service_template: "homeassistant.turn_{{ states('light.livingroom') }}"
+      entity_id: input_boolean.livingroom_light_smoother
 
   - alias: Lighting - Floor light control
     trigger:
