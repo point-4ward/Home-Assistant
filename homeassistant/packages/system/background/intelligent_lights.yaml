@@ -18,11 +18,11 @@ homeassistant:
 
 
 light:
-  - platform: group
-    name: Floor lights
-    entities:
-      - light.led1
-      - light.led2
+  platform: group
+  name: Floor lights
+  entities:
+    - light.led1
+    - light.led2
 
 
 switch:
@@ -342,8 +342,8 @@ automation:
         entity_id: light.living_room
         to: 'off'
     action:
-      - service: homeassistant.turn_off
-        entity_id: switch.movie_mode
+      service: homeassistant.turn_off
+      entity_id: switch.movie_mode
 
 
 script:
