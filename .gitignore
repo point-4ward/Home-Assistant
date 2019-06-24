@@ -9,7 +9,7 @@
 # information, so that only customised non-sensitive files
 # are committed to the repo
 
-marytts
+test
 mariadb
 organizr
 portainer
