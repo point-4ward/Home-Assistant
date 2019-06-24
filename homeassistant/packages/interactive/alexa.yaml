@@ -27,7 +27,7 @@ emulated_hue:
       name: "Bathtime Mode"
       hidden: false
 
-    switch.movie_mode:
+    input_boolean.movie_mode:
       name: "Movie Mode"
       hidden: false
 
@@ -36,12 +36,26 @@ emulated_hue:
       hidden: false
 
 
+input_boolean:
+  movie_mode:
+
+
 switch:
   platform: template
   switches:
     movie_mode:
-      value_template: "{{ is_state('switch.kitchen_motion_status' , 'off') }}"
+      value_template: "{{ is_state('input_boolean.movie_mode' , 'on') }}"
       turn_on:
-        service: script.movie_mode_on
+        service: homeassistant.turn_on
+        entity_id: input_boolean.movie_mode
       turn_off:
-        service: script.movie_mode_off
+        service: homeassistant.turn_off
+        entity_id: input_boolean.movie_mode
+
+automation:
+  alias: Interactive - Movie mode
+  trigger:
+    platform: state
+    entity_id: input_boolean.movie_mode
+  action:
+    service_template: "script.movie_mode_{{ states('input_boolean.movie_mode')  }}"

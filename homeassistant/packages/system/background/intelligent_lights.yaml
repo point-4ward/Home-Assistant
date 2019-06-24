@@ -66,7 +66,7 @@ binary_sensor:
       value_template: >
         {{ is_state('input_boolean.livingroom_light_smoother' , 'on')
           and is_state('input_boolean.dark' , 'on' )
-          and is_state('switch.movie_mode' , 'off') }}
+          and is_state('input_boolean.movie_mode' , 'off') }}
           
 input_boolean:
   livingroom_light_smoother:
@@ -334,7 +334,7 @@ automation:
   - alias: Lighting - Movie mode timeout
     trigger:
       - platform: state
-        entity_id: switch.movie_mode
+        entity_id: input_boolean.movie_mode
         to: 'on'
         for:
           hours: 4
@@ -343,7 +343,7 @@ automation:
         to: 'off'
     action:
       service: homeassistant.turn_off
-      entity_id: switch.movie_mode
+      entity_id: input_boolean.movie_mode
 
 
 script:
